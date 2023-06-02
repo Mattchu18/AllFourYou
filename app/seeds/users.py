@@ -6,14 +6,20 @@ from sqlalchemy.sql import text
 def seed_users():
     demo = User(
         username='Demo', email='demo@aa.io', password='password')
-    marnie = User(
-        username='marnie', email='marnie@aa.io', password='password')
-    bobbie = User(
-        username='bobbie', email='bobbie@aa.io', password='password')
+    matt = User(
+        username='matt', email='matt@aa.io', password='password')
+    vanessa = User(
+        username='vanessa', email='vanessa@aa.io', password='password')
+    tony = User(
+        username='tony', email='tony@aa.io', password='password')
+    kevinb = User(
+        username='kevinb', email='kevinb@aa.io', password='password')
 
     db.session.add(demo)
-    db.session.add(marnie)
-    db.session.add(bobbie)
+    db.session.add(matt)
+    db.session.add(vanessa)
+    db.session.add(tony)
+    db.session.add(kevinb)
     db.session.commit()
 
 
@@ -28,5 +34,5 @@ def undo_users():
         db.session.execute(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
     else:
         db.session.execute(text("DELETE FROM users"))
-        
+
     db.session.commit()
