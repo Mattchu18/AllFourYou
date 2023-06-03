@@ -19,6 +19,8 @@ class Tasker(db.Model):
     vehicles = db.Column(db.String(500), nullable = False)
     tools = db.Column(db.String(500), nullable = False)
 
+    #relationship
+    tasks = db.relationship("Task", backpopulates = "taskers")
 
     def to_dict(self):
         return {
