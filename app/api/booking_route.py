@@ -17,8 +17,10 @@ def get_all_bookings():
     """
     route to fetch and display all bookings for logged in user
     """
-    all_bookings = Booking.query.all()
-    print(all_bookings)
+    print("ThIS IS ALL BOOKINGS======>", Booking.user_id)
+    all_bookings = Booking.query.filter(Booking.user_id == current_user.id).all()
+    res = [booking.to_dict() for booking in all_bookings]
+    print("THIS IS RES=======>", res )
     return "ALL bookings page"
 
 # @booking_routes.route("")
