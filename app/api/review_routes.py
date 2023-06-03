@@ -4,7 +4,7 @@ from flask_login import login_required, current_user
 from app.models import User
 from app.models.db import db
 
-review_routes = Blueprint('review', __name__, url_prefix='')
+review_routes = Blueprint('reviews', __name__, url_prefix='')
 
 @review_routes.route('/currentUser')
 @login_required
