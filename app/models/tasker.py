@@ -20,7 +20,7 @@ class Tasker(db.Model):
     tools = db.Column(db.String(500), nullable = False)
 
     #relationship
-    tasks = db.relationship("Task", backpopulates = "taskers")
+    tasks = db.relationship("Task", back_populates = "taskers")
 
     def to_dict(self):
         return {

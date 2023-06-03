@@ -53,5 +53,6 @@ def seed_tasks():
 
     task_list = [breeding1, matchmaking1, matchmaking2, cooking1, cooking2, dancing1, dancing2]
 
-    db.session.add(task_list)
+    for task in task_list:
+        db.session.add(task)
     db.session.commit()
