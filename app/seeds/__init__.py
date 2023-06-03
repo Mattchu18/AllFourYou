@@ -2,7 +2,8 @@ from flask.cli import AppGroup
 from .users import seed_users, undo_users
 from .taskers import seed_taskers
 from .tasks import seed_tasks
-
+from .bookings import seed_bookings
+from .reviews import seed_reviews
 from app.models.db import db, environment, SCHEMA
 
 # Creates a seed group to hold our commands
@@ -22,6 +23,9 @@ def seed():
     seed_users()
     seed_taskers()
     seed_tasks()
+    seed_bookings()
+    seed_reviews()
+
     # Add other seed functions here
 
 
