@@ -16,6 +16,8 @@ class User(db.Model, UserMixin):
     city = db.Column(db.String(255), nullable = False)
     phone_number = db.Column(db.Integer(), nullable = False, unique = True)
 
+    user_bookings=db.relationship("Booking", back_populates="user")
+    
 
     @property
     def password(self):
