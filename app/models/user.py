@@ -17,7 +17,8 @@ class User(db.Model, UserMixin):
     phone_number = db.Column(db.Integer(), nullable = False, unique = True)
 
     user_bookings=db.relationship("Booking", back_populates="user")
-    
+    reviews=db.relationship("Review", back_populates="user")
+
 
     @property
     def password(self):

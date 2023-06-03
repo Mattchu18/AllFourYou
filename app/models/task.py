@@ -16,6 +16,8 @@ class Task(db.Model):
     taskers = db.relationship("Tasker", back_populates = "tasks")
     task_bookings=db.relationship("Booking", back_populates="task")
 
+    reviews=db.relationship("Review", back_populates="task")
+
     def to_dict(self):
         return {
             'id': self.id,
