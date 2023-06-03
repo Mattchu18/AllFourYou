@@ -17,10 +17,10 @@ def get_all_bookings():
     """
     route to fetch and display all bookings for logged in user
     """
-    # all_bookings = Booking.query.all()
-    # print(all_bookings)
+    all_bookings = Booking.query.all()
+    print(all_bookings)
     return "ALL bookings page"
 
 # @booking_routes.route("")
-# def 
+# def
 # pass
