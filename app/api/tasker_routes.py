@@ -1,11 +1,11 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from app.models.review import Review
 from app.models.tasker import Tasker
 from app.models.task import Task
 from flask_login import login_required, current_user
 from app.models import User
 from app.models.db import db
-
+from ..forms import ReviewForm
 
 tasker_routes = Blueprint('taskers', __name__, url_prefix='')
 
@@ -27,7 +27,7 @@ tasker_routes = Blueprint('taskers', __name__, url_prefix='')
 #     return res
 
 @tasker_routes.route('/<int:id>')
-def get_tasker(id):
+def get_tasker_reviews(id):
     """
     Gets tasker by id
     """
@@ -41,7 +41,37 @@ def get_tasker(id):
     review_list = []
     for task_id in task_id_list:
         res = Review.query.filter(Review.task_id == task_id).all()
-        res_dict = res[0].to_dict()
-        review_list.append(res_dict)
-        # print("THIS IS RESSS =====>", res_dict)
+
+        if len(res):
+            res_dict = res[0].to_dict()
+            review_list.append(res_dict)
+            continue
+        else:
+            return {"response": "tasker has no reviews"}
     return review_list
+
+@tasker_routes.route('/<int:id>/reviews', methods=["GET"])
+# @login_required
+def create_review(id):
+    """
+    Post a review on tasker's page.
+    """
+
+    form = ReviewForm()
+    form["csrf_token"].data=request.cookies["csrf_token"]
+    if form.validate_on_submit():
+        # user_review_text= form.data["review_text"]
+        # user_star_rating = form.data["star_rating"]
+        task_id=Task.query.get(Task.id== id)
+        # print("REQUEST PARAMS>ID==============>", id)
+        user_new_review=Review(
+            review_text=form.data["review_text"],
+            star_rating=form.data["star_rating"],
+            user_id=current_user.id,
+            task_id= task_id
+           )
+        print(user_new_review)
+        db.session.add(user_new_review)
+        db.session.commit()
+        return {"new_review_post": user_new_review.to_dict()}
+    return "hi"
