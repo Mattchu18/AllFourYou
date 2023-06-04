@@ -7,6 +7,7 @@ import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import GetCurrentUserReviews from "./components/Reviews/CurrentUserReviews"
 import EditReview from "./components/Reviews/EditReview"
+import CreateReview from "./components/Reviews/CreateReview";
 
 function App() {
   const dispatch = useDispatch();
@@ -27,9 +28,9 @@ function App() {
             <SignupFormPage />
           </Route>
           <Route exact path='/reviews' component={GetCurrentUserReviews}/>
-          <Route exact path='/reviews/:taskerId/new' component={EditReview} />
+          <Route exact path='/reviews/:reviewId' component={EditReview} />
         </Switch>
-        
+
       )}
     </>
   );
