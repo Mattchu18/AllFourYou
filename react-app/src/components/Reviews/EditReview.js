@@ -2,7 +2,7 @@ import ReviewForm from './ReviewForm'
 import { useDispatch, useSelector } from 'react-redux';
 
 const EditReview = () => {
-    const { reviewId } = useParams()
+    // const { reviewId } = useParams()
     const dispatch = useDispatch()
     const review = useSelector(state => state.review.currUserReviews[reviewId])
 
@@ -17,6 +17,7 @@ const EditReview = () => {
             <ReviewForm
             review={review}
             formType="Edit Review"
+            disabled={disabled}
             />
         </>
     )

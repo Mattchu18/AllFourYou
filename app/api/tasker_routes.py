@@ -50,30 +50,33 @@ def get_tasker_reviews(id):
             return {"response": "tasker has no reviews"}
     return review_list
 
-@tasker_routes.route('/<int:id>/reviews', methods=["GET", "POST"])
+@tasker_routes.route('/<int:id>/reviews', methods=["POST"])
 # @login_required
 def create_review(id):
     """
     Post a review on tasker's page.
     """
-
+    print(" HELLLLLOOOOO COME ON TELL ME IM HERE")
+    tasks = Task.query.filter(Task.id == id).all()
+    new_task = [task.to_dict() for task in tasks]
+    print ("HELLO ITS ME =========================", new_task[0])
     form = ReviewForm()
+    print("HELLO THIS IS MY FORM DO I EVEN GET ANYTHING", form.data['review_text'])
     form["csrf_token"].data=request.cookies["csrf_token"]
-    if form.validate_on_submit():
+    # if form.validate_on_submit():
+    # print(" AM I GETTING IN HEREEE COME ONN")
         # user_review_text= form.data["review_text"]
         # user_star_rating = form.data["star_rating"]
-        task_id=Task.query.get(Task.id == id)
-        print(task_id)
+        # print("THIS IS WHAT I WANNA LOOK AT ", task_id)
         # print("REQUEST PARAMS>ID==============>", id)
-        user_new_review=Review(
-            review_text=form.data["review_text"],
-            star_rating=form.data["star_rating"],
-            user_id=current_user.id,
-            task_id= task_id,
-            tasker_id = task_id.tasker_id
-           )
-        print(user_new_review)
-        db.session.add(user_new_review)
-        db.session.commit()
-        return {"new_review_post": user_new_review.to_dict()}
-    return "hi"
+    user_new_review=Review(
+        review_text=form.data["review_text"],
+        star_rating=form.data["star_rating"],
+        user_id=current_user.id,
+        task_id= new_task[0]['id'],
+        tasker_id = new_task[0]["tasker_id"]
+        )
+    db.session.add(user_new_review)
+    db.session.commit()
+    return {"new_review_post": user_new_review.to_dict()}
+    # return "hi"

@@ -1,44 +1,77 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { useHistory} from 'react-router-dom'
+import { useHistory} from 'react-router-dom';
+import { thunkCreateReview, thunkEditReview  } from "../../store/review";
 
-const ReviewForm = ({review, formType})=>{
+const ReviewForm = ({review, formType, disabled, tasker})=>{
     const dispatch = useDispatch()
     const history = useHistory()
 
-    const [reviewText, setReviewText] = useState(review?.reviewText)
-    const [starRating, setStarRating] = useState(review?.starRating)
+    const [review_text, setreview_text] = useState(review?.review_text)
+    const [star_rating, setstar_rating] = useState(review?.star_rating)
+    const [activeRating, setActiveRating] = useState(star_rating)
     const [errors, setErrors] = useState({})
 
-const handleSubmit=async (e)=>{
-    e.preventDefault()
+    useEffect(()=>{
+        setActiveRating(star_rating)
+    },[star_rating])
 
-    review = {
-        ...review,
-        reviewText,
-        starRating
+    const onChange=(number)=>{
+        setstar_rating(parseInt(number))
     }
 
-// if (formType === "Create Review"){
-    //     return null
-    // }
-    // if (formType === "Edit Review")
+    const handleMouseEnter = index=>{
+        if(!disabled){
+            setActiveRating(index+1)
+        }
+    }
+    const handleMouseLeave = ()=>{
+        if(!disabled){
+            setActiveRating(star_rating)
+        }
+    }
+    const handleClick = index =>{
+        if(!disabled){
+            onChange(index+1)
+        }
+    }
     let arr = []
-    for(let index=0; index<5; index++){
-        const className = index<activeRating ? 'fas fa-star': 'far fa-star'
-        arr.push(
-            <div
-            className ={className}
-            onMouseEnter={()=>handleMouseEnter(index)}
-            onMouseLeave={handleMouseLeave}
-            onClick={()=>handleClick(index)}>
-                {/* <i className={className}></i> */}
-            </div>
-        )
+        for(let index=0; index<5; index++){
+            const className = index<activeRating ? 'fas fa-star': 'far fa-star'
+            arr.push(
+                <div
+                className ={className}
+                onMouseEnter={()=>handleMouseEnter(index)}
+                onMouseLeave={handleMouseLeave}
+                onClick={()=>handleClick(index)}>
+                    {/* <i className={className}></i> */}
+                </div>
+            )
+        }
+
+
+
+    const handleSubmit=async (e)=>{
+        e.preventDefault()
+        review = {
+            ...review,
+            review_text,
+            star_rating
+        }
+        
+        if (formType === "Create Review"){
+            console.log(" AM I GETTING IN HERE")
+            dispatch(thunkCreateReview(review))
+        }
+    
+        else if (formType === "Edit Review") {
+            console.log(" OR AM I GETTING IN HERE")
+            dispatch(thunkEditReview(review))
+        }
+
     }
 
-
-}
+    // if(!review) return 'NO'
 
 return (
 
@@ -47,9 +80,9 @@ return (
         </label>
             <textarea
                 type="text"
-                value={reviewText}
+                value={review_text}
                 placeholder="What did you think? Any feedback is helpful."
-                onChange={e=> setReviewText(e.target.value)}
+                onChange={e=> setreview_text(e.target.value)}
             />
 
 
@@ -57,7 +90,7 @@ return (
 
         </label>
         {arr} Stars
-        <button className="star-submit" type="submit" disabled={(review.length<10 || stars===-0)}>Submit your Review</button>
+        <button type="submit" >Submit your Review</button>
 
 
     </form>

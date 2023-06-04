@@ -29,14 +29,15 @@ export const thunkCurrUserReviews=()=> async(dispatch)=>{
     }
 }
 
-export const thunkCreateReview = (tasker, review) => async dispatch => {
-    
-    const response = await fetch(`/api/taskers/${tasker.id}/reviews`, {
+export const thunkCreateReview = (review) => async dispatch => {
+    console.log("THIS IS MY REVIEW", review)
+
+    const response = await fetch(`/api/taskers/${review.tasker_id}/reviews`, {
         method: "POST",
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(review)
     })
-
+    // we changed body cause we dont need to jsonify
     if (response.ok) {
         const data = await response.json()
         dispatch(createReview(data))
@@ -68,6 +69,14 @@ const reviewsReducer = (state = initialState, action)=>{
                 newState.currentUserReviews[review.id]=review
             })
             console.log("THIS IS after ITERATING=======>", newState)
+            return newState
+        case CREATE_REVIEW:
+            newState={...state, currentUserReviews: {}}
+            newState[action.review.id] = action.review
+            return newState
+        case EDIT_REVIEW:
+            newState={...state, currentUserReviews: {}}
+            newState=[action.review.id] = action.review
             return newState
 
         default: return state

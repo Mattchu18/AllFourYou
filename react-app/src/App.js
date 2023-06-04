@@ -5,7 +5,9 @@ import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
-import GetCurrentUserReviews from './components/Reviews/CurrentUserReviews'
+import GetCurrentUserReviews from "./components/Reviews/CurrentUserReviews"
+import EditReview from "./components/Reviews/EditReview"
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -25,6 +27,7 @@ function App() {
             <SignupFormPage />
           </Route>
           <Route exact path='/reviews' component={GetCurrentUserReviews}/>
+          <Route exact path='/reviews/:taskerId/new' component={EditReview} />
         </Switch>
         
       )}

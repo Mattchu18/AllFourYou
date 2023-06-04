@@ -1,9 +1,12 @@
 
 import ReviewForm from './ReviewForm'
+import { useParams } from 'react-router-dom'
 
 const CreateReview=()=>{
-    const review = { reviewText: "", starRating: ""}
-
+  const { taskerId } = useParams()
+  console.log(taskerId)
+    const review = { review_text: "", star_rating: "", tasker_id: taskerId } 
+    console.log("HELLO FROM CREATE REVIEW FORM")
     return(
         <>
           <ReviewForm
