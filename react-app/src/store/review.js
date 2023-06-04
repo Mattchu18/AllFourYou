@@ -1,29 +1,32 @@
 // import { csrfFetch } from "./csrf";
 const GET_ALL_REVIEWS="review/loadCurrUserReviews"
 
-const loadCurrUserReviews=(userId) =>({
+const loadCurrUserReviews=(reviews) =>({
     type: GET_ALL_REVIEWS,
-    userId
+    reviews
 })
 
 export const thunkCurrUserReviews=()=> async(dispatch)=>{
     const response = await fetch('/api/reviews/currentUser')
+    console.log("RESPONSE IN THUNK=====>", response)
+
     if(response.ok){
         const data = await response.json()
         dispatch(loadCurrUserReviews(data))
 
     }
 }
-const initialState = { allReviews:{}, currentUserReviews:{}}
+const initialState = { currentUserReviews:{}}
 const reviewsReducer = (state = initialState, action)=>{
     let newState;
 
     switch(action.type){
         case GET_ALL_REVIEWS:
-            newState={...state}
+            newState={...state, currentUserReviews: {}}
             action.reviews.forEach(review=>{
-                newState.allReviews[review.id]=review
+                newState.currentUserReviews[review.id]=review
             })
+            console.log("THIS IS after ITERATING=======>", newState)
             return newState
 
         default: return state
