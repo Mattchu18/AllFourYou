@@ -7,7 +7,7 @@ const ReviewForm = ({review, formType})=>{
     const history = useHistory()
 
     const [reviewText, setReviewText] = useState(review?.reviewText)
-    const [starRating, setStarRating] = useState(star?.starRating)
+    const [starRating, setStarRating] = useState(review?.starRating)
     const [errors, setErrors] = useState({})
 
 const handleSubmit=async (e)=>{
@@ -22,7 +22,7 @@ const handleSubmit=async (e)=>{
 // if (formType === "Create Review"){
     //     return null
     // }
-    // if (formType ==="")
+    // if (formType === "Edit Review")
     let arr = []
     for(let index=0; index<5; index++){
         const className = index<activeRating ? 'fas fa-star': 'far fa-star'

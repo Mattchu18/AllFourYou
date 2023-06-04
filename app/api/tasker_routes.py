@@ -50,7 +50,7 @@ def get_tasker_reviews(id):
             return {"response": "tasker has no reviews"}
     return review_list
 
-@tasker_routes.route('/<int:id>/reviews', methods=["GET"])
+@tasker_routes.route('/<int:id>/reviews', methods=["GET", "POST"])
 # @login_required
 def create_review(id):
     """
@@ -62,13 +62,15 @@ def create_review(id):
     if form.validate_on_submit():
         # user_review_text= form.data["review_text"]
         # user_star_rating = form.data["star_rating"]
-        task_id=Task.query.get(Task.id== id)
+        task_id=Task.query.get(Task.id == id)
+        print(task_id)
         # print("REQUEST PARAMS>ID==============>", id)
         user_new_review=Review(
             review_text=form.data["review_text"],
             star_rating=form.data["star_rating"],
             user_id=current_user.id,
-            task_id= task_id
+            task_id= task_id,
+            tasker_id = task_id.tasker_id
            )
         print(user_new_review)
         db.session.add(user_new_review)
