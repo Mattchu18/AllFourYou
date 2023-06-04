@@ -26,6 +26,7 @@ function App() {
           </Route>
           <Route exact path='/reviews' component={GetCurrentUserReviews}/>
         </Switch>
+        
       )}
     </>
   );

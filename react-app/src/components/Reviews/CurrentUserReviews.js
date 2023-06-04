@@ -27,6 +27,7 @@ return(
                 <div>
                     {review?.review_text}
                 </div>
+
                 </>
             )
         })}
