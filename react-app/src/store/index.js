@@ -8,8 +8,8 @@ import reviewsReducer from './review'
 const rootReducer = combineReducers({
   session,
   booking: bookingReducer,
-  task: taskReducer
-  review: reviewsReducer
+  task: taskReducer,
+  review: reviewsReducer,
 });
 
 
