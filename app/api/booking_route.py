@@ -6,6 +6,7 @@ from ..models.db import db
 # from ..forms.post_form import PostForm
 from datetime import date
 from random import randint
+from app.forms.booking_form import BookingForm
 
 booking_routes = Blueprint("bookings", __name__,url_prefix='')
 
@@ -26,5 +27,4 @@ def get_all_bookings():
 @booking_routes.route("/new", methods=["POST"])
 @login_required
 def create_booking():
-    
-# pass
+    pass
