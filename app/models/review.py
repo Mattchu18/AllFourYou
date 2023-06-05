@@ -12,9 +12,9 @@ class Review(db.Model):
     task_id = db.Column(db.Integer(), db.ForeignKey("tasks.id"))
     tasker_id = db.Column(db.Integer(), db.ForeignKey("taskers.id"))
 
-    user = db.relationship("User", cascade="all, delete", back_populates="reviews")
-    task= db.relationship("Task", cascade="all, delete", back_populates="reviews")
-    taskers = db.relationship("Tasker", cascade="all, delete", back_populates = "reviews")
+    user = db.relationship("User", back_populates="reviews")
+    task= db.relationship("Task", back_populates="reviews")
+    taskers = db.relationship("Tasker", back_populates = "reviews")
 
 
     def to_dict(self):

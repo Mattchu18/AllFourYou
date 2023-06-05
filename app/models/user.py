@@ -18,8 +18,8 @@ class User(db.Model, UserMixin):
 
     tasker = db.Column(db.Boolean(), nullable=False, default=False)
 
-    user_bookings=db.relationship("Booking", cascade="all, delete", back_populates="user")
-    reviews=db.relationship("Review", cascade="all, delete", back_populates="user")
+    user_bookings=db.relationship("Booking", back_populates="user")
+    reviews=db.relationship("Review", back_populates="user")
 
 
     @property
