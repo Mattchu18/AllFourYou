@@ -6,8 +6,9 @@ import { thunkCreateReview, thunkEditReview  } from "../../store/review";
 const ReviewForm = ({review, formType, disabled, tasker})=>{
     const dispatch = useDispatch()
     const history = useHistory()
-
+    // console.log(review)
     const [review_text, setreview_text] = useState(review?.review_text)
+    console.log("CAN I KNOW WHAT THIS IS PLEASE", review?.review_text)
     const [star_rating, setstar_rating] = useState(review?.star_rating)
     const [activeRating, setActiveRating] = useState(star_rating)
     const [errors, setErrors] = useState({})
@@ -49,8 +50,6 @@ const ReviewForm = ({review, formType, disabled, tasker})=>{
             )
         }
 
-
-
     const handleSubmit=async (e)=>{
         e.preventDefault()
         review = {
@@ -58,20 +57,16 @@ const ReviewForm = ({review, formType, disabled, tasker})=>{
             review_text,
             star_rating
         }
-        
+        console.log("WHAT AM I LOOKING AT THO", review)
         if (formType === "Create Review"){
-            console.log(" AM I GETTING IN HERE")
             dispatch(thunkCreateReview(review))
         }
-    
+        
         else if (formType === "Edit Review") {
-            console.log(" OR AM I GETTING IN HERE")
             dispatch(thunkEditReview(review))
         }
-
-    }
-
-    // if(!review) return 'NO'
+    
+        }
 
 return (
 

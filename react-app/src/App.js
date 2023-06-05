@@ -8,6 +8,7 @@ import Navigation from "./components/Navigation";
 import GetCurrentUserReviews from "./components/Reviews/CurrentUserReviews"
 import EditReview from "./components/Reviews/EditReview"
 import CreateReview from "./components/Reviews/CreateReview";
+import GetOneReview from "./components/Reviews/OneReview";
 
 function App() {
   const dispatch = useDispatch();
@@ -29,6 +30,8 @@ function App() {
           </Route>
           <Route exact path='/reviews' component={GetCurrentUserReviews}/>
           <Route exact path='/reviews/:reviewId' component={EditReview} />
+          <Route exact path='/review/:reviewId' component={GetOneReview} />
+          <Route exact path='/:taskerId/review/new' component={CreateReview} />
         </Switch>
 
       )}

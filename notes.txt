@@ -7,3 +7,7 @@ Need to figure out form validations in front rather than backend cause its easie
  we are stuck on edit componennt our store is returning an empty object for currentUser.
  we have to fix, userId in backend .
  
+
+
+ Still need to render our edit review values so that it shows up on mount? or rendering or something like that
+ 

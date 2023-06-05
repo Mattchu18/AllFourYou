@@ -14,6 +14,7 @@ def get_current_reviews():
     """
     all_review = Review.query.filter(Review.user_id == current_user.id).all()
     new_reviews = [review.to_dict() for review in all_review]
+    print(" THIS IS ALL REVIEWS", new_reviews)
     return new_reviews
 
 @review_routes.route('/currentUser/<int:id>')
@@ -27,43 +28,22 @@ def get_one_review(id):
     print("THISI IS ID IN GET ONE REVIEW", one_review.to_dict())
     return one_review.to_dict()
 
-@review_routes.route('/<int:id>', methods=["GET", "PUT"])
+@review_routes.route('/<int:id>', methods=["PUT"])
 @login_required
 def edit_review(id):
     """
     Current user is able to get review by review id and edit
     """
-    print(id)
     reviewObj = Review.query.get(id)
     review=reviewObj.to_dict()
     form = ReviewForm()
-    print("THIS IS REVIEW IN EDIT_REVIEW=======>", review)
-    edit_review= Review(
-        id=id,
-        review_text= review["review_text"],
-        star_rating= review["star_rating"],
-        user_id= current_user.id,
-        task_id= review["task_id"],
-        tasker_id= review["tasker_id"],
-    )
-    print("THIS IS EDIT REVIEW IN ROUTE", edit_review.to_dict())
+    reviewObj.review_text = form.data["review_text"]
+    reviewObj.star_rating = form.data["star_rating"]
     db.session.commit()
-    return edit_review.to_dict()
-    # print(id)
-    # reviewObj = Review.query.get(id)
-    # review=reviewObj.to_dict()
-    # form = ReviewForm()
-    # print("HI FROM OUTSIDE =========", request)
 
-    # if request.method == "PUT" or form.validate_on_submit():
-    #     print("HIII**************")
-    #     reviewObj.review_text = form.data["review_text"]
-    #     reviewObj.star_rating = form.data["star_rating"]
-    #     db.session.commit()
+    return reviewObj.to_dict()
 
-    #     return reviewObj.to_dict()
-
-    # return review
+    return review
 @review_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def delete_review(id):

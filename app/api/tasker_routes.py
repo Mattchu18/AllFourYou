@@ -78,5 +78,5 @@ def create_review(id):
         )
     db.session.add(user_new_review)
     db.session.commit()
-    return {"new_review_post": user_new_review.to_dict()}
+    return user_new_review.to_dict()
     # return "hi"

@@ -87,7 +87,6 @@ const reviewsReducer = (state = initialState, action)=>{
         }
         case GET_ONE_REVIEW:{
             console.log("INT REDUCER SINGLE")
-            const newState={}
             const newReview = action.review
             return {
                 ...state, singleReview: newReview
@@ -96,9 +95,12 @@ const reviewsReducer = (state = initialState, action)=>{
         case CREATE_REVIEW:{
             const newState={}
             const newReview=action.review
+            // console.log(n)
             newState[newReview.id]=newReview
             return {
-                ...state, currentUserReviews:{...state.currentUserReviews, newState} }
+                ...state,
+                singleReview: newState
+            }
 
 
         }
