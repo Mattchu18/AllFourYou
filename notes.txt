@@ -2,3 +2,10 @@ on booking route working on the form to create a booking.
 --vabessa 6/4/23 18:13
 on booking route, is not hitting the validate_on_submit
 --vanessa 6/4/23 21:45
+
+
+We need to remember to fill up errors when they cannot find the task by id
+Set up conditional in backend...
+"Task not found"
+
+-- Matthew Aung 6/5/2023

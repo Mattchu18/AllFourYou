@@ -59,3 +59,14 @@ def create_booking(id):
         db.session.commit()
         return new_booking.to_dict()
     # return "Able to create!"
+
+
+@task_routes.route("/<int:id>/delete", methods=["DELETE"])
+@login_required
+def delete_task(id):
+    taskObj = Task.query.get(id)
+    if current_user.tasker == True and current_user.id == taskObj.tasker_id:
+        db.session.delete(taskObj)
+        db.session.commit()
+        return "BYE BYE"
+    return "You aint the owner of this task"
