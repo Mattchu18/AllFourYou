@@ -32,28 +32,6 @@ def get_one_booking(id):
 
     return one_booking.to_dict()
 
-
-@booking_routes.route("/new", methods=["GET", "POST"])
-@login_required
-def create_booking():
-    form = BookingForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
-    print("WHAT IS THIS", form.validate_on_submit())
-    if form.validate_on_submit():
-        # print("IN FORM VALIDATE BOOKING")
-
-        new_booking = Booking(
-            category = form.data["category"],
-            city = form.data["city"],
-            duration = form.data["duration"],
-            details = form.data["details"]
-            )
-        # print(new_booking)
-        db.session.add(new_booking)
-        db.session.commit()
-        return new_booking.to_dict()
-    # return "Able to create!"
-
 @booking_routes.route("/edit/<int:id>", methods=["PUT"])
 @login_required
 def edit_booking(id):
