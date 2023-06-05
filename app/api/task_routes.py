@@ -22,6 +22,21 @@ def get_all_tasks():
     return all_tasks
 
 
+@task_routes.route("/<int:id>")
+@login_required
+def get_task(id):
+    """
+    This route will get the task by id regardless of being logged in
+    """
+    one_task_obj = Task.query.get(id)
+    task = one_task_obj.to_dict()
+    if current_user.tasker == True and current_user.id == task["tasker_id"]:
+    # you cannot dot notate into dictionary.
+    # if current_user.tasker == True and current_user.id == one_task_obj.tasker_id:
+        return task
+    return "NO WAY BUD"
+
+
 @task_routes.route("/<int:id>/new", methods=["POST"])
 @login_required
 def create_booking(id):
