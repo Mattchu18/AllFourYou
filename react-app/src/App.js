@@ -6,6 +6,7 @@ import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import GetCurrentBookings from "./components/Bookings/GetCurrentBookings"
+import GetAllTasks from "./components/Tasks/GetAllTasks"
 import CreateBooking from "./components/Bookings/CreateBooking";
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           </Route>
           <Route exact path="/bookings/new" component={CreateBooking}></Route>
           <Route exact path="/bookings/all" component={GetCurrentBookings}></Route>
+          <Route exact path="/tasks/all" component={GetAllTasks}></Route>
         </Switch>
       )}
     </>
