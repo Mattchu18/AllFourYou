@@ -59,12 +59,16 @@ def create_booking():
 def edit_booking(id):
     bookingObj = Booking.query.get(id)
     booking=bookingObj.to_dict()
-    print("THIS IS IBOOKING OBJ", booking)
+    print("THIS IS IBOOKING OBJ=================>", bookingObj.details)
     form=BookingForm()
-    booking["category"]=form.data["category"],
-    booking["city"]=form.data["city"],
-    booking["duration"]=form.data["duration"],
-    booking["details"]=form.data["details"]
+    print("THIS IS FORM > DATA ============>", form.data)
+    # booking["category"]=form.data["category"]
+    bookingObj.category=form.data["category"]
+    bookingObj.city=form.data["city"]
+    bookingObj.duration=form.data["duration"]
+    bookingObj.details=form.data["details"]
 
     db.session.commit()
-    return booking
+    return bookingObj.to_dict()
+
+
