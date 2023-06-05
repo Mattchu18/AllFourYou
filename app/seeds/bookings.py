@@ -6,7 +6,7 @@ def seed_bookings():
         category = "Breeding",
         city="Los Angeles",
         duration="short",
-        details = "Your pokemon not breeding? We will make them breed.",
+        details = "My pokemon plase halp..",
         user_id=1,
         task_id = 1,
         )
@@ -15,7 +15,7 @@ def seed_bookings():
         category = "Matchmaking",
         city="San Francisco",
         duration="short",
-        details = "Try your luck at destiny and see if anyone is available to mingle if they single.",
+        details = "Im very single and lonely.",
         user_id=2,
         task_id = 2,
         )
@@ -24,7 +24,7 @@ def seed_bookings():
         category = "Matchmaking",
         city="Joshua Tree",
         duration="medium",
-        details = "Matthew will host a matchmaking session after his pole dancing class.",
+        details = "Pole dancing class.",
         user_id=3,
         task_id = 3,
         )
@@ -34,7 +34,7 @@ def seed_bookings():
         category = "Cooking",
         city="Toronto",
         duration="medium",
-        details = "Vanessa will heat up a nice bowl of mac and cheese for you and your date!",
+        details = "would like to learn to cook!",
         user_id=1,
         task_id = 5,
         )

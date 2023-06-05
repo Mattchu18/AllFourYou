@@ -14,7 +14,7 @@ class Task(db.Model):
     available = db.Column(db.Boolean(), nullable = False)
 
     taskers = db.relationship("Tasker", back_populates = "tasks")
-    task_bookings=db.relationship("Booking", back_populates="task")
+    task_bookings=db.relationship("Booking", back_populates="booking_task")
 
     reviews=db.relationship("Review", back_populates="task")
 

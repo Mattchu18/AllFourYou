@@ -15,13 +15,15 @@ class Booking(db.Model):
     task_id = db.Column(db.Integer(), db.ForeignKey("tasks.id"))
 
     user = db.relationship("User", back_populates ="user_bookings")
-    task= db.relationship("Task", back_populates="task_bookings")
+    booking_task= db.relationship("Task", back_populates="task_bookings")
 
     def to_dict(self):
         return {
             'id': self.id,
             'category': self.category,
-            'description': self.details,
+            "city":self.city,
+            "duration": self.duration,
+            'details': self.details,
             'user_id': self.user_id,
             'task_id': self.task_id,
         }

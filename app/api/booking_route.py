@@ -25,6 +25,14 @@ def get_all_bookings():
 
     return booking_list
 
+@booking_routes.route("/<int:id>")
+@login_required
+def get_one_booking(id):
+    one_booking = Booking.query.get(id)
+
+    return one_booking.to_dict()
+
+
 @booking_routes.route("/new", methods=["GET", "POST"])
 @login_required
 def create_booking():
@@ -33,7 +41,7 @@ def create_booking():
     print("WHAT IS THIS", form.validate_on_submit())
     if form.validate_on_submit():
         # print("IN FORM VALIDATE BOOKING")
-        
+
         new_booking = Booking(
             category = form.data["category"],
             city = form.data["city"],
@@ -44,4 +52,19 @@ def create_booking():
         db.session.add(new_booking)
         db.session.commit()
         return new_booking.to_dict()
-    return "Able to create!"
+    # return "Able to create!"
+
+@booking_routes.route("/<int:id>", methods=["PUT"])
+@login_required
+def edit_booking(id):
+    bookingObj = Booking.query.get(id)
+    booking=bookingObj.to_dict()
+    print("THIS IS IBOOKING OBJ", booking)
+    form=BookingForm()
+    booking["category"]=form.data["category"],
+    booking["city"]=form.data["city"],
+    booking["duration"]=form.data["duration"],
+    booking["details"]=form.data["details"]
+
+    db.session.commit()
+    return booking
