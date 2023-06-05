@@ -9,3 +9,15 @@ Set up conditional in backend...
 "Task not found"
 
 -- Matthew Aung 6/5/2023
+Our create form works now we just need to add it to our tasker page
+Maybe we can jsonify in backend by using to_dict() so that we don't have to write jsonify in front end
+Need to figure out form validations in front rather than backend cause its easier
+ -- Kevin 6/4/2023 12:20 PM
+
+
+ we are stuck on edit componennt our store is returning an empty object for currentUser.
+ we have to fix, userId in backend .
+
+
+
+ Still need to render our edit review values so that it shows up on mount? or rendering or something like that

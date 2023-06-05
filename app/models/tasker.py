@@ -21,6 +21,7 @@ class Tasker(db.Model):
 
     #relationship
     tasks = db.relationship("Task", back_populates = "taskers")
+    reviews = db.relationship("Review", back_populates = "taskers")
 
     def to_dict(self):
         return {

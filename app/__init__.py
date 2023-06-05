@@ -11,6 +11,7 @@ from .api.review_routes import review_routes
 from .api.booking_route import booking_routes
 from .api.task_routes import task_routes
 
+from .api.tasker_routes import tasker_routes
 from .seeds import seed_commands
 from .config import Config
 
@@ -36,6 +37,7 @@ app.register_blueprint(review_routes, url_prefix='/api/reviews')
 app.register_blueprint(booking_routes, url_prefix='/api/bookings')
 app.register_blueprint(task_routes, url_prefix='/api/tasks')
 
+app.register_blueprint(tasker_routes, url_prefix='/api/taskers')
 db.init_app(app)
 Migrate(app, db)
 
