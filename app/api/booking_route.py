@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect
+from flask import Blueprint, render_template, redirect, request
 from flask_login import login_required, current_user
 
 from ..models.booking import Booking
@@ -20,6 +20,7 @@ def get_all_bookings():
     """
     print("ThIS IS ALL BOOKINGS======>", Booking.user_id)
     all_bookings = Booking.query.filter(Booking.user_id == current_user.id).all()
+    print(all_bookings)
     booking_list = [booking.to_dict() for booking in all_bookings]
 
     return booking_list
@@ -28,18 +29,19 @@ def get_all_bookings():
 @login_required
 def create_booking():
     form = BookingForm()
-
+    form['csrf_token'].data = request.cookies['csrf_token']
+    print("WHAT IS THIS", form.validate_on_submit())
     if form.validate_on_submit():
-        print("IN FORM VALIDATE BOOKING")
+        # print("IN FORM VALIDATE BOOKING")
+        
         new_booking = Booking(
             category = form.data["category"],
             city = form.data["city"],
             duration = form.data["duration"],
             details = form.data["details"]
-        )
-        print(new_booking)
+            )
+        # print(new_booking)
         db.session.add(new_booking)
         db.session.commit()
-
-        return new_booking
-    return "did not create"
+        return new_booking.to_dict()
+    return "Able to create!"

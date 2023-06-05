@@ -21,7 +21,7 @@ class Booking(db.Model):
         return {
             'id': self.id,
             'category': self.category,
-            'description': self.description,
+            'description': self.details,
             'user_id': self.user_id,
             'task_id': self.task_id,
         }
