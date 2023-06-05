@@ -56,3 +56,11 @@ def seed_tasks():
     for task in task_list:
         db.session.add(task)
     db.session.commit()
+
+def undo_tasks():
+    if environment == "production":
+        db.session.execute(f"TRUNCATE table {SCHEMA}.tasks RESTART IDENTITY CASCADE;")
+    else:
+        db.session.execute(text("DELETE FROM tasks"))
+
+    db.session.commit()

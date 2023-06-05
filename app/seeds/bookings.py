@@ -53,3 +53,11 @@ def seed_bookings():
     for booking in booking_list:
         db.session.add(booking)
     db.session.commit()
+
+def undo_bookings():
+    if environment == "production":
+        db.session.execute(f"TRUNCATE table {SCHEMA}.bookings RESTART IDENTITY CASCADE;")
+    else:
+        db.session.execute(text("DELETE FROM bookings"))
+
+    db.session.commit()

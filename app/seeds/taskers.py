@@ -56,3 +56,12 @@ def seed_taskers():
     db.session.add(tonyh)
     db.session.add(matthewa)
     db.session.commit()
+
+
+def undo_taskers():
+    if environment == "production":
+        db.session.execute(f"TRUNCATE table {SCHEMA}.taskers RESTART IDENTITY CASCADE;")
+    else:
+        db.session.execute(text("DELETE FROM taskers"))
+
+    db.session.commit()
