@@ -25,7 +25,7 @@ def get_all_bookings():
 
     return booking_list
 
-@booking_routes.route("/<int:id>")
+@booking_routes.route("/single/<int:id>")
 @login_required
 def get_one_booking(id):
     one_booking = Booking.query.get(id)
@@ -54,7 +54,7 @@ def create_booking():
         return new_booking.to_dict()
     # return "Able to create!"
 
-@booking_routes.route("/<int:id>", methods=["PUT"])
+@booking_routes.route("/edit/<int:id>", methods=["PUT"])
 @login_required
 def edit_booking(id):
     bookingObj = Booking.query.get(id)
@@ -71,4 +71,10 @@ def edit_booking(id):
     db.session.commit()
     return bookingObj.to_dict()
 
-
+@booking_routes.route('/delete/<int:id>', methods=['DELETE'])
+@login_required
+def delete_booking(id):
+    bookingObj = Booking.query.get(id)
+    db.session.delete(bookingObj)
+    db.session.commit()
+    return "It's been done"
