@@ -13,10 +13,10 @@ class Task(db.Model):
     tasker_id = db.Column(db.Integer(), db.ForeignKey("taskers.id"), nullable = False)
     available = db.Column(db.Boolean(), nullable = False)
 
-    taskers = db.relationship("Tasker", back_populates = "tasks")
-    task_bookings=db.relationship("Booking", back_populates="booking_task")
+    taskers = db.relationship("Tasker", cascade="all, delete", back_populates = "tasks")
+    task_bookings=db.relationship("Booking", cascade="all, delete", back_populates="booking_task")
 
-    reviews=db.relationship("Review", back_populates="task")
+    reviews=db.relationship("Review", cascade="all, delete", back_populates="task")
 
     def to_dict(self):
         return {
