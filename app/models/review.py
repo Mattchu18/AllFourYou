@@ -10,9 +10,13 @@ class Review(db.Model):
     star_rating=db.Column(db.Integer(), nullable=False)
     user_id=db.Column(db.Integer(), db.ForeignKey("users.id"))
     task_id = db.Column(db.Integer(), db.ForeignKey("tasks.id"))
+    tasker_id = db.Column(db.Integer(), db.ForeignKey("taskers.id"))
 
     user = db.relationship("User", back_populates="reviews")
     task= db.relationship("Task", back_populates="reviews")
+    taskers = db.relationship("Tasker", back_populates = "reviews")
+
+
     def to_dict(self):
         return {
             'id': self.id,
@@ -20,4 +24,5 @@ class Review(db.Model):
             'star_rating': self.star_rating,
             'user_id': self.user_id,
             'task_id': self.task_id,
+            'tasker_id': self.tasker_id
         }
