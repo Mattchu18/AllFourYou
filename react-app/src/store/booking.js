@@ -6,12 +6,29 @@ const getAllBookingsAction = bookings =>({
 })
 
 
-const initialState = { currentUserBookings: {} }
+export const thunkCurrentUserBookings = ()=> async dispatch =>{
+    const response = await fetch('/api/bookings/all')
+    if(response.ok){
+        const data = await response.json()
+        dispatch(getAllBookingsAction(data))
+    }
+}
 
-const bookingsReducer = (state = initialState, action )=>{
+const initialState = { currentUserBookings: {} }
+const bookingReducer = (state = initialState, action )=>{
     switch(action.type){
         case GET_ALL_BOOKINGS:{
             const newState={}
+            const allBookings = action.bookings
+            allBookings.forEach(booking=>{
+                newState[booking.id]=booking
+            })
+            return {
+                ...state, currentUserBookings: newState
         }
+        }
+        default: return state
     }
 }
+
+export default bookingReducer
