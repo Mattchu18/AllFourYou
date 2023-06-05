@@ -4,21 +4,27 @@ from sqlalchemy.sql import text
 def seed_bookings():
     breeding1 = Booking(
         category = "Breeding",
-        description = "Your pokemon not breeding? We will make them breed.",
+        city="Los Angeles",
+        duration="short",
+        details = "Your pokemon not breeding? We will make them breed.",
         user_id=1,
         task_id = 1,
         )
 
     matchmaking1 = Booking(
         category = "Matchmaking",
-        description = "Try your luck at destiny and see if anyone is available to mingle if they single.",
+        city="San Francisco",
+        duration="short",
+        details = "Try your luck at destiny and see if anyone is available to mingle if they single.",
         user_id=2,
         task_id = 2,
         )
 
     matchmaking2 = Booking(
         category = "Matchmaking",
-        description = "Matthew will host a matchmaking session after his pole dancing class.",
+        city="Joshua Tree",
+        duration="medium",
+        details = "Matthew will host a matchmaking session after his pole dancing class.",
         user_id=3,
         task_id = 3,
         )
@@ -26,14 +32,18 @@ def seed_bookings():
 
     cooking2 = Booking(
         category = "Cooking",
-        description = "Vanessa will heat up a nice bowl of mac and cheese for you and your date!",
+        city="Toronto",
+        duration="medium",
+        details = "Vanessa will heat up a nice bowl of mac and cheese for you and your date!",
         user_id=1,
         task_id = 5,
         )
 
     dancing1 = Booking(
         category = "Dancing",
-        description = "Matt is taking new students for his dance studio!",
+        city="San Francisco",
+        duration="long",
+        details = "Matt is taking new students for his dance studio!",
         user_id=2,
         task_id = 7,
         )

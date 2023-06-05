@@ -8,7 +8,9 @@ class Booking(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     category = db.Column(db.String(100), nullable = False)
-    description = db.Column(db.String(500), nullable = False)
+    city = db.Column(db.String(100), nullable=False)
+    duration=db.Column(db.String(100), nullable=False)
+    details = db.Column(db.String(500), nullable = False)
     user_id=db.Column(db.Integer(), db.ForeignKey("users.id"))
     task_id = db.Column(db.Integer(), db.ForeignKey("tasks.id"))
 
