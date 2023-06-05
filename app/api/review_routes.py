@@ -28,7 +28,7 @@ def get_one_review(id):
     print("THISI IS ID IN GET ONE REVIEW", one_review.to_dict())
     return one_review.to_dict()
 
-@review_routes.route('/<int:id>', methods=["PUT"])
+@review_routes.route('/edit/<int:id>', methods=["PUT"])
 @login_required
 def edit_review(id):
     """
@@ -44,7 +44,7 @@ def edit_review(id):
     return reviewObj.to_dict()
 
     # return review
-@review_routes.route('/<int:id>', methods=['DELETE'])
+@review_routes.route('/delete/<int:id>', methods=['DELETE'])
 @login_required
 def delete_review(id):
     """
