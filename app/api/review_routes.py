@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from app.models.review import Review
 from flask_login import login_required, current_user
 from app.models import User
@@ -49,7 +49,21 @@ def edit_review(id):
     print("THIS IS EDIT REVIEW IN ROUTE", edit_review.to_dict())
     db.session.commit()
     return edit_review.to_dict()
+    # print(id)
+    # reviewObj = Review.query.get(id)
+    # review=reviewObj.to_dict()
+    # form = ReviewForm()
+    # print("HI FROM OUTSIDE =========", request)
 
+    # if request.method == "PUT" or form.validate_on_submit():
+    #     print("HIII**************")
+    #     reviewObj.review_text = form.data["review_text"]
+    #     reviewObj.star_rating = form.data["star_rating"]
+    #     db.session.commit()
+
+    #     return reviewObj.to_dict()
+
+    # return review
 @review_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def delete_review(id):
