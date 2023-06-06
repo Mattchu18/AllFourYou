@@ -27,5 +27,5 @@ class SignUpForm(FlaskForm):
     password = StringField('password', validators=[DataRequired()])
 
     city = StringField('city', validators=[DataRequired()])
-    phone_number = IntegerField('phone_number',validators=[DataRequired()])
+    phone_number = StringField('phone_number',validators=[DataRequired()])
     tasker = BooleanField('tasker', validators=[DataRequired()])
