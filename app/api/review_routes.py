@@ -51,6 +51,12 @@ def delete_review(id):
     Current user is able to delete review by review id
     """
     selected_review = Review.query.get(id)
-    db.session.delete(selected_review)
-    db.session.commit()
-    return 'DELETED'
+    if not selected_review:
+        return {"message":"This review does not exist"}
+
+    elif current_user.id == selected_review.user_id:
+
+        db.session.delete(selected_review)
+        db.session.commit()
+        return 'DELETED'
+    return {"message": "This review does not belong to you"}
