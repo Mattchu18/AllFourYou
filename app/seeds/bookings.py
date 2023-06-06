@@ -9,6 +9,7 @@ def seed_bookings():
         details = "My pokemon plase halp..",
         user_id=1,
         task_id = 1,
+
         )
 
     matchmaking1 = Booking(

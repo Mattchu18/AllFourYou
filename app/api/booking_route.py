@@ -41,18 +41,26 @@ def edit_booking(id):
     form=BookingForm()
     print("THIS IS FORM > DATA ============>", form.data)
     # booking["category"]=form.data["category"]
-    bookingObj.category=form.data["category"]
-    bookingObj.city=form.data["city"]
-    bookingObj.duration=form.data["duration"]
-    bookingObj.details=form.data["details"]
+    if bookingObj.user_id==current_user.id:
 
-    db.session.commit()
-    return bookingObj.to_dict()
+        bookingObj.category=booking["category"]
+        bookingObj.city=booking["city"]
+        bookingObj.duration=form.data["duration"]
+        bookingObj.details=form.data["details"]
+        bookingObj.created_at=booking['created_at']
+        bookingObj.updated_at=form.data['updated_at']
+
+        db.session.commit()
+        return bookingObj.to_dict()
+    return "Booking dont belong to you buster"
 
 @booking_routes.route('/delete/<int:id>', methods=['DELETE'])
 @login_required
 def delete_booking(id):
+
     bookingObj = Booking.query.get(id)
-    db.session.delete(bookingObj)
-    db.session.commit()
-    return "It's been done"
+    if bookingObj.user_id==current_user.id:
+        db.session.delete(bookingObj)
+        db.session.commit()
+        return "It's been done"
+    return "Ooops you're not the owner buster"

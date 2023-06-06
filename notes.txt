@@ -21,3 +21,8 @@ Need to figure out form validations in front rather than backend cause its easie
 
 
  Still need to render our edit review values so that it shows up on mount? or rendering or something like that
+
+Still need to do reviews conditionals 
+fix appointment date
+check and make sure updated at working as it should
+--tony 6/5/2023 1930 

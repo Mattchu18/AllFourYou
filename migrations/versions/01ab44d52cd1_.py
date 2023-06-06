@@ -1,18 +1,16 @@
 """empty message
 
-Revision ID: 4a0dfd855e00
-Revises:
-Create Date: 2023-06-05 16:14:19.729562
+Revision ID: 01ab44d52cd1
+Revises: 
+Create Date: 2023-06-05 20:27:53.514267
 
 """
 from alembic import op
 import sqlalchemy as sa
 
-import os
-environment = os.getenv("FLASK_ENV")
-SCHEMA = os.environ.get("SCHEMA")
+
 # revision identifiers, used by Alembic.
-revision = '4a0dfd855e00'
+revision = '01ab44d52cd1'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -56,6 +54,7 @@ def upgrade():
     sa.Column('description', sa.String(length=500), nullable=False),
     sa.Column('tasker_id', sa.Integer(), nullable=False),
     sa.Column('available', sa.Boolean(), nullable=False),
+    sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.ForeignKeyConstraint(['tasker_id'], ['taskers.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
@@ -67,6 +66,8 @@ def upgrade():
     sa.Column('details', sa.String(length=500), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=True),
     sa.Column('task_id', sa.Integer(), nullable=True),
+    sa.Column('created_at', sa.DateTime(), nullable=True),
+    sa.Column('updated_at', sa.DateTime(), nullable=True),
     sa.ForeignKeyConstraint(['task_id'], ['tasks.id'], ),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
@@ -78,13 +79,12 @@ def upgrade():
     sa.Column('user_id', sa.Integer(), nullable=True),
     sa.Column('task_id', sa.Integer(), nullable=True),
     sa.Column('tasker_id', sa.Integer(), nullable=True),
+    sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.ForeignKeyConstraint(['task_id'], ['tasks.id'], ),
     sa.ForeignKeyConstraint(['tasker_id'], ['taskers.id'], ),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-    if environment == "production":
-        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
     # ### end Alembic commands ###
 
 
