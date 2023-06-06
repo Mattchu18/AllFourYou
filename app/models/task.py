@@ -10,7 +10,7 @@ class Task(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     category = db.Column(db.String(100), nullable = False)
     description = db.Column(db.String(500), nullable = False)
-    tasker_id = db.Column(db.Integer(), db.ForeignKey("taskers.id"), nullable = False)
+    tasker_id = db.Column(db.Integer(), db.ForeignKey(add_prefix_for_prod("taskers.id")), nullable = False)
     available = db.Column(db.Boolean(), nullable = False)
 
     taskers = db.relationship("Tasker", back_populates = "tasks")

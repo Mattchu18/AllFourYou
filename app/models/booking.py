@@ -11,8 +11,8 @@ class Booking(db.Model):
     city = db.Column(db.String(100), nullable=False)
     duration=db.Column(db.String(100), nullable=False)
     details = db.Column(db.String(500), nullable = False)
-    user_id=db.Column(db.Integer(), db.ForeignKey("users.id"))
-    task_id = db.Column(db.Integer(), db.ForeignKey("tasks.id"))
+    user_id=db.Column(db.Integer(), db.ForeignKey(add_prefix_for_prod("users.id")))
+    task_id = db.Column(db.Integer(), db.ForeignKey(add_prefix_for_prod("tasks.id")))
 
     user = db.relationship("User", back_populates ="user_bookings")
     booking_task= db.relationship("Task", back_populates="task_bookings")
