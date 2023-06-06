@@ -83,57 +83,57 @@ def get_task(id):
 #     return "You aint the owner of this task"
 
 
-@task_routes.route('/<int:id>/reviews', methods=["POST"])
-@login_required
-def create_review(id):
-    """
-    Post a review on tasker's page.
-    """
-    print(" HELLLLLOOOOO COME ON TELL ME IM HERE")
-    # tasks = Task.query.filter(Task.id == id).all()
+# @task_routes.route('/<int:id>/reviews', methods=["POST"])
+# @login_required
+# def create_review(id):
+#     """
+#     Post a review on tasker's page.
+#     """
+#     print(" HELLLLLOOOOO COME ON TELL ME IM HERE")
+#     # tasks = Task.query.filter(Task.id == id).all()
 
-    task_obj = Task.query.get(id)
-    booking_obj = Booking.query.filter(id == Booking.task_id).one()
-    review_arr = Review.query.filter(Review.task_id == id).all()
-    review_obj = [review.to_dict() for review in review_arr]
-    print("HELLO THIS IS MY FORM DO I EVEN GET ANYTHING", review_obj)
+#     task_obj = Task.query.get(id)
+#     booking_obj = Booking.query.filter(id == Booking.task_id).one()
+#     review_arr = Review.query.filter(Review.task_id == id).all()
+#     review_obj = [review.to_dict() for review in review_arr]
+#     print("HELLO THIS IS MY FORM DO I EVEN GET ANYTHING", review_obj)
 
-    if len(review_obj)>0:
-        review_obj = review_obj[0]
-    # new_task = [task.to_dict() for task in tasks]
-    # print ("HELLO ITS ME =========================", new_task[0])
-    form = ReviewForm()
-    # print("HELLO THIS IS MY FORM DO I EVEN GET ANYTHING===>", review_obj)
-    print("HELLO THIS IS MY FORM DO I EVEN GET ANYTHING", review_obj)
+#     if len(review_obj)>0:
+#         review_obj = review_obj[0]
+#     # new_task = [task.to_dict() for task in tasks]
+#     # print ("HELLO ITS ME =========================", new_task[0])
+#     form = ReviewForm()
+#     # print("HELLO THIS IS MY FORM DO I EVEN GET ANYTHING===>", review_obj)
+#     print("HELLO THIS IS MY FORM DO I EVEN GET ANYTHING", review_obj)
 
-    form["csrf_token"].data=request.cookies["csrf_token"]
-
-
-
-    if booking_obj.user_id == current_user.id:
-
-        if review_obj and review_obj["user_id"] == current_user.id:
-            return {"message": "We apologize, but we see that you already left a review."}
-
-        if form.validate_on_submit():
-    # print(" AM I GETTING IN HEREEE COME ONN")
-        # user_review_text= form.data["review_text"]
-        # user_star_rating = form.data["star_rating"]
-        # print("THIS IS WHAT I WANNA LOOK AT ", task_id)
-        # print("REQUEST PARAMS>ID==============>", id)
-            user_new_review=Review(
-                review_text=form.data["review_text"],
-                star_rating=form.data["star_rating"],
-                user_id=current_user.id,
-                task_id= task_obj.id,
-                tasker_id = task_obj.tasker_id
-            )
-            db.session.add(user_new_review)
-            db.session.commit()
-            return user_new_review.to_dict()
+#     form["csrf_token"].data=request.cookies["csrf_token"]
 
 
-    return {"message": "This booking does not belong to you"}
+
+#     if booking_obj.user_id == current_user.id:
+
+#         if review_obj and review_obj["user_id"] == current_user.id:
+#             return {"message": "We apologize, but we see that you already left a review."}
+
+#         if form.validate_on_submit():
+#     # print(" AM I GETTING IN HEREEE COME ONN")
+#         # user_review_text= form.data["review_text"]
+#         # user_star_rating = form.data["star_rating"]
+#         # print("THIS IS WHAT I WANNA LOOK AT ", task_id)
+#         # print("REQUEST PARAMS>ID==============>", id)
+#             user_new_review=Review(
+#                 review_text=form.data["review_text"],
+#                 star_rating=form.data["star_rating"],
+#                 user_id=current_user.id,
+#                 task_id= task_obj.id,
+#                 tasker_id = task_obj.tasker_id
+#             )
+#             db.session.add(user_new_review)
+#             db.session.commit()
+#             return user_new_review.to_dict()
+
+
+#     return {"message": "This booking does not belong to you"}
 
 
 @task_routes.route('/<int:id>/reviews', methods=["POST"])

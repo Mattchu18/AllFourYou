@@ -55,39 +55,54 @@ def get_tasker_reviews(id):
 # @tasker_routes.route('/<int:id>/reviews', methods=["POST"])
 
 @tasker_routes.route('/<int:id>/reviews', methods=["POST"])
-# @login_required
-# def create_review(id):
-#     """
-#     Post a review on tasker's page.
-#     """
-#     print(" HELLLLLOOOOO COME ON TELL ME IM HERE")
-#     # tasks = Task.query.filter(Task.id == id).all()
-#     tasker_obj = Tasker.query.get(id)
-#     task_obj=Task.query.filter(task_obj.tasker_id==tasker_obj.id)
+@login_required
+def create_review(id):
+    """
+    Post a review on tasker's page.
+    """
+    print(" HELLLLLOOOOO COME ON TELL ME IM HERE")
+    # tasks = Task.query.filter(Task.id == id).all()
+    tasker_obj = Tasker.query.get(id)
+    # task_obj=Task.query.filter(Task.id == tasker_obj.task_id)
+    task_obj = Task.query.get(tasker_obj.task_id)
+    # new_task = [task.to_dict() for task in tasks]
+    # print ("HELLO ITS ME =========================", new_task[0])
 
-#     # new_task = [task.to_dict() for task in tasks]
-#     # print ("HELLO ITS ME =========================", new_task[0])
-#     form = ReviewForm()
-#     print("HELLO THIS IS MY FORM DO I EVEN GET ANYTHING", form.data['review_text'])
-#     form["csrf_token"].data=request.cookies["csrf_token"]
-#     if form.validate_on_submit():
-#     # print(" AM I GETTING IN HEREEE COME ONN")
-#         # user_review_text= form.data["review_text"]
-#         # user_star_rating = form.data["star_rating"]
-#         # print("THIS IS WHAT I WANNA LOOK AT ", task_id)
-#         # print("REQUEST PARAMS>ID==============>", id)
-#         user_new_review=Review(
-#             review_text=form.data["review_text"],
-#             star_rating=form.data["star_rating"],
-#             user_id=current_user.id,
-#             task_id= task_obj.id,
-#             tasker_id = tasker_obj.id
-#         )
-#         db.session.add(user_new_review)
-#         db.session.commit()
-#         return user_new_review.to_dict()
-#     print("THIS IS MY FORM ERRORS =====>", form.errors)
-#     return "hi"
+    # user does not have review for tasker already
+    # user should have booked task
+
+    booking_obj = Booking.query.filter(Booking.user_id == current_user.id).all()
+
+    review_obj = Review.query.filter(Review.tasker_id == id).all()
+    for review in review_obj:
+        if review.user_id == current_user.id:
+            return {"message": "We apologize, but you have made a review for this tasker already!"}
+
+    for booking in booking_obj:
+        print("THIS IS THE BOOKING ========>", booking)
+        if booking.tasker_id == id:
+            form = ReviewForm()
+            print("HELLO THIS IS MY FORM DO I EVEN GET ANYTHING", form.data['review_text'])
+            form["csrf_token"].data=request.cookies["csrf_token"]
+            if form.validate_on_submit():
+            # print(" AM I GETTING IN HEREEE COME ONN")
+                # user_review_text= form.data["review_text"]
+                # user_star_rating = form.data["star_rating"]
+                # print("THIS IS WHAT I WANNA LOOK AT ", task_id)
+                # print("REQUEST PARAMS>ID==============>", id)
+                user_new_review=Review(
+                    review_text=form.data["review_text"],
+                    star_rating=form.data["star_rating"],
+                    user_id=current_user.id,
+                    task_id= task_obj.id,
+                    tasker_id = id
+                )
+                db.session.add(user_new_review)
+                db.session.commit()
+                return user_new_review.to_dict()
+            print("THIS IS MY FORM ERRORS =====>", form.errors)
+    return {"message": "We apologize, but you need to book this tasker first!"}
+
 
 
 @tasker_routes.route("/<int:id>/book", methods=["POST"])
@@ -101,14 +116,20 @@ def create_booking(id):
     print("WHAT IS THIS", form.validate_on_submit())
 
     tasker = Tasker.query.get(id)
+
+    booking_arr_obj = Booking.query.filter(Booking.user_id == current_user.id).all()
+    booking_arr = [booking.to_dict() for booking in booking_arr_obj]
+
+    print("This is the booking array!!! ====> ", booking_arr)
+
+    for booking in booking_arr:
+        if booking["tasker_id"] == id:
+            return {"message": "We apologize, but you already have a booking with this tasker!"}
+
+
     if not tasker.available:
         return {"message": "We apologize, but the tasker is not available."}
 
-    booking_arr = Booking.query.filter(Booking.user_id == current_user.id).all()
-    booking_obj = [booking.to_dict() for booking in booking_arr]
-
-    if len(booking_obj) > 0:
-        booking = booking_obj[0]
 
     if form.validate_on_submit():
         # print("IN FORM VALIDATE BOOKING")
