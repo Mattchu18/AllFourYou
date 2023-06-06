@@ -32,6 +32,7 @@ def get_one_booking(id):
 
     return one_booking.to_dict()
 
+
 @booking_routes.route("/edit/<int:id>", methods=["PUT"])
 @login_required
 def edit_booking(id):

@@ -37,35 +37,37 @@ def get_task(id):
     return "NO WAY BUD"
 
 
-@task_routes.route("/<int:id>/new", methods=["POST"])
-@login_required
-def create_booking(id):
-    """
-    The Current User will create a booking for a certain task
-    """
-    form = BookingForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
-    print("WHAT IS THIS", form.validate_on_submit())
+# @task_routes.route("/<int:id>/new", methods=["POST"])
+# @login_required
+# def create_booking(id):
+#     """
+#     The Current User will create a booking for a certain task
+#     """
+#     form = BookingForm()
+#     form['csrf_token'].data = request.cookies['csrf_token']
+#     print("WHAT IS THIS", form.validate_on_submit())
 
-    task = Task.query.get(id)
-    if not task.available:
-        return {"message": "We apologize, but the task is not available."}
+#     task = Task.query.get(id)
+#     if not task.available:
+#         return {"message": "We apologize, but the task is not available."}
 
-    if form.validate_on_submit():
-        # print("IN FORM VALIDATE BOOKING")
+#     if form.validate_on_submit():
+#         # print("IN FORM VALIDATE BOOKING")
 
-        new_booking = Booking(
-            category = form.data["category"],
-            city = form.data["city"],
-            duration = form.data["duration"],
-            details = form.data["details"],
-            user_id = current_user.id,
-            task_id = id
-            )
-        # print(new_booking)
-        db.session.add(new_booking)
-        db.session.commit()
-        return new_booking.to_dict()
+#         new_booking = Booking(
+#             category = form.data["category"],
+#             city = form.data["city"],
+#             duration = form.data["duration"],
+#             details = form.data["details"],
+#             user_id = current_user.id,
+#             task_id = id
+#             )
+#         # print(new_booking)
+#         db.session.add(new_booking)
+#         db.session.commit()
+#         return new_booking.to_dict()
+
+
     # return "Able to create!"
 
 

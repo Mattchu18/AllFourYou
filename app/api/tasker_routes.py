@@ -2,10 +2,12 @@ from flask import Blueprint, jsonify, request
 from app.models.review import Review
 from app.models.tasker import Tasker
 from app.models.task import Task
+from app.models.booking import Booking
 from flask_login import login_required, current_user
 from app.models import User
 from app.models.db import db
 from ..forms import ReviewForm
+from ..forms import BookingForm
 
 tasker_routes = Blueprint('taskers', __name__, url_prefix='')
 
@@ -50,6 +52,7 @@ def get_tasker_reviews(id):
             return {"response": "tasker has no reviews"}
     return review_list
 
+
 @tasker_routes.route('/<int:id>/reviews', methods=["POST"])
 # @login_required
 def create_review(id):
@@ -80,3 +83,40 @@ def create_review(id):
     db.session.commit()
     return user_new_review.to_dict()
     # return "hi"
+
+
+@tasker_routes.route("/<int:id>/book", methods=["POST"])
+@login_required
+def create_booking(id):
+    """
+    The Current User will create a booking
+    """
+    form = BookingForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    print("WHAT IS THIS", form.validate_on_submit())
+
+    tasker = Tasker.query.get(id)
+    if not tasker.available:
+        return {"message": "We apologize, but the tasker is not available."}
+
+    booking_arr = Booking.query.filter(Booking.user_id == current_user.id).all()
+    booking_obj = [booking.to_dict() for booking in booking_arr]
+
+    if len(booking_obj) > 0:
+        booking = booking_obj[0]
+
+    if form.validate_on_submit():
+        # print("IN FORM VALIDATE BOOKING")
+
+        new_booking = Booking(
+            category = form.data["category"],
+            city = form.data["city"],
+            duration = form.data["duration"],
+            details = form.data["details"],
+            user_id = current_user.id,
+            tasker_id = id
+            )
+        # print(new_booking)
+        db.session.add(new_booking)
+        db.session.commit()
+        return new_booking.to_dict()
