@@ -81,21 +81,28 @@ def create_review(id):
     """
     print(" HELLLLLOOOOO COME ON TELL ME IM HERE")
     # tasks = Task.query.filter(Task.id == id).all()
+
     task_obj = Task.query.get(id)
     booking_obj = Booking.query.filter(id == Booking.task_id).one()
-    review_obj = Review.query.filter(Review.task_id == id).one()
+    review_arr = Review.query.filter(Review.task_id == id).all()
+    review_obj = [review.to_dict() for review in review_arr]
+    print("HELLO THIS IS MY FORM DO I EVEN GET ANYTHING", review_obj)
 
+    if len(review_obj)>0:
+        review_obj = review_obj[0]
     # new_task = [task.to_dict() for task in tasks]
     # print ("HELLO ITS ME =========================", new_task[0])
     form = ReviewForm()
-    print("HELLO THIS IS MY FORM DO I EVEN GET ANYTHING", booking_obj)
+    # print("HELLO THIS IS MY FORM DO I EVEN GET ANYTHING===>", review_obj)
+    print("HELLO THIS IS MY FORM DO I EVEN GET ANYTHING", review_obj)
+
     form["csrf_token"].data=request.cookies["csrf_token"]
 
 
 
     if booking_obj.user_id == current_user.id:
 
-        if review_obj:
+        if review_obj and review_obj["user_id"] == current_user.id:
             return {"message": "We apologize, but we see that you already left a review."}
 
         if form.validate_on_submit():

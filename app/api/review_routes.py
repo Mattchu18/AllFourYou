@@ -35,13 +35,20 @@ def edit_review(id):
     Current user is able to get review by review id and edit
     """
     reviewObj = Review.query.get(id)
-    # review=reviewObj.to_dict()
-    form = ReviewForm()
-    reviewObj.review_text = form.data["review_text"]
-    reviewObj.star_rating = form.data["star_rating"]
-    db.session.commit()
 
-    return reviewObj.to_dict()
+    if not reviewObj:
+        return {"message":"This review does not exist"}
+
+    elif current_user.id == reviewObj.user_id:
+
+    # review=reviewObj.to_dict()
+        form = ReviewForm()
+        reviewObj.review_text = form.data["review_text"]
+        reviewObj.star_rating = form.data["star_rating"]
+        db.session.commit()
+
+        return reviewObj.to_dict()
+    return {"message": "This review does not belong to you"}
 
     # return review
 @review_routes.route('/delete/<int:id>', methods=['DELETE'])

@@ -5,7 +5,7 @@ def seed_reviews():
     review1=Review(
         review_text="Did not make my pokemon breed",
         star_rating=1,
-        user_id=3,
+        user_id=1,
         task_id=1,
         tasker_id=1,
     )
