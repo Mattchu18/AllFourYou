@@ -1,4 +1,5 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
+from datetime import datetime
 
 class Booking(db.Model):
     __tablename__="bookings"
@@ -13,6 +14,9 @@ class Booking(db.Model):
     details = db.Column(db.String(500), nullable = False)
     user_id=db.Column(db.Integer(), db.ForeignKey(add_prefix_for_prod("users.id")))
     task_id = db.Column(db.Integer(), db.ForeignKey(add_prefix_for_prod("tasks.id")))
+    # appointment_date = db.Column(db.Date, nullable=False)
+    created_at= db.Column(db.DateTime(),default=datetime.now)
+    updated_at=db.Column(db.DateTime(), default=datetime.now)
 
     user = db.relationship("User", back_populates ="user_bookings")
     booking_task= db.relationship("Task", back_populates="task_bookings")
@@ -26,4 +30,7 @@ class Booking(db.Model):
             'details': self.details,
             'user_id': self.user_id,
             'task_id': self.task_id,
+            # 'appointment_date':self.appointment_date,
+            'created_at':self.created_at,
+            'updated_at':self.created_at,
         }
