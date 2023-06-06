@@ -142,6 +142,8 @@ def create_booking(id):
             user_id = current_user.id,
             tasker_id = id
             )
+
+        tasker.available = False
         # print(new_booking)
         db.session.add(new_booking)
         db.session.commit()
