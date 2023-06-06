@@ -8,9 +8,9 @@ class Review(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     review_text=db.Column(db.String(500), nullable=False)
     star_rating=db.Column(db.Integer(), nullable=False)
-    user_id=db.Column(db.Integer(), db.ForeignKey("users.id"))
-    task_id = db.Column(db.Integer(), db.ForeignKey("tasks.id"))
-    tasker_id = db.Column(db.Integer(), db.ForeignKey("taskers.id"))
+    user_id=db.Column(db.Integer(), db.ForeignKey(add_prefix_for_prod("users.id")))
+    task_id = db.Column(db.Integer(), db.ForeignKey(add_prefix_for_prod("tasks.id")))
+    tasker_id = db.Column(db.Integer(), db.ForeignKey(add_prefix_for_prod("taskers.id")))
 
     user = db.relationship("User", back_populates="reviews")
     task= db.relationship("Task", back_populates="reviews")
