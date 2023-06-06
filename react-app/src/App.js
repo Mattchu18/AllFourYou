@@ -12,6 +12,7 @@ import GetOneReview from "./components/Reviews/OneReview";
 import GetCurrentBookings from "./components/Bookings/GetCurrentBookings"
 import GetAllTasks from "./components/Tasks/GetAllTasks"
 import CreateBooking from "./components/Bookings/CreateBooking";
+import SearchBar from "./components/SearchBar";
 
 function App() {
   const dispatch = useDispatch();
@@ -38,6 +39,7 @@ function App() {
           <Route exact path="/bookings/new" component={CreateBooking}></Route>
           <Route exact path="/bookings/all" component={GetCurrentBookings}></Route>
           <Route exact path="/tasks/all" component={GetAllTasks}></Route>
+          <Route exact path="/dashboard" component={SearchBar}></Route>
         </Switch>
 
       )}
