@@ -19,9 +19,12 @@ class Tasker(db.Model):
     vehicles = db.Column(db.String(500), nullable = False)
     tools = db.Column(db.String(500), nullable = False)
 
+    available = db.Column(db.Boolean(), nullable = False, default = False)
+    task_id = db.Column(db.Integer())
     #relationship
-    tasks = db.relationship("Task", back_populates = "taskers")
+    tasker_task = db.relationship("Task", back_populates = "task_tasker")
     reviews = db.relationship("Review", back_populates = "taskers")
+    tasker_booking = db.relationship("Booking",back_populates = "booking_tasker")
 
     def to_dict(self):
         return {
@@ -33,5 +36,7 @@ class Tasker(db.Model):
             'bio': self.bio,
             'profile_image': self.profile_image,
             'vehicles': self.vehicles,
-            'tools': self.tools
+            'tools': self.tools,
+            'available': self.available,
+            'task_id': self.task_id
         }

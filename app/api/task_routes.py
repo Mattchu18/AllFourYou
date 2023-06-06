@@ -40,9 +40,17 @@ def get_task(id):
 @task_routes.route("/<int:id>/new", methods=["POST"])
 @login_required
 def create_booking(id):
+    """
+    The Current User will create a booking for a certain task
+    """
     form = BookingForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     print("WHAT IS THIS", form.validate_on_submit())
+
+    task = Task.query.get(id)
+    if not task.available:
+        return {"message": "We apologize, but the task is not available."}
+
     if form.validate_on_submit():
         # print("IN FORM VALIDATE BOOKING")
 
@@ -61,12 +69,12 @@ def create_booking(id):
     # return "Able to create!"
 
 
-@task_routes.route("/<int:id>/delete", methods=["DELETE"])
-@login_required
-def delete_task(id):
-    taskObj = Task.query.get(id)
-    if current_user.tasker == True and current_user.id == taskObj.tasker_id:
-        db.session.delete(taskObj)
-        db.session.commit()
-        return "BYE BYE"
-    return "You aint the owner of this task"
+# @task_routes.route("/<int:id>/delete", methods=["DELETE"])
+# @login_required
+# def delete_task(id):
+#     taskObj = Task.query.get(id)
+#     if current_user.tasker == True and current_user.id == taskObj.tasker_id:
+#         db.session.delete(taskObj)
+#         db.session.commit()
+#         return "BYE BYE"
+#     return "You aint the owner of this task"

@@ -28,4 +28,4 @@ class SignUpForm(FlaskForm):
 
     city = StringField('city', validators=[DataRequired()])
     phone_number = StringField('phone_number',validators=[DataRequired()])
-    tasker = BooleanField('tasker', validators=[DataRequired()])
+    # tasker = BooleanField('tasker', validators=[DataRequired()])

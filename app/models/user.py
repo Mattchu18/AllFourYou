@@ -16,7 +16,7 @@ class User(db.Model, UserMixin):
     city = db.Column(db.String(255), nullable = False)
     phone_number = db.Column(db.String(50), nullable = False, unique = True)
 
-    tasker = db.Column(db.Boolean(), nullable=False, default=False)
+    # tasker = db.Column(db.Boolean(), nullable=False, default=False)
 
     user_bookings=db.relationship("Booking", back_populates="user")
     reviews=db.relationship("Review", back_populates="user")
@@ -40,5 +40,5 @@ class User(db.Model, UserMixin):
             'email': self.email,
             'city': self.city,
             'phone_number': self.phone_number,
-            'tasker': self.tasker
+            # 'tasker': self.tasker
         }
