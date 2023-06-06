@@ -14,7 +14,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
     city = db.Column(db.String(255), nullable = False)
-    phone_number = db.Column(db.Integer(), nullable = False, unique = True)
+    phone_number = db.Column(db.String(50), nullable = False, unique = True)
 
     tasker = db.Column(db.Boolean(), nullable=False, default=False)
 
