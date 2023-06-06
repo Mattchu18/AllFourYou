@@ -13,7 +13,7 @@ class Tasker(db.Model):
     last_name = db.Column(db.String(50), nullable = False)
     email = db.Column(db.String(255), nullable=False, unique=True)
     city = db.Column(db.String(255), nullable = False)
-    phone_number = db.Column(db.Integer(), nullable = False, unique = True)
+    phone_number = db.Column(db.String(50), nullable = False, unique = True)
     bio = db.Column(db.String(500), nullable = False)
     profile_image = db.Column(db.String(500))
     vehicles = db.Column(db.String(500), nullable = False)
