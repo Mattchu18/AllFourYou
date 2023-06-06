@@ -1,3 +1,26 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // import { csrfFetch } from "./csrf";
 const GET_ALL_REVIEWS="review/loadCurrUserReviews"
 const CREATE_REVIEW = "review/createReview"
@@ -101,7 +124,7 @@ const reviewsReducer = (state = initialState, action)=>{
                 ...state,
                 singleReview: newState
             }
-
+//make sure to copy nested 
 
         }
         case EDIT_REVIEW:{

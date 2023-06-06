@@ -1,3 +1,8 @@
+
+
+
+
+
 from flask import Blueprint, jsonify, request
 from app.models.review import Review
 from app.models.tasker import Tasker
@@ -75,8 +80,12 @@ def create_review(id):
         user_id=current_user.id,
         task_id= new_task[0]['id'],
         tasker_id = new_task[0]["tasker_id"]
+
         )
     db.session.add(user_new_review)
     db.session.commit()
     return user_new_review.to_dict()
     # return "hi"
+
+
+#check for form.errors
