@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useHistory} from 'react-router-dom';
-import { thunkCreateReview, thunkEditReview  } from "../../store/review";
+import { thunkCreateReview, thunkCurrUserReviews, thunkEditReview, thunkOneReview  } from "../../store/review";
+import { useModal } from "../../context/Modal";
 
 const ReviewForm = ({review, formType, disabled, tasker})=>{
     const dispatch = useDispatch()
@@ -12,6 +13,8 @@ const ReviewForm = ({review, formType, disabled, tasker})=>{
     const [star_rating, setStar_rating] = useState(review?.star_rating)
     const [activeRating, setActiveRating] = useState(star_rating)
     const [errors, setErrors] = useState({})
+    const { closeModal } = useModal()
+    
 
     useEffect(()=>{
         setActiveRating(star_rating)
@@ -63,7 +66,12 @@ const ReviewForm = ({review, formType, disabled, tasker})=>{
         }
 
         else if (formType === "Edit Review") {
+            // dispatch(thunkOneReview(review))
             dispatch(thunkEditReview(review))
+            .then(closeModal)   
+            dispatch(thunkCurrUserReviews())
+            history.push('/reviews')
+            dispatch(thunkOneReview(review))
         }
 
         }

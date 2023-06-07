@@ -11,7 +11,6 @@ const CreateReview=()=>{
       tasker_id: taskerId
     }
 
-    console.log("HELLO FROM CREATE REVIEW FORM")
     return(
         <>
           <ReviewForm

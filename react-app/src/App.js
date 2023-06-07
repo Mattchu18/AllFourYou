@@ -33,8 +33,8 @@ function App() {
             <SignupFormPage />
           </Route>
           <Route exact path='/reviews' component={GetCurrentUserReviews}/>
-          <Route exact path='/review/:reviewId' component={EditReview} />
           {/* <Route exact path='/review/:reviewId' component={GetOneReview} /> */}
+          <Route exact path='/review/:reviewId' component={EditReview} />
           <Route exact path='/:taskerId/review/new' component={CreateReview} />
           <Route exact path="/:taskerId/bookings/new" component={CreateBooking}></Route>
           <Route exact path="/bookings/all" component={GetCurrentBookings}></Route>

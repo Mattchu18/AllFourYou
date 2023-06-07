@@ -65,5 +65,5 @@ def delete_review(id):
 
         db.session.delete(selected_review)
         db.session.commit()
-        return 'DELETED'
+        return {"message": 'This has been deleted', "reviewId": id}
     return {"message": "This review does not belong to you"}

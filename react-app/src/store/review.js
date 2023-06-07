@@ -3,6 +3,7 @@ const GET_ALL_REVIEWS = "review/loadCurrUserReviews"
 const CREATE_REVIEW = "review/createReview"
 const EDIT_REVIEW = "review/editReview"
 const GET_ONE_REVIEW = "review/getOneReview"
+const DELETE_REVIEW = "review/deleteReview"
 
 const loadCurrUserReviews = (reviews) => ({
     type: GET_ALL_REVIEWS,
@@ -24,6 +25,11 @@ const editReview = (review) => ({
     review
 })
 
+const deleteReview = (review) => ({
+    type: DELETE_REVIEW,
+    review
+})
+
 export const thunkCurrUserReviews = () => async (dispatch) => {
     const response = await fetch('/api/reviews/currentUser')
     console.log("RESPONSE IN THUNK=====>", response)
@@ -34,8 +40,10 @@ export const thunkCurrUserReviews = () => async (dispatch) => {
 
     }
 }
-export const thunkOneReview = (reviewId) => async (dispatch) => {
-    const response = await fetch(`/api/reviews/currentUser/${reviewId}`)
+
+export const thunkOneReview = (review) => async (dispatch) => {
+    console.log(review)
+    const response = await fetch(`/api/reviews/currentUser/${review.id}`)
 
     if (response.ok) {
         const data = await response.json()
@@ -71,6 +79,19 @@ export const thunkEditReview = (review) => async dispatch => {
     }
 }
 
+export const thunkDeleteReview = (review) => async dispatch => {
+    console.log('hello from thunk delete')
+    const response = await fetch(`/api/reviews/delete/${review.id}`, {
+        method: 'DELETE'
+    })
+    console.log('hello from thunk delete twice')
+    if (response.ok) {
+        const data = await response.json()
+        console.log("THIS ISM YT DATA FROM THUNK", data)
+        dispatch(deleteReview(data))
+    }
+}
+
 
 const initialState = { currentUserReviews: {}, singleReview: {} }
 const reviewsReducer = (state = initialState, action) => {
@@ -102,15 +123,30 @@ const reviewsReducer = (state = initialState, action) => {
                 ...state,
                 singleReview: newState
             }
-
-
         }
         case EDIT_REVIEW: {
             const newState = {}
             const newReview = action.review
             newState[newReview.id] = newReview
             return {
-                ...state, singleReview: newState
+                ...state, 
+                singleReview: newState
+            }
+        }
+        case DELETE_REVIEW: {
+            const newState = { ...state.currentUserReviews }
+            const newSingleState = { ...state.singleReview }
+            const reviewId = action.review.reviewId
+            console.log("hello from delete this is my review id", reviewId)
+            console.log('Hello from delete ', newState)
+            console.log('Hello from delete  asdasdasd', newSingleState)
+            delete newState[reviewId]
+            delete newSingleState[reviewId]
+            console.log('Hello from  after delete ', newState)
+            console.log('Hello from after delete  asdasdasd', newSingleState)
+            return {
+                currentUserReviews: newState,
+                singleReview: newSingleState
             }
         }
 
