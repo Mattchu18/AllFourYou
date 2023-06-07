@@ -61,11 +61,11 @@ const ReviewForm = ({review, formType, disabled, tasker})=>{
         if (formType === "Create Review"){
             dispatch(thunkCreateReview(review))
         }
-        
+
         else if (formType === "Edit Review") {
             dispatch(thunkEditReview(review))
         }
-    
+
         }
 
 return (

@@ -46,7 +46,7 @@ export const thunkOneReview=(reviewId) => async(dispatch)=>{
 export const thunkCreateReview = (review) => async dispatch => {
     console.log("THIS IS MY REVIEW", review)
 
-    const response = await fetch(`/api/tasks/${review.task_id}/reviews`, {
+    const response = await fetch(`/api/taskers/${review.tasker_id}/reviews`, {
         method: "POST",
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(review)
@@ -86,10 +86,11 @@ const reviewsReducer = (state = initialState, action)=>{
             }
         }
         case GET_ONE_REVIEW:{
-            console.log("INT REDUCER SINGLE")
+            const newState = {}
             const newReview = action.review
+            newState[newReview.id] = newReview
             return {
-                ...state, singleReview: newReview
+                ...state, singleReview: newState
             }
         }
         case CREATE_REVIEW:{
