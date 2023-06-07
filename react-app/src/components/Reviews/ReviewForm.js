@@ -7,9 +7,9 @@ const ReviewForm = ({review, formType, disabled, tasker})=>{
     const dispatch = useDispatch()
     const history = useHistory()
     // console.log(review)
-    const [review_text, setreview_text] = useState(review?.review_text)
+    const [review_text, setReview_text] = useState(review?.review_text)
     console.log("CAN I KNOW WHAT THIS IS PLEASE", review?.review_text)
-    const [star_rating, setstar_rating] = useState(review?.star_rating)
+    const [star_rating, setStar_rating] = useState(review?.star_rating)
     const [activeRating, setActiveRating] = useState(star_rating)
     const [errors, setErrors] = useState({})
 
@@ -18,7 +18,7 @@ const ReviewForm = ({review, formType, disabled, tasker})=>{
     },[star_rating])
 
     const onChange=(number)=>{
-        setstar_rating(parseInt(number))
+        setStar_rating(parseInt(number))
     }
 
     const handleMouseEnter = index=>{
@@ -77,7 +77,7 @@ return (
                 type="text"
                 value={review_text}
                 placeholder="What did you think? Any feedback is helpful."
-                onChange={e=> setreview_text(e.target.value)}
+                onChange={e=> setReview_text(e.target.value)}
             />
 
 

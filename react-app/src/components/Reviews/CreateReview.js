@@ -5,7 +5,12 @@ import { useParams } from 'react-router-dom'
 const CreateReview=()=>{
   const { taskerId } = useParams()
   console.log(taskerId)
-    const review = { review_text: "", star_rating: "", tasker_id: taskerId } 
+    const review = {
+      review_text: "",
+      star_rating: "",
+      tasker_id: taskerId
+    }
+
     console.log("HELLO FROM CREATE REVIEW FORM")
     return(
         <>

@@ -1,15 +1,15 @@
 // import { csrfFetch } from "./csrf";
-const GET_ALL_REVIEWS="review/loadCurrUserReviews"
+const GET_ALL_REVIEWS = "review/loadCurrUserReviews"
 const CREATE_REVIEW = "review/createReview"
 const EDIT_REVIEW = "review/editReview"
-const GET_ONE_REVIEW="review/getOneReview"
+const GET_ONE_REVIEW = "review/getOneReview"
 
-const loadCurrUserReviews=(reviews) =>({
+const loadCurrUserReviews = (reviews) => ({
     type: GET_ALL_REVIEWS,
     reviews
 })
 
-const getReview = (review) =>({
+const getReview = (review) => ({
     type: GET_ONE_REVIEW,
     review
 })
@@ -24,20 +24,20 @@ const editReview = (review) => ({
     review
 })
 
-export const thunkCurrUserReviews=()=> async(dispatch)=>{
+export const thunkCurrUserReviews = () => async (dispatch) => {
     const response = await fetch('/api/reviews/currentUser')
     console.log("RESPONSE IN THUNK=====>", response)
 
-    if(response.ok){
+    if (response.ok) {
         const data = await response.json()
         dispatch(loadCurrUserReviews(data))
 
     }
 }
-export const thunkOneReview=(reviewId) => async(dispatch)=>{
+export const thunkOneReview = (reviewId) => async (dispatch) => {
     const response = await fetch(`/api/reviews/currentUser/${reviewId}`)
 
-    if(response.ok){
+    if (response.ok) {
         const data = await response.json()
         dispatch(getReview(data))
     }
@@ -48,7 +48,7 @@ export const thunkCreateReview = (review) => async dispatch => {
 
     const response = await fetch(`/api/taskers/${review.tasker_id}/reviews`, {
         method: "POST",
-        headers: {'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(review)
     })
     // we changed body cause we dont need to jsonify
@@ -61,31 +61,31 @@ export const thunkCreateReview = (review) => async dispatch => {
 export const thunkEditReview = (review) => async dispatch => {
     const response = await fetch(`/api/reviews/edit/${review.id}`, {
         method: 'PUT',
-        headers: {'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(review)
     })
 
     if (response.ok) {
         const data = await response.json()
-         dispatch(editReview(data))
+        dispatch(editReview(data))
     }
 }
 
 
-const initialState = { currentUserReviews:{}, singleReview:{}}
-const reviewsReducer = (state = initialState, action)=>{
-    switch(action.type){
-        case GET_ALL_REVIEWS:{
-             const newState = {}
-            const allReviews=action.reviews
-            allReviews.forEach(review=>{
+const initialState = { currentUserReviews: {}, singleReview: {} }
+const reviewsReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case GET_ALL_REVIEWS: {
+            const newState = {}
+            const allReviews = action.reviews
+            allReviews.forEach(review => {
                 newState[review.id] = review
             })
             return {
-                ...state, currentUserReviews:newState
+                ...state, currentUserReviews: newState
             }
         }
-        case GET_ONE_REVIEW:{
+        case GET_ONE_REVIEW: {
             const newState = {}
             const newReview = action.review
             newState[newReview.id] = newReview
@@ -93,11 +93,11 @@ const reviewsReducer = (state = initialState, action)=>{
                 ...state, singleReview: newState
             }
         }
-        case CREATE_REVIEW:{
-            const newState={}
-            const newReview=action.review
+        case CREATE_REVIEW: {
+            const newState = {}
+            const newReview = action.review
             // console.log(n)
-            newState[newReview.id]=newReview
+            newState[newReview.id] = newReview
             return {
                 ...state,
                 singleReview: newState
@@ -105,12 +105,13 @@ const reviewsReducer = (state = initialState, action)=>{
 
 
         }
-        case EDIT_REVIEW:{
-            const newState={}
-            const newReview=action.review
-            newState[newReview.id]=newReview
+        case EDIT_REVIEW: {
+            const newState = {}
+            const newReview = action.review
+            newState[newReview.id] = newReview
             return {
-                ...state, singleReview:newState }
+                ...state, singleReview: newState
+            }
         }
 
         default: return state

@@ -1,16 +1,19 @@
 import BookingForm from "./BookingForm";
+import { useParams } from "react-router-dom"
 
 const CreateBooking = ()=>{
-    const newBooking = {
+    const { taskerId } = useParams()
+    const booking = {
         category:"",
         city:"",
         duration:"",
-        details:""
+        details:"",
+        tasker_id: taskerId
     }
 
     return(
         <BookingForm
-        newBooking={newBooking}
+        booking={booking}
         formType="Create Booking"
         />
     )

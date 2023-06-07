@@ -9,6 +9,8 @@ const EditReview = () => {
     const dispatch = useDispatch()
     const { reviewId } = useParams()
     const review = useSelector(state => state.review.singleReview[reviewId])
+
+
     useEffect(() => {
         dispatch(thunkOneReview(reviewId))
     }, [dispatch, reviewId])

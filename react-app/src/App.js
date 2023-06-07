@@ -12,6 +12,7 @@ import GetOneReview from "./components/Reviews/OneReview";
 import GetCurrentBookings from "./components/Bookings/GetCurrentBookings"
 import GetAllTasks from "./components/Tasks/GetAllTasks"
 import CreateBooking from "./components/Bookings/CreateBooking";
+import EditBooking from "./components/Bookings/EditBooking";
 
 function App() {
   const dispatch = useDispatch();
@@ -35,8 +36,9 @@ function App() {
           <Route exact path='/review/:reviewId' component={EditReview} />
           {/* <Route exact path='/review/:reviewId' component={GetOneReview} /> */}
           <Route exact path='/:taskerId/review/new' component={CreateReview} />
-          <Route exact path="/bookings/new" component={CreateBooking}></Route>
+          <Route exact path="/:taskerId/bookings/new" component={CreateBooking}></Route>
           <Route exact path="/bookings/all" component={GetCurrentBookings}></Route>
+          <Route exact path="/booking/:bookingId" component={EditBooking}></Route>
           <Route exact path="/tasks/all" component={GetAllTasks}></Route>
         </Switch>
 
