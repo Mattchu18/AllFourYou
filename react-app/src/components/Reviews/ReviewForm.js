@@ -54,31 +54,50 @@ const ReviewForm = ({review, formType, disabled, tasker})=>{
 
     const handleSubmit=async (e)=>{
         e.preventDefault()
+        let err = {}
         review = {
             ...review,
             review_text,
             star_rating
         }
-        if (formType === "Create Review"){
-            dispatch(thunkCreateReview(review))
+
+        if(review.review_text.length < 5) {
+            err.review_text = "Review text needs to be at least 5 characters long"
         }
 
-        else if (formType === "Edit Review") {
-            // dispatch(thunkOneReview(review))
-            dispatch(thunkEditReview(review))
+        if(!review.star_rating) {
+            err.star_rating = "Must rate from 1-5"
+        }
+        
+        
+        // const findReview = thunkOneReview(review)
+        // if (findReview) err.message = "You already have a review for this Tasker!"
+        if (formType === "Create Review" && !Object.keys(err).length){
+            await dispatch(thunkCreateReview(review))
+        }
+        
+        else if (formType === "Edit Review" && !Object.keys(err).length) {
+            await dispatch(thunkEditReview(review))
             .then(closeModal)   
             history.push('/reviews')
             dispatch(thunkCurrUserReviews())
             dispatch(thunkOneReview(review))
         }
-
+        
+        if(err) {
+            setErrors(err)
+            console.log('hi')
+        }
+        
         }
 
 return (
 
     <form onSubmit={handleSubmit}>
         <label>
+            {/* {errors.message} */}
         </label>
+            {errors.review_text}
             <textarea
                 type="text"
                 value={review_text}
@@ -88,10 +107,10 @@ return (
 
 
         <label>
-
+        {errors.star_rating}
         </label>
         {arr} Stars
-        <button type="submit" >Submit your Review</button>
+        <button type="submit" disabled={!review_text || !star_rating} >Submit your Review</button>
 
 
     </form>

@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom'
 
 const CreateReview=()=>{
   const { taskerId } = useParams()
-  console.log(taskerId)
     const review = {
       review_text: "",
       star_rating: "",

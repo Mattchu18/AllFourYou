@@ -65,12 +65,6 @@ def create_review(id):
     tasker_obj = Tasker.query.get(id)
     # task_obj=Task.query.filter(Task.id == tasker_obj.task_id)
     task_obj = Task.query.get(tasker_obj.task_id)
-    # new_task = [task.to_dict() for task in tasks]
-    # print ("HELLO ITS ME =========================", new_task[0])
-
-    # user does not have review for tasker already
-    # user should have booked task
-
     booking_obj = Booking.query.filter(Booking.user_id == current_user.id).all()
 
     review_obj = Review.query.filter(Review.tasker_id == id).all()
@@ -100,7 +94,6 @@ def create_review(id):
                 db.session.add(user_new_review)
                 db.session.commit()
                 return user_new_review.to_dict()
-            print("THIS IS MY FORM ERRORS =====>", form.errors)
     return {"message": "We apologize, but you need to book this tasker first!"}
 
 
