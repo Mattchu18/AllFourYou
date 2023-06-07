@@ -6,17 +6,17 @@ class Billing(db.Model):
 
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}
-    
+
     id = db.Column(db.Integer, primary_key=True)
     first_name=db.Column(db.String(50),nullable=False)
     last_name=db.Column(db.String(50),nullable=False)
-    card_number=db.Column(db.Integer(16),nullable=False) #maybe change this to a string and manage in frontend
-    security_code=db.Column(db.Integer(3),nullable=False)
+    card_number=db.Column(db.Integer(),nullable=False) #maybe change this to a string and manage in frontend
+    security_code=db.Column(db.Integer(),nullable=False)
     debit_card=db.Column(db.String(10),nullable=False)
     user_id=db.Column(db.Integer(), db.ForeignKey(add_prefix_for_prod("users.id")))
     created_at= db.Column(db.DateTime(),default=datetime.now)
 
-    user = db.relationship("User", back_populates ="billing")
+    user = db.relationship("User", back_populates ="billings")
 
     def to_dict(self):
         return {

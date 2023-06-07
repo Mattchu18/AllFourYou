@@ -14,4 +14,13 @@ def get_current_billing():
     """
     Gets all billing options of the current user
     """
-    all_billing= Billing.query.filter(Billing.user_id==current_user.id).all()#get billing info that matche
+    all_billings= Billing.query.filter(Billing.user_id==current_user.id).all()#get billing info that matche
+    billing_obj ={}
+    for bill in all_billings:
+
+        billing_obj[bill.id]=bill.to_dict()
+
+    print("billing=======>", billing_obj)
+    return billing_obj
+
+
