@@ -9,7 +9,6 @@ const ReviewForm = ({review, formType, disabled, tasker})=>{
     const history = useHistory()
     // console.log(review)
     const [review_text, setReview_text] = useState(review?.review_text)
-    console.log("CAN I KNOW WHAT THIS IS PLEASE", review?.review_text)
     const [star_rating, setStar_rating] = useState(review?.star_rating)
     const [activeRating, setActiveRating] = useState(star_rating)
     const [errors, setErrors] = useState({})
@@ -60,7 +59,6 @@ const ReviewForm = ({review, formType, disabled, tasker})=>{
             review_text,
             star_rating
         }
-        console.log("WHAT AM I LOOKING AT THO", review)
         if (formType === "Create Review"){
             dispatch(thunkCreateReview(review))
         }
@@ -69,8 +67,8 @@ const ReviewForm = ({review, formType, disabled, tasker})=>{
             // dispatch(thunkOneReview(review))
             dispatch(thunkEditReview(review))
             .then(closeModal)   
-            dispatch(thunkCurrUserReviews())
             history.push('/reviews')
+            dispatch(thunkCurrUserReviews())
             dispatch(thunkOneReview(review))
         }
 

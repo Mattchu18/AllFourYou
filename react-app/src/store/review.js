@@ -117,7 +117,6 @@ const reviewsReducer = (state = initialState, action) => {
         case CREATE_REVIEW: {
             const newState = {}
             const newReview = action.review
-            // console.log(n)
             newState[newReview.id] = newReview
             return {
                 ...state,
@@ -126,10 +125,12 @@ const reviewsReducer = (state = initialState, action) => {
         }
         case EDIT_REVIEW: {
             const newState = {}
+            const newSingleState = { ...state }
             const newReview = action.review
+            console.log("I am in the edit review", newReview)
             newState[newReview.id] = newReview
             return {
-                ...state, 
+                currentUserReviews: { ...state.currentUserReviews, ...newState },
                 singleReview: newState
             }
         }
@@ -137,13 +138,8 @@ const reviewsReducer = (state = initialState, action) => {
             const newState = { ...state.currentUserReviews }
             const newSingleState = { ...state.singleReview }
             const reviewId = action.review.reviewId
-            console.log("hello from delete this is my review id", reviewId)
-            console.log('Hello from delete ', newState)
-            console.log('Hello from delete  asdasdasd', newSingleState)
             delete newState[reviewId]
             delete newSingleState[reviewId]
-            console.log('Hello from  after delete ', newState)
-            console.log('Hello from after delete  asdasdasd', newSingleState)
             return {
                 currentUserReviews: newState,
                 singleReview: newSingleState
