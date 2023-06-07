@@ -5,8 +5,8 @@ from app.models import User
 
 class BillingForm(FlaskForm):
 
-    first_name=StringField("Card holder first name",valdators=[DataRequired()])
+    first_name=StringField("Card holder first name",validators=[DataRequired()])
     last_name=StringField("Card holder last name", validators=[DataRequired()])
-    card_number=IntegerField('Card number', validators=[DataRequired(),Length(min=16,max=16)])
-    security_code=IntegerField("3 digit security code on back of card", validators=[DataRequired(),Length(min=3,max=3)])
+    card_number=StringField('Card number', validators=[DataRequired()])
+    security_code=StringField("3 digit security code on back of card", validators=[DataRequired()])
     debit_card = RadioField("Is this a debit card?", choices=[("yes", "Yes"), ("no", "No")], validators=[DataRequired()])
