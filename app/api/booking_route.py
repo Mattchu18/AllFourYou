@@ -23,8 +23,6 @@ def get_all_bookings():
     all_bookings = Booking.query.filter(Booking.user_id == current_user.id).all()
     print(all_bookings)
     booking_list = [booking.to_dict() for booking in all_bookings]
-    if len(booking_list) == 0:
-        return {"message":"We apologize, but you have no bookings"}
     return booking_list
 
 
