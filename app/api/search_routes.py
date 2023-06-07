@@ -1,10 +1,11 @@
-from flask import Blueprint, redirect, request
+from flask import Blueprint, redirect, request, Markup
 from ..models.db import db
 from ..models.task import Task
 from ..models.tasker import Tasker
 
 search_routes = Blueprint("search", __name__)
 
+#highlight
 
 @search_routes.route("/")
 def search_taskers():
