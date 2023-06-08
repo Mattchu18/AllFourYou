@@ -1,6 +1,4 @@
 import React, {useState} from 'react'
-import { Fragment } from 'react'
-import './index.css'
 import "./index.css"
 
 const SearchBar = () =>{
@@ -23,13 +21,44 @@ const enter =(e)=>{
 
 
 const handleSearch = ()=>{
-    fetch(`/api/search/?query=${searchInput}`)
-    .then((response)=> response.json())
-    .then((data)=> setSearchResults(data.results))
-    .catch((error)=>console.error(error))
+    if(!searchInput){
+        setSearchResults([])
+    }else{
+
+        fetch(`/api/search/?query=${searchInput}`)
+        .then((response)=> response.json())
+        .then((data)=> setSearchResults(data.results))
+        .catch((error)=>console.error(error))
+    }
 }
 
+const highlightText = (text) => {
+    const lowerCaseText = text.toLowerCase();
+    const lowerCaseSearchInput = searchInput.toLowerCase();
+    const section = [];
+    let startIndex = 0;
+    
+    if(!searchInput){
+        return text;
+    }
 
+    while (startIndex < text.length) {
+      const index = lowerCaseText.indexOf(lowerCaseSearchInput, startIndex);
+      if (index === -1) {
+        section.push(text.substr(startIndex));
+        break;
+      }
+      section.push(text.substring(startIndex, index));
+      section.push(
+        <span className="highlighted">
+          {text.substr(index, searchInput.length)}
+        </span>
+      );
+      startIndex = index + searchInput.length;
+    }
+  
+    return section;
+  };
 return (
     <div>
         <input
@@ -40,14 +69,12 @@ return (
         onKeyDown={enter}
         />
     <button onClick={handleSearch}>Search</button>
-{console.log("search==========>", searchResults)}
-    {searchResults?.length>0 ? (
+    {searchResults !=null? (
         searchResults.map((result)=>(
             <>
-            {console.log(result, "jfdl;ajsfkldsfvhasvsa100-----------")}
-            <div key={result?.id}>{result?.bio}</div>
-            <div>{result?.city}</div>
-            <div>contact tasker: email: {result?.email}, phone number:{result?.phone}</div>
+            <div key={result?.id}>{highlightText(result?.bio)}</div>
+            <div>{highlightText(result?.city)}</div>
+            <div>contact tasker: email: {highlightText(result?.email)}, phone number:{highlightText(result?.phone)}</div>
             <div>{result?.profile_image}</div>
             {result.tasks.map((task)=>(
                 <>
@@ -55,9 +82,9 @@ return (
                 <div>{highlightText(task?.description)}</div>
                 </>
             ))}
-    
             <br></br>
             </>
+
         ))
     ): (
         <div> Sorry, no Results found :( </div>
