@@ -13,6 +13,8 @@ import GetCurrentBookings from "./components/Bookings/GetCurrentBookings"
 import GetAllTasks from "./components/Tasks/GetAllTasks"
 import CreateBooking from "./components/Bookings/CreateBooking";
 import SearchBar from "./components/SearchBar";
+import GetCurrentCards from "./components/Billing/CurrentUserCards";
+import CreateCard from "./components/Billing/CreateCard";
 
 function App() {
   const dispatch = useDispatch();
@@ -40,6 +42,8 @@ function App() {
           <Route exact path="/bookings/all" component={GetCurrentBookings}></Route>
           <Route exact path="/tasks/all" component={GetAllTasks}></Route>
           <Route exact path="/dashboard" component={SearchBar}></Route>
+          <Route exact path="/billing" component={GetCurrentCards}></Route>
+          <Route exact path="/billing/new">{CreateCard}</Route>
         </Switch>
 
       )}

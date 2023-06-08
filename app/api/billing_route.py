@@ -16,6 +16,7 @@ def validation_errors_message(validation_errors):
     for field in validation_errors:
         for error in validation_errors(field):
             errorMessages.append(f'{field}: {error}')
+
     return errorMessages
 
 @billing_routes.route('/')
@@ -25,13 +26,9 @@ def get_current_billing():
     Gets all billing options of the current user
     """
     all_billings= Billing.query.filter(Billing.user_id==current_user.id).all()#get billing info that matche
-    billing_obj ={}
-    for bill in all_billings:
-
-        billing_obj[bill.id]=bill.to_dict()
-
-    print("billing=======>", billing_obj)
-    return billing_obj
+    billings_arr = [billing.to_dict() for billing in all_billings]
+    # print("billing=======>", billing_obj)
+    return billings_arr
 
 @billing_routes.route('/new', methods=["POST"])
 @login_required
