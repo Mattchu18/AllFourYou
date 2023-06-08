@@ -1,3 +1,9 @@
 .highlighted{
     background-color: yellow;
 }
+.result-card{
+    border: 2px solid pink
+}
+.all-results{
+    border: 2px solid red
+}

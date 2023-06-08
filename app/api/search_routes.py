@@ -15,7 +15,7 @@ def search_taskers():
     if not query:
         return {"message": "Please enter a search"}
     else:
-
+        results_id = Tasker.query.filter(Tasker.id.ilike(f'%{query}%')).all()
         results_city = Tasker.query.filter(Tasker.city.ilike(f'%{query}%')).all()
         results_bio = Tasker.query.filter(Tasker.bio.ilike(f'%{query}%')).all()
         results_phone = Tasker.query.filter(Tasker.phone_number.ilike(f'%{query}%')).all()
@@ -27,11 +27,12 @@ def search_taskers():
 
         results_list=[]
 
-        tasker_results = results_city + results_bio + results_phone + results_email
+        tasker_results = results_id + results_city + results_bio + results_phone + results_email
         task_results =results_category + results_description
 
         for tasker in tasker_results:
             tasker_data = {
+                'id': tasker.id,
                 'bio': tasker.bio,
                 'city': tasker.city,
                 'email': tasker.email,
@@ -63,6 +64,7 @@ def search_taskers():
             tasker = Tasker.query.get(task.tasker_id)
             if tasker.id not in unique_set:
                 tasker_data = {
+                    'id': tasker.id,
                     'bio': tasker.bio,
                     'city': tasker.city,
                     'email': tasker.email,

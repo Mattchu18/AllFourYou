@@ -4,11 +4,14 @@ import { Fragment } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { useLocation } from 'react-router-dom';
-
+import {Link} from 'react-router-dom'
 import SearchBar from '../SearchBar';
+import { thunkAllTaskers } from '../../store/taskers';
 
 const SearchResults = () =>{
 const history=useHistory()
+const dispatch = useDispatch()
+
 const [searchResults, setSearchResults] = useState([])
 const allTaskersObj = useSelector(state => state.tasker.allTaskers)
 const allTaskers = Object.values(allTaskersObj)
@@ -24,6 +27,9 @@ useEffect(() => {
 //     e.preventDefault();
     // setSearchInput(e.target.value)
 // }
+// useEffect(() => {
+//   dispatch(thunkAllTaskers())
+// }, [dispatch])
 
 const enter =(e)=>{
     if (e.key==='Enter'){
@@ -46,7 +52,7 @@ const highlightText = (text) => {
     const lowerCaseSearchInput = searchInput.toLowerCase();
     const parts = [];
     let startIndex = 0;
-    
+
     if(!searchInput){
         return text;
     }
@@ -65,10 +71,10 @@ const highlightText = (text) => {
       );
       startIndex = index + searchInput.length;
     }
-  
+
     return parts;
   };
- 
+
 return (
     <div>
         <SearchBar searchInput={searchInput} handleSearch={handleSearch}/>
@@ -80,10 +86,14 @@ return (
         onKeyDown={enter}
         /> */}
     {/* <button onClick={handleSearch}>Search</button> */}
+    <div class="all-results">
+
     {searchResults?.length>0 ? (
         searchResults.map((result)=>(
+
             <>
-            <Fragment>
+             <Link to={`/taskers/${result.id}`}>
+            <div className="result-card">
             <div key={result?.id}>{highlightText(result?.bio)}</div>
             <div>{highlightText(result?.city)}</div>
             <div>contact tasker: email: {highlightText(result?.email)}, phone number:{highlightText(result?.phone)}</div>
@@ -95,20 +105,24 @@ return (
                 <div>{highlightText(task?.description)}</div>
                 </>
             ))}
-</Fragment>
+</div>
+   </Link>
             <br></br>
 
             </>
 
 
+
 ))
-): 
+):
 (
     <div> Sorry, no Results found :( </div>
     )
-    }  
+    }
 
-   
+
+</div>
+
     </div>
 )
 }
