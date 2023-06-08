@@ -3,6 +3,7 @@ import { useEffect, Fragment } from "react";
 import { thunkCurrUserCards } from '../../store/billing'
 import DeleteCard from '../../components/Billing/DeleteCard'
 import thunk from "redux-thunk";
+import OpenModalButton from "../OpenModalButton";
 
 const GetCurrentCards = () =>{
     console.log("in curr user component")
@@ -26,10 +27,13 @@ return(
     {console.log(billing.card_number)}
     <div>card ending in: {(billing.card_number).toString().slice(12,16)}</div>
  {console.log("billiings======", billing)}
-         <DeleteCard
+        <OpenModalButton
+        buttonText="Delete"
+        modalComponent={<DeleteCard
         card = {billing}
+    />}
 
-    />
+ />
 
 
     </>
