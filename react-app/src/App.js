@@ -19,6 +19,7 @@ import SearchBar from "./components/SearchBar";
 import GetCurrentCards from "./components/Billing/CurrentUserCards";
 import CreateCard from "./components/Billing/CreateCard";
 import AccountPage from "./components/AccountPage/AccountPage";
+import SearchResults from "./components/SearchResults";
 
 function App() {
   const dispatch = useDispatch();
@@ -39,6 +40,8 @@ function App() {
             <SignupFormPage />
           </Route>
           <Route exact path="/" component={SearchBar}></Route>
+          <Route exact path="/results" component={SearchResults}></Route>
+
           <Route exact path='/reviews' component={GetCurrentUserReviews}/>
           <Route exact path='/account' component={AccountPage} />
           {/* <Route exact path='/review/:reviewId' component={GetOneReview} /> 
