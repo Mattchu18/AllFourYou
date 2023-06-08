@@ -21,6 +21,14 @@ function LoginFormModal() {
     }
   };
 
+  const autoLogin = e => {
+    setEmail('demo@aa.io')
+    setPassword('password')
+    return dispatch(login({ email, password}))
+    .then(closeModal)
+  }
+
+
   return (
     <>
       <h1>Log In</h1>
@@ -39,6 +47,7 @@ function LoginFormModal() {
             required
           />
         </label>
+        {errors.email && <p>{errors.email}</p>}
         <label>
           Password
           <input
@@ -48,7 +57,9 @@ function LoginFormModal() {
             required
           />
         </label>
-        <button type="submit">Log In</button>
+        {errors.password && <p>{errors.password}</p>}
+        <button type="submit" disabled={!email || !password}>Log In</button>
+        <button onClick={autoLogin}>Login in as Demo User</button>
       </form>
     </>
   );

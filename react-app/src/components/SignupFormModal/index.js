@@ -11,10 +11,20 @@ function SignupFormModal() {
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
 	const [errors, setErrors] = useState([]);
+	const [validationErrors, setValidationErrors] = useState("")
 	const { closeModal } = useModal();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+
+		let errors = {}
+		if (!email) errors.email = "Email is required"
+		if (!username) errors.username = "Username is required"
+		if (!password) errors.password = "Password is required"
+		setValidationErrors(errors)
+
+		if (!!Object.keys(errors).length) return
+
 		if (password === confirmPassword) {
 			const data = await dispatch(signUp(username, email, password));
 			if (data) {
@@ -40,29 +50,34 @@ function SignupFormModal() {
 				</ul>
 				<label>
 					Email
+					{validationErrors.email ? (<p>{validationErrors.email}</p>) : null}
 					<input
 						type="text"
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
-						required
+
 					/>
 				</label>
 				<label>
 					Username
+					{validationErrors.username ? (<p>{validationErrors.username}</p>) : null}
+
 					<input
 						type="text"
 						value={username}
 						onChange={(e) => setUsername(e.target.value)}
-						required
+
 					/>
 				</label>
 				<label>
 					Password
+					{validationErrors.password ? (<p>{validationErrors.password}</p>) : null}
+
 					<input
 						type="password"
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
-						required
+
 					/>
 				</label>
 				<label>
@@ -71,7 +86,7 @@ function SignupFormModal() {
 						type="password"
 						value={confirmPassword}
 						onChange={(e) => setConfirmPassword(e.target.value)}
-						required
+
 					/>
 				</label>
 				<button type="submit">Sign Up</button>

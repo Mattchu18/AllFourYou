@@ -8,8 +8,7 @@ def seed_bookings():
         duration="short",
         details = "My pokemon plase halp..",
         user_id=1,
-        task_id = 1,
-
+        tasker_id = 1,
         )
 
     matchmaking1 = Booking(
@@ -18,7 +17,7 @@ def seed_bookings():
         duration="short",
         details = "Im very single and lonely.",
         user_id=2,
-        task_id = 2,
+        tasker_id = 2,
         )
 
     matchmaking2 = Booking(
@@ -27,7 +26,7 @@ def seed_bookings():
         duration="medium",
         details = "Pole dancing class.",
         user_id=3,
-        task_id = 3,
+        tasker_id = 3,
         )
 
 
@@ -36,20 +35,20 @@ def seed_bookings():
         city="Toronto",
         duration="medium",
         details = "would like to learn to cook!",
-        user_id=1,
-        task_id = 5,
+        user_id=4,
+        tasker_id = 4,
         )
 
-    dancing1 = Booking(
-        category = "Dancing",
-        city="San Francisco",
-        duration="long",
-        details = "Matt is taking new students for his dance studio!",
-        user_id=2,
-        task_id = 7,
-        )
+    # dancing1 = Booking(
+    #     category = "Dancing",
+    #     city="San Francisco",
+    #     duration="long",
+    #     details = "Matt is taking new students for his dance studio!",
+    #     user_id=2,
+    #     tasker_id = 7,
+    #     )
 
-    booking_list = [breeding1, matchmaking1, matchmaking2, cooking2, dancing1]
+    booking_list = [breeding1, matchmaking1, matchmaking2, cooking2, ]
 
     for booking in booking_list:
         db.session.add(booking)

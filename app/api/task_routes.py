@@ -7,7 +7,8 @@ from ..models.booking import Booking
 # from ..forms.post_form import PostForm
 from datetime import date
 from random import randint
-
+from ..forms.review_form import ReviewForm
+from ..models.review import Review
 
 task_routes = Blueprint("task", __name__,url_prefix='')
 
@@ -22,51 +23,29 @@ def get_all_tasks():
     return all_tasks
 
 
-@task_routes.route("/<int:id>")
-@login_required
-def get_task(id):
-    """
-    This route will get the task by id regardless of being logged in
-    """
-    one_task_obj = Task.query.get(id)
-    task = one_task_obj.to_dict()
-    if current_user.tasker == True and current_user.id == task["tasker_id"]:
-    # you cannot dot notate into dictionary.
-    # if current_user.tasker == True and current_user.id == one_task_obj.tasker_id:
-        return task
-    return "NO WAY BUD"
+# @task_routes.route("/<int:id>")
+# @login_required
+# def get_task(id):
+#     """
+#     This route will get the task by id regardless of being logged in
+#     """
+#     one_task_obj = Task.query.get(id)
+#     task = one_task_obj.to_dict()
+#     if current_user.tasker == True and current_user.id == task["tasker_id"]:
+#     # you cannot dot notate into dictionary.
+#     # if current_user.tasker == True and current_user.id == one_task_obj.tasker_id:
+#         return task
+#     return "NO WAY BUD"
 
 
-@task_routes.route("/<int:id>/new", methods=["POST"])
-@login_required
-def create_booking(id):
-    form = BookingForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
-    print("WHAT IS THIS", form.validate_on_submit())
-    if form.validate_on_submit():
-        # print("IN FORM VALIDATE BOOKING")
-
-        new_booking = Booking(
-            category = form.data["category"],
-            city = form.data["city"],
-            duration = form.data["duration"],
-            details = form.data["details"],
-            user_id = current_user.id,
-            task_id = id
-            )
-        # print(new_booking)
-        db.session.add(new_booking)
-        db.session.commit()
-        return new_booking.to_dict()
-    # return "Able to create!"
 
 
-@task_routes.route("/<int:id>/delete", methods=["DELETE"])
-@login_required
-def delete_task(id):
-    taskObj = Task.query.get(id)
-    if current_user.tasker == True and current_user.id == taskObj.tasker_id:
-        db.session.delete(taskObj)
-        db.session.commit()
-        return "BYE BYE"
-    return "You aint the owner of this task"
+# @task_routes.route("/<int:id>/delete", methods=["DELETE"])
+# @login_required
+# def delete_task(id):
+#     taskObj = Task.query.get(id)
+#     if current_user.tasker == True and current_user.id == taskObj.tasker_id:
+#         db.session.delete(taskObj)
+#         db.session.commit()
+#         return "BYE BYE"
+#     return "You aint the owner of this task"

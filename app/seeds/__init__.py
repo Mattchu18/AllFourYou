@@ -4,6 +4,7 @@ from .taskers import seed_taskers, undo_taskers
 from .tasks import seed_tasks, undo_tasks
 from .bookings import seed_bookings, undo_bookings
 from .reviews import seed_reviews, undo_reviews
+from .billings import seed_billings, undo_billings
 from app.models.db import db, environment, SCHEMA
 
 # Creates a seed group to hold our commands
@@ -23,8 +24,10 @@ def seed():
         undo_bookings()
         undo_tasks()
         undo_taskers()
+        undo_billings()
         undo_users()
     seed_users()
+    seed_billings()
     seed_taskers()
     seed_tasks()
     seed_bookings()
@@ -40,5 +43,6 @@ def undo():
     undo_bookings()
     undo_tasks()
     undo_taskers()
+    undo_billings()
     undo_users()
     # Add other undo functions here
