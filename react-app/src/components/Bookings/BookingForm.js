@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { thunkCreateBooking, thunkCurrentUserBookings, thunkEditBooking, thunkOneBooking } from "../../store/booking";
 // import thunk from "redux-thunk";
 import { thunkAllTasks } from "../../store/task";
-import { thunkAllTaskers } from "../../store/taskers";
+import { thunkAllTaskers, thunkSingleTasker } from "../../store/taskers";
 import './BookingForm.css'
 // import { thunkCreateReview, thunkEditReview  } from "../../store/review";
 
@@ -21,9 +21,13 @@ const BookingForm = ({ booking, formType }) => {
     const allTasksObj = useSelector(state => state.task.allTasks)
     const allTasks = Object.values(allTasksObj)
     const taskersTask = allTasks.find(task => task.tasker_id === parseInt(taskerId))
+    const taskerObj = useSelector(state => state.tasker.singleTasker)
+    const tasker = Object.values(taskerObj)
+
 
     useEffect(() => {
         dispatch(thunkAllTasks())
+        dispatch(thunkSingleTasker(taskerId))
     }, [dispatch])
 
     const handleSubmit = async (e) => {
@@ -66,14 +70,19 @@ const BookingForm = ({ booking, formType }) => {
 
             <div id="booking-form" className="booking-form border">
                 <form onSubmit={handleSubmit}>
-                    {formType === "Edit Booking" ? (<h2>Edit your Booking</h2>) : (<h2>Create your Booking</h2>)}
+                    {formType === "Edit Booking" ?
+                        (<div>
+                            <h2>Edit your Booking for {booking.category} in {booking.city} with {tasker[0]?.first_name}</h2>
+                        </div>
+                        ) : (<h2>Create your Booking with {tasker[0]?.first_name}</h2>)}
+
                     {formType === "Create Booking" ? (
                         <div id="category" className="border">
                             <div className="heading-error">
                                 <h3>
-                                    What category did you want your Tasker to help out with?
+                                    What category did you want {tasker[0]?.first_name} to help out with?
                                 </h3>
-                                {validationErrors.category ? (<p className="errors" className="errors">{validationErrors.category}</p>) : null}
+                                {validationErrors.category ? (<p className="errors" >{validationErrors.category}</p>) : null}
                             </div>
 
                             <select onChange={e => setCategory(e.target.value)}>
@@ -94,8 +103,8 @@ const BookingForm = ({ booking, formType }) => {
                             </select>
                         </div>)
                         :
-                        (<h3>Your booking category: {booking.category}</h3>
-                        )}
+                        null
+                    }
 
                     {formType === "Create Booking" ? (
                         <div id="city" className="border">
@@ -130,7 +139,8 @@ const BookingForm = ({ booking, formType }) => {
                             </select>
                         </div>)
                         :
-                        (<h3>{booking.city}</h3>)}
+                        null
+                    }
 
                     <div id="duration" className="border">
                         <div className="heading-error">
@@ -179,13 +189,13 @@ const BookingForm = ({ booking, formType }) => {
 
                     <div id="details" className="border">
                         <div className="heading-text">
-                        <div className="heading-error">
-                            <h3>
-                                Tell us the details of your task
-                            </h3>
-                            {validationErrors.details ? (<p className="errors">{validationErrors.details}</p>) : null}
-                        </div>
-                        Start the conversation and tell your Tasker what you need done. This helps us show you only qualified and available Taskers for the job. Don't worry, you can edit this later.
+                            <div className="heading-error">
+                                <h3>
+                                    Tell us the details of your task
+                                </h3>
+                                {validationErrors.details ? (<p className="errors">{validationErrors.details}</p>) : null}
+                            </div>
+                            Start the conversation and tell {tasker[0]?.first_name} what you need done. This helps your Tasker what to expect when preparing for your appointment. Don't worry, you can always edit your booking later!
                         </div>
                         <div className="border">
 
