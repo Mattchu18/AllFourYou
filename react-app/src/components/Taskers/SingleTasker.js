@@ -39,15 +39,7 @@ const GetSingleTasker = () => {
     allTaskerRev.forEach(rev => checkReviews.push(rev.user_id))
     return (
         <>
-            {currUser ? ((checkReviews.includes(currUser.id) || !(checkBookings.includes(parseInt(taskerId))))) ? null :
-                <OpenModalButton
-                    buttonText='Post Your Review!'
-                    modalComponent={<CreateReview taskerId={singleTasker.id} />}
-                />
-                : null}
-            <div>
-                {singleTasker.available === true ? (<><h1>This tasker is available to book!</h1> <NavLink exact to={`/${singleTasker.id}/bookings/new`}>Book this Tasker</NavLink></>) : null}
-            </div>
+    
 
             <div>
                 {singleTasker.bio}
@@ -75,6 +67,16 @@ const GetSingleTasker = () => {
             </div>
             <div>
                 {singleTasker.vehicles}
+            </div>
+
+            {currUser ? ((checkReviews.includes(currUser.id) || !(checkBookings.includes(parseInt(taskerId))))) ? null :
+                <OpenModalButton
+                    buttonText='Post Your Review!'
+                    modalComponent={<CreateReview taskerId={singleTasker.id} />}
+                />
+                : null}
+            <div>
+                {singleTasker.available === true ? (<><h1>This tasker is available to book!</h1> <NavLink exact to={`/${singleTasker.id}/bookings/new`}>Book this Tasker</NavLink></>) : <h1>This tasker is unavailable at the moment</h1>}
             </div>
 
             <br></br>

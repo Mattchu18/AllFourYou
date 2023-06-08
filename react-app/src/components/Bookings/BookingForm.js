@@ -1,8 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useHistory } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 import { thunkCreateBooking, thunkCurrentUserBookings, thunkEditBooking, thunkOneBooking } from "../../store/booking";
-import thunk from "redux-thunk";
+// import thunk from "redux-thunk";
+import { thunkAllTasks } from "../../store/task";
+import { thunkAllTaskers } from "../../store/taskers";
 // import { thunkCreateReview, thunkEditReview  } from "../../store/review";
 
 const BookingForm = ({ booking, formType }) => {
@@ -13,6 +16,14 @@ const BookingForm = ({ booking, formType }) => {
     const [duration, setDuration] = useState(booking?.duration)
     const [details, setDetails] = useState(booking?.details)
     const [validationErrors, setValidationErrors] = useState("")
+    const { taskerId } = useParams()
+    const allTasksObj = useSelector(state => state.task.allTasks)
+    const allTasks = Object.values(allTasksObj)
+    const taskersTask = allTasks.find(task => task.tasker_id === parseInt(taskerId))
+
+    useEffect(() => {
+        dispatch(thunkAllTasks())
+    }, [dispatch])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -59,18 +70,19 @@ const BookingForm = ({ booking, formType }) => {
                             Select a Category
                         </h3>
                         {validationErrors.category ? (<p>{validationErrors.category}</p>) : null}
+                        {}
                         <select onChange={e => setCategory(e.target.value)}>
                             <option value="">--Please choose a category--</option>
-                            <option value="Breeding">
+                            <option disabled={taskersTask?.category !== 'Breeding'} value="Breeding">
                                 Breeding
                             </option>
-                            <option value="Matchmaking">
+                            <option disabled={taskersTask?.category !== 'Matchmaking'} value="Matchmaking">
                                 Matchmaking
                             </option>
-                            <option value="Cooking">
+                            <option disabled={taskersTask?.category !== 'Cooking'} value="Cooking">
                                 Cooking
                             </option>
-                            <option value="Dancing">
+                            <option disabled={taskersTask?.category !== 'Dancing'}value="Dancing">
                                 Dancing
                             </option>
 
@@ -91,20 +103,20 @@ const BookingForm = ({ booking, formType }) => {
                     <option value="San Francisco">
                         San Francisco
                     </option>
-                    <option value="Los Angeles">
+                    <option disabled={taskersTask.city !== 'Los Angeles'} value="Los Angeles">
                         Los Angeles
                     </option>
 
-                    <option value="Miami">
+                    <option disabled={taskersTask.city !== 'Miami'} value="Miami">
                         Miami
 
                     </option>
 
-                    <option value="Toronto">
+                    <option disabled={taskersTask.city !== 'Toronto'} value="Toronto">
                         Toronto
 
                     </option>
-                    <option value="Joshua Tree">
+                    <option disabled={taskersTask.city !== 'Joshua Tree'} value="Joshua Tree">
                         Joshua Tree
 
                     </option>
