@@ -4,12 +4,16 @@ import session from './session'
 import bookingReducer from './booking';
 import taskReducer from './task';
 import reviewsReducer from './review'
+import taskersReducer from './taskers';
+import billingsReducer from './billing'
 
 const rootReducer = combineReducers({
   session,
   booking: bookingReducer,
   task: taskReducer,
   review: reviewsReducer,
+  tasker: taskersReducer,
+  billing: billingsReducer
 });
 
 

@@ -6,12 +6,15 @@ import { useParams } from 'react-router-dom';
 const GetOneReview = () => {
     const dispatch = useDispatch()
     const {reviewId} = useParams()
-    const review = useSelector(state => state.review.singleReview)
+    const review = useSelector(state => {
+        console.log(state)
+        return state.review.singleReview[reviewId]
+    })
 
     useEffect(() => {
-        dispatch(thunkOneReview(reviewId))
-    }, [dispatch, reviewId])
-    if(!review) return "no reviews by that id"
+        dispatch(thunkOneReview(review))
+    }, [dispatch])
+
 
     return (
         <>

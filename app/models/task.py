@@ -11,12 +11,11 @@ class Task(db.Model):
     category = db.Column(db.String(100), nullable = False)
     description = db.Column(db.String(500), nullable = False)
     tasker_id = db.Column(db.Integer(), db.ForeignKey(add_prefix_for_prod("taskers.id")), nullable = False)
-    available = db.Column(db.Boolean(), nullable = False)
+    # available = db.Column(db.Boolean(), nullable = False)
     created_at= db.Column(db.DateTime(),default=datetime.now)
 
 
-    taskers = db.relationship("Tasker", back_populates = "tasks")
-    task_bookings=db.relationship("Booking", back_populates="booking_task")
+    task_tasker = db.relationship("Tasker", back_populates = "tasker_task")
 
     reviews=db.relationship("Review", back_populates="task")
 
@@ -26,6 +25,6 @@ class Task(db.Model):
             'category': self.category,
             'description': self.description,
             'tasker_id': self.tasker_id,
-            'available': self.available,
+            # 'available': self.available,
             'created_at':self.created_at
         }

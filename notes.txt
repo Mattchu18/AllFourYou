@@ -36,3 +36,15 @@ DONT FORGET TO
     after deleting the migration file and LOOK AT THE DEBUGGING GITHUB THING BRAD SENT
 
 --Matt 6/5/2023 21:04
+
+
+We still need to adjust the migration file to accomodate the Production environment
+-- Matt 6/6/2023
+
+
+Maybe our edit review route needs an updated_at . ..
+-- Matt 6/6/2023
+
+
+Include the first_name and last_name to the taskers form soo we can query
+-- Matt 6/5/2023
