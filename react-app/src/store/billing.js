@@ -1,6 +1,6 @@
 const GET_CURRENT_CARDS = "billing/getallcards"
 const CREATE_CARD = "billing/createCard"
-const DELETE_CARDS = "billing/deleteCard"
+const DELETE_CARD = "billing/deleteCard"
 
 const loadCurrUserCards = (cards)=>({
     type: GET_CURRENT_CARDS,
@@ -10,7 +10,10 @@ const createCard = (card)=>({
     type: CREATE_CARD,
     card
 })
-
+const deleteCard = (cardId)=>({
+    type: DELETE_CARD,
+    cardId
+})
 
 export const thunkCurrUserCards=()=>async(dispatch)=>{
     const response = await fetch('/api/billing/')
@@ -30,6 +33,16 @@ export const thunkCreateCard = (card)=> async dispatch =>{
         dispatch(createCard(data))
     }
 }
+
+export const thunkDeleteCard = (cardId)=> async dispatch=>{
+    const response = await fetch(`/api/billing/delete/${cardId}`, {
+        "method": "DELETE"
+    })
+    if (response.ok){
+        dispatch(deleteCard(cardId))
+    }
+}
+
 const initialState = { currentUserCards:{}}
 const billingsReducer= (state = initialState, action)=>{
     switch(action.type){
@@ -52,6 +65,13 @@ const billingsReducer= (state = initialState, action)=>{
                 ...state, currentUserCards:{[newCard.id]: newCard}
 
             }
+        }
+        case DELETE_CARD:{
+            const newState={
+                ...state, currentUserCards:{...state.currentUserCards}
+            }
+            delete newState.currentUserCards[action.cardId]
+            return newState
         }
     default:return state
     }
