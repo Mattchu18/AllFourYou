@@ -15,6 +15,7 @@ import CreateBooking from "./components/Bookings/CreateBooking";
 import EditBooking from "./components/Bookings/EditBooking";
 import GetAllTaskers from "./components/Taskers/GetAllTaskers";
 import GetSingleTasker from "./components/Taskers/SingleTasker"
+import SearchBar from "./components/SearchBar";
 
 function App() {
   const dispatch = useDispatch();
@@ -44,6 +45,7 @@ function App() {
           <Route exact path='/taskers/all' component={GetAllTaskers} />
           <Route exact path="/taskers/:taskerId" component={GetSingleTasker} />
           <Route exact path='/review/:reviewId' component={EditReview} />
+          <Route exact path="/dashboard" component={SearchBar}></Route>
         </Switch>
 
       )}
