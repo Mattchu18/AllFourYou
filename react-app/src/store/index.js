@@ -5,6 +5,7 @@ import bookingReducer from './booking';
 import taskReducer from './task';
 import reviewsReducer from './review'
 import taskersReducer from './taskers';
+import billingsReducer from './billing'
 
 const rootReducer = combineReducers({
   session,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   task: taskReducer,
   review: reviewsReducer,
   tasker: taskersReducer
+  billing: billingsReducer
 });
 
 

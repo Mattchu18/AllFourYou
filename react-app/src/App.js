@@ -16,6 +16,8 @@ import EditBooking from "./components/Bookings/EditBooking";
 import GetAllTaskers from "./components/Taskers/GetAllTaskers";
 import GetSingleTasker from "./components/Taskers/SingleTasker"
 import SearchBar from "./components/SearchBar";
+import GetCurrentCards from "./components/Billing/CurrentUserCards";
+import CreateCard from "./components/Billing/CreateCard";
 
 function App() {
   const dispatch = useDispatch();
@@ -46,6 +48,8 @@ function App() {
           <Route exact path="/taskers/:taskerId" component={GetSingleTasker} />
           <Route exact path='/review/:reviewId' component={EditReview} />
           <Route exact path="/dashboard" component={SearchBar}></Route>
+          <Route exact path="/billing" component={GetCurrentCards}></Route>
+          <Route exact path="/billing/new">{CreateCard}</Route>
         </Switch>
 
       )}
