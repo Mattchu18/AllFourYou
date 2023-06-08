@@ -3,9 +3,12 @@ import { useEffect, Fragment } from "react";
 import { Link } from "react-router-dom"
 import { thunkCurrentUserBookings, thunkOneBooking } from "../../store/booking";
 import OpenModalButton from "../OpenModalButton";
-
+import CreateReview from '../Reviews/CreateReview'
 import DeleteBooking from "./DeleteBooking";
-
+import { thunkAllReviews } from "../../store/review";
+import { thunkAllTasks } from '../../store/task'
+import GetSingleTasker from "../Taskers/SingleTasker";
+import { NavLink } from 'react-router-dom';
 
 
 const GetCurrentBookings = () => {
@@ -13,17 +16,26 @@ const GetCurrentBookings = () => {
 
     const bookingsObj = useSelector(state => state.booking.currentUserBookings)
     const bookingsArr = Object.values(bookingsObj)
-    // console.log("I am inside the currentBookings!====>", bookingsArr)
-    // console.log("This is state in bookings", bookingsArr)
+    const allReviews = useSelector(state => state.review.allReviews)
+    const currUser = useSelector(state => state.session.user)
+    // const allTasks = useSelector(state => state.task.allTasks)
+    const findReviews = Object.values(allReviews).filter(review => review.user_id === currUser.id)
+    console.log(findReviews)
+
     useEffect(() => {
         dispatch(thunkCurrentUserBookings())
+        dispatch(thunkAllReviews())
+        dispatch(thunkAllTasks())
     }, [dispatch])
+
+
 
 
     return (
         <>
             {bookingsArr.length > 0 ? (<>{bookingsArr.map(booking => (
                 <>
+
                     <h2>booking id: {booking.id}</h2>
                     <p> category: {booking.category} </p>
                     <p> city: {booking.city} </p>
@@ -42,6 +54,20 @@ const GetCurrentBookings = () => {
                         buttonText="Delete Booking"
                         modalComponent={<DeleteBooking bookingId={booking.id} />}
                     />
+
+
+
+
+                    {findReviews.find(review => review.tasker_id === booking.tasker_id) ? 
+                    'Reviewed'
+                    :
+                    <OpenModalButton
+                        buttonText="Post Your Review!"
+                        modalComponent={<CreateReview taskerId={booking.tasker_id}/>}
+                        />
+                    }
+            
+                    
                 </>
             ))}</>) : (<h1>You have no bookings. Check out these taskers Below!</h1>)}
 

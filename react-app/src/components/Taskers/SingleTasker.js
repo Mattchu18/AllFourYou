@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import CreateReview from "../Reviews/CreateReview";
 import OpenModalButton from "../OpenModalButton";
 import { thunkCurrentUserBookings } from "../../store/booking";
+import { NavLink } from 'react-router-dom';
 
 const GetSingleTasker = () => {
     const dispatch = useDispatch()
@@ -17,19 +18,14 @@ const GetSingleTasker = () => {
     const allBookings = useSelector(state => state.booking.currentUserBookings)
     const allBookingsArr = Object.values(allBookings)
 
-    console.log("This is allbookigns array=====>", allBookings)
 
     const allowed = allBookingsArr.filter(booking => (currUser.id === booking.user_id))
-    console.log("this is allowed _++++++ ======> ", allowed)
     const checkBookings = []
 
     allowed.forEach(booking => {
         if (booking.tasker_id === parseInt(taskerId))
             return checkBookings.push(booking.tasker_id)
     })
-
-    console.log("THIS IS CHECK BOOKINGS!! =====>", checkBookings)
-    console.log("THIS IS ALLOWED!! ======> ",allowed)
 
     useEffect(() => {
         dispatch(thunkSingleTasker(taskerId))
@@ -43,15 +39,8 @@ const GetSingleTasker = () => {
     allTaskerRev.forEach(rev => checkReviews.push(rev.user_id))
     return (
         <>
-            {currUser ? ((checkReviews.includes(currUser.id) || !(checkBookings.includes(parseInt(taskerId))))) ? null :
-                <OpenModalButton
-                    buttonText='Post Your Review'
-                    modalComponent={<CreateReview tasker={singleTasker} />}
-                />
-                : null}
-            <div>
-                {singleTasker.available}
-            </div>
+    
+
             <div>
                 {singleTasker.bio}
             </div>
@@ -78,6 +67,16 @@ const GetSingleTasker = () => {
             </div>
             <div>
                 {singleTasker.vehicles}
+            </div>
+
+            {currUser ? ((checkReviews.includes(currUser.id) || !(checkBookings.includes(parseInt(taskerId))))) ? null :
+                <OpenModalButton
+                    buttonText='Post Your Review!'
+                    modalComponent={<CreateReview taskerId={singleTasker.id} />}
+                />
+                : null}
+            <div>
+                {singleTasker.available === true ? (<><h1>This tasker is available to book!</h1> <NavLink exact to={`/${singleTasker.id}/bookings/new`}>Book this Tasker</NavLink></>) : <h1>This tasker is unavailable at the moment</h1>}
             </div>
 
             <br></br>
