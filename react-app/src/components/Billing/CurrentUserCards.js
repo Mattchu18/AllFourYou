@@ -4,6 +4,8 @@ import { thunkCurrUserCards } from '../../store/billing'
 import DeleteCard from '../../components/Billing/DeleteCard'
 import thunk from "redux-thunk";
 import OpenModalButton from "../OpenModalButton";
+import {Link} from "react-router-dom"
+import OpenModalButton from "../OpenModalButton";
 import CreateCard from "./CreateCard"
 
 const GetCurrentCards = () =>{
@@ -35,14 +37,21 @@ return(
     {console.log(billing.card_number)}
     <div>card ending in: {(billing.card_number).toString().slice(12,16)}</div>
  {console.log("billiings======", billing)}
-         <DeleteCard
+        <OpenModalButton
+        buttonText="Delete"
+        modalComponent={<DeleteCard
         card = {billing}
+    />}
 
-    />
+ />
 
 
     </>
    ))}
+
+       <Link to="/billing/new">Input New  Card</Link>
+
+
     </>
 )
 
