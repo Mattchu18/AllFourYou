@@ -72,7 +72,7 @@ const BookingForm = ({ booking, formType }) => {
                 <form onSubmit={handleSubmit}>
                     {formType === "Edit Booking" ?
                         (<div>
-                            <h2>Edit your Booking for {booking.category} in {booking.city} with {tasker[0]?.first_name}</h2>
+                            <h2>Edit your Booking for {booking.category} in {booking.city}</h2>
                         </div>
                         ) : (<h2>Create your Booking with {tasker[0]?.first_name}</h2>)}
 
