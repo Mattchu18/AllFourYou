@@ -1,14 +1,20 @@
 // import { csrfFetch } from "./csrf";
-const GET_ALL_REVIEWS = "review/loadCurrUserReviews"
+const GET_ALL_CURR_REVIEWS = "review/loadCurrUserReviews"
+const GET_ALL_REVIEWS = "review/allReviews"
 const CREATE_REVIEW = "review/createReview"
 const EDIT_REVIEW = "review/editReview"
-const GET_ONE_REVIEW = "review/getOneReview"
+const GET_ONE_REVIEW = "review/getReview"
 const DELETE_REVIEW = "review/deleteReview"
 
 const loadCurrUserReviews = (reviews) => ({
-    type: GET_ALL_REVIEWS,
+    type: GET_ALL_CURR_REVIEWS,
     reviews
 })
+
+const loadAllReviews = (reviews) => ({
+    type: GET_ALL_REVIEWS,
+    reviews
+    })
 
 const getReview = (review) => ({
     type: GET_ONE_REVIEW,
@@ -38,6 +44,15 @@ export const thunkCurrUserReviews = () => async (dispatch) => {
         const data = await response.json()
         dispatch(loadCurrUserReviews(data))
 
+    }
+}
+
+export const thunkAllReviews = () => async (dispatch) => {
+    const response = await fetch('/api/reviews/all')
+
+    if(response.ok) {
+        const data = await response.json()
+        dispatch(loadAllReviews(data))
     }
 }
 
@@ -80,22 +95,31 @@ export const thunkEditReview = (review) => async dispatch => {
 }
 
 export const thunkDeleteReview = (review) => async dispatch => {
-    console.log('hello from thunk delete')
     const response = await fetch(`/api/reviews/delete/${review.id}`, {
         method: 'DELETE'
     })
     console.log('hello from thunk delete twice')
     if (response.ok) {
         const data = await response.json()
-        console.log("THIS ISM YT DATA FROM THUNK", data)
         dispatch(deleteReview(data))
     }
 }
 
 
-const initialState = { currentUserReviews: {}, singleReview: {} }
+const initialState = { currentUserReviews: {}, singleReview: {}, allReviews: {} }
 const reviewsReducer = (state = initialState, action) => {
     switch (action.type) {
+        case GET_ALL_CURR_REVIEWS: {
+            const newState = {}
+            const allCurrReviews = action.reviews
+            allCurrReviews.forEach(review => {
+                newState[review.id] = review
+            })
+            return {
+                ...state, 
+                currentUserReviews: newState
+            }
+        }
         case GET_ALL_REVIEWS: {
             const newState = {}
             const allReviews = action.reviews
@@ -103,8 +127,10 @@ const reviewsReducer = (state = initialState, action) => {
                 newState[review.id] = review
             })
             return {
-                ...state, currentUserReviews: newState
+                ...state,
+                allReviews: newState
             }
+
         }
         case GET_ONE_REVIEW: {
             const newState = {}
@@ -120,7 +146,8 @@ const reviewsReducer = (state = initialState, action) => {
             newState[newReview.id] = newReview
             return {
                 ...state,
-                singleReview: newState
+                singleReview: newState,
+                allReviews: { ...state.allReviews ,...newState}
             }
         }
         case EDIT_REVIEW: {
@@ -130,8 +157,10 @@ const reviewsReducer = (state = initialState, action) => {
             console.log("I am in the edit review", newReview)
             newState[newReview.id] = newReview
             return {
+                // might not need that new state, that looks odd test otu edit review again later
                 currentUserReviews: { ...state.currentUserReviews, ...newState },
-                singleReview: newState
+                singleReview: newState,
+                allReviews: {...state.allReviews}
             }
         }
         case DELETE_REVIEW: {
@@ -142,7 +171,8 @@ const reviewsReducer = (state = initialState, action) => {
             delete newSingleState[reviewId]
             return {
                 currentUserReviews: newState,
-                singleReview: newSingleState
+                singleReview: newSingleState,
+                allReviews: {...state.allReviews}
             }
         }
 

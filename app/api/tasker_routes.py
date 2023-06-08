@@ -28,31 +28,49 @@ tasker_routes = Blueprint('taskers', __name__, url_prefix='')
 #     res = [task.to_dict() for task in tasker_reviews]
 #     return res
 
+# @tasker_routes.route('/<int:id>/reviews')
+# def get_tasker_reviews(id):
+#     """
+#     Gets taskers reviews by id
+#     """
+
+#     tasks = Task.query.filter(Task.tasker_id == id).all()
+#     task_obj = [task.to_dict() for task in tasks]
+
+#     task_id_list = [task["id"] for task in task_obj]
+#     print("THIS IS TASK_ID_LIST====>",task_id_list)
+
+#     review_list = []
+#     for task_id in task_id_list:
+#         res = Review.query.filter(Review.task_id == task_id).all()
+
+#         if len(res):
+#             res_dict = res[0].to_dict()
+#             review_list.append(res_dict)
+#             continue
+#         else:
+#             return {"response": "tasker has no reviews"}
+#     return review_list
+
+
+@tasker_routes.route('/all')
+def get_all_taskers():
+    """
+    Gets all Taskers
+    """
+    all_taskers_obj = Tasker.query.all()
+    all_taskers = [tasker.to_dict() for tasker in all_taskers_obj]
+    return all_taskers
+
 @tasker_routes.route('/<int:id>')
-def get_tasker_reviews(id):
+def get_single_tasker(id):
     """
-    Gets tasker by id
+    Gets single tasker by id
     """
 
-    tasks = Task.query.filter(Task.tasker_id == id).all()
-    task_obj = [task.to_dict() for task in tasks]
+    single_tasker = Tasker.query.get(id)
 
-    task_id_list = [task["id"] for task in task_obj]
-    print("THIS IS TASK_ID_LIST====>",task_id_list)
-
-    review_list = []
-    for task_id in task_id_list:
-        res = Review.query.filter(Review.task_id == task_id).all()
-
-        if len(res):
-            res_dict = res[0].to_dict()
-            review_list.append(res_dict)
-            continue
-        else:
-            return {"response": "tasker has no reviews"}
-    return review_list
-
-# @tasker_routes.route('/<int:id>/reviews', methods=["POST"])
+    return single_tasker.to_dict()
 
 @tasker_routes.route('/<int:id>/reviews', methods=["POST"])
 @login_required

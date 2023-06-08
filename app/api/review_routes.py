@@ -17,6 +17,15 @@ def get_current_reviews():
     # print(" THIS IS ALL REVIEWS", new_reviews)
     return new_reviews
 
+@review_routes.route('/all')
+def get_all_reviews():
+    """
+    Gets all Reviews
+    """
+    all_reviews_obj = Review.query.all()
+    all_reviews = [review.to_dict() for review in all_reviews_obj]
+    return all_reviews
+
 @review_routes.route('/currentUser/<int:id>')
 @login_required
 def get_one_review(id):

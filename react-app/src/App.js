@@ -13,6 +13,8 @@ import GetCurrentBookings from "./components/Bookings/GetCurrentBookings"
 import GetAllTasks from "./components/Tasks/GetAllTasks"
 import CreateBooking from "./components/Bookings/CreateBooking";
 import EditBooking from "./components/Bookings/EditBooking";
+import GetAllTaskers from "./components/Taskers/GetAllTaskers";
+import GetSingleTasker from "./components/Taskers/SingleTasker"
 
 function App() {
   const dispatch = useDispatch();
@@ -34,12 +36,14 @@ function App() {
           </Route>
           <Route exact path='/reviews' component={GetCurrentUserReviews}/>
           {/* <Route exact path='/review/:reviewId' component={GetOneReview} /> */}
-          <Route exact path='/review/:reviewId' component={EditReview} />
-          <Route exact path='/:taskerId/review/new' component={CreateReview} />
+          {/* <Route exact path='/:taskerId/review/new' component={CreateReview} /> */}
           <Route exact path="/:taskerId/bookings/new" component={CreateBooking}></Route>
           <Route exact path="/bookings/all" component={GetCurrentBookings}></Route>
           <Route exact path="/booking/:bookingId" component={EditBooking}></Route>
           <Route exact path="/tasks/all" component={GetAllTasks}></Route>
+          <Route exact path="/taskers/:taskerId" component={GetSingleTasker} />
+          {/* <Route exact path='/taskers/all' component={GetAllTaskers} /> */}
+          <Route exact path='/review/:reviewId' component={EditReview} />
         </Switch>
 
       )}

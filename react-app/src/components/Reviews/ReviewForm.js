@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useHistory} from 'react-router-dom';
-import { thunkCreateReview, thunkCurrUserReviews, thunkEditReview, thunkOneReview  } from "../../store/review";
+import { thunkAllReviews, thunkCreateReview, thunkCurrUserReviews, thunkEditReview, thunkOneReview  } from "../../store/review";
 import { useModal } from "../../context/Modal";
+import { thunkSingleTasker } from "../../store/taskers";
 
 const ReviewForm = ({review, formType, disabled, tasker})=>{
     const dispatch = useDispatch()
@@ -74,6 +75,10 @@ const ReviewForm = ({review, formType, disabled, tasker})=>{
         // if (findReview) err.message = "You already have a review for this Tasker!"
         if (formType === "Create Review" && !Object.keys(err).length){
             await dispatch(thunkCreateReview(review))
+            .then(closeModal)
+            console.log(review.tasker_id)
+            history.push(`/taskers/${review.tasker_id}`)
+            dispatch(thunkSingleTasker(review.tasker_id))
         }
         
         else if (formType === "Edit Review" && !Object.keys(err).length) {
