@@ -5,6 +5,7 @@ import { thunkAllReviews } from "../../store/review";
 import { useParams } from 'react-router-dom';
 import CreateReview from "../Reviews/CreateReview";
 import OpenModalButton from "../OpenModalButton";
+import { thunkCurrentUserBookings } from "../../store/booking";
 
 const GetSingleTasker = () => {
     const dispatch = useDispatch()
@@ -13,66 +14,83 @@ const GetSingleTasker = () => {
     const allReviews = useSelector(state => state.review.allReviews)
     const allReviewsArr = Object.values(allReviews)
     const currUser = useSelector(state => state.session.user)
+    const allBookings = useSelector(state => state.booking.currentUserBookings)
+    const allBookingsArr = Object.values(allBookings)
+
+    console.log("This is allbookigns array=====>", allBookings)
+
+    const allowed = allBookingsArr.filter(booking => (currUser.id === booking.user_id))
+    console.log("this is allowed _++++++ ======> ", allowed)
+    const checkBookings = []
+
+    allowed.forEach(booking => {
+        if (booking.tasker_id === parseInt(taskerId))
+            return checkBookings.push(booking.tasker_id)
+    })
+
+    console.log("THIS IS CHECK BOOKINGS!! =====>", checkBookings)
+    console.log("THIS IS ALLOWED!! ======> ",allowed)
 
     useEffect(() => {
         dispatch(thunkSingleTasker(taskerId))
         dispatch(thunkAllReviews())
+        dispatch(thunkCurrentUserBookings())
     }, [dispatch, taskerId])
     const allTaskerRev = allReviewsArr.filter(review => review.tasker_id === parseInt(taskerId))
     const checkReviews = []
-    
-    if(!singleTasker) return "This tasker does not exist"
+
+    if (!singleTasker) return "This tasker does not exist"
     allTaskerRev.forEach(rev => checkReviews.push(rev.user_id))
     return (
         <>
-            {currUser ? ((checkReviews.includes(currUser.id))) ? null :
-            <OpenModalButton
-            buttonText='Post Your Review'
-            modalComponent={<CreateReview tasker={singleTasker}/>}
-                        /> 
-                        : null}
-                        <div>
-                        {singleTasker.available}
-                        </div>
-                        <div>
-                        {singleTasker.bio}
-                        </div>
-                        <div>
-                        {singleTasker.city}
-                        </div>
-                        <div>
-                        {singleTasker.email}
-                        </div>
-                        <div>
-                        {singleTasker.first_name}
-                        </div>
-                        <div>
-                        {singleTasker.last_name}
-                        </div>
-                        <div>
-                        {singleTasker.phone_number}
-                        </div>
-                        <div>
-                        {singleTasker.profile_image}
-                        </div>
-                        <div>
-                        {singleTasker.tools}
-                        </div>
-                        <div>
-                        {singleTasker.vehicles}
-                        </div>
+            {currUser ? ((checkReviews.includes(currUser.id) || !(checkBookings.includes(parseInt(taskerId))))) ? null :
+                <OpenModalButton
+                    buttonText='Post Your Review'
+                    modalComponent={<CreateReview tasker={singleTasker} />}
+                />
+                : null}
+            <div>
+                {singleTasker.available}
+            </div>
+            <div>
+                {singleTasker.bio}
+            </div>
+            <div>
+                {singleTasker.city}
+            </div>
+            <div>
+                {singleTasker.email}
+            </div>
+            <div>
+                {singleTasker.first_name}
+            </div>
+            <div>
+                {singleTasker.last_name}
+            </div>
+            <div>
+                {singleTasker.phone_number}
+            </div>
+            <div>
+                {singleTasker.profile_image}
+            </div>
+            <div>
+                {singleTasker.tools}
+            </div>
+            <div>
+                {singleTasker.vehicles}
+            </div>
 
-                        <br></br>
+            <br></br>
             <div>
                 {allTaskerRev.map(rev => {
                     return (
                         <>
-                        <div>
-                            {rev.star_rating}
-                        </div>
-                        <div>
-                        {rev.review_text}
-                        </div>
+                            <div>
+                                {rev.star_rating}
+                            </div>
+                            <div>
+                                {rev.review_text}
+                            </div>
                         </>
                     )
                 })}
