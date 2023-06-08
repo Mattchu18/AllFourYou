@@ -122,6 +122,8 @@ return (
                 <div>
                 {tasker.bio}
                 </div>
+                <br></br>
+                
                 </>
             )   
         }
