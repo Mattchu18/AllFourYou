@@ -51,38 +51,40 @@ const handleSubmit = async (e) =>{
     }
 }
 return(
-    <form onSubmit={handleSubmit}>
+    <form className='billingForm'onSubmit={handleSubmit}>
+
+            <div>
+                <h2>Card Information</h2>
+            </div>
 
             {errors.first_name ? (<p>{errors.first_name}</p>) :null}
-        <label>
+        <div>
             <input
             type="text"
             value={first_name}
             placeholder="first name"
             onChange={e=> set_first_name(e.target.value)}
             />
-        </label>
+        </div>
   {errors.last_name ? (<p>{errors.last_name}</p>) :null}
-        <label>
+        <div>
             <input
             type="text"
             value={last_name}
             placeholder="last name"
             onChange={e=> set_last_name(e.target.value)}
             />
-        </label>
+        </div>
  {errors.card_number ? (<p>{errors.card_number}</p>) :null}
-        <label>
+        <div>
             <input
             type="text"
             value={card_number}
             placeholder="card_number "
             onChange={e=> set_card_number(e.target.value)}
             />
-        </label>
-    <break></break>
+        </div>
  {errors.security_code ? (<p>{errors.security_code}</p>) :null}
-        <label>
             <div>
          <input
 
@@ -93,10 +95,9 @@ return(
             />
             </div>
 
-        </label>
 
  {errors.debit_card ? (<p>{errors.debit_card}</p>) :null}
-        <label>
+        <div>
             <div>
                    Debit
             <input
@@ -114,11 +115,10 @@ return(
     />
             </div>
 
+        </div>
 
-        </label>
 
-
-        <button type="submit">add new Card</button>
+        <button type="submit">Add New Card</button>
     </form>
 )
 

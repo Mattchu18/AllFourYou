@@ -98,24 +98,30 @@ const ReviewForm = ({review, formType, disabled, tasker})=>{
 
 return (
 
-    <form onSubmit={handleSubmit}>
-        <label>
-            {/* {errors.message} */}
-        </label>
+    <form className='reviewForm 'onSubmit={handleSubmit}>
+
+            <div>
+                <h1>Your Review</h1>
+            </div>
             {errors.review_text}
+            <div>
             <textarea
+                className="textInfo"
                 type="text"
                 value={review_text}
                 placeholder="What did you think? Any feedback is helpful."
                 onChange={e=> setReview_text(e.target.value)}
             />
+            </div>
 
 
-        <label>
         {errors.star_rating}
-        </label>
+        <div>
         {arr} Stars
-        <button type="submit" disabled={!review_text || !star_rating} >Submit your Review</button>
+        </div>
+        <div>
+            <button type="submit" disabled={!review_text || !star_rating} >Submit your Review</button>
+        </div>
 
 
     </form>

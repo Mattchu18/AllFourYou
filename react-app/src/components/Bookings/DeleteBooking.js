@@ -18,9 +18,10 @@ const DeleteBooking = ({ bookingId }) => {
 
     return (
         <div>
-            <h1>
+            <h2 className='bookingTitle'>
                 Are you sure you want to cancel your booking?
-            </h1>
+            </h2>
+            <div>
 
             <button onClick={handleDelete}>
                 Yes (Delete Booking)
@@ -29,6 +30,7 @@ const DeleteBooking = ({ bookingId }) => {
             <button onClick={closeModal}>
                 Cancel (Keep Booking)
             </button>
+            </div>
         </div>
     )
 
