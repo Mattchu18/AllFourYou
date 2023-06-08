@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, Fragment } from "react";
 import { Link } from "react-router-dom"
-import { thunkCurrentUserBookings } from "../../store/booking";
+import { thunkCurrentUserBookings, thunkOneBooking } from "../../store/booking";
 import OpenModalButton from "../OpenModalButton";
 
 import DeleteBooking from "./DeleteBooking";
@@ -30,6 +30,7 @@ const GetCurrentBookings = () => {
                     <p> duration: {booking.duration} </p>
                     <p> details: {booking.details} </p>
                     <p> user_id: {booking.user_id} </p>
+                    <p> tasker_id: {booking.tasker_id} </p>
                     <p> created_at: {booking.created_at} </p>
                     <p> updated_at: {booking.updated_at} </p>
                     <Link to={`/booking/${booking.id}`}>
