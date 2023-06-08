@@ -4,6 +4,7 @@ import { thunkCurrUserCards } from '../../store/billing'
 import DeleteCard from '../../components/Billing/DeleteCard'
 import thunk from "redux-thunk";
 import OpenModalButton from "../OpenModalButton";
+import {Link} from "react-router-dom"
 
 const GetCurrentCards = () =>{
     console.log("in curr user component")
@@ -38,6 +39,10 @@ return(
 
     </>
    ))}
+
+       <Link to="/billing/new">Input New  Card</Link>
+
+
     </>
 )
 
