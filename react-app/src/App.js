@@ -18,6 +18,7 @@ import GetSingleTasker from "./components/Taskers/SingleTasker"
 import SearchBar from "./components/SearchBar";
 import GetCurrentCards from "./components/Billing/CurrentUserCards";
 import CreateCard from "./components/Billing/CreateCard";
+import AccountPage from "./components/AccountPage/AccountPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -37,9 +38,11 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
+          <Route exact path="/" component={SearchBar}></Route>
           <Route exact path='/reviews' component={GetCurrentUserReviews}/>
-          {/* <Route exact path='/review/:reviewId' component={GetOneReview} /> */}
-          {/* <Route exact path='/:taskerId/review/new' component={CreateReview} /> */}
+          <Route exact path='/account' component={AccountPage} />
+          {/* <Route exact path='/review/:reviewId' component={GetOneReview} /> 
+         <Route exact path='/:taskerId/review/new' component={CreateReview} /> */}
           <Route exact path="/:taskerId/bookings/new" component={CreateBooking}/>
           <Route exact path="/bookings/all" component={GetCurrentBookings}/>
           <Route exact path="/booking/:bookingId" component={EditBooking}/>
@@ -47,7 +50,6 @@ function App() {
           <Route exact path='/taskers/all' component={GetAllTaskers} />
           <Route exact path="/taskers/:taskerId" component={GetSingleTasker} />
           <Route exact path='/review/:reviewId' component={EditReview} />
-          <Route exact path="/dashboard" component={SearchBar}></Route>
           <Route exact path="/billing" component={GetCurrentCards}></Route>
           <Route exact path="/billing/new">{CreateCard}</Route>
         </Switch>
