@@ -1,12 +1,21 @@
-import React, {useState} from 'react'
+import React, { useEffect, useState} from 'react'
 import { Fragment } from 'react'
 import './index.css'
+import { useDispatch, useSelector } from "react-redux";
+import { thunkAllTaskers } from '../../store/taskers';
 
 const SearchBar = () =>{
 
+    const dispatch = useDispatch()
 const [searchInput, setSearchInput] = useState("")
 const [searchResults, setSearchResults] = useState([])
+const allTaskersObj = useSelector(state => state.tasker.allTaskers)
+const allTaskers = Object.values(allTaskersObj)
+console.log(allTaskers[0])
 
+useEffect(() => {
+    dispatch(thunkAllTaskers())
+}, [dispatch])
 
 const handleChange = (e) => {
     e.preventDefault();
@@ -20,7 +29,7 @@ const enter =(e)=>{
     }
 }
 //need to add event listener to submit when pressing enter.
-
+if (!allTaskersObj) return 'loading...'
 
 const handleSearch = ()=>{
     fetch(`/api/search/?query=${searchInput}`)
@@ -84,15 +93,39 @@ return (
                 <div>{task?.description}</div>
                 </>
             ))}
-
             <br></br>
 
             </>
 
-        ))
-    ): (
-        <div> Sorry, no Results found :( </div>
-    )}
+
+))
+): 
+(
+    <div> Sorry, no Results found :( </div>
+    )
+    }  
+
+    {allTaskers.map((tasker, index) => {
+        if (index < 3) {
+            return (
+                <>
+                <div>
+                {tasker.profile_image}
+                </div>
+                <div>
+                {tasker.first_name}
+                {tasker.last_name}
+                </div>
+                <div>
+                {tasker.tools}
+                </div>
+                <div>
+                {tasker.bio}
+                </div>
+                </>
+            )   
+        }
+    })}
     </div>
 )
 }
