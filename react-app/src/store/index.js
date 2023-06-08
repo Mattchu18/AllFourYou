@@ -12,7 +12,7 @@ const rootReducer = combineReducers({
   booking: bookingReducer,
   task: taskReducer,
   review: reviewsReducer,
-  tasker: taskersReducer
+  tasker: taskersReducer,
   billing: billingsReducer
 });
 
