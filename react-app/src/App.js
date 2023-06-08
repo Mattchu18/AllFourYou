@@ -41,8 +41,8 @@ function App() {
           <Route exact path="/bookings/all" component={GetCurrentBookings}></Route>
           <Route exact path="/booking/:bookingId" component={EditBooking}></Route>
           <Route exact path="/tasks/all" component={GetAllTasks}></Route>
+          <Route exact path='/taskers/all' component={GetAllTaskers} />
           <Route exact path="/taskers/:taskerId" component={GetSingleTasker} />
-          {/* <Route exact path='/taskers/all' component={GetAllTaskers} /> */}
           <Route exact path='/review/:reviewId' component={EditReview} />
         </Switch>
 

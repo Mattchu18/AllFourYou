@@ -76,9 +76,9 @@ const ReviewForm = ({review, formType, disabled, tasker})=>{
         if (formType === "Create Review" && !Object.keys(err).length){
             await dispatch(thunkCreateReview(review))
             .then(closeModal)
-            console.log(review.tasker_id)
+            // console.log(review.tasker_id)
             history.push(`/taskers/${review.tasker_id}`)
-            dispatch(thunkSingleTasker(review.tasker_id))
+            // dispatch(thunkSingleTasker(review.tasker_id))
         }
         
         else if (formType === "Edit Review" && !Object.keys(err).length) {
