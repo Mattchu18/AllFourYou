@@ -103,20 +103,20 @@ const BookingForm = ({ booking, formType }) => {
                     <option value="San Francisco">
                         San Francisco
                     </option>
-                    <option disabled={taskersTask.city !== 'Los Angeles'} value="Los Angeles">
+                    <option disabled={taskersTask?.city !== 'Los Angeles'} value="Los Angeles">
                         Los Angeles
                     </option>
 
-                    <option disabled={taskersTask.city !== 'Miami'} value="Miami">
+                    <option disabled={taskersTask?.city !== 'Miami'} value="Miami">
                         Miami
 
                     </option>
 
-                    <option disabled={taskersTask.city !== 'Toronto'} value="Toronto">
+                    <option disabled={taskersTask?.city !== 'Toronto'} value="Toronto">
                         Toronto
 
                     </option>
-                    <option disabled={taskersTask.city !== 'Joshua Tree'} value="Joshua Tree">
+                    <option disabled={taskersTask?.city !== 'Joshua Tree'} value="Joshua Tree">
                         Joshua Tree
 
                     </option>
