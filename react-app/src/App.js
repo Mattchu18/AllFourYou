@@ -37,10 +37,10 @@ function App() {
           <Route exact path='/reviews' component={GetCurrentUserReviews}/>
           {/* <Route exact path='/review/:reviewId' component={GetOneReview} /> */}
           {/* <Route exact path='/:taskerId/review/new' component={CreateReview} /> */}
-          <Route exact path="/:taskerId/bookings/new" component={CreateBooking}></Route>
-          <Route exact path="/bookings/all" component={GetCurrentBookings}></Route>
-          <Route exact path="/booking/:bookingId" component={EditBooking}></Route>
-          <Route exact path="/tasks/all" component={GetAllTasks}></Route>
+          <Route exact path="/:taskerId/bookings/new" component={CreateBooking}/>
+          <Route exact path="/bookings/all" component={GetCurrentBookings}/>
+          <Route exact path="/booking/:bookingId" component={EditBooking}/>
+          <Route exact path="/tasks/all" component={GetAllTasks}/>
           <Route exact path='/taskers/all' component={GetAllTaskers} />
           <Route exact path="/taskers/:taskerId" component={GetSingleTasker} />
           <Route exact path='/review/:reviewId' component={EditReview} />

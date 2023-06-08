@@ -1,21 +1,31 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useHistory } from 'react-router-dom';
-import { thunkCreateBooking, thunkEditBooking } from "../../store/booking";
+import { thunkCreateBooking, thunkCurrentUserBookings, thunkEditBooking, thunkOneBooking } from "../../store/booking";
 import thunk from "redux-thunk";
 // import { thunkCreateReview, thunkEditReview  } from "../../store/review";
 
 const BookingForm = ({ booking, formType }) => {
     const dispatch = useDispatch()
-
+    const history = useHistory()
     const [category, setCategory] = useState(booking?.category)
     const [city, setCity] = useState(booking?.city)
     const [duration, setDuration] = useState(booking?.duration)
     const [details, setDetails] = useState(booking?.details)
-    const [errors, setErrors] = useState("")
+    const [validationErrors, setValidationErrors] = useState("")
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+
+        let errors = {}
+        if (!category) errors.category = "Category is required"
+        if (!city) errors.city = "City is required"
+        if (!duration) errors.duration = "Duration is required"
+        if (!details) errors.details = "Details are required"
+        setValidationErrors(errors)
+
+        if (!!Object.keys(errors).length) return
+
         booking = {
             ...booking,
             category,
@@ -26,11 +36,15 @@ const BookingForm = ({ booking, formType }) => {
         }
         if (formType === "Create Booking") {
             dispatch(thunkCreateBooking(booking))
+            dispatch(thunkCurrentUserBookings())
+            history.push(`/bookings/all`)
         }
 
         if (formType === "Edit Booking") {
             console.log("AM I IN HERE =====>", booking)
             dispatch(thunkEditBooking(booking))
+            dispatch(thunkCurrentUserBookings())
+            history.push(`/bookings/all`)
         }
     }
 
@@ -39,23 +53,41 @@ const BookingForm = ({ booking, formType }) => {
         <>
             <form onSubmit={handleSubmit}>
                 {formType === "Edit Booking" ? (<h2>Edit your Booking</h2>) : null}
-                {formType === "Create Booking" ? (<select onChange={e => setCategory(e.target.value)}>
-                    <option value="Breeding">
-                        Breeding
-                    </option>
-                    <option value="Matchmaking">
-                        Matchmaking
-                    </option>
-                    <option value="Cooking">
-                        Cooking
-                    </option>
-                    <option value="Dancing">
-                        Dancing
-                    </option>
+                {formType === "Create Booking" ? (
+                    <div>
+                        <h3>
+                            Select a Category
+                        </h3>
+                        {validationErrors.category ? (<p>{validationErrors.category}</p>) : null}
+                        <select onChange={e => setCategory(e.target.value)}>
+                            <option value="">--Please choose a category--</option>
+                            <option value="Breeding">
+                                Breeding
+                            </option>
+                            <option value="Matchmaking">
+                                Matchmaking
+                            </option>
+                            <option value="Cooking">
+                                Cooking
+                            </option>
+                            <option value="Dancing">
+                                Dancing
+                            </option>
 
-                </select>) : (<p>you are editing so no category for you</p>)}
+                        </select>
+                    </div>)
+                    :
+                    (<h3>{booking.category}</h3>
+                    )}
 
-                {formType === "Create Booking" ? (<select onChange={e => setCity(e.target.value)}>
+                {formType === "Create Booking" ? (
+                <div>
+                    <h3>
+                        Select a city
+                    </h3>
+                        {validationErrors.city ? (<p>{validationErrors.city}</p>) : null}
+                <select onChange={e => setCity(e.target.value)}>
+                    <option value="">--Please choose a city--</option>
                     <option value="San Francisco">
                         San Francisco
                     </option>
@@ -76,11 +108,16 @@ const BookingForm = ({ booking, formType }) => {
                         Joshua Tree
 
                     </option>
-                </select>) : (<p>you are editing so no city for you</p>)}
+                </select>
+                  </div>)
+                  :
+                  (<h3>{booking.city}</h3>)}
+
                 <div>
                     <h3>
                         Select a Duration
                     </h3>
+                    {validationErrors.duration ? (<p>{validationErrors.duration}</p>) : null}
                     <input
                         type="radio"
                         value="short"
@@ -119,6 +156,8 @@ const BookingForm = ({ booking, formType }) => {
                     <h3>
                         Task Details
                     </h3>
+                    {validationErrors.details ? (<p>{validationErrors.details}</p>) : null}
+
                     <textarea
                         type="text"
                         placeholder="Please write something about your task!"
@@ -127,7 +166,7 @@ const BookingForm = ({ booking, formType }) => {
                     />
                 </div>
 
-                <button type="submit">Submit</button>
+                <button type="submit" disabled={!(category || city || duration || details)}>Submit</button>
             </form>
 
         </>

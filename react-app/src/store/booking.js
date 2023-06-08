@@ -2,6 +2,7 @@ const GET_ALL_BOOKINGS = 'bookings/getAllBookings'
 const CREATE_BOOKING = "bookings/createABooking"
 const EDIT_BOOKING = "bookings/editBooking"
 const GET_ONE_BOOKING = "bookings/getOneBooking"
+const DELETE_BOOKING = "bookings/deleteBooking"
 
 const getAllBookingsAction = bookings => ({
     type: GET_ALL_BOOKINGS,
@@ -18,11 +19,16 @@ const createBooking = booking => ({
     booking
 })
 
-
 const editBooking = booking => ({
     type: EDIT_BOOKING,
     booking
 })
+
+const deleteBooking = booking => ({
+    type: DELETE_BOOKING,
+    booking
+})
+
 
 export const thunkCreateBooking = (booking) => async dispatch => {
     const response = await fetch(`/api/taskers/${booking.tasker_id}/book`, {
@@ -68,6 +74,16 @@ export const thunkEditBooking = (booking) => async dispatch => {
     }
 }
 
+export const thunkDeleteBooking = (bookingId) => async dispatch => {
+    const response = await fetch(`/api/bookings/delete/${bookingId}`, {
+        method: 'DELETE'
+    })
+    if (response.ok) {
+        dispatch(deleteBooking(bookingId))
+    }
+
+}
+
 
 const initialState = { currentUserBookings: {}, singleBooking: {} }
 const bookingReducer = (state = initialState, action) => {
@@ -76,6 +92,7 @@ const bookingReducer = (state = initialState, action) => {
             const newState = {}
             const allBookings = action.bookings
             allBookings.forEach(booking => {
+
                 newState[booking.id] = booking
             })
             return {
@@ -98,6 +115,17 @@ const bookingReducer = (state = initialState, action) => {
                 ...state, singleBooking: newState
             }
         }
+        case DELETE_BOOKING: {
+            const newState = {
+                ...state,
+                currentUserBookings: { ...state.currentUserBookings },
+                singleBooking: { ...state.singleBooking }
+            }
+            delete newState.currentUserBookings[action.bookingId]
+            delete newState.singleBooking[action.bookingId]
+            return newState
+        }
+
         default: return state
     }
 }
