@@ -5,10 +5,10 @@ const AccountPage = () => {
     return (
         <>
             <div>
-                <NavLink exact to='/reviews'>Your Reviews</NavLink>
+                <NavLink exact to='/reviews'>Manage Your Reviews</NavLink>
             </div>
             <div>
-                <NavLink exact to='/:taskerId/bookings/new'>Book a Tasker</NavLink>
+                <NavLink exact to='/'>Look for a Tasker to Book</NavLink>
             </div>
             <div>
                 <NavLink exact to='/billing/new'>Add New Payment</NavLink>
@@ -19,7 +19,6 @@ const AccountPage = () => {
             <div>
                 <NavLink exact to='/bookings/all'>Your bookings</NavLink>
             </div>
-            
         </>
     )
 }
