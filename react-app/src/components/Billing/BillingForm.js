@@ -7,7 +7,7 @@ import { useModal } from '../../context/Modal';
 const BillingForm = ({ card, formType, disabled})=>{
     const dispatch= useDispatch()
     const history = useHistory()
-    const closeModal = useModal()
+    const { closeModal } = useModal()
     const [first_name, set_first_name] = useState("")
     const [last_name, set_last_name] = useState("")
     const [card_number, set_card_number] = useState("")
@@ -42,11 +42,11 @@ const handleSubmit = async (e) =>{
     }
     if (formType ==="Create Card"){
         if(Object.values(errorHandling).length<1){
-        dispatch(thunkCreateCard(card))
-        // closeModal
+        await dispatch(thunkCreateCard(card))
+        .then(closeModal)
         history.push('/billing')
-        dispatch(thunkCurrUserCards())
-        }
+    }
+    dispatch(thunkCurrUserCards())
 
     }
 }
