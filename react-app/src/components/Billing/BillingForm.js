@@ -43,7 +43,7 @@ const handleSubmit = async (e) =>{
     if (formType ==="Create Card"){
         if(Object.values(errorHandling).length<1){
         dispatch(thunkCreateCard(card))
-        closeModal
+        // closeModal
         history.push('/billing')
         dispatch(thunkCurrUserCards())
         }
