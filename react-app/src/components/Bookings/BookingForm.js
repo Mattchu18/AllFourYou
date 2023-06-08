@@ -36,7 +36,8 @@ const BookingForm = ({ booking, formType }) => {
         }
         if (formType === "Create Booking") {
             dispatch(thunkCreateBooking(booking))
-                .then(history.push(`/bookings/all`))
+            dispatch(thunkCurrentUserBookings())
+            history.push(`/bookings/all`)
         }
 
         if (formType === "Edit Booking") {
