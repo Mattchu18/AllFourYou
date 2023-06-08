@@ -3,6 +3,7 @@ import { Fragment } from 'react'
 import './index.css'
 import { useDispatch, useSelector } from "react-redux";
 import { thunkAllTaskers } from '../../store/taskers';
+import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 
 const SearchBar = () =>{
 
@@ -110,7 +111,9 @@ return (
             return (
                 <>
                 <div>
-                {tasker.profile_image}
+                    <NavLink exact to={`/taskers/${tasker.id}`}>
+                        {tasker.profile_image}
+                    </NavLink>
                 </div>
                 <div>
                 {tasker.first_name}
@@ -123,7 +126,7 @@ return (
                 {tasker.bio}
                 </div>
                 <br></br>
-                
+
                 </>
             )   
         }
