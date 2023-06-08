@@ -2,17 +2,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useHistory} from 'react-router-dom';
 import { thunkCreateCard, thunkCurrUserCards } from "../../store/billing";
+import { useModal } from '../../context/Modal';
 
 const BillingForm = ({ card, formType, disabled})=>{
     const dispatch= useDispatch()
     const history = useHistory()
-
+    const closeModal = useModal()
     const [first_name, set_first_name] = useState("")
     const [last_name, set_last_name] = useState("")
     const [card_number, set_card_number] = useState("")
     const [security_code, set_security_code] = useState("")
     const [debit_card, set_debit_card] = useState("")
-
 
 const handleSubmit = async (e) =>{
     e.preventDefault()
@@ -26,8 +26,9 @@ const handleSubmit = async (e) =>{
     }
     if (formType ==="Create Card"){
         dispatch(thunkCreateCard(card))
-        .then(dispatch(thunkCurrUserCards()))
+        .then(closeModal)
         history.push('/billing')
+        dispatch(thunkCurrUserCards())
     }
 }
 return(

@@ -54,7 +54,7 @@ function App() {
           <Route exact path="/taskers/:taskerId" component={GetSingleTasker} />
           <Route exact path='/review/:reviewId' component={EditReview} />
           <Route exact path="/billing" component={GetCurrentCards}></Route>
-          <Route exact path="/billing/new">{CreateCard}</Route>
+          {/* <Route exact path="/billing/new">{CreateCard}</Route> */}
         </Switch>
 
       )}

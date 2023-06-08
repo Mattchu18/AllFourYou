@@ -3,6 +3,8 @@ import { useEffect, Fragment } from "react";
 import { thunkCurrUserCards } from '../../store/billing'
 import DeleteCard from '../../components/Billing/DeleteCard'
 import thunk from "redux-thunk";
+import OpenModalButton from "../OpenModalButton";
+import CreateCard from "./CreateCard"
 
 const GetCurrentCards = () =>{
     console.log("in curr user component")
@@ -20,6 +22,13 @@ const GetCurrentCards = () =>{
     }
 return(
     <>
+    <div>
+        <OpenModalButton
+        buttonText="Add Your Payments"
+        modalComponent={<CreateCard />}
+        />
+    </div>
+
    {billingsArr.map((billing)=>(
     <>
     <div>{billing.first_name}, {billing.last_name}</div>
