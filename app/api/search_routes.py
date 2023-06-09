@@ -13,7 +13,7 @@ def search_taskers():
     query = request.args.get('query')
     print("query===============", query)
     if not query:
-        return {"message": "Please enter a search"}
+        return "Please enter a search"
     else:
         results_id = Tasker.query.filter(Tasker.id.like(f'%{query}%')).all()
         results_city = Tasker.query.filter(Tasker.city.like(f'%{query}%')).all()
@@ -22,6 +22,15 @@ def search_taskers():
         results_email = Tasker.query.filter(Tasker.email.like(f'%{query}%')).all()
         results_category = Task.query.filter(Task.category.like(f'%{query}%')).all()
         results_description = Task.query.filter(Task.description.like(f'%{query}%')).all()
+
+
+        print(results_id)
+        print(results_city)
+        print(results_bio)
+        print(results_phone)
+        print(results_email)
+        print(results_category)
+        print(results_description)
 
         unique_set=set()
 
