@@ -13,7 +13,7 @@ def search_taskers():
     query = request.args.get('query')
     print("query===============", query)
     if not query:
-        return {"message": "Please enter a search"}
+        return "Please enter a search"
     else:
         results_id = Tasker.query.filter(Tasker.id.like(f'%{query}%')).all()
         results_city = Tasker.query.filter(Tasker.city.like(f'%{query}%')).all()
