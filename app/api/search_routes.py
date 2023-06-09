@@ -23,6 +23,15 @@ def search_taskers():
         results_category = Task.query.filter(Task.category.like(f'%{query}%')).all()
         results_description = Task.query.filter(Task.description.like(f'%{query}%')).all()
 
+
+        print(results_id)
+        print(results_city)
+        print(results_bio)
+        print(results_phone)
+        print(results_email)
+        print(results_category)
+        print(results_description)
+
         unique_set=set()
 
         results_list=[]
