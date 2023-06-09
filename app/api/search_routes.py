@@ -20,6 +20,11 @@ def search_taskers():
         results_bio = Tasker.query.filter(Tasker.bio.ilike(f'%{query}%')).all()
         results_phone = Tasker.query.filter(Tasker.phone_number.ilike(f'%{query}%')).all()
         results_email = Tasker.query.filter(Tasker.email.ilike(f'%{query}%')).all()
+        results_tools = Tasker.query.filter(Tasker.tools.ilike(f'%{query}%')).all()
+        results_vehicles = Tasker.query.filter(Tasker.vehicles.ilike(f'%{query}%')).all()
+        results_first_name = Tasker.query.filter(Tasker.first_name.ilike(f'%{query}%')).all()
+        results_last_name = Tasker.query.filter(Tasker.last_name.ilike(f'%{query}%')).all()
+        results_price = Tasker.query.filter(Tasker.hourly_rate.ilike(f'%{query}%')).all()
         results_category = Task.query.filter(Task.category.ilike(f'%{query}%')).all()
         results_description = Task.query.filter(Task.description.ilike(f'%{query}%')).all()
 
@@ -27,7 +32,7 @@ def search_taskers():
 
         results_list=[]
 
-        tasker_results = results_id + results_city + results_bio + results_phone + results_email
+        tasker_results = results_id + results_city + results_bio + results_phone + results_email + results_tools + results_vehicles + results_first_name + results_last_name + results_price
         task_results =results_category + results_description
 
         for tasker in tasker_results:
