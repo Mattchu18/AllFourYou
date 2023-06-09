@@ -27,9 +27,7 @@ useEffect(() => {
 //     e.preventDefault();
     // setSearchInput(e.target.value)
 // }
-// useEffect(() => {
-//   dispatch(thunkAllTaskers())
-// }, [dispatch])
+
 
 const enter =(e)=>{
     if (e.key==='Enter'){
@@ -76,6 +74,7 @@ const highlightText = (text) => {
   };
 
 return (
+  <section className="root">
     <div>
         <SearchBar searchInput={searchInput} handleSearch={handleSearch}/>
         {/* <input
@@ -92,19 +91,61 @@ return (
         searchResults.map((result)=>(
 
             <>
-             <Link to={`/taskers/${result.id}`}>
+             <Link class="link-to-taskers" to={`/taskers/${result.id}`}>
+          <div className="test">
+
+              <div>
+
+              </div>
             <div className="result-card">
-            <div key={result?.id}>{highlightText(result?.bio)}</div>
+              <div class="profile-pic">
+                <div>
+                <img class="imag" src={result.url}/>
+              </div>
+              <div>
+
+                <button className="contact-button">Contact tasker!</button>
+              </div>
+
+              </div>
+
+</div>
+
+          <div className="info">
+            <div className="name-price">
+              <div>
+                <h2>{highlightText(result?.firstName)}, {highlightText(result.lastName[0])}</h2>
+              </div>
+              <div className="price">{highlightText(result?.price)}</div>
+
+
+            </div>
+
+          <div className="tasker-details">
+            <div><i class="fas fa-truck"></i>{highlightText(result?.vehicles)}</div>
+
+            <div><i className="fas fa-toolbox"></i>{highlightText(result?.tools)}</div>
+          </div>
+
+            <div className="tasker-bio-card">
+              <div className='text-to-help'>
+                 How I can help:
+              </div>
+
+
+              <div className="tasker-bio" key={result?.id}>{highlightText(result?.bio)}</div>
             <div>{highlightText(result?.city)}</div>
             <div>contact tasker: email: {highlightText(result?.email)}, phone number:{highlightText(result?.phone)}</div>
-            <div>{result?.profile_image}</div>
             {result.tasks.map((task)=>(
                 <>
 
                 <div>{highlightText(task?.category)}</div>
                 <div>{highlightText(task?.description)}</div>
+
                 </>
             ))}
+            </div>
+            </div>
 </div>
    </Link>
             <br></br>
@@ -124,7 +165,9 @@ return (
 </div>
 
     </div>
+    </section>
 )
+
 }
 
 export default SearchResults;

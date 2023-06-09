@@ -16,6 +16,7 @@ class Tasker(db.Model):
     phone_number = db.Column(db.String(50), nullable = False, unique = True)
     bio = db.Column(db.String(500), nullable = False)
     profile_image = db.Column(db.String(500))
+    hourly_rate=db.Column(db.String(50))
     vehicles = db.Column(db.String(500), nullable = False)
     tools = db.Column(db.String(500), nullable = False)
 
@@ -37,6 +38,7 @@ class Tasker(db.Model):
             'phone_number': self.phone_number,
             'bio': self.bio,
             'profile_image': self.profile_image,
+            'hourly_rate':self.hourly_rate,
             'vehicles': self.vehicles,
             'tools': self.tools,
             'available': self.available,

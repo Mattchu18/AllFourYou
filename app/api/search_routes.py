@@ -33,6 +33,12 @@ def search_taskers():
         for tasker in tasker_results:
             tasker_data = {
                 'id': tasker.id,
+                'url':tasker.profile_image,
+                'firstName': tasker.first_name,
+                'lastName':tasker.last_name,
+                'price': tasker.hourly_rate,
+                'vehicles': tasker.vehicles,
+                'tools': tasker.tools,
                 'bio': tasker.bio,
                 'city': tasker.city,
                 'email': tasker.email,
@@ -65,7 +71,13 @@ def search_taskers():
             if tasker.id not in unique_set:
                 tasker_data = {
                     'id': tasker.id,
+                    'url':tasker.profile_image,
                     'bio': tasker.bio,
+                    'firstName': tasker.first_name,
+                    'lastName':tasker.last_name,
+                    'price': tasker.hourly_rate,
+                    'vehicles': tasker.vehicles,
+                    'tools': tasker.tools,
                     'city': tasker.city,
                     'email': tasker.email,
                     'phone': tasker.phone_number,

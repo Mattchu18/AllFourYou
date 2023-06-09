@@ -28,9 +28,6 @@ const GetCurrentBookings = () => {
         dispatch(thunkAllTasks())
     }, [dispatch])
 
-
-
-
     return (
         <>
             {bookingsArr.length > 0 ? (<>{bookingsArr.map(booking => (
@@ -58,7 +55,7 @@ const GetCurrentBookings = () => {
 
 
 
-                    {findReviews.find(review => review.tasker_id === booking.tasker_id) ? 
+                    {findReviews.find(review => review.tasker_id === booking.tasker_id) ?
                     'Reviewed'
                     :
                     <OpenModalButton
@@ -66,8 +63,8 @@ const GetCurrentBookings = () => {
                         modalComponent={<CreateReview taskerId={booking.tasker_id}/>}
                         />
                     }
-            
-                    
+
+
                 </>
             ))}</>) : (<h1>You have no bookings. Check out these taskers Below!</h1>)}
 

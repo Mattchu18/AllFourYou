@@ -1,9 +1,127 @@
+.root{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    background-color: rgb(238, 239, 239);
+ 
+}
 .highlighted{
-    background-color: yellow;
+    background-color: rgb(240, 240, 140);
 }
 .result-card{
-    border: 2px solid pink
+    /* border: 2px solid pink; */
+    display: flex;
+    width: 30%;
+    max-width:14rem;
+    justify-content: center;
+    align-items: center;
+
+    /* margin-bottom: 1rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    padding-bottom:1rem; */
 }
 .all-results{
-    border: 2px solid red
+    margin-left:4rem;
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+    margin-top: 2rem;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+
+}
+.imag{
+
+    height: 11rem;
+  width:11rem;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.profile-pic{
+    /* width: 25%;
+    /* height: 100%; */
+    /* max-width:9rem;
+    height: 9rem; */
+    /* max-height:10rem; */
+    /* border-radius: 100%;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;  */
+    /* border: 2px solid purple; */
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top:1rem;
+}
+.contact-button{
+    margin-top: 1.5rem;
+    border: 2px solid rgb(4, 61, 4);
+    border-radius: .25rem;
+    height: 2rem;
+    width: 8rem;
+    background-color: rgb(4, 61, 4);
+    color:white;
+
+
+
+}
+.test{
+    border: 1px solid rgb(186, 181, 181);
+    display: flex;
+    padding-bottom: 3rem;
+    border-radius: 20px;
+    background-color: white;
+}
+.info{
+    padding-left:1rem;
+    padding-right: 1rem;
+    /* border: 2px solid blue; */
+    color:black;
+
+}
+.link-to-taskers{
+    text-decoration: none;
+}
+.price{
+    padding-right: 2rem;
+    padding-top: 1rem;
+    font-size: large;
+}
+.name-price{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.fa-truck{
+padding-right: 1rem;
+}
+.fa-toolbox{
+    padding-right: 1rem;
+}
+.tasker-details{
+ padding-bottom: .5rem;
+ border-bottom: 1px solid gray;
+
+}
+.tasker-bio-card{
+    padding-top: .5rem;
+
+}
+.tasker-bio{
+    padding-top:.5rem;
+
+}
+.text-to-help{
+    font-weight: bold;
 }
