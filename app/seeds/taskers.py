@@ -99,13 +99,13 @@ def seed_taskers():
         last_name = 'M',
         email = 'taylorm_tasker@aa.io',
         city='Toronto',
-        phone_number= 1600000000,
+        phone_number= 1700000000,
         bio = "Hello! My name is Taylor and I teach education. My favorite subject to teach is most likely Math. I am a nerd when it comes to biology. I love the study of life and if you would like to learn more about biology or math please don't hesitate to contact me!",
         profile_image = "imagefortaylor.com",
         vehicles = "Porsche Cayenne",
         tools = 'Calculator, Textbooks',
         available= True,
-        task_id = 6
+        task_id = 7
     )
     kevinl = Tasker(
         username='kevinl_tasker',
@@ -113,13 +113,13 @@ def seed_taskers():
         last_name = 'L',
         email = 'kevinl_tasker@aa.io',
         city='Los Angeles',
-        phone_number= 1700000000,
+        phone_number= 1800000000,
         bio = "Hey everyone! My name is Kevin and I teach music. Whether you may want to learn the piano, guitar, flute or any kind of instrument, I can teach them all! I am passionate about teaching music, it is my bundle of joy and love getting to know everyone through music",
         profile_image = "imageforkevinl.com",
         vehicles = "Lamborghini Uru",
         tools = 'Guitar, Piano, Flute, Saxophone, Violin',
         available= True,
-        task_id = 7
+        task_id = 8
     )
 
 

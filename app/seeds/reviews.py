@@ -40,8 +40,8 @@ def seed_reviews():
         review_text="Wow I loved having Kevin L as my music instructor and I am just blown away!",
         star_rating=5,
         user_id=4,
-        task_id=7,
-        tasker_id=7,
+        task_id=8,
+        tasker_id=8,
     )
     review6=Review(
         review_text="Wow Kevin was an amazing dancer and he blew my mind, like how did he move like that, like wow, hes just so good, my goodness",
@@ -61,8 +61,8 @@ def seed_reviews():
         review_text = "Taylor is a teaching genius! He taught it to me and it was like everything just made sense",
         star_rating=5,
         user_id=4,
-        task_id=6,
-        tasker_id=6
+        task_id=7,
+        tasker_id=7
     )
     # review7=Review(
     #     review_text="Man that Kevin guy man. He just knows how to cook such delicious food. Just marry me already and cook for me all day long PLEASE.",
