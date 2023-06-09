@@ -7,8 +7,6 @@ import CreateReview from '../Reviews/CreateReview'
 import DeleteBooking from "./DeleteBooking";
 import { thunkAllReviews } from "../../store/review";
 import { thunkAllTasks } from '../../store/task'
-import GetSingleTasker from "../Taskers/SingleTasker";
-import { NavLink } from 'react-router-dom';
 
 
 const GetCurrentBookings = () => {
@@ -20,7 +18,7 @@ const GetCurrentBookings = () => {
     const currUser = useSelector(state => state.session.user)
     // const allTasks = useSelector(state => state.task.allTasks)
     const findReviews = Object.values(allReviews).filter(review => review.user_id === currUser.id)
-    console.log(findReviews)
+
 
     useEffect(() => {
         dispatch(thunkCurrentUserBookings())

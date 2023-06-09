@@ -70,7 +70,7 @@ def sign_up():
             password=form.data['password'],
             city=form.data['city'],
             phone_number=form.data['phone_number'],
-            tasker = form.data['tasker']
+            # tasker = form.data['tasker']
         )
         db.session.add(user)
         db.session.commit()

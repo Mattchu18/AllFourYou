@@ -32,3 +32,8 @@ form.reviewForm {
     flex-direction: column;
     gap: 10px;
 }
+
+.reviewForm label {
+    display: flex;
+    
+}
