@@ -12,6 +12,7 @@ class Review(db.Model):
     user_id=db.Column(db.Integer(), db.ForeignKey(add_prefix_for_prod("users.id")))
     task_id = db.Column(db.Integer(), db.ForeignKey(add_prefix_for_prod("tasks.id")))
     tasker_id = db.Column(db.Integer(), db.ForeignKey(add_prefix_for_prod("taskers.id")))
+    booking_id = db.Column(db.Integer(), db.ForeignKey(add_prefix_for_prod("bookings.id")))
     created_at= db.Column(db.DateTime(),default=datetime.now)
 
 
@@ -19,7 +20,7 @@ class Review(db.Model):
     task= db.relationship("Task", back_populates="reviews")
     taskers = db.relationship("Tasker", back_populates = "reviews")
 
-
+    review_booking = db.relationship("Booking", back_populates="booking_reviews")
     def to_dict(self):
         return {
             'id': self.id,
@@ -28,5 +29,6 @@ class Review(db.Model):
             'user_id': self.user_id,
             'task_id': self.task_id,
             'tasker_id': self.tasker_id,
+            'booking_id': self.booking_id,
             'created_at':self.created_at
         }

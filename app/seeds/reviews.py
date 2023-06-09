@@ -8,6 +8,7 @@ def seed_reviews():
         user_id=1,
         task_id=1,
         tasker_id=1,
+        booking_id=1
     )
     review2=Review(
         review_text="Amazing! married 5 years now.",
@@ -15,7 +16,7 @@ def seed_reviews():
         user_id=2,
         task_id=2,
         tasker_id=2,
-
+        booking_id=1
     )
     review3=Review(
         review_text="Ruined my relationship, but maybe for the best, wouldnt recommend but cheap price.",
@@ -23,6 +24,8 @@ def seed_reviews():
         user_id=3,
         task_id=3,
         tasker_id=3,
+        booking_id=2
+
     )
     review4=Review(
         review_text="Fantastic delicious food. ",
@@ -30,6 +33,8 @@ def seed_reviews():
         user_id=4,
         task_id=4,
         tasker_id=4,
+        booking_id=2
+
     )
     # review5=Review(
     #     review_text="Wow Kevin was an amazing dancer and he blew my mind, like how did he move like that, like wow, hes just so good, my goodness",

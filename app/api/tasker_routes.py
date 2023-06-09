@@ -84,14 +84,15 @@ def create_review(id):
     # task_obj=Task.query.filter(Task.id == tasker_obj.task_id)
     task_obj = Task.query.get(tasker_obj.task_id)
     booking_obj = Booking.query.filter(Booking.user_id == current_user.id).all()
-
     review_obj = Review.query.filter(Review.tasker_id == id).all()
     for review in review_obj:
         if review.user_id == current_user.id:
             return {"message": "We apologize, but you have made a review for this tasker already!"}
 
     for booking in booking_obj:
-        print("THIS IS THE BOOKING ========>", booking)
+        print("THIS IS BOOKING OBJ~~~~~~~~~~~~~~~~", booking)
+
+        print("THIS IS THE BOOKING ========>", booking.id)
         if booking.tasker_id == id:
             form = ReviewForm()
             print("HELLO THIS IS MY FORM DO I EVEN GET ANYTHING", form.data['review_text'])
@@ -107,6 +108,7 @@ def create_review(id):
                     star_rating=form.data["star_rating"],
                     user_id=current_user.id,
                     task_id= task_obj.id,
+                    booking_id = booking.id,
                     tasker_id = id
                 )
                 db.session.add(user_new_review)
