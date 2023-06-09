@@ -39,7 +39,7 @@ const GetSingleTasker = () => {
     allTaskerRev.forEach(rev => checkReviews.push(rev.user_id))
     return (
         <>
-    
+
 
             <div>
                 {singleTasker.bio}

@@ -66,7 +66,7 @@ const BookingForm = ({ booking, formType }) => {
 
 
     return (
-        <div className="body-container">
+        <div id="body-container">
 
             <div id="booking-form" className="booking-form border">
                 <form onSubmit={handleSubmit}>
