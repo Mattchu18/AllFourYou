@@ -40,7 +40,8 @@ const enter =(e)=>{
 
 const handleSearch = ()=>{
     fetch(`/api/search/?query=${searchInput}`)
-    .then((response)=> response.json())
+    .then((response)=> response.json()
+    )
     .then((data)=> setSearchResults(data.results))
     .catch((error)=>console.error(error))
 }
