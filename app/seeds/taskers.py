@@ -25,7 +25,7 @@ def seed_taskers():
         city='Demo City',
         phone_number= 1200000000,
         bio = "Hi I am Vanessa and I am the hippesta and coolioest dating expert. I am also a budding software engineer that plans to create my own dating app and host my own dating tv show. I have successfully matched over 500,000 people. I am here to help.",
-        profile_image = "imageforvanessa.com",
+        profile_image = "https://m.media-amazon.com/images/I/61H40+ZQXQL.jpg",
         hourly_rate="$36.45/hr",
         vehicles = "Smart Car",
         tools = "Keyboard, phone, therapist certification, influencer",
