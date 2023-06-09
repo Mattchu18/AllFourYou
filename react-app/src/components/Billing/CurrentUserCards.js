@@ -3,12 +3,19 @@ import { useEffect, Fragment } from "react";
 import { thunkCurrUserCards } from '../../store/billing'
 import DeleteCard from '../../components/Billing/DeleteCard'
 import thunk from "redux-thunk";
+import OpenModalButton from "../OpenModalButton";
+import {Link} from "react-router-dom"
+import CreateCard from "./CreateCard"
+import "./display_card.css"
+import { useModal } from '../../context/Modal';
+
 
 const GetCurrentCards = () =>{
     console.log("in curr user component")
     const dispatch = useDispatch()
     const billings = useSelector(state =>state.billing.currentUserCards)
     console.log("billings=====>", billings)
+    const {setModalContent}=useModal()
 
     const billingsArr = Object.values(billings)
     useEffect(()=>{
@@ -18,23 +25,48 @@ const GetCurrentCards = () =>{
     if(!billings){
         return "loading.."
     }
+
+    const openModal = (modalComponent) => {
+        setModalContent(modalComponent);
+      };
+    
 return(
     <>
+        <h1>Saved cards</h1>
+    <div className="card_container">
+    <div className="card button-container" onClick={()=>openModal(<CreateCard/>)} >
+        <div className="add_button">+ Add Payment Card</div>
+    </div>
    {billingsArr.map((billing)=>(
-    <>
-    <div>{billing.first_name}, {billing.last_name}</div>
-    {console.log(billing.card_number)}
-    <div>card ending in: {(billing.card_number).toString().slice(12,16)}</div>
- {console.log("billiings======", billing)}
-         <DeleteCard
-        card = {billing}
+       <div key={billing.id} className="card">
+        <div className="debit_credit">
+            {billing.debit_card==="yes" && <div>DEBIT</div>}
+            {billing.debit_card==="no" && <div>CREDIT</div>}
+        </div>
+        <div className="card-header">
+    <div className="card_ending"> <div className="dots">····  ····  ···· </div>{(billing.card_number).toString().slice(12,16)}</div>
+        </div>
+            <div className="card-body">
 
-    />
+    <div className="card_name">{billing.first_name}, {billing.last_name}</div>
+            
+            </div>
+        <OpenModalButton
+        buttonText="Delete Card"
+        modalComponent={<DeleteCard
+            card = {billing}
+            />}
+            
+            />
 
 
-    </>
+    </div>
    ))}
-    </>
+
+
+
+    </div>
+   </>
 )
 
 }

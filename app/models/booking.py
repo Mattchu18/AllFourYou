@@ -22,6 +22,7 @@ class Booking(db.Model):
     user = db.relationship("User", back_populates ="user_bookings")
     # booking_task= db.relationship("Task", back_populates="task_bookings")
     booking_tasker= db.relationship("Tasker", back_populates="tasker_booking")
+    booking_reviews = db.relationship("Review", back_populates="review_booking", cascade="all, delete")
 
     def to_dict(self):
         return {

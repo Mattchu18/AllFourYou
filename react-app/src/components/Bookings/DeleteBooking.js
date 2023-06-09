@@ -1,12 +1,12 @@
 import { useDispatch } from "react-redux";
 // import { deleteReview } from "../../store/reviews";
 import { useModal } from '../../context/Modal'
-import { thunkCurrentUserBookings, thunkDeleteBooking } from "../../store/booking";
+import { thunkCurrentUserBookings, thunkDeleteBooking, thunkOneBooking } from "../../store/booking";
+import { thunkDeleteReview } from "../../store/review";
 
 const DeleteBooking = ({ bookingId }) => {
     const dispatch = useDispatch()
     const { closeModal } = useModal()
-
 
     const handleDelete = async (e) => {
         e.preventDefault()
@@ -14,13 +14,16 @@ const DeleteBooking = ({ bookingId }) => {
         await dispatch(thunkDeleteBooking(bookingId))
         dispatch(thunkCurrentUserBookings())
         .then(closeModal)
+
     }
+
 
     return (
         <div>
-            <h1>
+            <h2 className='bookingTitle'>
                 Are you sure you want to cancel your booking?
-            </h1>
+            </h2>
+            <div>
 
             <button onClick={handleDelete}>
                 Yes (Delete Booking)
@@ -29,6 +32,7 @@ const DeleteBooking = ({ bookingId }) => {
             <button onClick={closeModal}>
                 Cancel (Keep Booking)
             </button>
+            </div>
         </div>
     )
 
