@@ -15,7 +15,7 @@ def search_taskers():
     if not query:
         return "Please enter a search"
     else:
-        results_id = Tasker.query.filter(Tasker.id.like(f'%{query}%')).all()
+        # results_id = Tasker.query.filter(Tasker.id.like(f'%{query}%')).all()
         results_city = Tasker.query.filter(Tasker.city.like(f'%{query}%')).all()
         results_bio = Tasker.query.filter(Tasker.bio.like(f'%{query}%')).all()
         results_phone = Tasker.query.filter(Tasker.phone_number.like(f'%{query}%')).all()
@@ -24,7 +24,7 @@ def search_taskers():
         results_description = Task.query.filter(Task.description.like(f'%{query}%')).all()
 
 
-        print(results_id)
+        # print(results_id)
         print(results_city)
         print(results_bio)
         print(results_phone)
@@ -36,7 +36,8 @@ def search_taskers():
 
         results_list=[]
 
-        tasker_results = results_id + results_city + results_bio + results_phone + results_email
+        tasker_results = results_city + results_bio + results_phone + results_email
+        # tasker_results = results_id + results_city + results_bio + results_phone + results_email
         task_results =results_category + results_description
 
         for tasker in tasker_results:
