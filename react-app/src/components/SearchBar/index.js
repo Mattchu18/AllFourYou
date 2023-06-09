@@ -90,6 +90,9 @@ return (
                       {tasker.profile_image}
                     </NavLink>
                   </div>
+                    {tasker.available ? 'Available' : 'Not Available'}
+                  <div>
+                  </div>
                   <div>
                     {tasker.first_name}
                     {tasker.last_name}
