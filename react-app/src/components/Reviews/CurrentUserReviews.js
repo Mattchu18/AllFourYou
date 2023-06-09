@@ -21,12 +21,14 @@ if(!reviews) return "loading.."
 return(
     <div>
        <h2>Manage reviews</h2>
-       <ul>
+       <ul className="review-container">
         {Object.values(reviews).map(review=>{
             return (
                 <>
-                <div>
+                <div className="star-rating-container">
+                    <i className="fas fa-star"></i>
                     {review?.star_rating}
+
                 </div>
                 <div>
                     {review?.review_text}
