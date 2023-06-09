@@ -45,7 +45,7 @@ const GetCurrentBookings = () => {
     }, [dispatch])
 
     return (
-        <div>
+        <div id="outer-container">
             <h1>Tasks you've booked</h1>
             <div id="body-container">
                 {bookingsArr.length > 0 ?
@@ -61,12 +61,24 @@ const GetCurrentBookings = () => {
                                         <span key={tasker.id}>With tasker {tasker.first_name}</span>
                                     ))}
                                     <span> duration: {booking.duration} </span>
-                                    <span> details: {booking.details} </span>
+
                                 </div>
 
                                 <p> Booked for {booking.updated_at} </p>
 
                                 <div className="buttons-div">
+
+                                    <div className="review">
+
+                                        {findReviews.find(review => review.tasker_id === booking.tasker_id) ?
+                                            <button className="reviewed-button" disabled="true">Already reviewed!</button>
+                                            :
+                                            <OpenModalButton
+                                                buttonText="Post Your Review!"
+                                                modalComponent={<CreateReview taskerId={booking.tasker_id} />}
+                                            />
+                                        }
+                                    </div>
                                     <Link to={`/booking/${booking.id}`}>
                                         <button>
                                             Edit Booking
@@ -77,14 +89,6 @@ const GetCurrentBookings = () => {
                                         modalComponent={<DeleteBooking bookingId={booking.id} />}
                                     />
 
-                                    {findReviews.find(review => review.tasker_id === booking.tasker_id) ?
-                                        'Reviewed'
-                                        :
-                                        <OpenModalButton
-                                            buttonText="Post Your Review!"
-                                            modalComponent={<CreateReview taskerId={booking.tasker_id} />}
-                                        />
-                                    }
                                 </div>
 
 
