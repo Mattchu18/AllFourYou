@@ -106,8 +106,12 @@ return (
 
                     </NavLink>
                   </div>
-                  <div className="tasker-names">
-                    {tasker.first_name} {tasker.last_name}
+                    {tasker.available ? 'Available' : 'Not Available'}
+                  <div>
+                  </div>
+                  <div>
+                    {tasker.first_name}
+                    {tasker.last_name}
                   </div>
                   <div className="about-tasker">
                   <div className="hr">

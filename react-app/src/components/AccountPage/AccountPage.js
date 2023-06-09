@@ -7,9 +7,9 @@ const AccountPage = () => {
             <div>
                 <NavLink exact to='/reviews'>Manage Your Reviews</NavLink>
             </div>
-            <div>
+            {/* <div>
                 <NavLink exact to='/'>Look for a Tasker to Book</NavLink>
-            </div>
+            </div> */}
             {/* <div>
                 <NavLink exact to='/billing/new'>Add New Payment</NavLink>
             </div> */}

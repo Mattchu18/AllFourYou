@@ -54,7 +54,7 @@ def seed_taskers():
         email='matthewa_tasker@aa.io',
         city='Demo City',
         phone_number= 1400000000,
-        bio = "Hi I am a dance instructer. I help people learn how to ballroom dance, hip-hop, salsa, and pole dance. I have over 1 year of experience and currently 2 students, Tony and Kevin. I am also a cheerleader on the side.",
+        bio = "Hi I am a dance instructor. I help people learn how to ballroom dance, hip-hop, salsa, and pole dance. I have over 1 year of experience and currently 2 students, Tony and Kevin. I am also a cheerleader on the side.",
         profile_image = "imageformatthew.com",
         hourly_rate="$50.45/hr",
         vehicles = "Bicycle, walking",
@@ -77,6 +77,7 @@ def seed_taskers():
         available = True,
         task_id = 5
         )
+
     adam = Tasker(
         username='adam_tasker',
         first_name = "Adam",
@@ -92,6 +93,35 @@ def seed_taskers():
         available = True,
         task_id = 6
         )
+    taylorm = Tasker(
+        username='taylorm_tasker',
+        first_name = 'Taylor',
+        last_name = 'M',
+        email = 'taylorm_tasker@aa.io',
+        city='Toronto',
+        phone_number= 1600000000,
+        bio = "Hello! My name is Taylor and I teach education. My favorite subject to teach is most likely Math. I am a nerd when it comes to biology. I love the study of life and if you would like to learn more about biology or math please don't hesitate to contact me!",
+        profile_image = "imagefortaylor.com",
+        vehicles = "Porsche Cayenne",
+        tools = 'Calculator, Textbooks',
+        available= True,
+        task_id = 6
+    )
+    kevinl = Tasker(
+        username='kevinl_tasker',
+        first_name = 'Kevin',
+        last_name = 'L',
+        email = 'kevinl_tasker@aa.io',
+        city='Los Angeles',
+        phone_number= 1700000000,
+        bio = "Hey everyone! My name is Kevin and I teach music. Whether you may want to learn the piano, guitar, flute or any kind of instrument, I can teach them all! I am passionate about teaching music, it is my bundle of joy and love getting to know everyone through music",
+        profile_image = "imageforkevinl.com",
+        vehicles = "Lamborghini Uru",
+        tools = 'Guitar, Piano, Flute, Saxophone, Violin',
+        available= True,
+        task_id = 7
+    )
+
 
     db.session.add(kevinb)
     db.session.add(vanessag)
@@ -99,6 +129,8 @@ def seed_taskers():
     db.session.add(matthewa)
     db.session.add(demo)
     db.session.add(adam)
+    db.session.add(taylorm)
+    db.session.add(kevinl)
     db.session.commit()
 
 

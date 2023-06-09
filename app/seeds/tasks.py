@@ -30,12 +30,6 @@ def seed_tasks():
         # available = True,
         )
 
-    # cooking2 = Task(
-    #     category = "Cooking",
-    #     description = "Vanessa will heat up a nice bowl of mac and cheese for you and your date!",
-    #     tasker_id = 2,
-    #     available = True,
-    #     )
 
     dancing1 = Task(
         category = "Dancing",
@@ -52,8 +46,39 @@ def seed_tasks():
         tasker_id = 5,
         # available = True,
         )
+    
+    education1 = Task(
+        category = "Education",
+        description = "Come study with Taylor!",
+        tasker_id = 6,
+        # available = True,
+        )
+    
+    music1 = Task(
+        category = "Music",
+        description = "Come learn music with Kevin!",
+        tasker_id = 7,
+        # available = True,
+        )
+    
+    dancing3 = Task(
+        category = "Dancing",
+        description = "Come dance with Kevin and have a great time!",
+        tasker_id = 1,
+        # available = True, 8
+        )
+    
+    dancing4 = Task(
+        category = "Dancing",
+        description = "Come dance with Matthew and have a great time!",
+        tasker_id = 4,
+        # available = True, 9
+        )
+    
+    
 
-    task_list = [breeding1, matchmaking1, cooking1, dancing1, dancing2]
+
+    task_list = [breeding1, matchmaking1, cooking1, dancing1, dancing2, education1, music1, dancing3, dancing4]
 
     for task in task_list:
         db.session.add(task)
