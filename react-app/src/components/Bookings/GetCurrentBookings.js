@@ -21,7 +21,21 @@ const GetCurrentBookings = () => {
     const currUser = useSelector(state => state.session.user)
     // const allTasks = useSelector(state => state.task.allTasks)
     const findReviews = Object.values(allReviews).filter(review => review.user_id === currUser.id)
-    console.log(findReviews)
+
+
+    const allTaskersObj = useSelector(state => state.tasker.allTaskers)
+    const allTaskersArr = Object.values(allTaskersObj)
+    console.log("THIS IS ALLTASKERS OBJ!! ====> ", allTaskersObj)
+
+    const matchedTaskersArr = []
+    bookingsArr.forEach(booking => {
+        const matchedTasker = allTaskersArr.find(tasker => booking.tasker_id === tasker.id)
+        if (matchedTasker) {
+            matchedTaskersArr.push(matchedTasker)
+        }
+    })
+
+    console.log("THIS IS MATCHEDTASKERARRS!!====>", matchedTaskersArr)
 
     const allTaskersObj = useSelector(state => state.tasker.allTaskers)
     const allTaskersArr = Object.values(allTaskersObj)

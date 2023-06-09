@@ -21,10 +21,16 @@ const DeleteCard = ({card}) =>{
     }
     return(
         <>
+        <div>
+        <div>
         <h2>Confirm Delete</h2>
+        </div>
         <p>Are you sure you want to remove this card?</p>
+        <div>
         <button onClick={handleDelete}>Delete</button>
         <button onClick={closeModal}>No, keep card</button>
+        </div>
+        </div>
         </>
     )
 }
