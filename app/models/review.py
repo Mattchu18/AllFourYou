@@ -28,5 +28,5 @@ class Review(db.Model):
             'user_id': self.user_id,
             'task_id': self.task_id,
             'tasker_id': self.tasker_id,
-            'created_at':self.created_at
+            'created_at':self.created_at  
         }
