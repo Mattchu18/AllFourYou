@@ -1,0 +1,40 @@
+#body-container {
+    border: solid red 1px;
+
+    display: flex;
+    justify-content: space-around;
+    min-height: 500px;
+}
+
+#bookings-container {
+    border: solid red 1px;
+    min-width: 1150px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+#tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: solid blue 1px;
+    border-radius: 30px;
+    min-width:500px;
+    max-width: 500px;
+    min-height: 250px;
+    max-width: 500px;
+    padding: 25px;
+}
+
+.buttons-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+.buttons-div button {
+    border-radius: 10px;
+    padding: 10px;
+}
