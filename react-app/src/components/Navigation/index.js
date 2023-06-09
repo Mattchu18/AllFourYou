@@ -13,9 +13,15 @@ function Navigation({ isLoaded }){
 				<NavLink exact to="/">taskDoctor</NavLink>
 			</li>
 			{ sessionUser ?
+			<>
 			<li>
 				<NavLink exact to ='/account'>Account</NavLink>
 			</li>
+			<li>
+                <NavLink exact to='/available'>Look for a Tasker to Book</NavLink>
+            </li>
+			</>
+			
 			: null
 			}
 			{isLoaded && (

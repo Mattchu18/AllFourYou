@@ -1,5 +1,6 @@
 """empty message
 
+<<<<<<< HEAD:migrations/versions/c834935e37a2_.py
 <<<<<<<< HEAD:migrations/versions/f301ac9a949a_.py
 Revision ID: f301ac9a949a
 Revises:
@@ -15,6 +16,11 @@ Revises:
 Create Date: 2023-06-08 15:46:59.343921
 >>>>>>>> origin/styling-billing:migrations/versions/fc5f9faadcdc_.py
 >>>>>>>> testing-branch2:migrations/versions/c834935e37a2_.py
+=======
+Revision ID: 060974527a6e
+Revises: 
+Create Date: 2023-06-09 10:34:23.290653
+>>>>>>> testing-branch2:migrations/versions/060974527a6e_.py
 
 """
 from alembic import op
@@ -25,6 +31,7 @@ environment = os.getenv("FLASK_ENV")
 SCHEMA = os.environ.get("SCHEMA")
 
 # revision identifiers, used by Alembic.
+<<<<<<< HEAD:migrations/versions/c834935e37a2_.py
 <<<<<<<< HEAD:migrations/versions/f301ac9a949a_.py
 revision = 'f301ac9a949a'
 ========
@@ -34,6 +41,9 @@ revision = 'c834935e37a2'
 revision = 'fc5f9faadcdc'
 >>>>>>>> origin/styling-billing:migrations/versions/fc5f9faadcdc_.py
 >>>>>>>> testing-branch2:migrations/versions/c834935e37a2_.py
+=======
+revision = '060974527a6e'
+>>>>>>> testing-branch2:migrations/versions/060974527a6e_.py
 down_revision = None
 branch_labels = None
 depends_on = None

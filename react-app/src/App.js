@@ -50,7 +50,7 @@ function App() {
           <Route exact path="/bookings/all" component={GetCurrentBookings}/>
           <Route exact path="/booking/:bookingId" component={EditBooking}/>
           <Route exact path="/tasks/all" component={GetAllTasks}/>
-          <Route exact path='/taskers/all' component={GetAllTaskers} />
+          <Route exact path='/available' component={GetAllTaskers} />
           <Route exact path="/taskers/:taskerId" component={GetSingleTasker} />
           <Route exact path='/review/:reviewId' component={EditReview} />
           <Route exact path="/billing" component={GetCurrentCards}></Route>
