@@ -44,7 +44,7 @@ const enter =(e)=>{
 //     const lowerCaseSearchInput = searchInput.toLowerCase();
 //     const parts = [];
 //     let startIndex = 0;
-    
+
 //     if(!searchInput){
 //         return text;
 //     }
@@ -63,50 +63,92 @@ const enter =(e)=>{
 //       );
 //       startIndex = index + searchInput.length;
 //     }
-  
+
 //     return parts;
 //   };
- 
+
 return (
-    <div>
-      <input
+    <div className="home">
+      <div className="search-container">
+        <div>
+        <h1>Book your next Task</h1>
+        </div>
+        <div className="search-card">
+          {/* <i className="fas fa-search"></i> */}
+                <input
+        className="search-bar"
         type="search"
         placeholder="Search task"
         onChange={handleChange}
         value={searchInput}
         onKeyDown={enter}
       />
+
+
+
+
       <NavLink to={{ pathname: "/results", search: `?query=${searchInput}` }}>
-        <button>Search</button>
+        <button className="button-search">Search</button>
       </NavLink>
+      </div>
+ </div>
       {location.pathname !== '/results' && (
         <>
+        <div className="container2">
           {allTaskers.map((tasker, index) => {
             if (index < 3) {
               return (
+                <div className="tasker-containers">
                 <React.Fragment key={tasker.id}>
-                  <div>
+                  <div >
                     <NavLink exact to={`/taskers/${tasker.id}`}>
-                      {tasker.profile_image}
+                      <img className="imag" src={tasker.profile_image}/>
+
                     </NavLink>
                   </div>
-                  <div>
-                    {tasker.first_name}
-                    {tasker.last_name}
+                  <div className="tasker-names">
+                    {tasker.first_name} {tasker.last_name}
                   </div>
-                  <div>{tasker.tools}</div>
-                  <div>{tasker.bio}</div>
+                  <div className="about-tasker">
+                  <div className="hr">
+
+                About Tasker<hr></hr>
+                  </div>
+                  </div>
+                  <div className="tools-bio">
+                    <div className="ha city">
+                    <i className="fas fa-city">  {tasker.city}</i>
+                    </div>
+                    <div className="ha prices">
+                    <i className="fas fa-money-bill"> {tasker.hourly_rate}</i>
+
+                    </div>
+                    <div className="ha vehicles">
+                    <i className="fas fa-truck"> {tasker.vehicles}</i>
+
+                    </div>
+                    <div className="ha tools">
+
+                    {tasker.tools}
+                    </div>
+                    <div className="view-tasker-profile">View Tasker Profile</div>
+
+                      {/* <div>{tasker.tools}</div> */}
+                  {/* <div>{tasker.bio}</div> */}
+                  </div>
+
                   <br />
                 </React.Fragment>
+                </div>
               );
             }
             return null;
-          })}
+          })}</div>
         </>
       )}
     </div>
   );
-  
+
 }
 
 export default SearchBar;

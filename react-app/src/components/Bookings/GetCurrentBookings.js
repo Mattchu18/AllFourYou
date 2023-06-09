@@ -44,9 +44,6 @@ const GetCurrentBookings = () => {
         dispatch(thunkAllTaskers())
     }, [dispatch])
 
-
-
-
     return (
         <div>
             <h1>Tasks you've booked</h1>

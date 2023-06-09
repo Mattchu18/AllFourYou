@@ -4,11 +4,14 @@ import { Fragment } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { useLocation } from 'react-router-dom';
-
+import {Link} from 'react-router-dom'
 import SearchBar from '../SearchBar';
+import { thunkAllTaskers } from '../../store/taskers';
 
 const SearchResults = () =>{
 const history=useHistory()
+const dispatch = useDispatch()
+
 const [searchResults, setSearchResults] = useState([])
 const allTaskersObj = useSelector(state => state.tasker.allTaskers)
 const allTaskers = Object.values(allTaskersObj)
@@ -24,6 +27,7 @@ useEffect(() => {
 //     e.preventDefault();
     // setSearchInput(e.target.value)
 // }
+
 
 const enter =(e)=>{
     if (e.key==='Enter'){
@@ -46,7 +50,7 @@ const highlightText = (text) => {
     const lowerCaseSearchInput = searchInput.toLowerCase();
     const parts = [];
     let startIndex = 0;
-    
+
     if(!searchInput){
         return text;
     }
@@ -65,11 +69,12 @@ const highlightText = (text) => {
       );
       startIndex = index + searchInput.length;
     }
-  
+
     return parts;
   };
- 
+
 return (
+  <section className="root">
     <div>
         <SearchBar searchInput={searchInput} handleSearch={handleSearch}/>
         {/* <input
@@ -80,37 +85,89 @@ return (
         onKeyDown={enter}
         /> */}
     {/* <button onClick={handleSearch}>Search</button> */}
+    <div class="all-results">
+
     {searchResults?.length>0 ? (
         searchResults.map((result)=>(
+
             <>
-            <Fragment>
-            <div key={result?.id}>{highlightText(result?.bio)}</div>
+             <Link class="link-to-taskers" to={`/taskers/${result.id}`}>
+          <div className="test">
+
+              <div>
+
+              </div>
+            <div className="result-card">
+              <div class="profile-pic">
+                <div>
+                <img class="imag" src={result.url}/>
+              </div>
+              <div>
+
+                <button className="contact-button">Contact tasker!</button>
+              </div>
+
+              </div>
+
+</div>
+
+          <div className="info">
+            <div className="name-price">
+              <div>
+                <h2>{highlightText(result?.firstName)}, {highlightText(result.lastName[0])}</h2>
+              </div>
+              <div className="price">{highlightText(result?.price)}</div>
+
+
+            </div>
+
+          <div className="tasker-details">
+            <div><i class="fas fa-truck"></i>{highlightText(result?.vehicles)}</div>
+
+            <div><i className="fas fa-toolbox"></i>{highlightText(result?.tools)}</div>
+          </div>
+
+            <div className="tasker-bio-card">
+              <div className='text-to-help'>
+                 How I can help:
+              </div>
+
+
+              <div className="tasker-bio" key={result?.id}>{highlightText(result?.bio)}</div>
             <div>{highlightText(result?.city)}</div>
             <div>contact tasker: email: {highlightText(result?.email)}, phone number:{highlightText(result?.phone)}</div>
-            <div>{result?.profile_image}</div>
             {result.tasks.map((task)=>(
                 <>
 
                 <div>{highlightText(task?.category)}</div>
                 <div>{highlightText(task?.description)}</div>
+
                 </>
             ))}
-</Fragment>
+            </div>
+            </div>
+</div>
+   </Link>
             <br></br>
 
             </>
 
 
+
 ))
-): 
+):
 (
     <div> Sorry, no Results found :( </div>
     )
-    }  
+    }
 
-   
+
+</div>
+
     </div>
+    </section>
 )
+
 }
 
 export default SearchResults;
