@@ -1,0 +1,17 @@
+form.signupForm {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.signupDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.loginButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

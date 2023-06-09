@@ -49,14 +49,15 @@ function SignupFormModal() {
 
 	return (
 		<>
-			<form className='reviewForm' onSubmit={handleSubmit}>
+			<form className='signupForm' onSubmit={handleSubmit}>
 			<h1>Sign Up</h1>
 					{errors.map((error, idx) => (
 						<li key={idx}>{error}</li>
 					))}
-				<div></div>
+				<div className='signupDiv'>
 				<label>
 					Email
+				</label>
 					{validationErrors.email ? (<p>{validationErrors.email}</p>) : null}
 					<input
 						type="text"
@@ -64,9 +65,11 @@ function SignupFormModal() {
 						onChange={(e) => setEmail(e.target.value)}
 
 					/>
-				</label>
+				</div>
+					<div className='signupDiv'>
 				<label>
 					Username
+				</label>
 					{validationErrors.username ? (<p>{validationErrors.username}</p>) : null}
 
 					<input
@@ -75,47 +78,58 @@ function SignupFormModal() {
 						onChange={(e) => setUsername(e.target.value)}
 
 					/>
-				</label>
+					</div>
+				<div className='signupDiv'>
 				<label>
-          First Name
+          	First Name
+			  </label>
 		  {validationErrors.first_name? (<p>{validationErrors.first_name}</p>) : null}
           <input
           type='text'
           value={first_name}
           onChange={(e) => setfirst_name(e.target.value)}
           />
-        </label>
+				</div>
+       <div className='signupDiv'>
         <label>
           Last Name
+		  </label>
 		  {validationErrors.last_name ? (<p>{validationErrors.last_name}</p>) : null}
           <input
           type='text'
           value={last_name}
           onChange={(e) => setlast_name(e.target.value)}
           />
-        </label>
+	   </div>
+		  <div className='signupDiv'>
 				<label>
           City 
+		  </label>
 		  {validationErrors.city ? (<p>{validationErrors.city}</p>) : null}
           <input
           type='text'
           value={city}
           onChange={(e) => setCity(e.target.value)}
           />
-        </label>
+		  </div>
+		  <div className='signupDiv'>
         <label>
           Phone Number
+		  </label>
 		  {validationErrors.phone_number ? (<p>{validationErrors.phone_number}</p>) : null}
           <input
           type='text'
           value={phone_number}
           onChange={(e) => setphone_number(e.target.value)}
           />
-        </label>
 
-				<label>
+		  </div>
+
+		<div className='signupDiv'>
+				<label >
 					Password
 					{validationErrors.password ? (<p>{validationErrors.password}</p>) : null}
+					</label>
 
 					<input
 						type="password"
@@ -123,16 +137,20 @@ function SignupFormModal() {
 						onChange={(e) => setPassword(e.target.value)}
 
 					/>
-				</label>
+		</div>
+
+					<div className='signupDiv'>
 				<label>
 					Confirm Password
+					</label>
 					<input
 						type="password"
 						value={confirmPassword}
 						onChange={(e) => setConfirmPassword(e.target.value)}
 
 					/>
-				</label>
+
+					</div>
 				<button type="submit">Sign Up</button>
 			</form>
 		</>
