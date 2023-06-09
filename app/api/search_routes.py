@@ -15,13 +15,13 @@ def search_taskers():
     if not query:
         return {"message": "Please enter a search"}
     else:
-        results_id = Tasker.query.filter(Tasker.id.ilike(f'%{query}%')).all()
-        results_city = Tasker.query.filter(Tasker.city.ilike(f'%{query}%')).all()
-        results_bio = Tasker.query.filter(Tasker.bio.ilike(f'%{query}%')).all()
-        results_phone = Tasker.query.filter(Tasker.phone_number.ilike(f'%{query}%')).all()
-        results_email = Tasker.query.filter(Tasker.email.ilike(f'%{query}%')).all()
-        results_category = Task.query.filter(Task.category.ilike(f'%{query}%')).all()
-        results_description = Task.query.filter(Task.description.ilike(f'%{query}%')).all()
+        results_id = Tasker.query.filter(Tasker.id.like(f'%{query}%')).all()
+        results_city = Tasker.query.filter(Tasker.city.like(f'%{query}%')).all()
+        results_bio = Tasker.query.filter(Tasker.bio.like(f'%{query}%')).all()
+        results_phone = Tasker.query.filter(Tasker.phone_number.like(f'%{query}%')).all()
+        results_email = Tasker.query.filter(Tasker.email.like(f'%{query}%')).all()
+        results_category = Task.query.filter(Task.category.like(f'%{query}%')).all()
+        results_description = Task.query.filter(Task.description.like(f'%{query}%')).all()
 
         unique_set=set()
 
