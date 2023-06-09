@@ -19,7 +19,7 @@ const GetSingleTasker = () => {
     const allBookingsArr = Object.values(allBookings)
 
 
-    const allowed = allBookingsArr.filter(booking => (currUser.id === booking.user_id))
+    const allowed = allBookingsArr.filter(booking => (currUser?.id === booking.user_id))
     const checkBookings = []
 
     allowed.forEach(booking => {

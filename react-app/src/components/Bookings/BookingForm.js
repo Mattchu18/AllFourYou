@@ -85,6 +85,12 @@ const BookingForm = ({ booking, formType }) => {
                             <option disabled={taskersTask?.category !== 'Dancing'}value="Dancing">
                                 Dancing
                             </option>
+                            <option disabled={taskersTask?.category !== 'Education'}value="Education">
+                                Education
+                            </option>
+                            <option disabled={taskersTask?.category !== 'Music'}value="Music">
+                                Music
+                            </option>
 
                         </select>
                     </div>)
