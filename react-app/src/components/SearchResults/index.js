@@ -46,7 +46,7 @@ const handleSearch = ()=>{
 }
 
 const highlightText = (text) => {
-    const lowerCaseText = text.toLowerCase();
+    const lowerCaseText = text?.toLowerCase();
     const lowerCaseSearchInput = searchInput.toLowerCase();
     const parts = [];
     let startIndex = 0;
@@ -55,7 +55,7 @@ const highlightText = (text) => {
         return text;
     }
 
-    while (startIndex < text.length) {
+    while (startIndex < text?.length) {
       const index = lowerCaseText.indexOf(lowerCaseSearchInput, startIndex);
       if (index === -1) {
         parts.push(text.substr(startIndex));
@@ -114,7 +114,7 @@ return (
           <div className="info">
             <div className="name-price">
               <div>
-                <h2>{highlightText(result?.firstName)}, {highlightText(result.lastName[0])}</h2>
+                <h2>{highlightText(result?.firstName)}, {highlightText(result?.lastName[0])}</h2>
               </div>
               <div className="price">{highlightText(result?.price)}</div>
 
