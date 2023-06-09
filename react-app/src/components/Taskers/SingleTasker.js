@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { thunkSingleTasker } from "../../store/taskers";
 import { thunkAllReviews } from "../../store/review";
 import { useParams } from 'react-router-dom';
@@ -19,7 +19,7 @@ const GetSingleTasker = () => {
     const allBookingsArr = Object.values(allBookings)
 
 
-    const allowed = allBookingsArr.filter(booking => (currUser.id === booking.user_id))
+    const allowed = allBookingsArr.filter(booking => (currUser?.id === booking.user_id))
     const checkBookings = []
 
     allowed.forEach(booking => {
@@ -39,7 +39,7 @@ const GetSingleTasker = () => {
     allTaskerRev.forEach(rev => checkReviews.push(rev.user_id))
     return (
         <>
-    
+
 
             <div>
                 {singleTasker.bio}

@@ -1,6 +1,7 @@
 
 import ReviewForm from './ReviewForm'
 import { useParams } from 'react-router-dom'
+import './Reviews.css'
 
 const CreateReview=({taskerId})=>{
   // const { taskerId } = useParams()

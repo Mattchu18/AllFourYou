@@ -20,10 +20,16 @@ const DeleteReview = ({ review }) => {
 
     return (
         <>
-        <h1>Confirm Delete</h1>
+        <div>
+            <div>
+        <h1 className='reviewTitle'>Confirm Delete</h1>
+            </div>
             <p>Are you sure you want to delete this Review?</p>
+            <div>
                 <button onClick={handleDelete}>Delete</button>
                 <button onClick={closeModal}>Cancel</button>
+            </div>
+        </div>
         </>
     )
 

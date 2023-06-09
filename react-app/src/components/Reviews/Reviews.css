@@ -1,0 +1,36 @@
+#modal-content {
+        display: flex;
+        justify-content: center;
+        /* align-items: center; */
+        width: 400px;
+        height: 400px;
+        border-radius: 10px;
+    }
+    
+form.reviewForm {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+}
+
+.textInfo {
+    width: 250px;
+    height: 150px;
+}
+
+
+.bookingTitle {
+    display: flex;
+    width: 300px;
+}
+
+.billingForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.reviewForm label {
+    display: flex;
+    
+}

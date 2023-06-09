@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: f301ac9a949a
+Revision ID: ab69501ba675
 Revises:
-Create Date: 2023-06-08 13:27:18.349625
+Create Date: 2023-06-09 10:38:12.420816
 
 """
 from alembic import op
@@ -13,7 +13,7 @@ environment = os.getenv("FLASK_ENV")
 SCHEMA = os.environ.get("SCHEMA")
 
 # revision identifiers, used by Alembic.
-revision = 'f301ac9a949a'
+revision = 'ab69501ba675'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -31,6 +31,7 @@ def upgrade():
     sa.Column('phone_number', sa.String(length=50), nullable=False),
     sa.Column('bio', sa.String(length=500), nullable=False),
     sa.Column('profile_image', sa.String(length=500), nullable=True),
+    sa.Column('hourly_rate', sa.String(length=50), nullable=True),
     sa.Column('vehicles', sa.String(length=500), nullable=False),
     sa.Column('tools', sa.String(length=500), nullable=False),
     sa.Column('available', sa.Boolean(), nullable=False),
@@ -98,7 +99,9 @@ def upgrade():
     sa.Column('user_id', sa.Integer(), nullable=True),
     sa.Column('task_id', sa.Integer(), nullable=True),
     sa.Column('tasker_id', sa.Integer(), nullable=True),
+    sa.Column('booking_id', sa.Integer(), nullable=True),
     sa.Column('created_at', sa.DateTime(), nullable=True),
+    sa.ForeignKeyConstraint(['booking_id'], ['bookings.id'], ),
     sa.ForeignKeyConstraint(['task_id'], ['tasks.id'], ),
     sa.ForeignKeyConstraint(['tasker_id'], ['taskers.id'], ),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
