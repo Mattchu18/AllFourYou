@@ -70,7 +70,7 @@ const enter =(e)=>{
 return (
     <div className="home">
       <div className="search-container">
-        <div>
+        <div className="book-your-next-task">
         <h1>Book your next Task</h1>
         </div>
         <div className="search-card">
@@ -87,14 +87,25 @@ return (
 
 
 
-      <NavLink to={{ pathname: "/results", search: `?query=${searchInput}` }}>
-        <button className="button-search">Search</button>
+      <NavLink className="home-link-search" to={{ pathname: "/results", search: `?query=${searchInput}` }}>
+        <div className="search-home-button">
+
+        <button hidden className="home-button-search"><i className="fas fa-search"></i></button>
+        </div>
       </NavLink>
       </div>
  </div>
       {location.pathname !== '/results' && (
         <>
+        <div className="home-top-taskers">
+    <div className="home-h2-tasker">
+
+          <h2>View some of our top taskers!</h2>
+          </div>
+
         <div className="container2">
+
+
           {allTaskers.map((tasker, index) => {
             if (index < 3) {
               return (
@@ -146,8 +157,10 @@ return (
                 </div>
               );
             }
+
             return null;
-          })}</div>
+          })} </div>
+                </div>
         </>
       )}
     </div>

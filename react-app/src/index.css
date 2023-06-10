@@ -6,7 +6,7 @@
 
 body{
     margin:0;
-    height: 100vh;
+    height: fit-content;
 }
 #root{
     background-color: #F2EDD7;

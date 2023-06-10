@@ -5,35 +5,38 @@
     display: flex;
     /* border: 2px solid red; */
     flex-direction: column;
-    margin-bottom: 6rem;
-    background-color: rgb(238, 239, 239);
-    padding-bottom: 10rem;
+    align-items: center;
+    /* margin-bottom: 6rem; */
+
+    /* padding-bottom: 10rem; */
 }
 .search-bar{
     width: 100%;
+    max-width: 800px;
     height: 2.5rem;
     flex-direction: column;
-    border: 1px solid gray;
+    /* border: 1px solid gray; */
     border-radius: .2rem;
 }
 .button-search{
     border: none;
 }
 .search-container{
-    margin-top: 4rem;
+    margin-top: 2rem;
     /* border: 2px solid yellow; */
+    max-width: 880px;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 4rem;
+    /* margin-bottom: 3rem; */
 
 }
 .search-card{
     display:flex;
     /* border: 2px solid red; */
-    width: 60%;
+    width: 100%;
 }
 .tasker-containers{
     border: 1px solid rgb(186, 181, 181);
@@ -51,6 +54,7 @@
     /* border: 2px solid orange; */
     display:flex;
     justify-content: space-evenly;
+    margin: 1rem 0 3rem 0;
 }
 .tasker-names{
     padding-bottom: .8rem;
@@ -94,4 +98,41 @@ flex-wrap:wrap;
 .view-tasker-profile{
     font-weight: bold;
     color: rgb(17, 79, 17);
+}
+.home-top-taskers{
+    display:flex;
+    flex-direction: column;
+    /* border: 2px solid red; */
+    align-items: center;
+}
+.home-h2-tasker{
+max-width: 880px;
+width: 100%;
+margin-top: 2rem;
+}
+.book-your-next-task{
+    margin-bottom: 1rem;
+    /* border: 2px solid red */
+}
+
+button .home-button-search{
+    border:none;
+    background-color:none !important;
+    text-decoration: none;
+    height: 1rem;
+    width: fit-content;
+}
+.home-link-search{
+    text-decoration: none;
+
+}
+.search-home-button{
+
+}
+a.home-link-search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: none !important;
+    width: 2rem;
 }
