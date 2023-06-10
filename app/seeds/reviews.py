@@ -198,7 +198,7 @@ def seed_reviews():
     review10 = Review(
     review_text="Outstanding service! The tasker was professional and completed the job quickly.",
     star_rating=5,
-    user_id=6,
+    user_id=3,
     task_id=6,
     tasker_id=6,
     booking_id=4
@@ -207,7 +207,7 @@ def seed_reviews():
     review11 = Review(
     review_text="I was disappointed with the quality of the work. It didn't meet my expectations.",
     star_rating=2,
-    user_id=7,
+    user_id=2,
     task_id=6,
     tasker_id=5,
     booking_id=4
@@ -216,7 +216,7 @@ def seed_reviews():
     review12 = Review(
     review_text="The tasker was friendly and helpful throughout the entire process. Highly recommend!",
     star_rating=4,
-    user_id=8,
+    user_id=5,
     task_id=7,
     tasker_id=8,
     booking_id=5
@@ -225,7 +225,7 @@ def seed_reviews():
     review13 = Review(
     review_text="I had a great experience with the tasker. They were prompt and professional.",
     star_rating=5,
-    user_id=9,
+    user_id=1,
     task_id=9,
     tasker_id=9,
     booking_id=6
@@ -234,7 +234,7 @@ def seed_reviews():
     review14 = Review(
     review_text="Average service. Nothing exceptional, but nothing terrible either.",
     star_rating=3,
-    user_id=10,
+    user_id=1,
     task_id=10,
     tasker_id=10,
     booking_id=7
