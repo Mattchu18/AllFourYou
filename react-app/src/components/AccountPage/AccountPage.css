@@ -1,0 +1,56 @@
+#account-body-div{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    padding: 32px;
+}
+
+.account-heading-content-div{
+    display: flex;
+    flex-direction: column;
+}
+
+.account-div {
+    display: flex;
+    border: 2px solid rgb(17, 79, 17);
+    max-width: 960px;
+    min-width: 755px;
+    min-height: 250px;
+}
+
+.links-div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px;
+    border-right: 2px solid rgb(17, 79, 17);
+
+}
+
+.links-div a {
+text-decoration: none;
+color: rgb(17, 79, 17);
+}
+.user-info-div {
+    display: flex;
+    flex-direction: column ;
+    gap: 10px;
+    padding: 16px;
+}
+
+.currUser-name i, .currUser-email i, .currUser-phone i, .currUser-city i{
+    margin-right: 8px;
+    font-size: x-large;
+    width: 30px;
+}
+
+.currUser-name, .currUser-email, .currUser-phone, .currUser-city{
+    display: flex;
+    align-items: center;
+    font-size: larger;
+}
+
+.icon {
+    gap: 10px;
+
+}
