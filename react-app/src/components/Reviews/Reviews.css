@@ -3,14 +3,26 @@
         justify-content: center;
         /* align-items: center; */
         width: 400px;
-        height: 400px;
+        height: 450px;
         border-radius: 10px;
+        box-shadow: 5px 5px 5px #52796f;
+        background-color: #52796f;
     }
+
+.cardButt {
+    background: white;
+    /* outline-color: dashed red; */
+    border: 2px solid white;
+    border-radius: 20px;
+    background-color: white;
+}
     
 form.reviewForm {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        justify-content: space-around;
+        gap: 5px;
+        margin: 0px;
 }
 
 .textInfo {
@@ -27,10 +39,17 @@ form.reviewForm {
 .billingForm {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    /* gap: 10px; */
+    margin: 0px;
+    max-width: fit-content;
+
 }
 
-.reviewForm label {
+.fa-star:hover {
+    cursor: pointer;
+}
+
+.deleteRevButt {
     display: flex;
-    
+    gap: 15px;
 }

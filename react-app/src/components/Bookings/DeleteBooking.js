@@ -23,13 +23,13 @@ const DeleteBooking = ({ bookingId }) => {
             <h2 className='bookingTitle'>
                 Are you sure you want to cancel your booking?
             </h2>
-            <div>
+            <div className='deleteRevButt'>
 
-            <button onClick={handleDelete}>
+            <button className='cardButt'  onClick={handleDelete}>
                 Yes (Delete Booking)
             </button>
 
-            <button onClick={closeModal}>
+            <button className='cardButt' onClick={closeModal}>
                 Cancel (Keep Booking)
             </button>
             </div>

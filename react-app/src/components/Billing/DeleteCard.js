@@ -27,8 +27,8 @@ const DeleteCard = ({card}) =>{
         </div>
         <p>Are you sure you want to remove this card?</p>
         <div>
-        <button onClick={handleDelete}>Delete</button>
-        <button onClick={closeModal}>No, keep card</button>
+        <button className='cardButt' onClick={handleDelete}>Delete</button>
+        <button className='cardButt' onClick={closeModal}>No, keep card</button>
         </div>
         </div>
         </>

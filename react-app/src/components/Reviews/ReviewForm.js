@@ -106,7 +106,8 @@ return (
             {errors.review_text}
             <div>
             <textarea
-                className="textInfo"
+            
+                className="textInfo cardButt"
                 type="text"
                 value={review_text}
                 placeholder="What did you think? Any feedback is helpful."
@@ -120,7 +121,7 @@ return (
         {arr} Stars
         </div>
         <div>
-            <button type="submit" disabled={!review_text || !star_rating} >Submit your Review</button>
+            <button className='cardButt' type="submit" disabled={!review_text || !star_rating} >Submit your Review</button>
         </div>
 
 

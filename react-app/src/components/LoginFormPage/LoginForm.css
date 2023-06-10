@@ -1,0 +1,11 @@
+form.loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-height: fit-content;
+    margin: 0px;
+}
+
+.loginButtons {
+    padding-bottom: 80px;
+}

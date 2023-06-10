@@ -1,7 +1,15 @@
 form.signupForm {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    /* justify-content: space-around; */
+    /* gap:px; */
+    /* max-height: fit-content; */
+    max-height: fit-content;
+    margin: 0px;
+}
+
+form.signupForm > h1 {
+    margin: 0px;
 }
 
 .signupDiv {

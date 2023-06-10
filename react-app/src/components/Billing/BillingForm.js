@@ -60,37 +60,40 @@ return(
             {errors.first_name ? (<p>{errors.first_name}</p>) :null}
         <div>
             <input
+            className='cardButt'
             type="text"
             value={first_name}
-            placeholder="first name"
+            placeholder="First name"
             onChange={e=> set_first_name(e.target.value)}
             />
         </div>
   {errors.last_name ? (<p>{errors.last_name}</p>) :null}
         <div>
             <input
+            className='cardButt'
             type="text"
             value={last_name}
-            placeholder="last name"
+            placeholder="Last name"
             onChange={e=> set_last_name(e.target.value)}
             />
         </div>
  {errors.card_number ? (<p>{errors.card_number}</p>) :null}
         <div>
             <input
+            className='cardButt'
             type="text"
             value={card_number}
-            placeholder="card_number "
+            placeholder="Card Number"
             onChange={e=> set_card_number(e.target.value)}
             />
         </div>
  {errors.security_code ? (<p>{errors.security_code}</p>) :null}
             <div>
          <input
-
+            className='cardButt'
             type="text"
             value={security_code}
-            placeholder="security code "
+            placeholder="Security Code"
             onChange={e=> set_security_code(e.target.value)}
             />
             </div>
@@ -108,6 +111,7 @@ return(
             />
             Credit
                       <input
+                      
             type="radio"
             value="no"
             name="debit?"
@@ -118,7 +122,7 @@ return(
         </div>
 
 
-        <button type="submit">Add New Card</button>
+        <button className='cardButt'type="submit">Add New Card</button>
     </form>
 )
 
