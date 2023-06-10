@@ -50,4 +50,5 @@
   .review-averages{
     display: flex;
     flex-direction: column;
+    color: rgb(38, 105, 47);
   }
