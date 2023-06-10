@@ -1,14 +1,15 @@
 
-#body-container {
+#form-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     min-height: 500px;
+    width: 100%;
 }
 
 #booking-form {
     max-width: 1150px;
     width: 100%;
-    background-color: #a2d2ff;
+    background-color: white;
 
 }
 
