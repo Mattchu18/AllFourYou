@@ -70,6 +70,10 @@ const enter =(e)=>{
 return (
     <div className="home">
       <div className="search-container">
+        {/* <div className="tool-box-container">
+
+        <img className="toolbox-red" src="https://media.discordapp.net/attachments/1062942242450460744/1117219657439531058/My_project.png?width=1410&height=937"/>
+        </div> */}
         <div className="book-your-next-task">
         <h1 className="h2-book-next">Book your next Task</h1>
         </div>
@@ -78,7 +82,7 @@ return (
                 <input
         className="search-bar"
         type="search"
-        placeholder="Search task"
+        placeholder="See below for some categories to search"
         onChange={handleChange}
         value={searchInput}
         onKeyDown={enter}
@@ -98,11 +102,32 @@ return (
       {location.pathname !== '/results' && (
         <>
         <div className="home-top-taskers">
-    <div className="home-h2-tasker">
+
+        <div className="container-ikea">
+          <img className="bunny-yellow" src="https://www.taskrabbit.com/v3/assets/_/_/_/_/_/_/_/apps/web/app/assets/images/web/dashboard/active-task-dashboard-img-da2fc974db98b71b4da8eef8f25db4fb.png"/>
+          <div className="ikea-1">
+
+        <h2 className="how-panda-use">How do you use your TaskPanda Account?</h2>
+        <h3 className="how-panda-use">A select below feature to recieve special offers coming soon!</h3>
+          </div>
+        </div>
+
+        <div className="partnered">
+          <div> <i className="fas fa-star stars-home"></i>
+        <i className="fas fa-star stars-home"></i>
+        <i className="fas fa-star stars-home"></i>
+        <i className="fas fa-star stars-home"></i>
+          <i className="fas fa-star stars-home"></i></div>
+
+
+<p> 10+ Reviews</p>
+<img className="app-academy-logo" src="https://assets-global.website-files.com/5dcc7f8c449e597ed83356b8/603820afd31232aab368ea6f_New%20Red-logo-emblem.webp"/>
+<p> Partnered with App Academy</p>
+        </div>
+        <div className="home-h2-tasker">
 
           <h2>View some of our top taskers!</h2>
           </div>
-
         <div className="container2">
 
 
