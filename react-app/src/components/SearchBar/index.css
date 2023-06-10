@@ -5,9 +5,9 @@
     display: flex;
     /* border: 2px solid red; */
     flex-direction: column;
-    margin-bottom: 6rem;
+    /* margin-bottom: 6rem; */
     background-color: rgb(238, 239, 239);
-    padding-bottom: 10rem;
+    /* padding-bottom: 10rem; */
 }
 .search-bar{
     width: 100%;
@@ -27,7 +27,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
 
 }
 .search-card{

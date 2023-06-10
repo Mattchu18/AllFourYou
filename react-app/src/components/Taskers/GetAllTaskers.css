@@ -1,0 +1,96 @@
+.available-tasker-card {
+    /* border: 1px solid gray; */
+    box-shadow: 3px 3px 4px gray;
+    display:flex;
+    width: 30%;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 36rem;
+    flex-direction: column;
+    border-radius: 1rem;
+    background-color: white;
+    margin-bottom:1rem;
+}
+.available-tasker-div{
+    border-bottom: 1px solid gray;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+.our-available-taskers{
+    color: rgb(17, 51, 17);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    padding-left: 2rem;
+    padding-top: 2rem;
+
+
+}
+.outer-available{
+    /* border: 2px solid black; */
+    display: flex;
+    gap: 2rem;
+    row-gap: 1rem;;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#root{
+    display:flex;
+    justify-content: center;
+}
+.image-card{
+    display:flex;
+    justify-content: center;
+    padding-top:1rem;
+}
+.available-tasker-info{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid red; */
+    flex-wrap: wrap;
+
+    height: 22rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 1rem;
+}
+.available-first-last-name{
+padding-bottom: .3rem;
+color: black;
+text-decoration: none;
+padding-top: .5rem;
+
+}
+.available-links{
+    text-decoration: none;
+}
+.availables{
+    color: rgb(13, 66, 13);
+    border: 1px solid green;
+    width: 100%;
+    margin-bottom: .5rem;
+    border-radius: .2rem;
+
+    height: fit-content;
+    padding: .5rem;
+    font-weight: 900;
+    font-size: smaller;
+}
+.available-bio{
+    /* font-family: fantasy; */
+    color:black;
+    border: none;
+    font-weight: 900;
+}
+.availablesss{
+    font-weight: 900;
+    /* font-size: smaller; */
+}
+.available-view-profile{
+    color: rgb(16, 95, 16);
+    padding-top: 1 rem;
+    padding-bottom: .5rem;
+    margin-top: 1rem;
+}
