@@ -4,6 +4,7 @@ import { thunkCurrUserReviews } from '../../store/review';
 import OpenModalButton from "../OpenModalButton";
 import DeleteReview from "./DeleteReview";
 import EditReview from "./EditReview";
+import "./current_user_review.css"
 
 const GetCurrentReviews = () =>{
     const dispatch = useDispatch()
@@ -16,20 +17,52 @@ const GetCurrentReviews = () =>{
         dispatch(thunkCurrUserReviews())
     }, [dispatch])
 
-console.log(reviews)
+    // display star rating by rating number
+const starDisplay=(star_rating)=>{
+    const starsArr=[]
+    for(let i=0;i<star_rating;i++){
+        starsArr.push(<i className="fas fa-star" ></i>)
+    }
+    return starsArr
+}
+// display average rating
+let totalReviews=0
+let totalRating=0
+Object.values(reviews).forEach((review)=>{
+    totalRating+=review.star_rating
+    totalReviews++
+})
+
+const averageRating= totalRating/totalReviews
+
+
 if(!reviews) return "loading.."
 return(
     <div>
-       <h2>Manage reviews</h2>
-       <ul className="review-container">
+       <h2>Manage your reviews</h2>
+       <div>
+        <div className="review-averages">
+            <div>
+                Average <i className="fas fa-star" ></i>({averageRating.toFixed(1)}) 
+                </div>
+                <div>
+
+            Total <i className="fas fa-comment-dots"></i> ({totalReviews})
+                </div>
+        </div>
+        
+       </div>
+       <div className="review-card-container">
+
         {Object.values(reviews).map(review=>{
             return (
+                <div className="review-container">
                 <>
                 <div className="review">
 
                 <div className="star-rating-container">
-                    <i className="fas fa-star"></i>
-                    {review?.star_rating}
+                {starDisplay(review?.star_rating)}
+                 
 
                 </div>
                 <div className="review-body">
@@ -52,10 +85,11 @@ return(
                 </div>
                 </div>
                 </>
+        </div>
             )
         })}
-       </ul>
-    </div>
+        </div>
+       </div>
 )
 }
 

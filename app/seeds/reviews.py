@@ -36,6 +36,44 @@ def seed_reviews():
         booking_id=2
 
     )
+       
+    review4=Review(
+        review_text="Fantastic delicious food. ",
+        star_rating=5,
+        user_id=1,
+        task_id=4,
+        tasker_id=4,
+        booking_id=9
+
+    )
+       
+    review4=Review(
+        review_text="Fantastic delicious food. ",
+        star_rating=5,
+        user_id=1,
+        task_id=4,
+        tasker_id=4,
+        booking_id=8
+
+    )
+    review5=Review(
+        review_text="Fantastiasdc delicious food. ",
+        star_rating=5,
+        user_id=1,
+        task_id=1,
+        tasker_id=1,
+        booking_id=4
+
+    )
+    review6=Review(
+        review_text="Fantastic delicious food. ",
+        star_rating=5,
+        user_id=1,
+        task_id=3,
+        tasker_id=3,
+        booking_id=6
+
+    )
     # review5=Review(
     #     review_text="Wow Kevin was an amazing dancer and he blew my mind, like how did he move like that, like wow, hes just so good, my goodness",
     #     star_rating=5,
@@ -57,7 +95,7 @@ def seed_reviews():
     #     task_id=4,
     #     tasker_id=1,
     # )
-    review_list = [review1, review2, review3, review4]
+    review_list = [review1, review2, review3, review4,review5,review6]
 
     for review in review_list:
         db.session.add(review)

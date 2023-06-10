@@ -70,44 +70,4 @@
   font-size: 30px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-/* current use review styling */
-.review-container {
-  list-style-type: none;
-  padding-top: 10px;
-  height: 10rem;
-  background-color: rgb(194, 220, 199);
-  width: 25%;
-  border: solid rgb(132, 233, 142);
-  box-shadow: 4px 3px 4px rgba(0, 0, 0, 0.6);
-  border-radius: 10px;
-}
-.review {
-  gap: 10px;
-}
-
-.buttons-div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: auto;
-  width: 100%;
-  gap: 2rem;
-}
-
-.review-body {
-  display: flex;
-  text-shadow: 2px 2px 4px rgba(63, 63, 63, 0.1);
-  font-size: 20px;
-  text-align: center;
-  flex-wrap: wrap;
-}
-
-.star-rating-container {
-  color: rgb(58, 90, 63);
-  display: flex;
-  font-size: 1.4rem;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1rem;
-}
 
