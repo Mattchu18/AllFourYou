@@ -5,14 +5,7 @@
 .hidden {
   display: none;
 }
-#root{
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color:  rgb(238, 239, 239);
-  /* background-color: white; */
-}
+
 .profile-dropdown{
   /* display: flex; */
   justify-content: center;
@@ -41,7 +34,7 @@ border: none;
   /* border: 2px solid purple; */
   display:flex;
   justify-content: space-between;
-  margin: .5rem;
+
   padding-top: 2rem;
   padding-bottom:1rem;
 
@@ -72,4 +65,3 @@ border: none;
   color:rgb(8, 64, 8);
   font-weight: 500;
 }
-
