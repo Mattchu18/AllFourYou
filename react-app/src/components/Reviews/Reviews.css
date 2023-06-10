@@ -1,4 +1,4 @@
-#modal-content {
+        #modal-content {
         display: flex;
         justify-content: center;
         /* align-items: center; */
@@ -33,4 +33,19 @@ form.reviewForm {
 .reviewForm label {
     display: flex;
     
+}
+
+.review-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    border: solid black;
+    padding: 1rem;
+  }
+
+.star-rating-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
 }
