@@ -1,7 +1,14 @@
+#root {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
 #outer-container {
     display: flex;
     flex-direction: column;
-align-items: center;
+    align-items: center;
 }
 
 #body-container {
@@ -11,8 +18,8 @@ align-items: center;
     justify-content: center;
 
     min-height: 500px;
-    min-width: 1150px;
-    max-width: 1150px;
+    min-width: 1024px;
+    max-width: 1024px;
 }
 
 #bookings-container {
@@ -27,26 +34,100 @@ align-items: center;
 
 #tile {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
+
     border: solid blue 1px;
     border-radius: 30px;
 
-    height: 200px;
-    width: 25%;
+    min-height: 250px;
+    height: fi;
+    width: 100%;
     padding: 20px;
+}
+
+#profile-image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    height: 100%;
+
+}
+
+.profile-image {
+    height: 11rem;
+    width: 11rem;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.contact-tasker-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #043d04;
+    border-radius: .25rem;
+    height: 2rem;
+    width: 8rem;
+    background-color: #043d04;
+    color: #fff;
+
+}
+
+.booking-description {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 20px;
+}
+
+.bolded {
+    font-weight: bold;
+}
+
+.booking-description p{
+    margin: 0;
 }
 
 .buttons-div {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 15px;
+    padding: 20px 0;
+}
+
+.edit-delete-div {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+}
+
+div button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.buttons-div button {
+    flex-direction: column;
+    width: 12rem;
+    height: 40px;
+    border-radius: .25rem;
 
 }
 
 .buttons-div button {
-    border-radius: 10px;
-    padding: 5px;
+    flex-direction: column;
+    width: 12rem;
+    height: 40px;
+    border-radius: .25rem;
+
 }
 
 /* .reviewed-button {

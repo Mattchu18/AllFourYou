@@ -52,20 +52,36 @@ const GetCurrentBookings = () => {
                     (<div id="bookings-container">
                         {bookingsArr.map(booking => (
                             <div id="tile">
-                                <div>
+
+
+                                {matchedTaskersArr.filter(tasker => tasker.id === booking.tasker_id).map(tasker => (
+                                    <>
+                                        <div id="profile-image-container" >
+
+                                            {<img class="profile-image" src={tasker.profile_image}></img>}
+                                            <span key={tasker.id}>{tasker.first_name}, {tasker.last_name}</span>
+                                            <div class="contact-tasker-div">Contact tasker!</div>
+                                        </div>
+
+                                    </>
+                                ))}
+
+
+                                <div className="booking-description">
                                     <h2>{booking.category} in {booking.city}</h2>
+                                    <div class="duration-div">
+                                        <span class="bolded">Task Length:</span>
+                                        <br />
+                                        <span>{booking.duration} task</span>
+
+                                    </div>
+                                    <div>
+                                        <span class="bolded">Details: </span>
+                                        <br />
+                                        <span>{booking.details}</span>
+                                    </div>
+                                    <p> Booked for {booking.updated_at} </p>
                                 </div>
-
-                                <div>
-                                    {matchedTaskersArr.filter(tasker => tasker.id === booking.tasker_id).map(tasker => (
-                                        <span key={tasker.id}>With tasker {tasker.first_name}</span>
-                                    ))}
-                                    <span> duration: {booking.duration} </span>
-
-                                </div>
-
-                                <p> Booked for {booking.updated_at} </p>
-
                                 <div className="buttons-div">
 
                                     <div className="review">
@@ -79,15 +95,19 @@ const GetCurrentBookings = () => {
                                             />
                                         }
                                     </div>
-                                    <Link to={`/booking/${booking.id}`}>
-                                        <button>
-                                            Edit Booking
-                                        </button>
-                                    </Link>
-                                    <OpenModalButton
-                                        buttonText="Delete Booking"
-                                        modalComponent={<DeleteBooking bookingId={booking.id} />}
-                                    />
+                                    <div class="edit-delete-div">
+
+                                        <Link to={`/booking/${booking.id}`}>
+                                            <button class="edit-button">
+                                                Edit Booking
+                                            </button>
+                                        </Link>
+
+                                        <OpenModalButton
+                                            buttonText="Delete Booking"
+                                            modalComponent={<DeleteBooking bookingId={booking.id} />}
+                                        />
+                                    </div>
 
                                 </div>
 
