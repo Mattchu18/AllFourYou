@@ -46,7 +46,7 @@ const GetAllTaskers = () => {
                                             {tasker.bio.slice(0,125)}...
                                             </div>
                         <div className="availables available-city">
-                       <i className="fas fa-city">   {tasker.city}</i>
+                       <i className="fas fa-city availablesss">   {tasker.city}</i>
                         </div>
 
                         <div className="availables available-email">
@@ -61,6 +61,7 @@ const GetAllTaskers = () => {
                         <div className="availables available-vehicle">
                         <i className="fas fa-truck"> {tasker.vehicles}</i>
                         </div>
+                        <h3 className="available-view-profile" >View Tasker Profile</h3>
 
                     </div>
                         <br></br>

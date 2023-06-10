@@ -7,7 +7,7 @@ import CreateReview from "../Reviews/CreateReview";
 import OpenModalButton from "../OpenModalButton";
 import { thunkCurrentUserBookings } from "../../store/booking";
 import { NavLink } from 'react-router-dom';
-
+import './SingleTasker.css'
 const GetSingleTasker = () => {
     const dispatch = useDispatch()
     const { taskerId } = useParams()
@@ -39,11 +39,26 @@ const GetSingleTasker = () => {
     allTaskerRev.forEach(rev => checkReviews.push(rev.user_id))
     return (
         <>
+    <div className="single-tasker-main-container">
 
-
-            <div>
+        <div className="single-img-container">
+                <img className="single-tasker-img" src={singleTasker.profile_image}/>
+            <div className="single-tasker-name">
+                {singleTasker.first_name} {singleTasker.last_name}
+            </div>
+            <div className="about-me-container">
+                    <h4 className="single-about-me">About Me:</h4>
+             <div className="single-tasker-about-me">
                 {singleTasker.bio}
             </div>
+            </div>
+
+            </div>
+
+ <div className="single-tasker-other-info">
+
+<div className="single-tasker-city-tools-etc">
+            <h3 className="single-tasker-my-skills">My Skills: </h3>
             <div>
                 {singleTasker.city}
             </div>
@@ -51,23 +66,17 @@ const GetSingleTasker = () => {
                 {singleTasker.email}
             </div>
             <div>
-                {singleTasker.first_name}
-            </div>
-            <div>
-                {singleTasker.last_name}
-            </div>
-            <div>
                 {singleTasker.phone_number}
             </div>
-            <div>
-                {singleTasker.profile_image}
-            </div>
+
             <div>
                 {singleTasker.tools}
             </div>
             <div>
                 {singleTasker.vehicles}
             </div>
+</div>
+
 
             {currUser ? ((checkReviews.includes(currUser.id) || !(checkBookings.includes(parseInt(taskerId))))) ? null :
                 <OpenModalButton
@@ -81,20 +90,29 @@ const GetSingleTasker = () => {
 
             <br></br>
             <div>
+                <div className="single-tasker-reviews-container">
                 {allTaskerRev.map(rev => {
+
                     return (
                         <>
-                            <div>
-                                {rev.star_rating}
+                       <h3 className="single-tasker-review">Reviews:</h3>
+                        <div className="single-tasker-reviews">
+
+                                 <div>
+                              <i className="fas fa-star"> {rev.star_rating}</i>
                             </div>
                             <div>
                                 {rev.review_text}
                             </div>
+                        </div>
+
+
                         </>
                     )
-                })}
+                })}   </div>
             </div>
-
+ </div>
+</div>
 
         </>
     )
