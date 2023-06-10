@@ -5,7 +5,7 @@
     justify-content: center;
     padding-top: 10px;
     height: fit-content;
-    background-color: rgb(194, 220, 199);
+    background-color: #f9fafb;
     width: fit-content;
     border: solid rgb(132, 233, 142);
     box-shadow: 4px 3px 4px rgba(0, 0, 0, 0.6);
@@ -29,7 +29,7 @@
   .review-body {
     display: flex;
     text-shadow: 2px 2px 4px rgba(63, 63, 63, 0.1);
-    font-size:12px;
+    font-size:15px;
     text-align: center;
     word-wrap: break-word;
     white-space: normal;
@@ -38,7 +38,7 @@
   }
   
   .star-rating-container {
-    color: rgb(58, 90, 63);
+    color: gold;
     display: flex;
     font-size: 1rem;
     align-items: center;
@@ -50,5 +50,5 @@
   .review-averages{
     display: flex;
     flex-direction: column;
-    color: rgb(38, 105, 47);
+    color: black;
   }
