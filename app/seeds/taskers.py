@@ -123,7 +123,186 @@ def seed_taskers():
         available= True,
         task_id = 8
     )
-
+    jordan = Tasker(
+        username= 'username2',
+        first_name= 'Jordan',
+        last_name= 'B',
+        email= 'jordan@b.com',
+        city= 'San Francisco',
+        phone_number= 1800000001,
+        bio= "Hello! My name is Jordan and I'm a skilled [profession]. With over [number] years of experience, I've helped numerous clients achieve their [specific task] goals. I take pride in delivering high-quality work and providing exceptional customer service. Whether you need assistance with [list of services], I'm here to lend a helping hand. I believe in clear communication, attention to detail, and exceeding expectations. My passion for [profession] drives me to constantly improve my skills and stay up-to-date with the latest industry trends. When I'm not working, I enjoy [hobbies/interests].",
+        profile_image= 'https://example.com/profile2.jpg',
+        hourly_rate= '$54.00/hr',
+        vehicles= 'Toyota Camry',
+        tools= 'Tool 1, Tool 2, Tool 3',
+        available= True,
+        task_id= 9
+    )
+    michael = Tasker(
+        username= 'username3',
+        first_name= 'Michael',
+        last_name= 'B',
+        email= 'michael2@b.com',
+        city= 'San Francisco',
+        phone_number= 1800000002,
+        bio= "Hello! My name is Michael and I'm a skilled [profession]. With over [number] years of experience, I've helped numerous clients achieve their [specific task] goals. I take pride in delivering high-quality work and providing exceptional customer service. Whether you need assistance with [list of services], I'm here to lend a helping hand. I believe in clear communication, attention to detail, and exceeding expectations. My passion for [profession] drives me to constantly improve my skills and stay up-to-date with the latest industry trends. When I'm not working, I enjoy [hobbies/interests].",
+        profile_image= 'https://example.com/profile2.jpg',
+        hourly_rate= '$50.00/hr',
+        vehicles= 'Toyota Camry',
+        tools= 'Tool 1, Tool 2, Tool 3',
+        available= True,
+        task_id= 10
+    )
+    smith = Tasker(
+        username= 'username4',
+        first_name= 'Smith',
+        last_name= 'S',
+        email= 'smith@b.com',
+        city= 'Toronto',
+        phone_number= 1800000003,
+        bio= "Hello! My name is Smith and I'm a skilled [profession]. With over [number] years of experience, I've helped numerous clients achieve their [specific task] goals. I take pride in delivering high-quality work and providing exceptional customer service. Whether you need assistance with [list of services], I'm here to lend a helping hand. I believe in clear communication, attention to detail, and exceeding expectations. My passion for [profession] drives me to constantly improve my skills and stay up-to-date with the latest industry trends. When I'm not working, I enjoy [hobbies/interests].",
+        profile_image= 'https://example.com/profile2.jpg',
+        hourly_rate= '$50.00/hr',
+        vehicles= 'Honda Civic',
+        tools= 'Tool 1, Tool 2, Tool 3',
+        available= True,
+        task_id= 11
+    )
+    samantha = Tasker(
+        username= 'username5',
+        first_name= 'Samantha',
+        last_name= 'B',
+        email= 'Samantha@b.com',
+        city= 'Los Angeles',
+        phone_number= 1800000004,
+        bio= "Hello! My name is Samantha and I'm a skilled [profession]. With over [number] years of experience, I've helped numerous clients achieve their [specific task] goals. I take pride in delivering high-quality work and providing exceptional customer service. Whether you need assistance with [list of services], I'm here to lend a helping hand. I believe in clear communication, attention to detail, and exceeding expectations. My passion for [profession] drives me to constantly improve my skills and stay up-to-date with the latest industry trends. When I'm not working, I enjoy [hobbies/interests].",
+        profile_image= 'https://example.com/profile2.jpg',
+        hourly_rate= '$35.00/hr',
+        vehicles= 'Bicycle',
+        tools= 'Tool 1, Tool 2, Tool 3',
+        available= True,
+        task_id= 12
+    )
+    mitch = Tasker(
+        username= 'username6',
+        first_name= 'Mitch',
+        last_name= 'Z',
+        email= 'Mitch@b.com',
+        city= 'San Francisco',
+        phone_number= 1800000005,
+        bio= "Hello! My name is Mitch and I'm a skilled [profession]. With over [number] years of experience, I've helped numerous clients achieve their [specific task] goals. I take pride in delivering high-quality work and providing exceptional customer service. Whether you need assistance with [list of services], I'm here to lend a helping hand. I believe in clear communication, attention to detail, and exceeding expectations. My passion for [profession] drives me to constantly improve my skills and stay up-to-date with the latest industry trends. When I'm not working, I enjoy [hobbies/interests].",
+        profile_image= 'https://example.com/profile2.jpg',
+        hourly_rate= '$97.00/hr',
+        vehicles= 'Kia cube',
+        tools= 'Tool 1, Tool 2, Tool 3',
+        available= True,
+        task_id= 13
+    )
+    kalista = Tasker(
+        username= 'username7',
+        first_name= 'Kalista',
+        last_name= 'W',
+        email= 'Kalista@b.com',
+        city= 'Miami',
+        phone_number= 1800000006,
+        bio= "Hello! My name is Kalista and I'm a skilled [profession]. With over [number] years of experience, I've helped numerous clients achieve their [specific task] goals. I take pride in delivering high-quality work and providing exceptional customer service. Whether you need assistance with [list of services], I'm here to lend a helping hand. I believe in clear communication, attention to detail, and exceeding expectations. My passion for [profession] drives me to constantly improve my skills and stay up-to-date with the latest industry trends. When I'm not working, I enjoy [hobbies/interests].",
+        profile_image= 'https://example.com/profile2.jpg',
+        hourly_rate= '$78.00/hr',
+        vehicles= 'Honda civic',
+        tools= 'Tool 1, Tool 2, Tool 3',
+        available= True,
+        task_id= 14
+    )
+    sven = Tasker(
+        username= 'username8',
+        first_name= 'Sven',
+        last_name= 'P',
+        email= 'Sven@b.com',
+        city= 'Joshua Tree',
+        phone_number= 1800000007,
+        bio= "Hello! My name is Sven and I'm a skilled [profession]. With over [number] years of experience, I've helped numerous clients achieve their [specific task] goals. I take pride in delivering high-quality work and providing exceptional customer service. Whether you need assistance with [list of services], I'm here to lend a helping hand. I believe in clear communication, attention to detail, and exceeding expectations. My passion for [profession] drives me to constantly improve my skills and stay up-to-date with the latest industry trends. When I'm not working, I enjoy [hobbies/interests].",
+        profile_image= 'https://example.com/profile2.jpg',
+        hourly_rate= '$15.00/hr',
+        vehicles= 'Scooter',
+        tools= 'Tool 1, Tool 2, Tool 3',
+        available= True,
+        task_id= 15
+    )
+    chad = Tasker(
+        username= 'username9',
+        first_name= 'Chad',
+        last_name= 'Q',
+        email= 'Chad@b.com',
+        city= 'Joshua Tree',
+        phone_number= 1800000008,
+        bio= "Hello! My name is Chad and I'm a skilled [profession]. With over [number] years of experience, I've helped numerous clients achieve their [specific task] goals. I take pride in delivering high-quality work and providing exceptional customer service. Whether you need assistance with [list of services], I'm here to lend a helping hand. I believe in clear communication, attention to detail, and exceeding expectations. My passion for [profession] drives me to constantly improve my skills and stay up-to-date with the latest industry trends. When I'm not working, I enjoy [hobbies/interests].",
+        profile_image= 'https://example.com/profile2.jpg',
+        hourly_rate= '$88.00/hr',
+        vehicles= 'SkateBoard',
+        tools= 'Tool 1, Tool 2, Tool 3',
+        available= True,
+        task_id= 16
+    )
+    terry = Tasker(
+        username= 'username10',
+        first_name= 'Terry',
+        last_name= 'P',
+        email= 'Terry@b.com',
+        city= 'Miami',
+        phone_number= 1800000009,
+        bio= "Hello! My name is Terry and I'm a skilled [profession]. With over [number] years of experience, I've helped numerous clients achieve their [specific task] goals. I take pride in delivering high-quality work and providing exceptional customer service. Whether you need assistance with [list of services], I'm here to lend a helping hand. I believe in clear communication, attention to detail, and exceeding expectations. My passion for [profession] drives me to constantly improve my skills and stay up-to-date with the latest industry trends. When I'm not working, I enjoy [hobbies/interests].",
+        profile_image= 'https://example.com/profile2.jpg',
+        hourly_rate= '$32.00/hr',
+        vehicles= 'Motorcycle',
+        tools= 'Tool 1, Tool 2, Tool 3',
+        available= True,
+        task_id= 17
+    )
+    amanda = Tasker(
+        username= 'username11',
+        first_name= 'Amanda',
+        last_name= 'X',
+        email= 'Amanda@b.com',
+        city= 'Joshua Tree',
+        phone_number= 18000000010,
+        bio= "Hello! My name is Amanda and I'm a skilled [profession]. With over [number] years of experience, I've helped numerous clients achieve their [specific task] goals. I take pride in delivering high-quality work and providing exceptional customer service. Whether you need assistance with [list of services], I'm here to lend a helping hand. I believe in clear communication, attention to detail, and exceeding expectations. My passion for [profession] drives me to constantly improve my skills and stay up-to-date with the latest industry trends. When I'm not working, I enjoy [hobbies/interests].",
+        profile_image= 'https://example.com/profile2.jpg',
+        hourly_rate= '$39.00/hr',
+        vehicles= 'Scooter',
+        tools= 'Tool 1, Tool 2, Tool 3',
+        available= True,
+        task_id= 18
+    )
+    omar = Tasker(
+        username= 'username12',
+        first_name= 'Omar',
+        last_name= 'P',
+        email= 'Omar@b.com',
+        city= 'Joshua Tree',
+        phone_number= 18000000011,
+        bio= "Hello! My name is Omar and I'm a skilled [profession]. With over [number] years of experience, I've helped numerous clients achieve their [specific task] goals. I take pride in delivering high-quality work and providing exceptional customer service. Whether you need assistance with [list of services], I'm here to lend a helping hand. I believe in clear communication, attention to detail, and exceeding expectations. My passion for [profession] drives me to constantly improve my skills and stay up-to-date with the latest industry trends. When I'm not working, I enjoy [hobbies/interests].",
+        profile_image= 'https://example.com/profile2.jpg',
+        hourly_rate= '$43.00/hr',
+        vehicles= 'Moped',
+        tools= 'Tool 1, Tool 2, Tool 3',
+        available= True,
+        task_id= 19
+    )
+    ronald = Tasker(
+        username= 'username13',
+        first_name= 'Ronald',
+        last_name= 'P',
+        email= 'Ronald@b.com',
+        city= 'Toronto',
+        phone_number= 18000000012,
+        bio= "Hello! My name is Ronald and I'm a skilled [profession]. With over [number] years of experience, I've helped numerous clients achieve their [specific task] goals. I take pride in delivering high-quality work and providing exceptional customer service. Whether you need assistance with [list of services], I'm here to lend a helping hand. I believe in clear communication, attention to detail, and exceeding expectations. My passion for [profession] drives me to constantly improve my skills and stay up-to-date with the latest industry trends. When I'm not working, I enjoy [hobbies/interests].",
+        profile_image= 'https://example.com/profile2.jpg',
+        hourly_rate= '$86.00/hr',
+        vehicles= 'Jeep',
+        tools= 'Tool 1, Tool 2, Tool 3',
+        available= True,
+        task_id= 20
+    )
 
     db.session.add(kevinb)
     db.session.add(vanessag)
@@ -133,6 +312,18 @@ def seed_taskers():
     db.session.add(adam)
     db.session.add(taylorm)
     db.session.add(kevinl)
+    db.session.add(jordan)
+    db.session.add(michael)
+    db.session.add(smith)
+    db.session.add(samantha)
+    db.session.add(mitch)
+    db.session.add(kalista)
+    db.session.add(sven)
+    db.session.add(chad)
+    db.session.add(terry)
+    db.session.add(amanda)
+    db.session.add(omar)
+    db.session.add(ronald)
     db.session.commit()
 
 
