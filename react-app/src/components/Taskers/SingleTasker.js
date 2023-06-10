@@ -91,7 +91,7 @@ const GetSingleTasker = () => {
             <br></br>
             <div>
                 <div className="single-tasker-reviews-container">
-                {allTaskerRev.map(rev => {
+                {allTaskerRev.length>0? (allTaskerRev.map(rev => {
 
                     return (
                         <>
@@ -109,7 +109,7 @@ const GetSingleTasker = () => {
 
                         </>
                     )
-                })}   </div>
+                })) : "Book and be the first to Review!"}   </div>
             </div>
  </div>
 </div>

@@ -79,7 +79,7 @@ padding-top: .5rem;
     font-size: smaller;
 }
 .available-bio{
-    font-family: fantasy;
+    /* font-family: fantasy; */
     color:black;
     border: none;
     font-weight: 900;
