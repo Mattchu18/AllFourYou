@@ -25,24 +25,32 @@ return(
         {Object.values(reviews).map(review=>{
             return (
                 <>
+                <div className="review">
+
                 <div className="star-rating-container">
                     <i className="fas fa-star"></i>
                     {review?.star_rating}
 
                 </div>
-                <div>
+                <div className="review-body">
                     {review?.review_text}
                 </div>
-
+                </div>
+                <div className="buttons-div">
+                <div  className="single-button">
                 <OpenModalButton
                 buttonText='Edit'
                 modalComponent={<EditReview review={review} />}
                 />
-
+                </div>
+                <div  className="single-button">
                 <OpenModalButton
+                className="one-button"
                 buttonText='Delete'
                 modalComponent={<DeleteReview review={review}/>}
                 />
+                </div>
+                </div>
                 </>
             )
         })}
