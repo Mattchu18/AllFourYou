@@ -30,13 +30,13 @@ border: none;
 }
 .nav-bar-container{
   width: 100%;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid lightgray;
   /* border: 2px solid purple; */
   display:flex;
   justify-content: space-between;
 
-  padding-top: 2rem;
-  padding-bottom:1rem;
+  padding-top: .5rem;
+  /* padding-bottom:1rem; */
 
 }
 .logo-home{
@@ -46,7 +46,9 @@ border: none;
   text-decoration: none;
 }
 .nav-links-on-navbar{
-  text-decoration:none;
+text-decoration:none;
+color:black;
+border: 1px solid balck
 }
 .other-nav-links{
   /* border: 2px solid red */
@@ -54,6 +56,7 @@ border: none;
   display: flex;
   gap:2rem;
   align-items: center;
+  color:black;
 }
 .pandaLogo{
 
@@ -62,6 +65,6 @@ border: none;
   width:19rem;
 }
 .navbargreen{
-  color:rgb(8, 64, 8);
+  /* color:rgb(8, 64, 8); */
   font-weight: 500;
 }
