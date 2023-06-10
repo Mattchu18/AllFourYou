@@ -39,19 +39,22 @@ const averageRating= totalRating/totalReviews
 if(!reviews) return "loading.."
 return(
     <div>
-       <h2>Manage your reviews</h2>
-       <div>
-        <div className="review-averages">
-            <div>
-                Average <i className="fas fa-star" ></i>({averageRating.toFixed(1)}) 
-                </div>
-                <div>
+  {totalReviews !== 0 ? <h2>Manage your reviews</h2> : <h2>You have no reviews</h2>}
 
-            Total <i className="fas fa-comment-dots"></i> ({totalReviews})
-                </div>
+       {
+  averageRating && totalReviews !== 0 ? (
+    <div>
+      <div className="review-averages">
+        <div>
+          Average <i className="fas fa-star"></i>({averageRating.toFixed(1)})
         </div>
-        
-       </div>
+        <div>
+          Total <i className="fas fa-comment-dots"></i> ({totalReviews})
+        </div>
+      </div>
+    </div>
+  ) : null
+}
        <div className="review-card-container">
 
         {Object.values(reviews).map(review=>{
