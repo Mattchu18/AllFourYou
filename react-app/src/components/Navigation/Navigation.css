@@ -5,3 +5,32 @@
 .hidden {
   display: none;
 }
+#root{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(238, 239, 239);
+}
+.nav-bar-container{
+  width: 100%;
+  border-bottom: 1px solid gray;
+  border: 2px solid purple;
+  display:flex;
+  justify-content: space-between;
+  margin: .5rem;
+  padding-top: 2rem;
+  padding-bottom:1rem;
+
+}
+.logo-home{
+  /* display:flex; */
+  /* border: 2px solid pink; */
+  text-decoration: none;
+}
+.nav-links-on-navbar{
+  text-decoration:none;
+}
+.other-nav-links{
+  /* border: 2px solid red */
+}
