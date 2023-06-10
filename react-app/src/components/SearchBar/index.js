@@ -71,7 +71,7 @@ return (
     <div className="home">
       <div className="search-container">
         <div className="book-your-next-task">
-        <h1>Book your next Task</h1>
+        <h1 className="h2-book-next">Book your next Task</h1>
         </div>
         <div className="search-card">
           {/* <i className="fas fa-search"></i> */}
@@ -110,42 +110,49 @@ return (
             if (index < 3) {
               return (
                 <div className="tasker-containers">
+                  <div className="popular-taskers-home">
+                    Popular
+                    </div>
                 <React.Fragment key={tasker.id}>
                   <div >
                     <NavLink exact to={`/taskers/${tasker.id}`}>
-                      <img className="imag" src={tasker.profile_image}/>
+                      <img className="imags" src={tasker.profile_image}/>
 
                     </NavLink>
                   </div>
-                    {tasker.available ? 'Available' : 'Not Available'}
-                  <div>
-                  </div>
-                  <div>
+                  <div className="fist-last-name-home">
                     {tasker.first_name}
                     {tasker.last_name}
                   </div>
+                  <div className="container-avalable-elite">
+                       <div>
+                    {tasker.available ? 'Available' : 'Not Available'}
+                  </div>
+
                   <div className="about-tasker">
                   <div className="hr">
+                  </div>
 
-                About Tasker<hr></hr>
+
+                <p className="elite-tasker">Elite Tasker</p><hr></hr>
                   </div>
                   </div>
                   <div className="tools-bio">
                     <div className="ha city">
-                    <i className="fas fa-city">  {tasker.city}</i>
+                    <i className="fas fa-city"> </i>{tasker.city}
                     </div>
                     <div className="ha prices">
-                    <i className="fas fa-money-bill"> {tasker.hourly_rate}</i>
+                    <i className="fas fa-money-bill"> </i>{tasker.hourly_rate}
 
                     </div>
                     <div className="ha vehicles">
-                    <i className="fas fa-truck"> {tasker.vehicles}</i>
+                    <i className="fas fa-truck"> </i>{tasker.vehicles}
 
                     </div>
-                    <div className="ha tools">
+                    {/* <div className="ha tools">
 
                     {tasker.tools}
-                    </div>
+                    </div> */}
                     <div className="view-tasker-profile">View Tasker Profile</div>
 
                       {/* <div>{tasker.tools}</div> */}
