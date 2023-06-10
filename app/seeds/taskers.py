@@ -9,12 +9,12 @@ def seed_taskers():
         email='kevinb_tasker@aa.io',
         city='Demo City',
         phone_number= 1100000000,
-        bio = "Hi I am Kevin and I raise pokemons. I also can make a good cup of keureg coffee. I know how to operate and maintain them machines to sustain coffee consumption.",
+        bio = "Hi I am Kevin and I raise pokemons. I also can make a good cup of keureg coffee. I know how to operate and maintain them machines to sustain coffee consumption. I also am a software engineer that can code a web application in as little as a week!",
         profile_image = "https://cdn.discordapp.com/attachments/683218210069413967/1116845390285787236/kevinmiddle.jpeg",
         hourly_rate="$46.45/hr",
         vehicles = "Mercedes Benz S Class",
-        tools = "Pokedex, keureg machine, coffee beans, pokeballs",
-        available = False,
+        tools = "Pokedex, keureg machine, coffee beans, pokeballs, computer",
+        available = True,
         task_id =1
         )
     vanessag = Tasker(
@@ -29,7 +29,7 @@ def seed_taskers():
         hourly_rate="$36.45/hr",
         vehicles = "Smart Car",
         tools = "Keyboard, phone, therapist certification, influencer",
-        available = False,
+        available = True,
         task_id =2
         )
     tonyh = Tasker(
@@ -44,7 +44,7 @@ def seed_taskers():
         hourly_rate="$49.45/hr",
         vehicles = "Moped, Pickup Truck",
         tools = "hammer, wrench, ladder, spatula, drill",
-        available = False,
+        available = True,
         task_id =3
         )
     matthewa = Tasker(
@@ -59,7 +59,7 @@ def seed_taskers():
         hourly_rate="$50.45/hr",
         vehicles = "Bicycle, walking",
         tools = "pole, boombox, cane, towel, pom poms",
-        available = False,
+        available = True,
         task_id =4
         )
     demo = Tasker(
@@ -100,7 +100,7 @@ def seed_taskers():
         email = 'taylorm_tasker@aa.io',
         city='Toronto',
         phone_number= 1700000000,
-        bio = "Hello! My name is Taylor and I teach education. My favorite subject to teach is most likely Math. I am a nerd when it comes to biology. I love the study of life and if you would like to learn more about biology or math please don't hesitate to contact me!",
+        bio = "Hello! My name is Taylor and I teach software engineering. My favorite subject to teach is most likely Math. I am a nerd when it comes to biology. I love the study of life and if you would like to learn more about biology or math please don't hesitate to contact me!",
         profile_image = "https://m.media-amazon.com/images/I/61H40+ZQXQL.jpg",
         hourly_rate="$90.45/hr",
         vehicles = "Porsche Cayenne",
@@ -302,6 +302,66 @@ def seed_taskers():
         tools= 'Tool 1, Tool 2, Tool 3',
         available= True,
         task_id= 20
+    )
+    ronald = Tasker(
+        username= 'username14',
+        first_name= 'Cameron',
+        last_name= 'E',
+        email= 'Cameron@e.com',
+        city= 'Joshua Tree',
+        phone_number= 18000000013,
+        bio= "Hello! My name is Ronald and I'm a skilled [profession]. With over [number] years of experience, I've helped numerous clients achieve their [specific task] goals. I take pride in delivering high-quality work and providing exceptional customer service. Whether you need assistance with [list of services], I'm here to lend a helping hand. I believe in clear communication, attention to detail, and exceeding expectations. My passion for [profession] drives me to constantly improve my skills and stay up-to-date with the latest industry trends. When I'm not working, I enjoy [hobbies/interests].",
+        profile_image= 'https://example.com/profile2.jpg',
+        hourly_rate= '$68.00/hr',
+        vehicles= 'Toyota Sienna',
+        tools= 'Tool 1, Tool 2, Tool 3',
+        available= True,
+        task_id= 21
+    )
+    ronald = Tasker(
+        username= 'username15',
+        first_name= 'Santa',
+        last_name= 'C',
+        email= 'Santa@b.com',
+        city= 'Miami',
+        phone_number= 18000000014,
+        bio= "Hello! My name is Santa and I'm a skilled [profession]. With over [number] years of experience, I've helped numerous clients achieve their [specific task] goals. I take pride in delivering high-quality work and providing exceptional customer service. Whether you need assistance with [list of services], I'm here to lend a helping hand. I believe in clear communication, attention to detail, and exceeding expectations. My passion for [profession] drives me to constantly improve my skills and stay up-to-date with the latest industry trends. When I'm not working, I enjoy [hobbies/interests].",
+        profile_image= 'https://example.com/profile2.jpg',
+        hourly_rate= '$1000.00/hr',
+        vehicles= 'Sleigh',
+        tools= 'Tool 1, Tool 2, Tool 3',
+        available= True,
+        task_id= 22
+    )
+    ronald = Tasker(
+        username= 'username16',
+        first_name= 'Valentine',
+        last_name= 'V',
+        email= 'Valentine@b.com',
+        city= 'Miami',
+        phone_number= 18000000015,
+        bio= "Hello! My name is Valentine and I'm a skilled [profession]. With over [number] years of experience, I've helped numerous clients achieve their [specific task] goals. I take pride in delivering high-quality work and providing exceptional customer service. Whether you need assistance with [list of services], I'm here to lend a helping hand. I believe in clear communication, attention to detail, and exceeding expectations. My passion for [profession] drives me to constantly improve my skills and stay up-to-date with the latest industry trends. When I'm not working, I enjoy [hobbies/interests].",
+        profile_image= 'https://example.com/profile2.jpg',
+        hourly_rate= '$37.00/hr',
+        vehicles= 'Toyota Tundra',
+        tools= 'Tool 1, Tool 2, Tool 3',
+        available= True,
+        task_id= 23
+    )
+    ronald = Tasker(
+        username= 'username17',
+        first_name= 'Larry',
+        last_name= 'Q',
+        email= 'Larry@b.com',
+        city= 'San Francisco',
+        phone_number= 18000000016,
+        bio= "Hello! My name is Larry and I'm a skilled [profession]. With over [number] years of experience, I've helped numerous clients achieve their [specific task] goals. I take pride in delivering high-quality work and providing exceptional customer service. Whether you need assistance with [list of services], I'm here to lend a helping hand. I believe in clear communication, attention to detail, and exceeding expectations. My passion for [profession] drives me to constantly improve my skills and stay up-to-date with the latest industry trends. When I'm not working, I enjoy [hobbies/interests].",
+        profile_image= 'https://example.com/profile2.jpg',
+        hourly_rate= '$72.00/hr',
+        vehicles= 'Hyundai Sonata',
+        tools= 'Tool 1, Tool 2, Tool 3',
+        available= True,
+        task_id= 24
     )
 
     db.session.add(kevinb)
