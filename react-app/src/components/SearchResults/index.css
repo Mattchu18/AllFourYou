@@ -80,7 +80,7 @@
 .test{
     border: 1px solid rgb(186, 181, 181);
     display: flex;
-    padding-bottom: 3rem;
+    /* padding-bottom: 3rem; */
     border-radius: 20px;
     background-color: white;
 }
