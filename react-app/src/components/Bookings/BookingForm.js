@@ -67,7 +67,7 @@ const BookingForm = ({ booking, formType }) => {
 
     return (
 
-        <div id="body-container">
+        <div id="form-container">
 
 
             <div id="booking-form" className="booking-form border">
