@@ -101,8 +101,8 @@ const GetCurrentBookings = () => {
                                     </div>
                                     <div class="edit-delete-div">
 
-                                        <Link to={`/booking/${booking.id}`}>
-                                            <button class="edit-button">
+                                        <Link class="edit-button" to={`/booking/${booking.id}`}>
+                                            <button >
                                                 Edit Booking
                                             </button>
                                         </Link>

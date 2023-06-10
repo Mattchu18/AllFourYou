@@ -3,36 +3,34 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+
+    height: 100%;
 }
 
 #body-container {
-    border: solid red 1px;
 
     display: flex;
     justify-content: center;
     min-width: 1024px;
     max-width: 1024px;
-    height: 100vh;
 }
 
 #bookings-container {
     display: flex;
-    border: solid red 1px;
+
     width: 100%;
-    height: 300px;
+    height: 100%;
     justify-content: flex-start;
     flex-wrap: wrap;
     gap: 10px;
-
 }
 
 #tile {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
-    border: solid blue 1px;
+    background-color: white;
+    border: solid lightgrey 2px;
     border-radius: 30px;
 
     min-height: 250px;
@@ -67,7 +65,7 @@
     width: 9rem;
     background-color: #043d04;
     color: #fff;
-
+    cursor: pointer;
 }
 
 .booking-description {
@@ -93,6 +91,7 @@
     justify-content: space-between;
     gap: 15px;
     padding: 20px 0;
+    width: fit-content;
 }
 
 .edit-delete-div {
@@ -102,12 +101,15 @@
 
 }
 
+.edit-button {
+    text-decoration:none;
+}
+
 div button{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: lightgrey;
-
+    cursor: pointer;
 }
 
 
