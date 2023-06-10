@@ -9,6 +9,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100vh;
 }
 
 #body-container {
@@ -16,16 +17,16 @@
 
     display: flex;
     justify-content: center;
-
-    min-height: 500px;
     min-width: 1024px;
     max-width: 1024px;
+    height: 100vh;
 }
 
 #bookings-container {
     display: flex;
     border: solid red 1px;
     width: 100%;
+    height: 300px;
     justify-content: flex-start;
     flex-wrap: wrap;
     gap: 10px;
@@ -62,14 +63,14 @@
     object-fit: cover;
 }
 
-.contact-tasker-div {
+.contact-tasker-button {
     display: flex;
     justify-content: center;
     align-items: center;
     border: 2px solid #043d04;
     border-radius: .25rem;
-    height: 2rem;
-    width: 8rem;
+    height: 2.5rem;
+    width: 9rem;
     background-color: #043d04;
     color: #fff;
 
@@ -111,6 +112,8 @@ div button{
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: lightgrey;
+
 }
 
 
@@ -121,16 +124,3 @@ div button{
     border-radius: .25rem;
 
 }
-
-.buttons-div button {
-    flex-direction: column;
-    width: 12rem;
-    height: 40px;
-    border-radius: .25rem;
-
-}
-
-/* .reviewed-button {
-
-
-} */
