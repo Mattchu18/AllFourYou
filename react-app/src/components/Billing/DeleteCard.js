@@ -26,7 +26,7 @@ const DeleteCard = ({card}) =>{
         <h2>Confirm Delete</h2>
         </div>
         <p>Are you sure you want to remove this card?</p>
-        <div>
+        <div className='deleteRevButt'>
         <button className='cardButt' onClick={handleDelete}>Delete</button>
         <button className='cardButt' onClick={closeModal}>No, keep card</button>
         </div>
