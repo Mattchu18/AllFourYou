@@ -60,7 +60,11 @@ const GetCurrentBookings = () => {
 
                                             {<img class="profile-image" src={tasker.profile_image}></img>}
                                             <span key={tasker.id}>{tasker.first_name}, {tasker.last_name}</span>
-                                            <div class="contact-tasker-div">Contact tasker!</div>
+
+                                            <Link to={`/taskers/${tasker.id}`}>
+                                                <button class="contact-tasker-button">Tasker Profile</button>
+                                            </Link>
+
                                         </div>
 
                                     </>
