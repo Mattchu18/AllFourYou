@@ -8,28 +8,42 @@ function Navigation({ isLoaded }){
 	const sessionUser = useSelector(state => state.session.user);
 
 	return (
-		<ul>
-			<li>
-				<NavLink exact to="/">taskDoctor</NavLink>
-			</li>
+		<div className="nav-bar-container">
+
+						<div className="logo-home">
+
+				<NavLink className="nav-links-on-navbar" exact to="/">taskDoctor</NavLink>
+
+						</div>
+
+				<div>
+
+				</div>
+				<div className="other-nav-links">
 			{ sessionUser ?
+
+
+
 			<>
-			<li>
-				<NavLink exact to ='/account'>Account</NavLink>
-			</li>
-			<li>
-                <NavLink exact to='/available'>Look for a Tasker to Book</NavLink>
-            </li>
+
+				<NavLink className="nav-links-on-navbar" exact to ='/account'>Account</NavLink>
+
+
+                <NavLink className="nav-links-on-navbar" exact to='/available'>Look for a Tasker to Book</NavLink>
+
 			</>
-			
+
 			: null
 			}
 			{isLoaded && (
-				<li>
+
 					<ProfileButton user={sessionUser} />
-				</li>
+
 			)}
-		</ul>
+			</div>
+
+		</div>
+
 	);
 }
 

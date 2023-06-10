@@ -10,7 +10,7 @@ def seed_taskers():
         city='Demo City',
         phone_number= 1100000000,
         bio = "Hi I am Kevin and I raise pokemons. I also can make a good cup of keureg coffee. I know how to operate and maintain them machines to sustain coffee consumption.",
-        profile_image = "https://m.media-amazon.com/images/I/61H40+ZQXQL.jpg",
+        profile_image = "https://cdn.discordapp.com/attachments/683218210069413967/1116845390285787236/kevinmiddle.jpeg",
         hourly_rate="$46.45/hr",
         vehicles = "Mercedes Benz S Class",
         tools = "Pokedex, keureg machine, coffee beans, pokeballs",
