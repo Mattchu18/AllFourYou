@@ -33,10 +33,18 @@
     display:flex;
     flex-direction: column;
     padding: 1rem;
-
-
-
 }
+
+.book-tasker-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.book-tasker-link {
+    text-decoration: none;
+}
+
 .single-tasker-name{
     font-size: x-large;
     padding-top: 1rem;

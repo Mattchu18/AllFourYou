@@ -20,7 +20,7 @@ const GetCurrentBookings = () => {
     const allReviews = useSelector(state => state.review.allReviews)
     const currUser = useSelector(state => state.session.user)
     // const allTasks = useSelector(state => state.task.allTasks)
-    const findReviews = Object.values(allReviews).filter(review => review.user_id === currUser.id)
+    const findReviews = Object.values(allReviews).filter(review => review.user_id === currUser?.id)
 
 
     const allTaskersObj = useSelector(state => state.tasker.allTaskers)
