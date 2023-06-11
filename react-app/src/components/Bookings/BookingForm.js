@@ -67,7 +67,7 @@ const BookingForm = ({ booking, formType }) => {
 
     return (
 
-        <div id="body-container">
+        <div id="form-container">
 
 
             <div id="booking-form" className="booking-form border">
@@ -89,8 +89,8 @@ const BookingForm = ({ booking, formType }) => {
 
                             <select onChange={e => setCategory(e.target.value)}>
                                 <option value="">--Please choose a category--</option>
-                                <option disabled={taskersTask?.category !== 'Breeding'} value="Breeding">
-                                    Breeding
+                                <option disabled={taskersTask?.category !== 'Software Engineering'} value="Software Engineering">
+                                    Software Engineering
                                 </option>
                                 <option disabled={taskersTask?.category !== 'Matchmaking'} value="Matchmaking">
                                     Matchmaking
@@ -101,8 +101,8 @@ const BookingForm = ({ booking, formType }) => {
                                 <option disabled={taskersTask?.category !== 'Dancing'} value="Dancing">
                                     Dancing
                                 </option>
-                                <option disabled={taskersTask?.category !== 'Education'} value="Education">
-                                    Education
+                                <option disabled={taskersTask?.category !== 'Tutoring'} value="Tutoring">
+                                    Tutoring
                                 </option>
                                 <option disabled={taskersTask?.category !== 'Music'} value="Music">
                                     Music

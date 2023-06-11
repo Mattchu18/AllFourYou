@@ -1,14 +1,15 @@
 
-#body-container {
+#form-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     min-height: 500px;
+    width: 100%;
 }
 
 #booking-form {
     max-width: 1150px;
     width: 100%;
-    background-color: #a2d2ff;
+    background-color: white;
 
 }
 
@@ -40,7 +41,7 @@ form {
     gap: 5px;
     border: solid 1px black;
     border-radius: 10px;
-    background-color: #bde0fe;
+    background-color: #f9fafb;
     padding: 15px;
     margin: 10px 0;
 }
@@ -126,5 +127,6 @@ label {
     width: 200px;
     border-radius: 20px;
     height: 43px;
-    background-color: aquamarine;
+    background-color: #043d04;
+    color: white;
 }

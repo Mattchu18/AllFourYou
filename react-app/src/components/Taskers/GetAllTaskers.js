@@ -2,11 +2,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { thunkAllTaskers } from "../../store/taskers";
 import { NavLink } from "react-router-dom";
-
+import './GetAllTaskers.css'
 const GetAllTaskers = () => {
     const dispatch = useDispatch()
     const allTaskers = useSelector(state => state.tasker.allTaskers)
-    
+
     useEffect(() => {
         dispatch(thunkAllTaskers())
     }, [dispatch])
@@ -15,46 +15,64 @@ const GetAllTaskers = () => {
 
     return (
         <>
-        <h1>Our Available Taskers!</h1>
-            <ul>
+        <div className="available-tasker-div">
+
+        <h2 className="our-available-taskers">Available Taskers</h2>
+        </div>
+        <div className="outer-available">
+
                 {Object.values(allTaskers).map(tasker => {
                     return (
+
                         <>
-                        {tasker.available ? 
-                        <NavLink exact to={`taskers/${tasker.id}`}>
-                        <div>
-                        {tasker.profile_image}
+                        {tasker.available ?
+                        <div className="available-tasker-card">
+                        <NavLink className="available-links" exact to={`taskers/${tasker.id}`}>
+
+
+
+                        <div className="image-card">
+                            <img className="imag" src={tasker.profile_image}/>
+
                         </div>
-                        <div>
-                        {tasker.first_name}
-                        {tasker.last_name}
+
+                    <div className="available-tasker-info">
+
+                        <div className="available-first-last-name">
+                        <h3>{tasker.first_name} {tasker.last_name}</h3>
                         </div>
-                        <div>
-                        {tasker.city}
+{/* 
+                    <div className="availables available-bio">
+                                            {tasker.bio.slice(0,125)}...
+                                            </div> */}
+                        <div className="availables available-city">
+                       <i className="fas fa-city availablesss">   </i>{tasker.city}
                         </div>
-                        <div>
-                        {tasker.bio}
+
+                        <div className="availables available-email">
+                       <i className="fab fa-telegram-plane"> </i>{tasker.email}
                         </div>
-                        <div>
-                        {tasker.email}
-                        </div>
-                        <div>
+                        {/* <div className="availables available-phone">
                         {tasker.phone_number}
+                        </div> */}
+                        <div className="availables available-tools">
+                        <i className="fas fa-wrench"> </i>{tasker.tools}
                         </div>
-                        <div>
-                        {tasker.tools}
+                        <div className="availables available-vehicle">
+                        <i className="fas fa-truck"> </i>{tasker.vehicles}
                         </div>
-                        <div>
-                        {tasker.vehicles}
-                        </div>
+                        <h3 className="available-view-profile" >View Tasker Profile</h3>
+
+                    </div>
                         <br></br>
-                        </NavLink>
-                        : null
+                        </NavLink></div>
+                      : null
                         }
                         </>
+
                     )
                 })}
-            </ul>
+           </div>
         </>
     )
 }

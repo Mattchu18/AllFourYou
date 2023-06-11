@@ -1,40 +1,122 @@
+
+#outer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    height: 100%;
+}
+
 #body-container {
-    border: solid red 1px;
 
     display: flex;
-    justify-content: space-around;
-    min-height: 500px;
+    justify-content: center;
+    min-width: 1024px;
+    max-width: 1024px;
 }
 
 #bookings-container {
-    border: solid red 1px;
-    min-width: 1150px;
     display: flex;
-    flex-direction: column;
 
+    width: 100%;
+    height: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 #tile {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: white;
+    border: solid lightgrey 2px;
+    border-radius: 30px;
+
+    min-height: 250px;
+    height: fi;
+    width: 100%;
+    padding: 20px;
+}
+
+#profile-image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    height: 100%;
+
+}
+
+.profile-image {
+    height: 11rem;
+    width: 11rem;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.contact-tasker-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #043d04;
+    border-radius: .25rem;
+    height: 2.5rem;
+    width: 9rem;
+    background-color: #043d04;
+    color: #fff;
+    cursor: pointer;
+}
+
+.booking-description {
+    display: flex;
+    width: 100%;
     flex-direction: column;
     justify-content: space-between;
-    border: solid blue 1px;
-    border-radius: 30px;
-    min-width:500px;
-    max-width: 500px;
-    min-height: 250px;
-    max-width: 500px;
-    padding: 25px;
+    padding: 20px;
+    gap: 20px;
+}
+
+.bolded {
+    font-weight: bold;
+}
+
+.booking-description p{
+    margin: 0;
 }
 
 .buttons-div {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 20px 0;
+    width: fit-content;
+}
+
+.edit-delete-div {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 
 }
 
+.edit-button {
+    text-decoration:none;
+}
+
+div button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+
 .buttons-div button {
-    border-radius: 10px;
-    padding: 10px;
+    flex-direction: column;
+    width: 12rem;
+    height: 40px;
+    border-radius: .25rem;
+
 }

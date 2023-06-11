@@ -2,11 +2,11 @@ from app.models.booking import db, Booking, environment, SCHEMA
 from sqlalchemy.sql import text
 
 def seed_bookings():
-    breeding1 = Booking(
-        category = "Breeding",
-        city="Los Angeles",
-        duration="short",
-        details = "My pokemon plase halp..",
+    software = Booking(
+        category = "Software Engineering",
+        city="San Francisco",
+        duration="long",
+        details = "I need help developing a website to pass my coding bootcamp. I need you to code everything for me within a timeframe of 1 week. Make it seem like I struggled with this.",
         user_id=1,
         tasker_id = 1,
         )
@@ -29,7 +29,6 @@ def seed_bookings():
         tasker_id = 3,
         )
 
-
     cooking2 = Booking(
         category = "Cooking",
         city="Toronto",
@@ -48,7 +47,7 @@ def seed_bookings():
     #     tasker_id = 7,
     #     )
 
-    booking_list = [breeding1, matchmaking1, matchmaking2, cooking2, ]
+    booking_list = [software, matchmaking1, matchmaking2, cooking2, ]
 
     for booking in booking_list:
         db.session.add(booking)
