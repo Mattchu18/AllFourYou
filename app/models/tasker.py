@@ -14,7 +14,7 @@ class Tasker(db.Model):
     email = db.Column(db.String(255), nullable=False, unique=True)
     city = db.Column(db.String(255), nullable = False)
     phone_number = db.Column(db.String(50), nullable = False, unique = True)
-    bio = db.Column(db.String(500), nullable = False)
+    bio = db.Column(db.String(5000), nullable = False)
     profile_image = db.Column(db.String(500))
     hourly_rate=db.Column(db.String(50))
     vehicles = db.Column(db.String(500), nullable = False)
