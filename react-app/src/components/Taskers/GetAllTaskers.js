@@ -41,25 +41,25 @@ const GetAllTaskers = () => {
                         <div className="available-first-last-name">
                         <h3>{tasker.first_name} {tasker.last_name}</h3>
                         </div>
-
+{/* 
                     <div className="availables available-bio">
                                             {tasker.bio.slice(0,125)}...
-                                            </div>
+                                            </div> */}
                         <div className="availables available-city">
-                       <i className="fas fa-city availablesss">   {tasker.city}</i>
+                       <i className="fas fa-city availablesss">   </i>{tasker.city}
                         </div>
 
                         <div className="availables available-email">
-                       <i className="fab fa-telegram-plane"> {tasker.email}</i>
+                       <i className="fab fa-telegram-plane"> </i>{tasker.email}
                         </div>
                         {/* <div className="availables available-phone">
                         {tasker.phone_number}
                         </div> */}
                         <div className="availables available-tools">
-                        <i className="fas fa-wrench"> {tasker.tools}</i>
+                        <i className="fas fa-wrench"> </i>{tasker.tools}
                         </div>
                         <div className="availables available-vehicle">
-                        <i className="fas fa-truck"> {tasker.vehicles}</i>
+                        <i className="fas fa-truck"> </i>{tasker.vehicles}
                         </div>
                         <h3 className="available-view-profile" >View Tasker Profile</h3>
 
