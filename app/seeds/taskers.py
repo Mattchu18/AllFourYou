@@ -303,7 +303,7 @@ def seed_taskers():
         available= True,
         task_id= 20
     )
-    ronald = Tasker(
+    cameron = Tasker(
         username= 'username14',
         first_name= 'Cameron',
         last_name= 'E',
@@ -318,7 +318,7 @@ def seed_taskers():
         available= True,
         task_id= 21
     )
-    ronald = Tasker(
+    santa = Tasker(
         username= 'username15',
         first_name= 'Santa',
         last_name= 'C',
@@ -333,7 +333,7 @@ def seed_taskers():
         available= True,
         task_id= 22
     )
-    ronald = Tasker(
+    valentine = Tasker(
         username= 'username16',
         first_name= 'Valentine',
         last_name= 'V',
@@ -348,7 +348,7 @@ def seed_taskers():
         available= True,
         task_id= 23
     )
-    ronald = Tasker(
+    larry = Tasker(
         username= 'username17',
         first_name= 'Larry',
         last_name= 'Q',
@@ -384,6 +384,10 @@ def seed_taskers():
     db.session.add(amanda)
     db.session.add(omar)
     db.session.add(ronald)
+    db.session.add(cameron)
+    db.session.add(santa)
+    db.session.add(valentine)
+    db.session.add(larry)
     db.session.commit()
 
 
