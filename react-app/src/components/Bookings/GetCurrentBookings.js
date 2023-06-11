@@ -119,7 +119,7 @@ const GetCurrentBookings = () => {
                             </div>
                         ))}</div>)
                     :
-                    (<h1>You have no bookings. Check out these taskers Below!</h1>)}
+                    (<h1>You have no bookings.</h1>)}
 
             </div>
         </div>
