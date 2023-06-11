@@ -10,32 +10,32 @@ def seed_reviews():
         tasker_id=1,
         booking_id=1
     )
-    user1_review2 = Review(
-    review_text="Not satisfied with the service provided",
-    star_rating=2,
-    user_id=1,
-    task_id=2,
-    tasker_id=2,
-    booking_id=2
-    )
+    # user1_review2 = Review(
+    # review_text="Not satisfied with the service provided",
+    # star_rating=2,
+    # user_id=1,
+    # task_id=2,
+    # tasker_id=2,
+    # booking_id=2
+    # )
 
-    user1_review3 = Review(
-        review_text="Excellent job! Highly recommended",
-        star_rating=5,
-        user_id=1,
-        task_id=3,
-        tasker_id=3,
-        booking_id=3
-    )
+    # user1_review3 = Review(
+    #     review_text="Excellent job! Highly recommended",
+    #     star_rating=5,
+    #     user_id=1,
+    #     task_id=3,
+    #     tasker_id=3,
+    #     booking_id=3
+    # )
 
-    user1_review4 = Review(
-        review_text="Average service, nothing special",
-        star_rating=3,
-        user_id=1,
-        task_id=4,
-        tasker_id=4,
-        booking_id=4
-    )
+    # user1_review4 = Review(
+    #     review_text="Average service, nothing special",
+    #     star_rating=3,
+    #     user_id=1,
+    #     task_id=4,
+    #     tasker_id=4,
+    #     booking_id=4
+    # )
 
     review2=Review(
         review_text="Amazing! married 5 years now.",
@@ -221,25 +221,27 @@ def seed_reviews():
     tasker_id=8,
     booking_id=5
     )
-    
-    review13 = Review(
-    review_text="I had a great experience with the tasker. They were prompt and professional.",
-    star_rating=5,
-    user_id=1,
-    task_id=9,
-    tasker_id=9,
-    booking_id=6
-    )
 
-    review14 = Review(
-    review_text="Average service. Nothing exceptional, but nothing terrible either.",
-    star_rating=3,
-    user_id=1,
-    task_id=10,
-    tasker_id=10,
-    booking_id=7
-    )
-    review_list = [review1, review2, review3, review4, review5, review6, review7, review8,review9,review10,review11,review12,review13,review14,user1_review2,user1_review2,user1_review3,user1_review4,user2_review3,user2_review4,user2_review5,user3_review4,user3_review5,user3_review6,user3_review7,user5_review8,user5_review9,user5_review10]
+    # review13 = Review(
+    # review_text="I had a great experience with the tasker. They were prompt and professional.",
+    # star_rating=5,
+    # user_id=1,
+    # task_id=9,
+    # tasker_id=9,
+    # booking_id=6
+    # )
+
+    # review14 = Review(
+    # review_text="Average service. Nothing exceptional, but nothing terrible either.",
+    # star_rating=3,
+    # user_id=1,
+    # task_id=10,
+    # tasker_id=10,
+    # booking_id=7
+    # )
+    review_list = [review1, review2, review3, review4, review5, review6, review7, review8,review9,review10,review11,review12,
+                #    review13,review14, user1_review2,user1_review2,user1_review3,user1_review4,
+                   user2_review3,user2_review4,user2_review5,user3_review4,user3_review5,user3_review6,user3_review7,user5_review8,user5_review9,user5_review10]
 
     for review in review_list:
         db.session.add(review)
