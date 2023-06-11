@@ -37,6 +37,7 @@ border: none;
 
   padding-top: .5rem;
   /* padding-bottom:1rem; */
+  z-index:999
 
 }
 .logo-home{
