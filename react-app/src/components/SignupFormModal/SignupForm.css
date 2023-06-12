@@ -1,17 +1,32 @@
 form.signupForm {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
+    width: 100%;
 }
+
+.signupForm > h1 {
+    margin: 0 0 10px 0;
+}
+
 
 .signupDiv {
     display: flex;
     align-items: center;
+
     justify-content: space-between;
 }
 
 .loginButtons {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 10px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.loginButtons > button{
+    width: 50%;
 }
