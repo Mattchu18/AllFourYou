@@ -9,13 +9,29 @@ form.signupForm {
     margin: 0 0 10px 0;
 }
 
+.signupForm > button {
+    width: 50%;
+
+}
 
 .signupDiv {
     display: flex;
     align-items: center;
-
+    gap: 10px;
     justify-content: space-between;
 }
+
+.signupDiv > input {
+    width: 250px;
+}
+
+p.error {
+    display: flex;
+    color: red;
+    margin: 0;
+    justify-content: flex-end;
+}
+
 
 .loginButtons {
     display: flex;
@@ -26,7 +42,11 @@ form.signupForm {
     width: 100%;
     margin-top: 10px;
 }
+.signupButton{
+display: flex;
+justify-content: center;
+}
 
-.loginButtons > button{
+.signupButton > button{
     width: 50%;
 }

@@ -13,7 +13,7 @@ function SignupFormModal() {
 	const [errors, setErrors] = useState([]);
 	const [validationErrors, setValidationErrors] = useState("")
 	const [city, setCity] = useState("")
-  	const [phone_number, setphone_number] = useState("")
+	const [phone_number, setphone_number] = useState("")
 	const [first_name, setfirst_name] = useState("")
 	const [last_name, setlast_name] = useState("")
 	const { closeModal } = useModal();
@@ -50,27 +50,31 @@ function SignupFormModal() {
 	return (
 		<>
 			<form className='signupForm' onSubmit={handleSubmit}>
-			<h1>Sign Up</h1>
-					{errors.map((error, idx) => (
-						<li key={idx}>{error}</li>
-					))}
+				<h1>Sign Up</h1>
+				{errors.map((error, idx) => (
+					<>
+						<p className="error" key={idx}>{error}</p>
+						{console.log(error)}
+					</>
+				))}
+				{validationErrors.email ? (<p className="error">{validationErrors.email}</p>) : null}
 				<div className='signupDiv'>
-				<label>
-					Email
-				</label>
-					{validationErrors.email ? (<p>{validationErrors.email}</p>) : null}
+					<label>
+						Email
+					</label>
 					<input
 						type="text"
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
 
 					/>
+
 				</div>
-					<div className='signupDiv'>
-				<label>
-					Username
-				</label>
-					{validationErrors.username ? (<p>{validationErrors.username}</p>) : null}
+				{validationErrors.username ? (<p className="error">{validationErrors.username}</p>) : null}
+				<div className='signupDiv'>
+					<label>
+						Username
+					</label>
 
 					<input
 						type="text"
@@ -78,57 +82,57 @@ function SignupFormModal() {
 						onChange={(e) => setUsername(e.target.value)}
 
 					/>
-					</div>
-				<div className='signupDiv'>
-				<label>
-          	First Name
-			  </label>
-		  {validationErrors.first_name? (<p>{validationErrors.first_name}</p>) : null}
-          <input
-          type='text'
-          value={first_name}
-          onChange={(e) => setfirst_name(e.target.value)}
-          />
 				</div>
-       <div className='signupDiv'>
-        <label>
-          Last Name
-		  </label>
-		  {validationErrors.last_name ? (<p>{validationErrors.last_name}</p>) : null}
-          <input
-          type='text'
-          value={last_name}
-          onChange={(e) => setlast_name(e.target.value)}
-          />
-	   </div>
-		  <div className='signupDiv'>
-				<label>
-          City 
-		  </label>
-		  {validationErrors.city ? (<p>{validationErrors.city}</p>) : null}
-          <input
-          type='text'
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
-          />
-		  </div>
-		  <div className='signupDiv'>
-        <label>
-          Phone Number
-		  </label>
-		  {validationErrors.phone_number ? (<p>{validationErrors.phone_number}</p>) : null}
-          <input
-          type='text'
-          value={phone_number}
-          onChange={(e) => setphone_number(e.target.value)}
-          />
+				{validationErrors.first_name ? (<p className="error">{validationErrors.first_name}</p>) : null}
+				<div className='signupDiv'>
+					<label>
+						First Name
+					</label>
+					<input
+						type='text'
+						value={first_name}
+						onChange={(e) => setfirst_name(e.target.value)}
+					/>
+				</div>
+				{validationErrors.last_name ? (<p className="error">{validationErrors.last_name}</p>) : null}
+				<div className='signupDiv'>
+					<label>
+						Last Name
+					</label>
+					<input
+						type='text'
+						value={last_name}
+						onChange={(e) => setlast_name(e.target.value)}
+					/>
+				</div>
+				{validationErrors.city ? (<p className="error">{validationErrors.city}</p>) : null}
+				<div className='signupDiv'>
+					<label>
+						City
+					</label>
+					<input
+						type='text'
+						value={city}
+						onChange={(e) => setCity(e.target.value)}
+					/>
+				</div>
+				{validationErrors.phone_number ? (<p className="error">{validationErrors.phone_number}</p>) : null}
+				<div className='signupDiv'>
+					<label>
+						Phone Number
+					</label>
+					<input
+						type='text'
+						value={phone_number}
+						onChange={(e) => setphone_number(e.target.value)}
+					/>
 
-		  </div>
+				</div>
 
-		<div className='signupDiv'>
-				<label >
-					Password
-					{validationErrors.password ? (<p>{validationErrors.password}</p>) : null}
+				{validationErrors.password ? (<p className="error">{validationErrors.password}</p>) : null}
+				<div className='signupDiv'>
+					<label >
+						Password
 					</label>
 
 					<input
@@ -137,11 +141,11 @@ function SignupFormModal() {
 						onChange={(e) => setPassword(e.target.value)}
 
 					/>
-		</div>
+				</div>
 
-					<div className='signupDiv'>
-				<label>
-					Confirm Password
+				<div className='signupDiv'>
+					<label>
+						Confirm Password
 					</label>
 					<input
 						type="password"
@@ -150,8 +154,11 @@ function SignupFormModal() {
 
 					/>
 
-					</div>
+				</div>
+				<div className="signupButton">
+
 				<button type="submit">Sign Up</button>
+				</div>
 			</form>
 		</>
 	);
