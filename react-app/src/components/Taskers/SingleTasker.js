@@ -99,7 +99,7 @@ const GetSingleTasker = () => {
                     <div>
                         <div className="single-tasker-reviews-container">
                             <h3 className="single-tasker-review">Reviews:</h3>
-                            <h3 className="single-tasker-review">Reviews:</h3>
+                      
                             {allTaskerRev.length > 0 ? (allTaskerRev.map(rev => {
 
                                 return (
