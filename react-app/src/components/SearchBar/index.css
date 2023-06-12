@@ -239,3 +239,7 @@ align-items: center;
 .app-academy-logo{
     height: 2.5rem;
 }
+
+.remove_dec {
+    text-decoration: none;
+}

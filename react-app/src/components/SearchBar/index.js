@@ -142,8 +142,8 @@ return (
                   <div >
                     <NavLink exact to={`/taskers/${tasker.id}`}>
                       <img className="imags" src={tasker.profile_image}/>
+                  </NavLink>
 
-                    </NavLink>
                   </div>
                   <div className="fist-last-name-home">
                     {tasker.first_name}
@@ -176,9 +176,12 @@ return (
                     </div>
                     {/* <div className="ha tools">
 
-                    {tasker.tools}
-                    </div> */}
+{tasker.tools}
+</div> */}
+                                        <NavLink className="remove_dec" exact to={`/taskers/${tasker.id}`}>
+
                     <div className="view-tasker-profile">View Tasker Profile</div>
+                    </NavLink>
 
                       {/* <div>{tasker.tools}</div> */}
                   {/* <div>{tasker.bio}</div> */}
