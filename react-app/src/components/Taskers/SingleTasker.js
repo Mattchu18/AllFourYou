@@ -98,11 +98,12 @@ const GetSingleTasker = () => {
                     <br></br>
                     <div>
                         <div className="single-tasker-reviews-container">
+                            <h3 className="single-tasker-review">Reviews:</h3>
                             {allTaskerRev.length > 0 ? (allTaskerRev.map(rev => {
 
                                 return (
                                     <>
-                                        <h3 className="single-tasker-review">Reviews:</h3>
+
                                         <div className="single-tasker-reviews">
 
                                             <div>
