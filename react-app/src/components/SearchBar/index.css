@@ -17,7 +17,6 @@
     flex-direction: column;
     border: 1px solid gray;
     border-radius: .2rem;
-    z-index:100;
 }
 .button-search{
     border: none;
