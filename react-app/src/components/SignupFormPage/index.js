@@ -22,12 +22,12 @@ function SignupFormPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password === confirmPassword) {
-        const data = await dispatch(signUp(username, email, first_name, last_name, password, city, phone_number));
-        if (data) {
-          setErrors(data)
-        }
+      const data = await dispatch(signUp(username, email, first_name, last_name, password, city, phone_number));
+      if (data) {
+        setErrors(data)
+      }
     } else {
-        setErrors(['Confirm Password field must be the same as the Password field']);
+      setErrors(['Confirm Password field must be the same as the Password field']);
     }
   };
 
@@ -57,36 +57,36 @@ function SignupFormPage() {
           />
         </label>
         <label>
-          First Name 
+          First Name
           <input
-          type='text'
-          value={first_name}
-          onChange={(e) => setfirst_name(e.target.value)}
+            type='text'
+            value={first_name}
+            onChange={(e) => setfirst_name(e.target.value)}
           />
         </label>
 
         <label>
           Last Name
           <input
-          type='text'
-          value={last_name}
-          onChange={(e) => setlast_name(e.target.value)}
+            type='text'
+            value={last_name}
+            onChange={(e) => setlast_name(e.target.value)}
           />
         </label>
         <label>
-          City 
+          City
           <input
-          type='text'
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
+            type='text'
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
           />
         </label>
         <label>
           Phone Number
           <input
-          type='text'
-          value={phone_number}
-          onChange={(e) => setphone_number(e.target.value)}
+            type='text'
+            value={phone_number}
+            onChange={(e) => setphone_number(e.target.value)}
           />
         </label>
 
@@ -108,7 +108,9 @@ function SignupFormPage() {
             required
           />
         </label>
-        <button type="submit">Sign Up</button>
+        <div className='loginButtons'>
+          <button type="submit">Sign Up</button>
+        </div>
       </form>
     </>
   );

@@ -1,16 +1,9 @@
-        #modal-content {
-        display: flex;
-        justify-content: center;
-        /* align-items: center; */
-        width: 400px;
-        height: 400px;
-        border-radius: 10px;
-    }
-    
+
+
 form.reviewForm {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .textInfo {
@@ -32,18 +25,18 @@ form.reviewForm {
 
 .reviewForm label {
     display: flex;
-    
+
 }
 
-.review-container{
+.review-container {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     border: solid black;
     padding: 1rem;
-  }
+}
 
-.star-rating-container{
+.star-rating-container {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;

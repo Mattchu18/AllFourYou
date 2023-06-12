@@ -17,28 +17,28 @@ function LoginFormModal() {
     if (data) {
       setErrors(data);
     } else {
-        closeModal()
+      closeModal()
     }
   };
 
   const autoLogin = e => {
     setEmail('demo@aa.io')
     setPassword('password')
-    return dispatch(login({ email, password}))
-    .then(closeModal)
+    return dispatch(login({ email, password }))
+      .then(closeModal)
   }
 
 
   return (
     <>
       <form className='signupForm' onSubmit={handleSubmit}>
-      <h1>Log In</h1>
-          {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
-          ))}
-          <div className='signupDiv'>
-        <label>
-          Email
+        <h1>Log In</h1>
+        {errors.map((error, idx) => (
+          <p className="error" key={idx}>{error}</p>
+        ))}
+        <div className='signupDiv'>
+          <label>
+            Email
           </label>
           <input
             type="text"
@@ -47,11 +47,11 @@ function LoginFormModal() {
             required
           />
 
-          </div>
+        </div>
         {errors.email && <p>{errors.email}</p>}
         <div className='signupDiv'>
-        <label>
-          Password
+          <label>
+            Password
           </label>
           <input
             type="password"
@@ -61,9 +61,9 @@ function LoginFormModal() {
           />
         </div>
         <div className='loginButtons'>
-        {errors.password && <p>{errors.password}</p>}
-        <button type="submit" disabled={!email || !password}>Log In</button>
-        <button onClick={autoLogin}>Login in as Demo User</button>
+          {errors.password && <p>{errors.password}</p>}
+          <button type="submit" disabled={!email || !password}>Log In</button>
+          <button onClick={autoLogin}>Login in as Demo User</button>
         </div>
       </form>
     </>
