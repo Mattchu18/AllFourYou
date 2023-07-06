@@ -15,7 +15,7 @@ from .api.tasker_routes import tasker_routes
 from .api.billing_route import billing_routes
 from .seeds import seed_commands
 from .config import Config
-
+from .socket import socketio
 app = Flask(__name__, static_folder='../react-app/build', static_url_path='/')
 
 # Setup login manager
@@ -42,7 +42,7 @@ app.register_blueprint(tasker_routes, url_prefix='/api/taskers')
 app.register_blueprint(search_routes, url_prefix='/api/search')
 db.init_app(app)
 Migrate(app, db)
-
+socketio.init_app(app)
 # Application Security
 CORS(app)
 
@@ -101,3 +101,16 @@ def react_root(path):
 @app.errorhandler(404)
 def not_found(e):
     return app.send_static_file('index.html')
+
+# import your socketio object (with the other imports at the
+# top of the file)
+# in this example, the file from the previous step is named socket.py
+
+
+# initialize the app with the socket instance
+# you could include this line right after Migrate(app, db)
+
+
+# at the bottom of the file, use this to run the app
+if __name__ == '__main__':
+    socketio.run(app)

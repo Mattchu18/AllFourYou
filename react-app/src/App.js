@@ -20,6 +20,7 @@ import GetCurrentCards from "./components/Billing/CurrentUserCards";
 import CreateCard from "./components/Billing/CreateCard";
 import AccountPage from "./components/AccountPage/AccountPage";
 import SearchResults from "./components/SearchResults";
+import Chat from "./components/Chat/Chat"
 
 function App() {
   const dispatch = useDispatch();
@@ -40,11 +41,12 @@ function App() {
             <SignupFormPage />
           </Route>
           <Route exact path="/" component={SearchBar}></Route>
+          <Route exact path="/chat" component={Chat}></Route>
           <Route exact path="/results" component={SearchResults}></Route>
 
           <Route exact path='/reviews' component={GetCurrentUserReviews}/>
           <Route exact path='/account' component={AccountPage} />
-          {/* <Route exact path='/review/:reviewId' component={GetOneReview} /> 
+          {/* <Route exact path='/review/:reviewId' component={GetOneReview} />
          <Route exact path='/:taskerId/review/new' component={CreateReview} /> */}
           <Route exact path="/:taskerId/bookings/new" component={CreateBooking}/>
           <Route exact path="/bookings/all" component={GetCurrentBookings}/>
