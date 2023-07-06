@@ -1,14 +1,12 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { useEffect, useState } from "react";
 import { useHistory} from 'react-router-dom';
-import { thunkAllReviews, thunkCreateReview, thunkCurrUserReviews, thunkEditReview, thunkOneReview  } from "../../store/review";
+import { thunkCreateReview, thunkCurrUserReviews, thunkEditReview, thunkOneReview  } from "../../store/review";
 import { useModal } from "../../context/Modal";
-import { thunkSingleTasker } from "../../store/taskers";
 
 const ReviewForm = ({review, formType, disabled, tasker})=>{
     const dispatch = useDispatch()
     const history = useHistory()
-    // console.log(review)
     const [review_text, setReview_text] = useState(review?.review_text)
     const [star_rating, setStar_rating] = useState(review?.star_rating)
     const [activeRating, setActiveRating] = useState(star_rating)
@@ -48,7 +46,6 @@ const ReviewForm = ({review, formType, disabled, tasker})=>{
                 onMouseEnter={()=>handleMouseEnter(index)}
                 onMouseLeave={handleMouseLeave}
                 onClick={()=>handleClick(index)}>
-                    {/* <i className={className}></i> */}
                 </div>
             )
         }
@@ -71,14 +68,10 @@ const ReviewForm = ({review, formType, disabled, tasker})=>{
         }
         
         
-        // const findReview = thunkOneReview(review)
-        // if (findReview) err.message = "You already have a review for this Tasker!"
         if (formType === "Create Review" && !Object.keys(err).length){
             await dispatch(thunkCreateReview(review))
             .then(closeModal)
-            // console.log(review.tasker_id)
             history.push(`/taskers/${review.tasker_id}`)
-            // dispatch(thunkSingleTasker(review.tasker_id))
         }
         
         else if (formType === "Edit Review" && !Object.keys(err).length) {
@@ -91,7 +84,6 @@ const ReviewForm = ({review, formType, disabled, tasker})=>{
         
         if(err) {
             setErrors(err)
-            console.log('hi')
         }
         
         }

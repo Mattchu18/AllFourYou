@@ -1,14 +1,5 @@
-from flask import Blueprint, render_template, redirect, request
-from flask_login import login_required, current_user
-from ..models.db import db
+from flask import Blueprint
 from ..models.task import Task
-from ..forms.booking_form import BookingForm
-from ..models.booking import Booking
-# from ..forms.post_form import PostForm
-from datetime import date
-from random import randint
-from ..forms.review_form import ReviewForm
-from ..models.review import Review
 
 task_routes = Blueprint("task", __name__,url_prefix='')
 
@@ -19,33 +10,6 @@ def get_all_tasks():
     """
     all_tasks_obj = Task.query.all()
     all_tasks = [tasks.to_dict() for tasks in all_tasks_obj]
-    print(all_tasks)
     return all_tasks
 
 
-# @task_routes.route("/<int:id>")
-# @login_required
-# def get_task(id):
-#     """
-#     This route will get the task by id regardless of being logged in
-#     """
-#     one_task_obj = Task.query.get(id)
-#     task = one_task_obj.to_dict()
-#     if current_user.tasker == True and current_user.id == task["tasker_id"]:
-#     # you cannot dot notate into dictionary.
-#     # if current_user.tasker == True and current_user.id == one_task_obj.tasker_id:
-#         return task
-#     return "NO WAY BUD"
-
-
-
-
-# @task_routes.route("/<int:id>/delete", methods=["DELETE"])
-# @login_required
-# def delete_task(id):
-#     taskObj = Task.query.get(id)
-#     if current_user.tasker == True and current_user.id == taskObj.tasker_id:
-#         db.session.delete(taskObj)
-#         db.session.commit()
-#         return "BYE BYE"
-#     return "You aint the owner of this task"

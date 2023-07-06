@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, Fragment } from "react";
+import { useEffect} from "react";
 import { thunkAllTasks } from "../../store/task";
 
 const GetAllTasks = () => {
     const dispatch = useDispatch()
     const tasksObj = useSelector(state => state.task.allTasks)
     const tasksArr = Object.values(tasksObj)
-    console.log(tasksObj)
+   
 
     useEffect(() => {
         dispatch(thunkAllTasks())

@@ -14,7 +14,6 @@ const loadSingleTasker = (tasker) => ({
 })
 
 export const thunkAllTaskers = () => async (dispatch) => {
-    console.log('Hello!?')
     const response = await fetch('/api/taskers/all')
     if (response.ok) {
         const data = await response.json()
@@ -27,7 +26,6 @@ export const thunkSingleTasker = (tasker) => async (dispatch) => {
 
     if (response.ok) {
         const data = await response.json()
-        console.log("This my data tho",data)
         dispatch(loadSingleTasker(data))
     }
 }
@@ -42,7 +40,6 @@ const taskersReducer = (state = initialState, action) => {
         case GET_ALL_TASKERS: {
             const newState = {}
             const allTaskers = action.taskers
-            console.log("What is this tho", allTaskers)
             allTaskers.forEach(tasker => {
                 newState[tasker.id] = tasker
             })

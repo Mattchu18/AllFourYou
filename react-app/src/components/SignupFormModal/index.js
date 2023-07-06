@@ -54,7 +54,6 @@ function SignupFormModal() {
 				{errors.map((error, idx) => (
 					<>
 						<p className="error" key={idx}>{error}</p>
-						{console.log(error)}
 					</>
 				))}
 				{validationErrors.email ? (<p className="error">{validationErrors.email}</p>) : null}

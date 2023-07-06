@@ -1,13 +1,12 @@
 import { thunkOneReview } from "../../store/review";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, Fragment } from "react";
+import { useEffect} from "react";
 import { useParams } from 'react-router-dom';
 
 const GetOneReview = () => {
     const dispatch = useDispatch()
     const {reviewId} = useParams()
     const review = useSelector(state => {
-        console.log(state)
         return state.review.singleReview[reviewId]
     })
 
@@ -28,5 +27,4 @@ const GetOneReview = () => {
         </>
     )
 }
- // i don't think we need this tbh
 export default GetOneReview
