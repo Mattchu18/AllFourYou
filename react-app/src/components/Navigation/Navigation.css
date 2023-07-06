@@ -7,7 +7,6 @@
 }
 
 .profile-dropdown{
-  /* display: flex; */
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -26,24 +25,20 @@
   gap: 1rem;
 
 font-size: 12px;
-/* border: none; */
-/* color: green */
+
 }
 .nav-bar-container{
   width: 100%;
   border-bottom: 1px solid lightgray;
-  /* border: 2px solid purple; */
   display:flex;
   justify-content: space-between;
 
   padding-top: .5rem;
-  /* padding-bottom:1rem; */
   z-index:999
 
 }
 .logo-home{
-  /* display:flex; */
-  /* border: 2px solid pink; */
+
   padding-left:1rem;
   text-decoration: none;
 }
@@ -53,7 +48,6 @@ color:black;
 border: 1px solid balck
 }
 .other-nav-links{
-  /* border: 2px solid red */
   padding-right:1rem;
   display: flex;
   gap:2rem;
@@ -67,6 +61,5 @@ border: 1px solid balck
   width:19rem;
 }
 .navbargreen{
-  /* color:rgb(8, 64, 8); */
   font-weight: 500;
 }

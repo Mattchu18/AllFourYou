@@ -1,5 +1,4 @@
-from flask import Blueprint, redirect, request, Markup
-from ..models.db import db
+from flask import Blueprint, request
 from ..models.task import Task
 from ..models.tasker import Tasker
 
@@ -11,7 +10,7 @@ search_routes = Blueprint("search", __name__)
 def search_taskers():
 
     query = request.args.get('query')
-    print("query===============", query)
+    
     if not query:
         return "Please enter a search"
     else:
@@ -25,19 +24,18 @@ def search_taskers():
 
 
         # print(results_id)
-        print(results_city)
-        print(results_bio)
-        print(results_phone)
-        print(results_email)
-        print(results_category)
-        print(results_description)
+        # print(results_city)
+        # print(results_bio)
+        # print(results_phone)
+        # print(results_email)
+        # print(results_category)
+        # print(results_description)
 
         unique_set=set()
 
         results_list=[]
 
         tasker_results = results_city + results_bio + results_phone + results_email
-        # tasker_results = results_id + results_city + results_bio + results_phone + results_email
         task_results =results_category + results_description
 
         for tasker in tasker_results:
@@ -54,16 +52,13 @@ def search_taskers():
                 'email': tasker.email,
                 'phone':tasker.phone_number,
                 'profile_image': tasker.profile_image,
-                #include first_name, last_name
             }
 
             tasker_id = tasker.id
-            print(tasker_id, "TASKER ID BEFORE IFFFFFFF`````````")
-            print(unique_set, "<===========unique set")
+           
             if tasker_id not in unique_set:
 
                 tasker_tasks = Task.query.filter(Task.tasker_id==tasker_id).all()
-                print("taksers", tasker_tasks)
                 task_list = []
                 for task in tasker_tasks:
                     task_data = {

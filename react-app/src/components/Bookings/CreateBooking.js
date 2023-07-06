@@ -1,7 +1,7 @@
 import BookingForm from "./BookingForm";
 import { useParams } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, Fragment } from "react";
+import { useEffect} from "react";
 import { thunkCurrentUserBookings } from "../../store/booking"
 import { useHistory } from "react-router-dom";
 

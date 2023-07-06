@@ -1,4 +1,3 @@
-// import { csrfFetch } from "./csrf";
 const GET_ALL_CURR_REVIEWS = "review/loadCurrUserReviews"
 const GET_ALL_REVIEWS = "review/allReviews"
 const CREATE_REVIEW = "review/createReview"
@@ -38,7 +37,6 @@ const deleteReview = (review) => ({
 
 export const thunkCurrUserReviews = () => async (dispatch) => {
     const response = await fetch('/api/reviews/currentUser')
-    console.log("RESPONSE IN THUNK=====>", response)
 
     if (response.ok) {
         const data = await response.json()
@@ -57,7 +55,6 @@ export const thunkAllReviews = () => async (dispatch) => {
 }
 
 export const thunkOneReview = (review) => async (dispatch) => {
-    console.log(review)
     const response = await fetch(`/api/reviews/currentUser/${review.id}`)
 
     if (response.ok) {
@@ -67,7 +64,6 @@ export const thunkOneReview = (review) => async (dispatch) => {
 }
 
 export const thunkCreateReview = (review) => async dispatch => {
-    console.log("THIS IS MY REVIEW", review)
 
     const response = await fetch(`/api/taskers/${review.tasker_id}/reviews`, {
         method: "POST",
@@ -98,7 +94,6 @@ export const thunkDeleteReview = (review) => async dispatch => {
     const response = await fetch(`/api/reviews/delete/${review.id}`, {
         method: 'DELETE'
     })
-    console.log('hello from thunk delete twice')
     if (response.ok) {
         const data = await response.json()
         dispatch(deleteReview(data))
@@ -154,7 +149,6 @@ const reviewsReducer = (state = initialState, action) => {
             const newState = {}
             const newSingleState = { ...state }
             const newReview = action.review
-            console.log("I am in the edit review", newReview)
             newState[newReview.id] = newReview
             return {
                 // might not need that new state, that looks odd test otu edit review again later
@@ -178,26 +172,6 @@ const reviewsReducer = (state = initialState, action) => {
 
         default: return state
     }
-    // let newState;
-
-    // switch(action.type){
-    //     case GET_ALL_REVIEWS:
-    //         newState={...state}
-    //         action.reviews.forEach(review=>{
-    //             newState.currentUserReviews[review.id]=review
-    //         })
-    //         console.log("THIS IS after ITERATING=======>", newState)
-    //         return newState
-    //     case CREATE_REVIEW:
-    //         newState={...state}
-    //         newState[action.review.id] = action.review
-    //         return newState
-    //     case EDIT_REVIEW:
-    //         newState={...state}
-    //         newState=[action.review.id] = action.review
-    //         return newState
-
-    //     default: return state
-    // }
+   
 }
 export default reviewsReducer;
