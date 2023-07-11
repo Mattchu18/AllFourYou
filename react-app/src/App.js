@@ -21,7 +21,7 @@ import CreateCard from "./components/Billing/CreateCard";
 import AccountPage from "./components/AccountPage/AccountPage";
 import SearchResults from "./components/SearchResults";
 import Chat from "./components/Chat/Chat"
-
+import UserProfile from "./components/UserProfiles/UserProfile";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -43,6 +43,7 @@ function App() {
           <Route exact path="/" component={SearchBar}></Route>
           <Route exact path="/chat" component={Chat}></Route>
           <Route exact path="/results" component={SearchResults}></Route>
+          <Route exact path="/users/:userId" component={UserProfile}></Route>
 
           <Route exact path='/reviews' component={GetCurrentUserReviews}/>
           <Route exact path='/account' component={AccountPage} />

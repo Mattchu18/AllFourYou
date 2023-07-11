@@ -26,8 +26,8 @@ class User(db.Model, UserMixin):
 
     billings = db.relationship("Billing", back_populates="user")
 
-    msg_user1 = db.relationship("User_Message", back_populates="user1_msg")
-    msg_user2 = db.relationship("User_Message", back_populates="user2_msg")
+    # msg_user1 = db.relationship("User_Message", back_populates="user1_msg")
+    # msg_user2 = db.relationship("User_Message", back_populates="user2_msg")
 
     @property
     def password(self):

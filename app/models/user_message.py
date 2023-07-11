@@ -11,8 +11,8 @@ class User_Message(db.Model):
     created_at= db.Column(db.DateTime(),default=datetime.now)
 
 
-    user1_msg = db.relationship("User", back_populates="msg_user1")
-    user2_msg = db.relationship("User", back_populates="msg_user2")
+    # user1_msg = db.relationship("User", back_populates="msg_user1")
+    # user2_msg = db.relationship("User", back_populates="msg_user2")
 
     message_join_user= db.relationship("Message", back_populates="user_join_message")
 
