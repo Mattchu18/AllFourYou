@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { io } from 'socket.io-client';
+import { useParams } from 'react-router-dom'
 let socket;
 
 const Chat = () => {
     const [chatInput, setChatInput] = useState("");
     const [messages, setMessages] = useState([]);
     const user = useSelector(state => state.session.user)
+    const { userId } = useParams()
 
     useEffect(() => {
         // open socket connection

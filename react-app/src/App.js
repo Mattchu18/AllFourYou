@@ -41,7 +41,7 @@ function App() {
             <SignupFormPage />
           </Route>
           <Route exact path="/" component={SearchBar}></Route>
-          <Route exact path="/chat" component={Chat}></Route>
+          <Route exact path="/chat/:userId" component={Chat}></Route>
           <Route exact path="/results" component={SearchResults}></Route>
           <Route exact path="/users/:userId" component={UserProfile}></Route>
 

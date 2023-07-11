@@ -7,7 +7,7 @@ class User_Message(db.Model):
         __table_args__ = {'schema': SCHEMA}
     id = db.Column(db.Integer, primary_key=True)
     user1_id=db.Column(db.Integer(), nullable=False)
-    user2_id=db.Column(db.Integer())
+    user2_id=db.Column(db.Integer(), nullable=False)
     created_at= db.Column(db.DateTime(),default=datetime.now)
 
 
