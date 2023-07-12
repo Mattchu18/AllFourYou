@@ -3,35 +3,34 @@ import { useDispatch, useSelector } from "react-redux";
 import { thunkAllUsers } from '../../store/session';
 import { useEffect } from "react";
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
-import { thunkAllMessages } from '../../store/messages';
+import { thunkAllMessages, thunkUserMessages } from '../../store/messages';
+import Users from './Users';
 
-const UserProfile = ()=>{
+const UserProfile = () => {
 // const allUsers = useSelector(state=> state)
 const dispatch = useDispatch()
 const {userId} = useParams()
-
-const msgs = useSelector(state=> state)
-console.log("user in msgs component", msgs)
 
 
 
 useEffect(()=>{
     dispatch(thunkAllUsers())
+    dispatch(thunkUserMessages())
 }, [dispatch])
 const users = useSelector(state=> state.session.allUsers)
 
+// const createUserMsg = (user) => {
+
+// }
+
     return(
         <>
-        User component
-        {users &&  Object.values(users).map(user=>{
-           return(
-           <>
-           <div>{user.first_name}</div>
-           <NavLink to="">
-           <i className="fas fa-envelope"></i>
-           </NavLink>
-           </>
-           )
+        {/* User component */}
+        {users && Object.values(users).map(user=>{
+            return (
+                <Users key={user.id} user={user} />
+
+            )
         })}
         </>
     )

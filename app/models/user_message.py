@@ -16,10 +16,10 @@ class User_Message(db.Model):
 
     message_join_user= db.relationship("Message", back_populates="user_join_message")
 
-def to_dict(self):
-    return{
-        "id":self.id,
-        "user1_id":self.user1_id,
-        "user2_id":self.user2_id,
-        "created_at":self.created_at
-    }
+    def to_dict(self):
+        return{
+            "id":self.id,
+            "user1_id":self.user1_id,
+            "user2_id":self.user2_id,
+            "created_at":self.created_at
+        }

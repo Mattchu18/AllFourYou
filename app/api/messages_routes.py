@@ -3,6 +3,7 @@ from flask import Blueprint, render_template, redirect, request
 from app.models.message import Message
 from app.models.user_message import User_Message
 from app.models.user import User
+from datetime import datetime
 from app.models.db import db
 
 message_routes = Blueprint("messages", __name__,url_prefix='')
@@ -29,18 +30,26 @@ def post_message(id):
     """
     Create a message between two users
     """
-    user1_id = current_user.id
-    user2_id = id
-
+    increment = User_Message.query.all()
+    length = len(increment)
+    if current_user.id == id:
+        return {"message": "no"}
     new_user_message = User_Message(
-        user1_id,
-        user2_id
-        )
+        id=length+1,
+        user1_id=current_user.id,
+        user2_id=id,
+        created_at=datetime.now()
+    )
+    print('================', new_user_message.to_dict())
     db.session.add(new_user_message)
     db.session.commit()
+    return new_user_message.to_dict()
+
+
 @message_routes.route("/user_messages/all")
 @login_required
 def get_user_messages():
-
+    # print('hello')
     user_messages = User_Message.query.all()
+    print(user_messages)
     return [message.to_dict() for message in user_messages]

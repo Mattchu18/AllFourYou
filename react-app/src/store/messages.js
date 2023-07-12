@@ -18,25 +18,29 @@ export const thunkAllMessages = (id) => async (dispatch) => {
     const response = await fetch(`/api/messages/${id}/messages`)
     if(response.ok){
         const data = await response.json()
-        dispatch(loadAllMessages(data ))
+        dispatch(loadAllMessages(data))
     }
 }
 
-export const thunkUserMessages = (id) => async(dispatch)=>{
+export const thunkUserMessages = () => async(dispatch)=>{
     const response = await fetch(`/api/messages/user_messages/all`)
+    console.log(response)
     if(response.ok){
         const data = await response.json()
         dispatch(loadUserMessages(data))
     }
 }
-export const thunkCreateUserMessage = (message) =>async (dispatch)=>{
-    const response = await fetch(`/api/messages/${message.id}/messages`, {
+export const thunkCreateUserMessage = (user) =>async (dispatch)=>{
+    console.log('thsi is our user', user)
+    const response = await fetch(`/api/messages/${user.id}/messages`, {
         method:"POST",
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(message)
+        body: JSON.stringify(user)
     })
+    console.log('this is our response', response)
     if(response.ok){
         const data = await response.json()
+        console.log(data)
         dispatch(createUserMessage(data))
     }
 }

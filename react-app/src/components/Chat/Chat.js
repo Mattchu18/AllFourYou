@@ -14,7 +14,7 @@ const Chat = () => {
     const dispatch = useDispatch()
 
     const msgs = useSelector(state=> state.messages.allMsg)
-    console.log("..............messages", messages)
+    // console.log("..............messages", messages)
     // const msgsArr = Object.values(msgs)
 
 
@@ -56,10 +56,10 @@ const Chat = () => {
     }, [messages])
     return (
         <>
-        Hlelo
+        {/* Hlelo */}
                    <div>
                     {/* {console.log("this is msgs,,,", Object.values(msgs))} */}
-                {Object.values(msgs).map((msg=>{
+                {msgs && Object.values(msgs).map((msg=>{
                     {console.log(".....", msg)}
                    return(
                    <>
