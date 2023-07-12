@@ -1,0 +1,22 @@
+.chat-container{
+    margin-left: 20rem;
+    margin-right: 20rem;
+    margin-top: 2rem;
+
+
+    /* border: 2px solid red; */
+}
+
+.mymessage{
+    display:flex;
+    justify-content: flex-end;
+}
+
+.chat-boxes{
+    background-color: rgb(230, 230, 230);
+    width:fit-content;
+    min-width: 2rem;
+    border-radius: .5rem;
+    padding: .5rem;
+    min-height: 1rem;
+}

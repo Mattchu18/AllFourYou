@@ -4,6 +4,7 @@ import { io } from 'socket.io-client';
 import { useParams } from 'react-router-dom'
 import { useDispatch } from "react-redux";
 import { thunkAllMessages } from "../../store/messages";
+import "./Chat.css"
 let socket;
 
 const Chat = () => {
@@ -57,14 +58,19 @@ const Chat = () => {
     return (
         <>
         {/* Hlelo */}
-                   <div>
+        <div className="chat-container">
+            <div>
                     {/* {console.log("this is msgs,,,", Object.values(msgs))} */}
                 {msgs && Object.values(msgs).map((msg=>{
                     {console.log(".....", msg)}
                    return(
-                   <>
-                   <div>{msg.body}
-                        </div>
+                       <>
+
+         {msg.userId === user.id ? <div className="mymessage">{msg.userInfo.first_name}: <p className="chat-boxes">{msg.body}</p>
+                        </div>:  <div>{msg.userInfo.first_name}: <p className="chat-boxes">{msg.body}</p>
+                        </div>}
+
+
                    </>)
                 }))}
             </div>
@@ -85,6 +91,7 @@ const Chat = () => {
             </form>
         </div>
     )}
+    </div>
         </>
     )
 };

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom';
-import { thunkCreateUserMessage } from "../../store/messages";
+import { thunkAllMessages, thunkCreateUserMessage, thunkUserMessages } from "../../store/messages";
 
 const Users = ({user}) => {
     const history = useHistory()
@@ -17,7 +17,7 @@ const Users = ({user}) => {
         if ((check[i].user1_id === currUser.id && check[i].user2_id === user.id) ||  (check [i].user1_id === user.id && check[i].user2_id === currUser.id)) {
             userMsgId = check[i].id
             return true
-            } 
+            }
         }
         return false
     }
@@ -30,15 +30,17 @@ const Users = ({user}) => {
             history.push(`/chat/${userMsgId}`)
         } else {
             console.log(user)
-            await dispatch(thunkCreateUserMessage(user))
-            // history.push(`/chat/${userMsg.id}`)
+            const userMsgs = await dispatch(thunkCreateUserMessage(user))
+            // await dispatch(thunkUserMessages())
+            console.log("thi sis user msgs========================", userMsgs)
+            history.push(`/chat/${userMsgs.id}`)
         }
     }
 
 
     return (
         <>
-        {user.id !== currUser.id ? 
+        {user.id !== currUser.id ?
         <>
         {user.first_name}
         <i className='fas fa-envelope' onClick={ createUserMsgId }></i>

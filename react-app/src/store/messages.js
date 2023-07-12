@@ -41,7 +41,8 @@ export const thunkCreateUserMessage = (user) =>async (dispatch)=>{
     if(response.ok){
         const data = await response.json()
         console.log(data)
-        dispatch(createUserMessage(data))
+         dispatch(createUserMessage(data))
+        return data
     }
 }
 
