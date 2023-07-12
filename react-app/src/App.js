@@ -41,9 +41,9 @@ function App() {
             <SignupFormPage />
           </Route>
           <Route exact path="/" component={SearchBar}></Route>
-          <Route exact path="/chat/:userId" component={Chat}></Route>
+          <Route exact path="/chat/:userMessageId" component={Chat}></Route>
           <Route exact path="/results" component={SearchResults}></Route>
-          <Route exact path="/users/:userId" component={UserProfile}></Route>
+          <Route exact path="/users" component={UserProfile}></Route>
 
           <Route exact path='/reviews' component={GetCurrentUserReviews}/>
           <Route exact path='/account' component={AccountPage} />

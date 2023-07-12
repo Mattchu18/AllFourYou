@@ -2,18 +2,29 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { io } from 'socket.io-client';
 import { useParams } from 'react-router-dom'
+import { useDispatch } from "react-redux";
+import { thunkAllMessages } from "../../store/messages";
 let socket;
 
 const Chat = () => {
     const [chatInput, setChatInput] = useState("");
     const [messages, setMessages] = useState([]);
     const user = useSelector(state => state.session.user)
-    const { userId } = useParams()
+    const { userMessageId } = useParams()
+    const dispatch = useDispatch()
+
+    const msgs = useSelector(state=> state.messages.allMsg)
+    console.log("..............messages", messages)
+    // const msgsArr = Object.values(msgs)
+
 
     useEffect(() => {
         // open socket connection
         // create websocket
         socket = io();
+
+        dispatch(thunkAllMessages(userMessageId))
+
 
         socket.on("chat", (chat) => {
             setMessages(messages => [...messages, chat])
@@ -24,22 +35,46 @@ const Chat = () => {
         })
     }, [])
 
+
+
     const updateChatInput = (e) => {
         setChatInput(e.target.value)
     };
 
     const sendChat = (e) => {
         e.preventDefault()
-        socket.emit("chat", { user: user.username, msg: chatInput });
+        console.log("thisi s user===>", user)
+
+        socket.emit("chat", { user_id: user.id, body: chatInput, user_message_id: userMessageId });
+
+ dispatch(thunkAllMessages(userMessageId))
         setChatInput("")
     }
+    useEffect(()=>{
+        dispatch(thunkAllMessages(userMessageId))
 
-    return (user && (
+    }, [messages])
+    return (
+        <>
+        Hlelo
+                   <div>
+                    {/* {console.log("this is msgs,,,", Object.values(msgs))} */}
+                {Object.values(msgs).map((msg=>{
+                    {console.log(".....", msg)}
+                   return(
+                   <>
+                   <div>{msg.body}
+                        </div>
+                   </>)
+                }))}
+            </div>
+{        user && (
         <div>
+
             <div>
-                {messages.map((message, ind) => (
-                    <div key={ind}>{`${message.user}: ${message.msg}`}</div>
-                ))}
+                {/* {messages.map((message, ind) => (
+                    <div key={ind}>{`${message.user}: ${message.body}`}</div>
+                ))} */}
             </div>
             <form onSubmit={sendChat}>
                 <input
@@ -49,7 +84,8 @@ const Chat = () => {
                 <button type="submit">Send</button>
             </form>
         </div>
-    )
+    )}
+        </>
     )
 };
 

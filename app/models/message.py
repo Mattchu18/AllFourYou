@@ -32,5 +32,6 @@ class Message(db.Model):
             "body":self.body,
             "user_message_id": self.user_message_id,
             "userId": self.user_id,
+            "userInfo": self.user_msg.to_dict(),
             "created_at":self.created_at
         }

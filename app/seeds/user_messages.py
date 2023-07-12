@@ -10,15 +10,17 @@ def seed_user_messages():
         user1_id=2,
         user2_id=1
     )
-    user_message3 = User_Message(
-        user1_id=1,
-        user2_id=2
-    )
-    user_message4 = User_Message(
-        user1_id=2,
-        user2_id=1
-    )
-    user_message_list = [user_message1, user_message2, user_message3, user_message4]
+    # user_message3 = User_Message(
+    #     user1_id=1,
+    #     user2_id=2
+    # )
+    # user_message4 = User_Message(
+    #     user1_id=2,
+    #     user2_id=1
+    # )
+    user_message_list = [user_message1, user_message2,
+                        #   user_message3, user_message4\
+                            ]
     for user_message in user_message_list:
         db.session.add(user_message)
     db.session.commit()

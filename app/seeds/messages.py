@@ -9,17 +9,17 @@ def seed_messages():
     )
     message2=Message(
         body="hello back",
-        user_message_id=2,
+        user_message_id=1,
         user_id=2
     )
     message3 = Message(
         body="how are you",
-        user_message_id=3,
+        user_message_id=1,
         user_id=1
     )
     message4=Message(
         body="im ok",
-        user_message_id=4,
+        user_message_id=1,
         user_id=2
     )
     message_list = [message1, message2, message3, message4]

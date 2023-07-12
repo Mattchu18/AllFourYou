@@ -13,7 +13,7 @@ from .api.task_routes import task_routes
 from .api.search_routes import search_routes
 from .api.tasker_routes import tasker_routes
 from .api.billing_route import billing_routes
-from .api.message_routes import message_routes
+from .api.messages_routes import message_routes
 from .seeds import seed_commands
 from .config import Config
 from .socket import socketio
