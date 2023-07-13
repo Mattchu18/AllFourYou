@@ -17,38 +17,54 @@ function LoginFormModal() {
     if (data) {
       setErrors(data);
     } else {
-        closeModal()
+      closeModal()
     }
   };
 
+  const autoLogin = e => {
+    setEmail('demo@aa.io')
+    setPassword('password')
+    return dispatch(login({ email, password }))
+      .then(closeModal)
+  }
+
+
   return (
     <>
-      <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
-          ))}
-        </ul>
-        <label>
-          Email
+      <form className='signupForm' onSubmit={handleSubmit}>
+        <h1>Log In</h1>
+        {errors.map((error, idx) => (
+          <p className="error" key={idx}>{error}</p>
+        ))}
+        <div className='signupDiv'>
+          <label>
+            Email
+          </label>
           <input
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-        </label>
-        <label>
-          Password
+
+        </div>
+        {errors.email && <p>{errors.email}</p>}
+        <div className='signupDiv'>
+          <label>
+            Password
+          </label>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-        </label>
-        <button type="submit">Log In</button>
+        </div>
+        <div className='loginButtons'>
+          {errors.password && <p>{errors.password}</p>}
+          <button type="submit" disabled={!email || !password}>Log In</button>
+          <button onClick={autoLogin}>Login in as Demo User</button>
+        </div>
       </form>
     </>
   );

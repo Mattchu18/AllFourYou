@@ -1,4 +1,5 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
+from datetime import datetime
 
 class Booking(db.Model):
     __tablename__="bookings"
@@ -11,11 +12,14 @@ class Booking(db.Model):
     city = db.Column(db.String(100), nullable=False)
     duration=db.Column(db.String(100), nullable=False)
     details = db.Column(db.String(500), nullable = False)
-    user_id=db.Column(db.Integer(), db.ForeignKey("users.id"))
-    task_id = db.Column(db.Integer(), db.ForeignKey("tasks.id"))
+    user_id=db.Column(db.Integer(), db.ForeignKey(add_prefix_for_prod("users.id")))
+    tasker_id = db.Column(db.Integer(), db.ForeignKey(add_prefix_for_prod("taskers.id")))
+    created_at= db.Column(db.DateTime(),default=datetime.now)
+    updated_at=db.Column(db.DateTime(), default=datetime.now)
 
     user = db.relationship("User", back_populates ="user_bookings")
-    booking_task= db.relationship("Task", back_populates="task_bookings")
+    booking_tasker= db.relationship("Tasker", back_populates="tasker_booking")
+    booking_reviews = db.relationship("Review", back_populates="review_booking", cascade="all, delete")
 
     def to_dict(self):
         return {
@@ -25,5 +29,7 @@ class Booking(db.Model):
             "duration": self.duration,
             'details': self.details,
             'user_id': self.user_id,
-            'task_id': self.task_id,
+            'tasker_id': self.tasker_id,
+            'created_at':self.created_at,
+            'updated_at':self.created_at,
         }

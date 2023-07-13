@@ -5,15 +5,15 @@ from sqlalchemy.sql import text
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        username='Demo1', email='demo@aa.io', password='password', city='Demo City',phone_number= 100_000_0000, tasker=True)
+        username='Demo1', email='demo@aa.io', first_name = "Demo", last_name = "Demo", password='password', city='Toronto',phone_number= 1000000000)
     matt = User(
-        username='matt1', email='matt@aa.io', password='password', city='San Francisco', phone_number= 111_111_1111, tasker=False)
+        username='matt1', email='matt@aa.io', first_name = "MattUser", last_name = "A", password='password', city='San Francisco', phone_number= 1111111111 )
     vanessa = User(
-        username='vanessa1', email='vanessa@aa.io', password='password', city='Miami',phone_number= 222_222_2222, tasker=False)
+        username='vanessa1', email='vanessa@aa.io', first_name = "VanessaUser", last_name = "G", password='password', city='Miami',phone_number= 2222222222 )
     tony = User(
-        username='tony1', email='tony@aa.io', password='password',city='Millbrae', phone_number= 333_333_3333, tasker=False)
+        username='tony1', email='tony@aa.io', first_name = "TonyUser", last_name = "H", password='password',city='Millbrae', phone_number= 3333333333 )
     kevinb = User(
-        username='kevinb1', email='kevinb@aa.io', password='password', city='Northwood', phone_number=444_444_4444, tasker=False)
+        username='kevinb1', email='kevinb@aa.io', first_name = "KevinbUser", last_name = "B", password='password', city='San Francisco', phone_number=4444444444 )
 
     db.session.add(demo)
     db.session.add(matt)

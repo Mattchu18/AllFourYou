@@ -7,11 +7,16 @@ import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import GetCurrentUserReviews from "./components/Reviews/CurrentUserReviews"
 import EditReview from "./components/Reviews/EditReview"
-import CreateReview from "./components/Reviews/CreateReview";
-import GetOneReview from "./components/Reviews/OneReview";
 import GetCurrentBookings from "./components/Bookings/GetCurrentBookings"
 import GetAllTasks from "./components/Tasks/GetAllTasks"
 import CreateBooking from "./components/Bookings/CreateBooking";
+import EditBooking from "./components/Bookings/EditBooking";
+import GetAllTaskers from "./components/Taskers/GetAllTaskers";
+import GetSingleTasker from "./components/Taskers/SingleTasker"
+import SearchBar from "./components/SearchBar";
+import GetCurrentCards from "./components/Billing/CurrentUserCards";
+import AccountPage from "./components/AccountPage/AccountPage";
+import SearchResults from "./components/SearchResults";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,13 +36,19 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
+          <Route exact path="/" component={SearchBar}></Route>
+          <Route exact path="/results" component={SearchResults}></Route>
+
           <Route exact path='/reviews' component={GetCurrentUserReviews}/>
+          <Route exact path='/account' component={AccountPage} />
+          <Route exact path="/:taskerId/bookings/new" component={CreateBooking}/>
+          <Route exact path="/bookings/all" component={GetCurrentBookings}/>
+          <Route exact path="/booking/:bookingId" component={EditBooking}/>
+          <Route exact path="/tasks/all" component={GetAllTasks}/>
+          <Route exact path='/available' component={GetAllTaskers} />
+          <Route exact path="/taskers/:taskerId" component={GetSingleTasker} />
           <Route exact path='/review/:reviewId' component={EditReview} />
-          {/* <Route exact path='/review/:reviewId' component={GetOneReview} /> */}
-          <Route exact path='/:taskerId/review/new' component={CreateReview} />
-          <Route exact path="/bookings/new" component={CreateBooking}></Route>
-          <Route exact path="/bookings/all" component={GetCurrentBookings}></Route>
-          <Route exact path="/tasks/all" component={GetAllTasks}></Route>
+          <Route exact path="/billing" component={GetCurrentCards}></Route>
         </Switch>
 
       )}

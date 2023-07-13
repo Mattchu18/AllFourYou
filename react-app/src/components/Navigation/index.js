@@ -8,16 +8,42 @@ function Navigation({ isLoaded }){
 	const sessionUser = useSelector(state => state.session.user);
 
 	return (
-		<ul>
-			<li>
-				<NavLink exact to="/">Home</NavLink>
-			</li>
+		<div className="nav-bar-container">
+
+						<div className="logo-home">
+
+				<NavLink className="nav-links-on-navbar panda-logo" exact to="/"><img className="panda-png" src="https://cdn.discordapp.com/attachments/1062942242450460744/1116920295043899504/panda.png"/></NavLink>
+
+						</div>
+
+				<div>
+
+				</div>
+				<div className="other-nav-links">
+			{ sessionUser ?
+
+
+
+			<>
+				<NavLink className="nav-links-on-navbar navbargreen" exact to='/available'>Available taskers!</NavLink>
+				<NavLink className="nav-links-on-navbar navbargreen" exact to ='/account'>Account</NavLink>
+
+
+
+
+			</>
+
+			: null
+			}
 			{isLoaded && (
-				<li>
-					<ProfileButton user={sessionUser} />
-				</li>
+
+					<ProfileButton className="profile-dropdown" user={sessionUser} />
+
 			)}
-		</ul>
+			</div>
+
+		</div>
+
 	);
 }
 

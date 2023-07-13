@@ -1,0 +1,215 @@
+.highlighted{
+    background-color: yellow;
+}
+.home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.search-bar{
+    width: 100%;
+    max-width: 800px;
+    height: 2.5rem;
+    flex-direction: column;
+    border: 1px solid gray;
+    border-radius: .2rem;
+}
+.button-search{
+    border: none;
+}
+.search-container{
+    margin-top: 2rem;
+    max-width: 880px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.search-card{
+    display:flex;
+    width: 100%;
+}
+.tasker-containers{
+    border: 1px solid lightgray;
+    background-color: white;
+    border-radius: 5px;
+    min-width: 30%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+
+}
+.container2{
+    display:flex;
+    justify-content: space-evenly;
+    margin: 1rem 0 3rem 0;
+    width: 100%;
+    max-width: 1000px;
+}
+.tasker-names{
+    padding-bottom: .8rem;
+    padding-top: .5rem;
+}
+.tools-bio{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.about-tasker{
+    margin-bottom: .5rem;
+
+}
+
+.ha{
+display:flex;
+justify-content: center;
+align-items: center;
+border: 1px solid #0d7a5f;
+border-radius: .3rem;
+margin-bottom: 1rem;
+width: 99%;
+height: 2.5rem;
+color: #0d7a5f;
+flex-wrap:wrap;
+
+}
+.tools{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-left: .5rem;
+
+}
+.view-tasker-profile{
+    color: #0d7a5f;
+}
+.home-top-taskers{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+}
+.home-h2-tasker{
+max-width: 880px;
+width: 100%;
+margin-top: 2rem;
+}
+.book-your-next-task{
+    margin-bottom: .3rem;
+    padding-bottom:0;
+}
+.h2-book-next{
+   font-size: 2rem;
+    font-weight: 520;
+}
+button .home-button-search{
+    border:none;
+    background-color:none !important;
+    text-decoration: none;
+    height: 1rem;
+    width: fit-content;
+}
+.home-link-search{
+    text-decoration: none;
+
+}
+.search-home-button{
+
+}
+a.home-link-search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: none !important;
+    width: 2rem;
+}
+.elite-tasker{
+    color: #36b5bb
+}
+.popular-taskers-home{
+    background-color: #f5f7f6;
+    width: 100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: .3rem;
+    padding-bottom: .3rem;
+    margin-bottom: 1rem;
+
+}
+.imags {
+
+    height: 8rem;
+    width: 8rem;
+    border-radius: 100%;
+    object-fit: cover;
+
+}
+.container-avalable-elite{
+    display:flex;
+    justify-content: start;
+    flex-direction: column;
+    width: 80%;
+}
+.fist-last-name-home{
+    font-size: larger;
+    margin-bottom: 1rem;
+}
+.toolbox-red{
+
+    height: 14rem;
+    opacity: 0.8;
+
+}
+.tool-box-container{
+    display:flex;
+    justify-content: start;
+    width: 100%;
+    position: absolute;
+    right:4rem;
+    top: 4rem;
+}
+.container-ikea{
+background-color: rgb(239, 255, 253);
+width: 100%;
+margin-top: 2rem;
+display:flex;
+justify-content: center;
+
+padding-top: 1rem;
+padding-bottom: 1rem;
+align-items: center;
+}
+.bunny-yellow{
+    height: 9rem;
+
+    padding-right: 2rem;
+}
+.ikea-1{
+
+}
+.how-panda-use{
+    font-weight: 400;
+}
+.stars-home{
+    color: rgb(245, 210, 55);
+}
+.partnered{
+    width: 50%;
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.app-academy-logo{
+    height: 2.5rem;
+}

@@ -11,6 +11,10 @@ function SignupFormPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [city, setCity] = useState("")
+  const [phone_number, setphone_number] = useState("")
+  const [first_name, setfirst_name] = useState("")
+  const [last_name, setlast_name] = useState("")
   const [errors, setErrors] = useState([]);
 
   if (sessionUser) return <Redirect to="/" />;
@@ -18,12 +22,12 @@ function SignupFormPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password === confirmPassword) {
-        const data = await dispatch(signUp(username, email, password));
-        if (data) {
-          setErrors(data)
-        }
+      const data = await dispatch(signUp(username, email, first_name, last_name, password, city, phone_number));
+      if (data) {
+        setErrors(data)
+      }
     } else {
-        setErrors(['Confirm Password field must be the same as the Password field']);
+      setErrors(['Confirm Password field must be the same as the Password field']);
     }
   };
 
@@ -53,6 +57,40 @@ function SignupFormPage() {
           />
         </label>
         <label>
+          First Name
+          <input
+            type='text'
+            value={first_name}
+            onChange={(e) => setfirst_name(e.target.value)}
+          />
+        </label>
+
+        <label>
+          Last Name
+          <input
+            type='text'
+            value={last_name}
+            onChange={(e) => setlast_name(e.target.value)}
+          />
+        </label>
+        <label>
+          City
+          <input
+            type='text'
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+          />
+        </label>
+        <label>
+          Phone Number
+          <input
+            type='text'
+            value={phone_number}
+            onChange={(e) => setphone_number(e.target.value)}
+          />
+        </label>
+
+        <label>
           Password
           <input
             type="password"
@@ -70,7 +108,9 @@ function SignupFormPage() {
             required
           />
         </label>
-        <button type="submit">Sign Up</button>
+        <div className='loginButtons'>
+          <button type="submit">Sign Up</button>
+        </div>
       </form>
     </>
   );

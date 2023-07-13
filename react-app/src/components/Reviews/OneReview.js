@@ -1,17 +1,19 @@
 import { thunkOneReview } from "../../store/review";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, Fragment } from "react";
+import { useEffect} from "react";
 import { useParams } from 'react-router-dom';
 
 const GetOneReview = () => {
     const dispatch = useDispatch()
     const {reviewId} = useParams()
-    const review = useSelector(state => state.review.singleReview)
+    const review = useSelector(state => {
+        return state.review.singleReview[reviewId]
+    })
 
     useEffect(() => {
-        dispatch(thunkOneReview(reviewId))
-    }, [dispatch, reviewId])
-    if(!review) return "no reviews by that id"
+        dispatch(thunkOneReview(review))
+    }, [dispatch])
+
 
     return (
         <>
@@ -25,5 +27,4 @@ const GetOneReview = () => {
         </>
     )
 }
- // i don't think we need this tbh
 export default GetOneReview

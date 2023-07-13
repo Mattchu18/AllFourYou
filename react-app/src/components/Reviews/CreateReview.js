@@ -1,12 +1,13 @@
-
 import ReviewForm from './ReviewForm'
-import { useParams } from 'react-router-dom'
+import './Reviews.css'
 
-const CreateReview=()=>{
-  const { taskerId } = useParams()
-  console.log(taskerId)
-    const review = { review_text: "", star_rating: "", tasker_id: taskerId } 
-    console.log("HELLO FROM CREATE REVIEW FORM")
+const CreateReview=({taskerId})=>{
+    const review = {
+      review_text: "",
+      star_rating: "",
+      tasker_id: taskerId
+    }
+
     return(
         <>
           <ReviewForm

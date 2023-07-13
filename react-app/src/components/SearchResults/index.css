@@ -1,0 +1,127 @@
+.root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(238, 239, 239);
+
+}
+
+.highlighted {
+    background-color: rgb(240, 240, 140);
+}
+
+.result-card {
+    display: flex;
+    width: 30%;
+    max-width: 14rem;
+    justify-content: center;
+    align-items: center;
+
+  
+}
+
+.all-results {
+    margin-left: 4rem;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+    margin-top: 2rem;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+
+}
+
+.imag {
+
+    height: 9rem;
+    width: 9rem;
+    border-radius: 100%;
+    object-fit: cover;
+
+}
+
+.profile-pic {
+
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-button {
+
+    border: 2px solid rgb(4, 61, 4);
+    border-radius: .25rem;
+    height: 2rem;
+    width: 8rem;
+    background-color: rgb(4, 61, 4);
+    color: white;
+
+
+
+}
+
+.test {
+    border: 1px solid rgb(186, 181, 181);
+    display: flex;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.info {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    color: black;
+
+}
+
+.link-to-taskers {
+    text-decoration: none;
+}
+
+.price {
+    padding-right: 2rem;
+    padding-top: 1rem;
+    font-size: large;
+}
+
+.name-price {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.fa-truck {
+    padding-right: 1rem;
+}
+
+.fa-toolbox {
+    padding-right: 1rem;
+}
+
+.tasker-details {
+    padding-bottom: .5rem;
+    border-bottom: 1px solid gray;
+
+}
+
+.tasker-bio-card {
+    padding-top: .5rem;
+
+}
+
+.tasker-bio {
+    padding-top: .5rem;
+
+}
+
+.text-to-help {
+    font-weight: bold;
+}

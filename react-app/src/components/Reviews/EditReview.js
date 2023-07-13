@@ -1,26 +1,20 @@
 import ReviewForm from './ReviewForm'
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import {thunkOneReview} from '../../store/review'
-import { useEffect } from 'react';
+import { useDispatch} from 'react-redux';
+import { useHistory } from 'react-router-dom'
+import { useModal } from "../../context/Modal";
 
-const EditReview = () => {
 
+const EditReview = ({ review }) => {
+    const history = useHistory()
     const dispatch = useDispatch()
-    const { reviewId } = useParams()
-    const review = useSelector(state => state.review.singleReview)
-    useEffect(() => {
-        dispatch(thunkOneReview(reviewId))
-    }, [dispatch, reviewId])
+    const { closeModal } = useModal()
     
-    if(!review) return "no reviews by that id"
 
     return (
         <>
             <ReviewForm
             review={review}
             formType="Edit Review"
-            // disabled={disabled}
             />
         </>
     )
