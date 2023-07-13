@@ -6,8 +6,6 @@ import "./AccountPage.css"
 
 const AccountPage = () => {
     const currUser = useSelector(state => state.session.user)
-    console.log("THIS IS CURRENT======>", currUser)
-
 
     return (
         <div id="account-body-div">
@@ -18,13 +16,7 @@ const AccountPage = () => {
                     <div className='links-div'>
                         <div>
                             <NavLink exact to='/reviews'>Manage Your Reviews</NavLink>
-                        </div>
-                        {/* <div>
-                <NavLink exact to='/'>Look for a Tasker to Book</NavLink>
-            </div> */}
-                        {/* <div>
-                <NavLink exact to='/billing/new'>Add New Payment</NavLink>
-            </div> */}
+                        </div>            
                         <div>
                             <NavLink exact to='/billing'>Your Payments</NavLink>
                         </div>

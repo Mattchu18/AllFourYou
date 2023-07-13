@@ -11,7 +11,6 @@ class Task(db.Model):
     category = db.Column(db.String(100), nullable = False)
     description = db.Column(db.String(500), nullable = False)
     tasker_id = db.Column(db.Integer(), db.ForeignKey(add_prefix_for_prod("taskers.id")), nullable = False)
-    # available = db.Column(db.Boolean(), nullable = False)
     created_at= db.Column(db.DateTime(),default=datetime.now)
 
 
@@ -25,6 +24,5 @@ class Task(db.Model):
             'category': self.category,
             'description': self.description,
             'tasker_id': self.tasker_id,
-            # 'available': self.available,
             'created_at':self.created_at
         }

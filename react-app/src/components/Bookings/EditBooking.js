@@ -15,8 +15,6 @@ const EditBooking = () => {
         dispatch(thunkOneBooking(bookingId))
     }, [dispatch, bookingId])
 
-console.log("This is bookings!! ====> ", booking)
-
 if(!booking) return "no booking with that id"
     return (
 

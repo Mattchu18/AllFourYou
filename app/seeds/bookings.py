@@ -38,14 +38,7 @@ def seed_bookings():
         tasker_id = 4,
         )
 
-    # dancing1 = Booking(
-    #     category = "Dancing",
-    #     city="San Francisco",
-    #     duration="long",
-    #     details = "Matt is taking new students for his dance studio!",
-    #     user_id=2,
-    #     tasker_id = 7,
-    #     )
+
 
     booking_list = [software, matchmaking1, matchmaking2, cooking2, ]
 

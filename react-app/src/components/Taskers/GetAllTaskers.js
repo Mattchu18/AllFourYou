@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import { thunkAllTaskers } from "../../store/taskers";
 import { NavLink } from "react-router-dom";
 import './GetAllTaskers.css'
@@ -41,10 +41,7 @@ const GetAllTaskers = () => {
                         <div className="available-first-last-name">
                         <h3>{tasker.first_name} {tasker.last_name}</h3>
                         </div>
-{/* 
-                    <div className="availables available-bio">
-                                            {tasker.bio.slice(0,125)}...
-                                            </div> */}
+
                         <div className="availables available-city">
                        <i className="fas fa-city availablesss">   </i>{tasker.city}
                         </div>
@@ -52,9 +49,7 @@ const GetAllTaskers = () => {
                         <div className="availables available-email">
                        <i className="fab fa-telegram-plane"> </i>{tasker.email}
                         </div>
-                        {/* <div className="availables available-phone">
-                        {tasker.phone_number}
-                        </div> */}
+                       
                         <div className="availables available-tools">
                         <i className="fas fa-wrench"> </i>{tasker.tools}
                         </div>

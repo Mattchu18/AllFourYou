@@ -1,6 +1,5 @@
 import React, { useEffect, useState} from 'react'
 import "./index.css"
-
 import { useDispatch, useSelector } from "react-redux";
 import { thunkAllTaskers } from '../../store/taskers';
 import { NavLink,useHistory ,useLocation} from 'react-router-dom/cjs/react-router-dom.min';
@@ -10,7 +9,6 @@ const history=useHistory()
 const location=useLocation()
 const dispatch = useDispatch()
 const [searchInput, setSearchInput] = useState("")
-const [searchResults, setSearchResults] = useState([])
 const allTaskersObj = useSelector(state => state.tasker.allTaskers)
 const allTaskers = Object.values(allTaskersObj)
 
@@ -28,57 +26,16 @@ const enter =(e)=>{
         history.push(`/results?query=${searchInput}`);
     }
 }
-//need to add event listener to submit when pressing enter.
 
-
-// const handleSearch = ()=>{
-//     fetch(`/api/search/?query=${searchInput}`)
-//     .then((response)=> response.json())
-//     .then((data)=> setSearchResults(data.results))
-//     .catch((error)=>console.error(error))
-//     history.push('/results')
-// }
-
-// const highlightText = (text) => {
-//     const lowerCaseText = text.toLowerCase();
-//     const lowerCaseSearchInput = searchInput.toLowerCase();
-//     const parts = [];
-//     let startIndex = 0;
-
-//     if(!searchInput){
-//         return text;
-//     }
-
-//     while (startIndex < text.length) {
-//       const index = lowerCaseText.indexOf(lowerCaseSearchInput, startIndex);
-//       if (index === -1) {
-//         parts.push(text.substr(startIndex));
-//         break;
-//       }
-//       parts.push(text.substring(startIndex, index));
-//       parts.push(
-//         <span className="highlighted">
-//           {text.substr(index, searchInput.length)}
-//         </span>
-//       );
-//       startIndex = index + searchInput.length;
-//     }
-
-//     return parts;
-//   };
 
 return (
     <div className="home">
       <div className="search-container">
-        {/* <div className="tool-box-container">
-
-        <img className="toolbox-red" src="https://media.discordapp.net/attachments/1062942242450460744/1117219657439531058/My_project.png?width=1410&height=937"/>
-        </div> */}
+    
         <div className="book-your-next-task">
         <h1 className="h2-book-next">Book your next Task</h1>
         </div>
         <div className="search-card">
-          {/* <i className="fas fa-search"></i> */}
                 <input
         className="search-bar"
         type="search"
@@ -174,14 +131,10 @@ return (
                     <i className="fas fa-truck"> </i>{tasker.vehicles}
 
                     </div>
-                    {/* <div className="ha tools">
-
-                    {tasker.tools}
-                    </div> */}
+                  
                     <div className="view-tasker-profile">View Tasker Profile</div>
 
-                      {/* <div>{tasker.tools}</div> */}
-                  {/* <div>{tasker.bio}</div> */}
+                   
                   </div>
 
                   <br />

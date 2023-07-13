@@ -1,8 +1,7 @@
 import { useDispatch } from "react-redux";
-// import { deleteReview } from "../../store/reviews";
 import { useModal } from '../../context/Modal'
-import { thunkCurrentUserBookings, thunkDeleteBooking, thunkOneBooking } from "../../store/booking";
-import { thunkDeleteReview } from "../../store/review";
+import { thunkCurrentUserBookings, thunkDeleteBooking} from "../../store/booking";
+
 
 const DeleteBooking = ({ bookingId }) => {
     const dispatch = useDispatch()

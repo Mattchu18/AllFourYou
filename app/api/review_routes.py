@@ -1,7 +1,7 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint
 from app.models.review import Review
 from flask_login import login_required, current_user
-from app.models import User
+
 from app.models.db import db
 from app.forms.review_form import ReviewForm
 review_routes = Blueprint('reviews', __name__, url_prefix='')
@@ -14,7 +14,6 @@ def get_current_reviews():
     """
     all_review = Review.query.filter(Review.user_id == current_user.id).all()
     new_reviews = [review.to_dict() for review in all_review]
-    # print(" THIS IS ALL REVIEWS", new_reviews)
     return new_reviews
 
 @review_routes.route('/all')
@@ -34,7 +33,6 @@ def get_one_review(id):
     """
 
     one_review = Review.query.get(id)
-    print("THISI IS ID IN GET ONE REVIEW", one_review.to_dict())
     return one_review.to_dict()
 
 @review_routes.route('/edit/<int:id>', methods=["PUT"])
@@ -50,7 +48,6 @@ def edit_review(id):
 
     elif current_user.id == reviewObj.user_id:
 
-    # review=reviewObj.to_dict()
         form = ReviewForm()
         reviewObj.review_text = form.data["review_text"]
         reviewObj.star_rating = form.data["star_rating"]
