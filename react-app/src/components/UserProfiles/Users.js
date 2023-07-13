@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom';
 import { thunkAllMessages, thunkCreateUserMessage, thunkUserMessages } from "../../store/messages";
-
+import "./Users.css"
 const Users = ({user}) => {
     const history = useHistory()
     const dispatch = useDispatch()
@@ -39,15 +39,31 @@ const Users = ({user}) => {
 
 
     return (
-        <>
+
+        <div className="users-page">
+
+
         {user.id !== currUser.id ?
         <>
-        {user.first_name}
-        <i className='fas fa-envelope' onClick={ createUserMsgId }></i>
-        </>
-        : null}
+        <div className="user-to-chat">
+            <div>
+                 <div>
+                   {user.first_name} {user.last_name}
+            </div>
+            <div className="description-box">
+                Hi, my name is {user.first_name}. Chat with me here or connect with me by
+                email: {user.email}
+                 {/* I live in {user.city}. My username is {user.username} */}
+            </div>
+            </div>
 
+
+ <i className='far fa-comments actual' onClick={ createUserMsgId }></i>
+        </div>
         </>
+        : <h3 className="task-panda-top">Task Panda Users</h3>}
+     </div>
+
     )
 }
 

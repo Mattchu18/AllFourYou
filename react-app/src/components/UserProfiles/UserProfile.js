@@ -25,13 +25,21 @@ const users = useSelector(state=> state.session.allUsers)
 
     return(
         <>
+        <h2 className="task-panda-community">Task Panda Community!</h2>
+        <div className="task-panda-p">
+                    <p>Meet other TaskPanda users and Chat with them! Just click on the Chat Icon</p><i className="far fa-comments"></i><p>to connect with them!</p>
+
+        </div>
         {/* User component */}
-        {users && Object.values(users).map(user=>{
+        <div className="users-container">
+                    {users && Object.values(users).map(user=>{
             return (
                 <Users key={user.id} user={user} />
 
             )
         })}
+        </div>
+
         </>
     )
 }

@@ -59,7 +59,7 @@ const Chat = () => {
         <>
         {/* Hlelo */}
         <div className="chat-container">
-            <div>
+            <div className="chats">
                     {/* {console.log("this is msgs,,,", Object.values(msgs))} */}
                 {msgs && Object.values(msgs).map((msg=>{
                     {console.log(".....", msg)}
@@ -77,17 +77,14 @@ const Chat = () => {
 {        user && (
         <div>
 
-            <div>
-                {/* {messages.map((message, ind) => (
-                    <div key={ind}>{`${message.user}: ${message.body}`}</div>
-                ))} */}
-            </div>
             <form onSubmit={sendChat}>
+                <div className="chat-box">
                 <input
                     value={chatInput}
                     onChange={updateChatInput}
                 />
                 <button type="submit">Send</button>
+                </div>
             </form>
         </div>
     )}
