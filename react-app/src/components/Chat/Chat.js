@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { io } from 'socket.io-client';
 import { useParams } from 'react-router-dom'
@@ -18,6 +18,13 @@ const Chat = () => {
     // console.log("..............messages", messages)
     // const msgsArr = Object.values(msgs)
 
+    const messagesEndRef = useRef(null)
+    const scrollToBottom = () => {
+        messagesEndRef.current?.scrollIntoView({
+            scrollIntoViewOptions: { block: "nearest", inline: "end" },
+            behavior: "smooth"
+        })
+    }
 
     useEffect(() => {
         // open socket connection
@@ -51,10 +58,13 @@ const Chat = () => {
         dispatch(thunkAllMessages(userMessageId))
         setChatInput("")
     }
+
     useEffect(() => {
         dispatch(thunkAllMessages(userMessageId))
 
-    }, [messages])
+        scrollToBottom()
+    }, [messages, scrollToBottom()])
+
     return (
         <div className="chat-center">
             <div className="chat-container">
@@ -63,14 +73,14 @@ const Chat = () => {
                     {msgs && Object.values(msgs).map((msg => {
                         { console.log(".....", msg) }
                         return (
-                            <>
-                                {msg.userId === user.id ? <div className="mymessage">{msg.userInfo.first_name}: <p className="my-chat-boxes">{msg.body}</p>
+                            <div>
+                                {msg.userId === user.id ? <div className="mymessage" >{msg.userInfo.first_name}: <p className="my-chat-boxes">{msg.body}</p>
                                 </div> : <div>{msg.userInfo.first_name}: <p className="their-chat-boxes">{msg.body}</p>
                                 </div>}
-
-
-                            </>)
+                            </div>
+                        )
                     }))}
+                    <div ref={messagesEndRef} />
                 </div>
                 {user && (
                     <div>
