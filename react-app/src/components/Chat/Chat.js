@@ -14,7 +14,7 @@ const Chat = () => {
     const { userMessageId } = useParams()
     const dispatch = useDispatch()
 
-    const msgs = useSelector(state=> state.messages.allMsg)
+    const msgs = useSelector(state => state.messages.allMsg)
     // console.log("..............messages", messages)
     // const msgsArr = Object.values(msgs)
 
@@ -48,48 +48,46 @@ const Chat = () => {
 
         socket.emit("chat", { user_id: user.id, body: chatInput, user_message_id: userMessageId });
 
- dispatch(thunkAllMessages(userMessageId))
+        dispatch(thunkAllMessages(userMessageId))
         setChatInput("")
     }
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(thunkAllMessages(userMessageId))
 
     }, [messages])
     return (
-        <>
-        {/* Hlelo */}
-        <div className="chat-container">
-            <div className="chats">
+        <div className="chat-center">
+            <div className="chat-container">
+                <div className="chats">
                     {/* {console.log("this is msgs,,,", Object.values(msgs))} */}
-                {msgs && Object.values(msgs).map((msg=>{
-                    {console.log(".....", msg)}
-                   return(
-                       <>
+                    {msgs && Object.values(msgs).map((msg => {
+                        { console.log(".....", msg) }
+                        return (
+                            <>
+                                {msg.userId === user.id ? <div className="mymessage">{msg.userInfo.first_name}: <p className="my-chat-boxes">{msg.body}</p>
+                                </div> : <div>{msg.userInfo.first_name}: <p className="their-chat-boxes">{msg.body}</p>
+                                </div>}
 
-         {msg.userId === user.id ? <div className="mymessage">{msg.userInfo.first_name}: <p className="chat-boxes">{msg.body}</p>
-                        </div>:  <div>{msg.userInfo.first_name}: <p className="chat-boxes">{msg.body}</p>
-                        </div>}
 
-
-                   </>)
-                }))}
-            </div>
-{        user && (
-        <div>
-
-            <form onSubmit={sendChat}>
-                <div className="chat-box">
-                <input
-                    value={chatInput}
-                    onChange={updateChatInput}
-                />
-                <button type="submit">Send</button>
+                            </>)
+                    }))}
                 </div>
-            </form>
+                {user && (
+                    <div>
+
+                        <form onSubmit={sendChat}>
+                            <div className="chat-box">
+                                <input
+                                    value={chatInput}
+                                    onChange={updateChatInput}
+                                />
+                                <button type="submit">Send</button>
+                            </div>
+                        </form>
+                    </div>
+                )}
+            </div>
         </div>
-    )}
-    </div>
-        </>
     )
 };
 

@@ -1,22 +1,33 @@
+.chat-center{
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+}
+
 .chat-container{
-    margin-left: 20rem;
+    /* margin-left: 20rem;
     margin-right: 20rem;
     margin-top: 2rem;
-    min-width: 22rem;
-    min-height:90vh;
+    margin-bottom: 1rem; */
+    width: 600px;
+    height: 80%;
     /* border: 2px solid red; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-bottom: 1rem;
+
+    /* overflow: auto ; */
 }
 .chats{
     /* border: 2px solid red; */
+    display: flex;
     background-color: white;
     padding: 1rem;
-    height: 80vh;
+    height: 75vh;
     border-radius: .5rem;
     overflow-y: auto;
+    overflow-anchor: none;
+    flex-direction: column;
     /* display: flex; */
     /* flex-direction: column-reverse; */
     /* transform: rotate(180deg); */
@@ -26,6 +37,7 @@
 .mymessage{
     display:flex;
     justify-content: flex-end;
+
 }
 .chat-box{
     /* border: 2px solid red; */
@@ -39,7 +51,17 @@
 .chat-box button{
     width: 10%;
 }
-.chat-boxes{
+
+.my-chat-boxes{
+    background-color:#5fc9f8;
+    width:fit-content;
+    min-width: 2rem;
+    border-radius: .5rem;
+    padding: .5rem;
+    min-height: 1rem;
+}
+
+.their-chat-boxes{
     background-color: rgb(230, 230, 230);
     width:fit-content;
     min-width: 2rem;
