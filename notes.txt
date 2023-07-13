@@ -28,10 +28,12 @@ check and make sure updated at working as it should
 --tony 6/5/2023 1930
 
 DONT FORGET TO
-           if environment == "production":
+    if environment == "production":
         op.execute(f"ALTER TABLE taskers SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE user_messages SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE billing SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE messages SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE tasks SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE bookings SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE reviews SET SCHEMA {SCHEMA};")
