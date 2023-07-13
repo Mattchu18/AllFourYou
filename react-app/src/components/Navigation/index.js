@@ -27,6 +27,7 @@ function Navigation({ isLoaded }){
 			<>
 				<NavLink className="nav-links-on-navbar navbargreen" exact to='/available'>Available taskers!</NavLink>
 				<NavLink className="nav-links-on-navbar navbargreen" exact to ='/account'>Account</NavLink>
+				<NavLink className="nav-links-on-navbar navbargreen" exact to ='/users'>Chat with other Users</NavLink>
 
 
 

@@ -17,7 +17,8 @@ import SearchBar from "./components/SearchBar";
 import GetCurrentCards from "./components/Billing/CurrentUserCards";
 import AccountPage from "./components/AccountPage/AccountPage";
 import SearchResults from "./components/SearchResults";
-
+import Chat from "./components/Chat/Chat"
+import UserProfile from "./components/UserProfiles/UserProfile";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -37,10 +38,13 @@ function App() {
             <SignupFormPage />
           </Route>
           <Route exact path="/" component={SearchBar}></Route>
+          <Route exact path="/chat/:userMessageId" component={Chat}></Route>
           <Route exact path="/results" component={SearchResults}></Route>
+          <Route exact path="/users" component={UserProfile}></Route>
 
           <Route exact path='/reviews' component={GetCurrentUserReviews}/>
           <Route exact path='/account' component={AccountPage} />
+
           <Route exact path="/:taskerId/bookings/new" component={CreateBooking}/>
           <Route exact path="/bookings/all" component={GetCurrentBookings}/>
           <Route exact path="/booking/:bookingId" component={EditBooking}/>

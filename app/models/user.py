@@ -21,8 +21,13 @@ class User(db.Model, UserMixin):
 
     user_bookings=db.relationship("Booking", back_populates="user")
     reviews=db.relationship("Review", back_populates="user")
+    message= db.relationship("Message", back_populates="user_msg")
 
     billings = db.relationship("Billing", back_populates="user")
+
+    # msg_user1 = db.relationship("User_Message", back_populates="user1_msg")
+    # msg_user2 = db.relationship("User_Message", back_populates="user2_msg")
+
     @property
     def password(self):
         return self.hashed_password
