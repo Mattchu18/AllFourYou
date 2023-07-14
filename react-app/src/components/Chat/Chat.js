@@ -15,8 +15,6 @@ const Chat = () => {
     const dispatch = useDispatch()
 
     const msgs = useSelector(state => state.messages.allMsg)
-    // console.log("..............messages", messages)
-    // const msgsArr = Object.values(msgs)
 
     const messagesEndRef = useRef(null)
     const scrollToBottom = () => {
@@ -51,7 +49,6 @@ const Chat = () => {
 
     const sendChat = (e) => {
         e.preventDefault()
-        console.log("thisi s user===>", user)
 
         socket.emit("chat", { user_id: user.id, body: chatInput, user_message_id: userMessageId });
 
@@ -69,9 +66,7 @@ const Chat = () => {
         <div className="chat-center">
             <div className="chat-container">
                 <div className="chats">
-                    {/* {console.log("this is msgs,,,", Object.values(msgs))} */}
                     {msgs && Object.values(msgs).map((msg => {
-                        { console.log(".....", msg) }
                         return (
                             <div>
                                 {msg.userId === user.id ? <div className="mymessage" >{msg.userInfo.first_name}: <p className="my-chat-boxes">{msg.body}</p>

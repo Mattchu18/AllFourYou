@@ -9,11 +9,9 @@ const Users = ({ user }) => {
     const currUser = useSelector(state => state.session.user)
     let check;
     if (msgs) check = Object.values(msgs)
-    console.log(check)
     let userMsgId;
     const checkUserMsg = () => {
         for (let i = 0; i < check?.length; i++) {
-            console.log(check[i].user1_id, currUser.id, check[i].user2_id, user.id)
             if ((check[i].user1_id === currUser.id && check[i].user2_id === user.id) || (check[i].user1_id === user.id && check[i].user2_id === currUser.id)) {
                 userMsgId = check[i].id
                 return true
@@ -23,16 +21,13 @@ const Users = ({ user }) => {
     }
 
     const checks = checkUserMsg()
-    console.log(checks)
     const createUserMsgId = async (e) => {
 
         if (checks) {
             history.push(`/chat/${userMsgId}`)
         } else {
-            console.log(user)
             const userMsgs = await dispatch(thunkCreateUserMessage(user))
             // await dispatch(thunkUserMessages())
-            console.log("thi sis user msgs========================", userMsgs)
             history.push(`/chat/${userMsgs.id}`)
         }
     }
