@@ -31,7 +31,9 @@ const users = useSelector(state=> state.session.allUsers)
 
         </div>
         {/* User component */}
+
         <div className="users-container">
+        <h3 className="task-panda-top">Task Panda Users</h3>
                     {users && Object.values(users).map(user=>{
             return (
                 <Users key={user.id} user={user} />
