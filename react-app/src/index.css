@@ -9,10 +9,7 @@ body{
     height: fit-content;
 }
 #root{
-     /* background-color: #F2EDD7; */
-      /* background-color: rgb(238, 239, 239); */
       background-color: #f9fafb;
-     /* background-color:#dce0e6; */
     margin: 0;
     height: 100%;
     width: 100%;

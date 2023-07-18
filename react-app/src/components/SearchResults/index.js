@@ -1,21 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import "./index.css"
-import { Fragment } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import SearchBar from '../SearchBar';
-import { thunkAllTaskers } from '../../store/taskers';
+
 
 const SearchResults = () => {
-  const history = useHistory()
-  const dispatch = useDispatch()
-
   const [searchResults, setSearchResults] = useState([])
-  const allTaskersObj = useSelector(state => state.tasker.allTaskers)
-  const allTaskers = Object.values(allTaskersObj)
-  console.log(allTaskers[0])
   const location = useLocation();
   const searchInput = new URLSearchParams(location.search).get("query") || "";
 
@@ -23,10 +16,7 @@ const SearchResults = () => {
   useEffect(() => {
     handleSearch();
   }, [searchInput]);
-  // const handleChange = (e) => {
-  //     e.preventDefault();
-  // setSearchInput(e.target.value)
-  // }
+
 
 
   const enter = (e) => {
@@ -78,14 +68,7 @@ const SearchResults = () => {
     <section className="root">
       <div>
         <SearchBar searchInput={searchInput} handleSearch={handleSearch} />
-        {/* <input
-        type = "search"
-        placeholder="Search task"
-        // onChange = {handleChange}
-        value = {searchInput}
-        onKeyDown={enter}
-        /> */}
-        {/* <button onClick={handleSearch}>Search</button> */}
+ 
         <div class="all-results">
 
           {searchResults?.length > 0 ? (

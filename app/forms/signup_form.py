@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, IntegerField, BooleanField
+from wtforms import StringField
 from wtforms.validators import DataRequired, Email, ValidationError
 from app.models import User
 
@@ -35,4 +35,3 @@ class SignUpForm(FlaskForm):
 
     city = StringField('city', validators=[DataRequired()])
     phone_number = StringField('phone_number',validators=[DataRequired(),validate_phone_number])
-    # tasker = BooleanField('tasker', validators=[DataRequired()])

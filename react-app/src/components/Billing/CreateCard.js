@@ -1,5 +1,5 @@
 import BillingForm from "./BillingForm";
-import { useParams } from "react-router-dom";
+
 
 const CreateCard = () =>{
     const newCard = {
@@ -13,7 +13,6 @@ const CreateCard = () =>{
         <BillingForm
         newCard={newCard}
         formType="Create Card"
-        // disabled={disabled}
         />
     )
 }

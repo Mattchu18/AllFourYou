@@ -1,20 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, Fragment } from "react";
+import { useEffect} from "react";
 import { thunkCurrUserCards } from '../../store/billing'
 import DeleteCard from '../../components/Billing/DeleteCard'
-import thunk from "redux-thunk";
 import OpenModalButton from "../OpenModalButton";
-import {Link} from "react-router-dom"
 import CreateCard from "./CreateCard"
 import "./display_card.css"
 import { useModal } from '../../context/Modal';
 
 
 const GetCurrentCards = () =>{
-    console.log("in curr user component")
     const dispatch = useDispatch()
     const billings = useSelector(state =>state.billing.currentUserCards)
-    console.log("billings=====>", billings)
     const {setModalContent}=useModal()
 
     const billingsArr = Object.values(billings)

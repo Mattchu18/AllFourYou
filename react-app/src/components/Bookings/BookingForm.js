@@ -2,12 +2,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useHistory } from 'react-router-dom';
 import { useParams } from "react-router-dom";
-import { thunkCreateBooking, thunkCurrentUserBookings, thunkEditBooking, thunkOneBooking } from "../../store/booking";
-// import thunk from "redux-thunk";
+import { thunkCreateBooking, thunkCurrentUserBookings, thunkEditBooking} from "../../store/booking";
 import { thunkAllTasks } from "../../store/task";
-import { thunkAllTaskers, thunkSingleTasker } from "../../store/taskers";
+import { thunkSingleTasker } from "../../store/taskers";
 import './BookingForm.css'
-// import { thunkCreateReview, thunkEditReview  } from "../../store/review";
 
 const BookingForm = ({ booking, formType }) => {
     const dispatch = useDispatch()
@@ -57,7 +55,6 @@ const BookingForm = ({ booking, formType }) => {
         }
 
         if (formType === "Edit Booking") {
-            console.log("AM I IN HERE =====>", booking)
             dispatch(thunkEditBooking(booking))
             dispatch(thunkCurrentUserBookings())
             history.push(`/bookings/all`)

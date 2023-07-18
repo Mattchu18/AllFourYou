@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, RadioField,SelectField, TextAreaField
-from wtforms.validators import DataRequired, Email, ValidationError
-from app.models import User
+from wtforms import RadioField,SelectField, TextAreaField
+from wtforms.validators import DataRequired
+
 
 class BookingForm(FlaskForm):
     category=SelectField("Category", choices=["Software Engineering", "Matchmaking", "Cooking", "Dancing", "Tutoring", "Music"], validators=[DataRequired()])

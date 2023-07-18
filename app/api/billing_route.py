@@ -1,7 +1,7 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, request
 from app.models.billing import Billing
 from flask_login import login_required, current_user
-from app.models import User
+
 from app.models.db import db
 from app.forms.billing_form import BillingForm
 
@@ -27,7 +27,6 @@ def get_current_billing():
     """
     all_billings= Billing.query.filter(Billing.user_id==current_user.id).all()#get billing info that matche
     billings_arr = [billing.to_dict() for billing in all_billings]
-    # print("billing=======>", billing_obj)
     return billings_arr
 
 @billing_routes.route('/new', methods=["POST"])

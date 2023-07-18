@@ -1,12 +1,9 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField
-from wtforms.validators import DataRequired, Email, ValidationError
+from wtforms.validators import DataRequired, ValidationError
 from app.models import User
 
 
-
-# hello from me 
-# hello from me again
 def user_exists(form, field):
     # Checking if user exists
     email = field.data

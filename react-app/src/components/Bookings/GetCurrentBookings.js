@@ -1,15 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, Fragment } from "react";
+import { useEffect} from "react";
 import { Link } from "react-router-dom"
-import { thunkCurrentUserBookings, thunkOneBooking } from "../../store/booking";
+import { thunkCurrentUserBookings} from "../../store/booking";
 import OpenModalButton from "../OpenModalButton";
 import CreateReview from '../Reviews/CreateReview'
 import DeleteBooking from "./DeleteBooking";
 import { thunkAllReviews } from "../../store/review";
 import { thunkAllTasks } from '../../store/task'
 import { thunkAllTaskers } from "../../store/taskers";
-import GetSingleTasker from "../Taskers/SingleTasker";
-import { NavLink } from 'react-router-dom';
 import "./GetCurrentBookings.css"
 
 const GetCurrentBookings = () => {
@@ -19,13 +17,11 @@ const GetCurrentBookings = () => {
     const bookingsArr = Object.values(bookingsObj)
     const allReviews = useSelector(state => state.review.allReviews)
     const currUser = useSelector(state => state.session.user)
-    // const allTasks = useSelector(state => state.task.allTasks)
     const findReviews = Object.values(allReviews).filter(review => review.user_id === currUser?.id)
 
 
     const allTaskersObj = useSelector(state => state.tasker.allTaskers)
     const allTaskersArr = Object.values(allTaskersObj)
-    console.log("THIS IS ALLTASKERS OBJ!! ====> ", allTaskersObj)
 
     const matchedTaskersArr = []
     bookingsArr.forEach(booking => {
@@ -34,8 +30,6 @@ const GetCurrentBookings = () => {
             matchedTaskersArr.push(matchedTasker)
         }
     })
-
-    console.log("THIS IS MATCHEDTASKERARRS!!====>", matchedTaskersArr)
 
     useEffect(() => {
         dispatch(thunkCurrentUserBookings())

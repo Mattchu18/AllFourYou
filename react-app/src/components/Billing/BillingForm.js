@@ -1,5 +1,5 @@
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useDispatch} from "react-redux";
+import {  useState } from "react";
 import { useHistory} from 'react-router-dom';
 import { thunkCreateCard, thunkCurrUserCards } from "../../store/billing";
 import { useModal } from '../../context/Modal';
@@ -25,7 +25,6 @@ const handleSubmit = async (e) =>{
     if(card_number.toString().length != 16) errorHandling.card_number  = "card must be 16 integers long"
     if(isNaN((card_number))) errorHandling.card_number = "Must be integer"
     if(!security_code) errorHandling.security_code = "Security code is required"
-    console.log("secutity code .......",security_code.toString())
     if(security_code.toString().length != 3) errorHandling.security_code = "Security code must be 3 integers"
     if(isNaN((security_code))) errorHandling.security_code = "Must be integer"
     if(!debit_card) errorHandling.debit_card = "Please select one"

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, Fragment } from "react";
+import { useEffect} from "react";
 import { thunkCurrUserReviews } from '../../store/review';
 import OpenModalButton from "../OpenModalButton";
 import DeleteReview from "./DeleteReview";
@@ -10,8 +10,6 @@ const GetCurrentReviews = () =>{
     const dispatch = useDispatch()
 
     const reviews = useSelector(state=> state.review.currentUserReviews)
-    console.log("THIS IS REVIEWS====>", reviews)
-
 
     useEffect(()=>{
         dispatch(thunkCurrUserReviews())

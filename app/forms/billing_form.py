@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, RadioField,SelectField, TextAreaField, IntegerField,BooleanField,RadioField
-from wtforms.validators import DataRequired, Email, ValidationError,Length
-from app.models import User
+from wtforms import StringField, RadioField,RadioField
+from wtforms.validators import DataRequired
+
 
 class BillingForm(FlaskForm):
 

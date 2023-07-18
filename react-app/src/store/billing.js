@@ -49,7 +49,6 @@ const billingsReducer= (state = initialState, action)=>{
         case GET_CURRENT_CARDS:{
             const newState = {}
             const allBookings = action.cards
-            console.log("allbookings", allBookings)
             allBookings.forEach(card=>{
                 newState[card.id]= card
             })
