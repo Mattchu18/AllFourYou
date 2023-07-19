@@ -1,1 +1,2 @@
-web: gunicorn AllFourYou:app
+
+web: gunicorn app:app
