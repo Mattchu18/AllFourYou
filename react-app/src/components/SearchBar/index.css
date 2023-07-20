@@ -213,3 +213,11 @@ align-items: center;
 .app-academy-logo{
     height: 2.5rem;
 }
+
+.view-tasker{
+    text-decoration: none;
+}
+
+.ha.city i, .ha.prices i{
+    margin-right: 5px;
+}
