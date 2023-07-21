@@ -20,7 +20,6 @@ const GetCurrentCards = () =>{
 
     if(!billings){
         return "loading.."
-    }
 
     const openModal = (modalComponent) => {
         setModalContent(modalComponent);
