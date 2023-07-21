@@ -35,7 +35,7 @@ const SearchBar = () => {
     <div className="home">
       <div className="search-container">
         <div className="book-your-next-task">
-          <h1 className="h2-book-next">Book your next Task</h1>
+          <h1 className="h2-book-next">Book your next Task!</h1>
         </div>
         <div className="search-card">
           <input
