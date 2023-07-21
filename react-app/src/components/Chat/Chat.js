@@ -36,9 +36,9 @@ const Chat = () => {
             setMessages(messages => [...messages, chat])
         })
         // when component unmounts, disconnect
-        // return (() => {
-        //     socket.disconnect()
-        // })
+        return (() => {
+            socket.disconnect()
+        })
     }, [])
 
 
