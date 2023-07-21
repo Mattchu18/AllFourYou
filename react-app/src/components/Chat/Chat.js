@@ -27,7 +27,7 @@ const Chat = () => {
     useEffect(() => {
         // open socket connection
         // create websocket
-        socket = io();
+        socket = io("https://taskpanda-6a6ccf8b8f46.herokuapp.com");
 
         dispatch(thunkAllMessages(userMessageId))
 
