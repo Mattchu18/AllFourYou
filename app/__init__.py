@@ -46,7 +46,7 @@ db.init_app(app)
 Migrate(app, db)
 socketio.init_app(app)
 # Application Security
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "https://taskpanda-6a6ccf8b8f46.herokuapp.com/"}})
 
 
 # Since we are deploying with Docker and Flask,
