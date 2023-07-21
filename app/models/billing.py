@@ -10,7 +10,7 @@ class Billing(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     first_name=db.Column(db.String(50),nullable=False)
     last_name=db.Column(db.String(50),nullable=False)
-    card_number=db.Column(db.String()) #maybe change this to a string and manage in frontend
+    card_number=db.Column(db.String(), unique=True)
     security_code=db.Column(db.String(),nullable=False)
     debit_card=db.Column(db.String(10),nullable=False)
     user_id=db.Column(db.Integer(), db.ForeignKey(add_prefix_for_prod("users.id")))
@@ -29,4 +29,3 @@ class Billing(db.Model):
             'user_id':self.user_id,
             'created_at':self.created_at,
         }
-

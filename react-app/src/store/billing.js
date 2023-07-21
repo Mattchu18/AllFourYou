@@ -31,7 +31,14 @@ export const thunkCreateCard = (card)=> async dispatch =>{
     if(response.ok){
         const data = await response.json()
         dispatch(createCard(data))
-    }
+    } else if (response.status < 500) {
+		const data = await response.json();
+		if (data.errors) {
+			return data.errors;
+		}
+	} else {
+		return ["An error occurred. Please try again."];
+	}
 }
 
 export const thunkDeleteCard = (cardId)=> async dispatch=>{

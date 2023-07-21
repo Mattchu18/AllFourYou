@@ -42,10 +42,10 @@ def post_billing():
 
     if form.validate_on_submit():
 
-        current_card = Billing.query.filter(Billing.user_id == current_user.id, Billing.card_number == form.data["card_number"]).first()
+        # current_card = Billing.query.filter(Billing.user_id == current_user.id, Billing.card_number == form.data["card_number"]).first()
 
-        if current_card:
-            return "Card number exists. Please enter a new card number"
+        # if current_card:
+        #     return current_card
 
         new_billing = Billing(
             first_name = form.data["first_name"],
