@@ -36,17 +36,16 @@ const averageRating= totalRating/totalReviews
 
 if(!reviews) return "loading.."
 return(
-    <div>
-  {totalReviews !== 0 ? <h2>Manage your reviews</h2> : <h2>You have no reviews</h2>}
+    <div className="entire-review-container">
+  {totalReviews !== 0 ? <h2 className="header">Manage your reviews</h2> : <h2 className="header">You have no reviews</h2>}
 
        {
   averageRating && totalReviews !== 0 ? (
     <div>
       <div className="review-averages">
-        <div>
+        <div className="stats">
           Average <i className="fas fa-star"></i>({averageRating.toFixed(1)})
-        </div>
-        <div>
+      
           Total <i className="fas fa-comment-dots"></i> ({totalReviews})
         </div>
       </div>

@@ -19,6 +19,8 @@ import AccountPage from "./components/AccountPage/AccountPage";
 import SearchResults from "./components/SearchResults";
 import Chat from "./components/Chat/Chat"
 import UserProfile from "./components/UserProfiles/UserProfile";
+import Footer from "./components/Footer";
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -42,13 +44,13 @@ function App() {
           <Route exact path="/results" component={SearchResults}></Route>
           <Route exact path="/users" component={UserProfile}></Route>
 
-          <Route exact path='/reviews' component={GetCurrentUserReviews}/>
+          <Route exact path='/reviews' component={GetCurrentUserReviews} />
           <Route exact path='/account' component={AccountPage} />
 
-          <Route exact path="/:taskerId/bookings/new" component={CreateBooking}/>
-          <Route exact path="/bookings/all" component={GetCurrentBookings}/>
-          <Route exact path="/booking/:bookingId" component={EditBooking}/>
-          <Route exact path="/tasks/all" component={GetAllTasks}/>
+          <Route exact path="/:taskerId/bookings/new" component={CreateBooking} />
+          <Route exact path="/bookings/all" component={GetCurrentBookings} />
+          <Route exact path="/booking/:bookingId" component={EditBooking} />
+          <Route exact path="/tasks/all" component={GetAllTasks} />
           <Route exact path='/available' component={GetAllTaskers} />
           <Route exact path="/taskers/:taskerId" component={GetSingleTasker} />
           <Route exact path='/review/:reviewId' component={EditReview} />
@@ -56,6 +58,8 @@ function App() {
         </Switch>
 
       )}
+      <Footer isLoaded={isLoaded} />
+
     </>
   );
 }
