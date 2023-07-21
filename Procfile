@@ -1,2 +1,2 @@
-web: gunicorn app:__init__.py
+web: gunicorn --worker-class eventlet -w 1 app:app
 worker: node index.js
