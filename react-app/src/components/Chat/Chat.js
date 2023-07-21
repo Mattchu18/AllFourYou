@@ -27,7 +27,7 @@ const Chat = () => {
     useEffect(() => {
         // open socket connection
         // create websocket
-        socket = io("https://taskpanda-6a6ccf8b8f46.herokuapp.com");
+        socket = io();
 
         dispatch(thunkAllMessages(userMessageId))
 
@@ -36,9 +36,9 @@ const Chat = () => {
             setMessages(messages => [...messages, chat])
         })
         // when component unmounts, disconnect
-        return (() => {
-            socket.disconnect()
-        })
+        // return (() => {
+        //     socket.disconnect()
+        // })
     }, [])
 
 
