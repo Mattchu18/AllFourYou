@@ -28,7 +28,7 @@ const GetCurrentCards = () =>{
     
 return(
     <>
-        <h1>Saved cards</h1>
+        <h1 className="header">Saved cards</h1>
     <div className="card_container">
     <div className="card button-container" onClick={()=>openModal(<CreateCard/>)} >
         <div className="add_button">+ Add Payment Card</div>
