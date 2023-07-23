@@ -68,7 +68,7 @@ const SearchResults = () => {
     <section className="root">
       <div>
         <SearchBar searchInput={searchInput} handleSearch={handleSearch} />
- 
+
         <div class="all-results">
 
           {searchResults?.length > 0 ? (
