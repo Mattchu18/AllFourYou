@@ -37,27 +37,37 @@ const SearchBar = () => {
         <div className="book-your-next-task">
           <h1 className="h2-book-next">Book your next Task.</h1>
         </div>
+        <div className="search-card-container">
+
+
         <div className="search-card">
+          <div className="search-home-button">
+            <button hidden className="home-button-search">
+              <i className="fas fa-search"></i>
+            </button>
+          </div>
           <input
             className="search-bar"
             type="search"
-            placeholder="See below for some categories to search"
+            placeholder="I need help with.."
             onChange={handleChange}
             value={searchInput}
             onKeyDown={enter}
           />
-
-          <NavLink
-            className="home-link-search"
-            to={{ pathname: "/results", search: `?query=${searchInput}` }}
-          >
-            <div className="search-home-button">
-              <button hidden className="home-button-search">
-                <i className="fas fa-search"></i>
-              </button>
-            </div>
-          </NavLink>
         </div>
+
+          <div className="home-link-search-div">
+
+            <NavLink
+              className="home-link-search"
+              to={{ pathname: "/results", search: `?query=${searchInput}` }}
+            >
+              <button className="search-button">
+                Get help today
+              </button>
+            </NavLink>
+          </div>
+          </div>
       </div>
       {location.pathname !== "/results" && (
         <>

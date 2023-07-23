@@ -1,23 +1,32 @@
-.highlighted{
+.highlighted {
     background-color: yellow;
 }
-.home{
+
+.home {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.search-bar{
-    width: 100%;
+
+.search-bar {
+    width: fit-content;
     max-width: 800px;
     height: 2.5rem;
     flex-direction: column;
-    border: 1px solid gray;
     border-radius: .2rem;
+    border: none;
+    width: 100%;
 }
-.button-search{
+
+.search-bar:focus {
+    outline: none;
+}
+
+.button-search {
     border: none;
 }
-.search-container{
+
+.search-container {
     margin-top: 2rem;
     max-width: 880px;
     width: 100%;
@@ -27,16 +36,28 @@
     align-items: center;
 
 }
-.search-card{
-    display:flex;
+
+.search-card-container {
+    display: flex;
     width: 100%;
 }
-.tasker-containers{
+
+.search-card {
+    border: 1px solid gray;
+    border-radius: 5px ;
+    height: 40px;
+    display:flex;
+    padding: 2px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.tasker-containers {
     border: 1px solid lightgray;
     background-color: white;
     border-radius: 5px;
     min-width: 30%;
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -44,18 +65,21 @@
 
 
 }
-.container2{
-    display:flex;
+
+.container2 {
+    display: flex;
     justify-content: space-evenly;
     margin: 1rem 0 3rem 0;
     width: 100%;
     max-width: 1000px;
 }
-.tasker-names{
+
+.tasker-names {
     padding-bottom: .8rem;
     padding-top: .5rem;
 }
-.tools-bio{
+
+.tools-bio {
     width: 80%;
     display: flex;
     flex-direction: column;
@@ -63,83 +87,112 @@
     align-items: center;
 
 }
-.about-tasker{
+
+.about-tasker {
     margin-bottom: .5rem;
 
 }
 
-.ha{
-display:flex;
-justify-content: center;
-align-items: center;
-border: 1px solid #0d7a5f;
-border-radius: .3rem;
-margin-bottom: 1rem;
-width: 99%;
-height: 2.5rem;
-color: #0d7a5f;
-flex-wrap:wrap;
+.ha {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #0d7a5f;
+    border-radius: .3rem;
+    margin-bottom: 1rem;
+    width: 99%;
+    height: 2.5rem;
+    color: #0d7a5f;
+    flex-wrap: wrap;
 
 }
-.tools{
-    display:flex;
+
+.tools {
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     padding-left: .5rem;
 
 }
-.view-tasker-profile{
+
+.view-tasker-profile {
     color: #0d7a5f;
 }
-.home-top-taskers{
-    display:flex;
+
+.home-top-taskers {
+    display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     gap: 1rem;
 }
-.home-h2-tasker{
-max-width: 880px;
-width: 100%;
-margin-top: 2rem;
+
+.home-h2-tasker {
+    max-width: 880px;
+    width: 100%;
+    margin-top: 2rem;
 }
-.book-your-next-task{
+
+.book-your-next-task {
     margin-bottom: .3rem;
-    padding-bottom:0;
+    padding-bottom: 0;
 }
-.h2-book-next{
-   font-size: 2rem;
+
+.h2-book-next {
+    font-size: 2rem;
     font-weight: 520;
 }
-button .home-button-search{
+
+/* button .home-button-search{
     border:none;
     background-color:none !important;
     text-decoration: none;
     height: 1rem;
     width: fit-content;
+} */
+
+.search-home-button>button {
+    height: 40px;
+    width: 40px;
+    background-color: white;
+    border: none;
+    color: gray;
+    cursor: default;
 }
-.home-link-search{
+
+.home-link-search-div {
+    width: 200px;
+}
+
+.home-link-search {
     text-decoration: none;
-
 }
-.search-home-button{
 
-}
-a.home-link-search{
-    display: flex;
+a.home-link-search {
     justify-content: center;
     align-items: center;
     background-color: none !important;
-    width: 2rem;
 }
-.elite-tasker{
+.search-button {
+    background-color: #0d7a5f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 90%;
+    height: 100%;
+    margin-left: 10px;
+}
+
+
+.elite-tasker {
     color: #36b5bb
 }
-.popular-taskers-home{
+
+.popular-taskers-home {
     background-color: #f5f7f6;
     width: 100%;
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     padding-top: .3rem;
@@ -147,6 +200,7 @@ a.home-link-search{
     margin-bottom: 1rem;
 
 }
+
 .imags {
 
     height: 8rem;
@@ -155,69 +209,79 @@ a.home-link-search{
     object-fit: cover;
 
 }
-.container-avalable-elite{
-    display:flex;
+
+.container-avalable-elite {
+    display: flex;
     justify-content: start;
     flex-direction: column;
     width: 80%;
 }
-.fist-last-name-home{
+
+.fist-last-name-home {
     font-size: larger;
     margin-bottom: 1rem;
 }
-.toolbox-red{
+
+.toolbox-red {
 
     height: 14rem;
     opacity: 0.8;
 
 }
-.tool-box-container{
-    display:flex;
+
+.tool-box-container {
+    display: flex;
     justify-content: start;
     width: 100%;
     position: absolute;
-    right:4rem;
+    right: 4rem;
     top: 4rem;
 }
-.container-ikea{
-background-color: rgb(239, 255, 253);
-width: 100%;
-margin-top: 2rem;
-display:flex;
-justify-content: center;
 
-padding-top: 1rem;
-padding-bottom: 1rem;
-align-items: center;
+.container-ikea {
+    background-color: rgb(239, 255, 253);
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    align-items: center;
 }
-.bunny-yellow{
+
+.bunny-yellow {
     height: 9rem;
 
     padding-right: 2rem;
 }
-.ikea-1{
 
-}
-.how-panda-use{
+.ikea-1 {}
+
+.how-panda-use {
     font-weight: 400;
 }
-.stars-home{
+
+.stars-home {
     color: rgb(245, 210, 55);
 }
-.partnered{
+
+.partnered {
     width: 50%;
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: space-around;
 }
-.app-academy-logo{
+
+.app-academy-logo {
     height: 2.5rem;
 }
 
-.view-tasker{
+.view-tasker {
     text-decoration: none;
 }
 
-.ha.city i, .ha.prices i{
+.ha.city i,
+.ha.prices i {
     margin-right: 5px;
 }
