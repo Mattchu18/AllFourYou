@@ -7,9 +7,9 @@
 
     background-color: #f0f0f0;
     position: fixed;
-    bottom: -60px;    left: 0;
+    bottom: -60px;   
+    left: 0;
     width: 100%;
-    display: flex;
     justify-content: center;
 
     transition: bottom 0.3s ease; 
