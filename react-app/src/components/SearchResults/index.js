@@ -66,7 +66,7 @@ const SearchResults = () => {
 
   return (
     <section className="root">
-      <div>
+      <div className='all-results-center'>
         <SearchBar searchInput={searchInput} handleSearch={handleSearch} />
 
         <div class="all-results">

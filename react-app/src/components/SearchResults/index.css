@@ -10,14 +10,14 @@
     background-color: rgb(240, 240, 140);
 }
 
-.result-card {
-    display: flex;
-    width: 30%;
-    max-width: 14rem;
-    justify-content: center;
-    align-items: center;
 
-  
+
+.all-results-center {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
 }
 
 .all-results {
@@ -34,8 +34,17 @@
 
 }
 
-.imag {
+.result-card {
+    display: flex;
+    width: 30%;
+    max-width: 14rem;
+    justify-content: center;
+    align-items: center;
 
+
+}
+
+.imag {
     height: 9rem;
     width: 9rem;
     border-radius: 100%;
