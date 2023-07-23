@@ -66,9 +66,9 @@ const SearchResults = () => {
 
   return (
     <section className="root">
-      <div>
+      <div className='all-results-center'>
         <SearchBar searchInput={searchInput} handleSearch={handleSearch} />
- 
+
         <div class="all-results">
 
           {searchResults?.length > 0 ? (
@@ -140,7 +140,7 @@ const SearchResults = () => {
             ))
           ) :
             (
-              <div> Sorry, no Results found :( </div>
+              <div> Sorry, no results found </div>
             )
           }
 

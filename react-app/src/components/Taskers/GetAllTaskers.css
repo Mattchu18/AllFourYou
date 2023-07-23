@@ -13,10 +13,12 @@
     padding-top: 4rem;
     margin-bottom:1rem;
 }
+
 .available-tasker-div{
     border-bottom: 1px solid gray;
     width: 100%;
 }
+
 .our-available-taskers{
     color: rgb(17, 51, 17);
     font-family:Verdana, Geneva, Tahoma, sans-serif;

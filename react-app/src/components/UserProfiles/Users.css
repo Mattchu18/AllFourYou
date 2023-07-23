@@ -1,4 +1,37 @@
-.user-to-chat{
+.task-panda-community-center {
+    display: flex;
+    justify-content: center;
+}
+
+.task-panda-community {
+    width: 100%;
+}
+
+.task-panda-p {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: .5rem;
+    max-width: 880px;
+    width: 100%;
+}
+
+.far.fa-comments.actual:hover {
+    cursor: pointer;
+}
+
+.task-panda-top {
+    margin: 1rem;
+}
+
+.far.fa-comments.actual {
+    font-size: x-large;
+    margin-right: 1rem;
+    font-weight: 100;
+}
+
+
+.user-to-chat {
     /* border: 2px solid red; */
     width: 100%;
     display: flex;
@@ -8,18 +41,8 @@
     padding-left: 1rem;
     padding-right: 1rem;
 }
-.users-page{
-    /* border: 2px solid red; */
-    padding-top: 1rem;
-    min-width: 30%;
-    width: 80%;
-    display: flex;
-    justify-self: center;
-    background-color: white;
-    height: 5rem;
-    box-shadow: 2px 2px 2px 2px lightgray;
-}
-.users-container{
+
+.users-container {
     /* border: 2px solid red; */
     margin-top: 2rem;
     display: flex;
@@ -27,32 +50,22 @@
     align-items: center;
     /* justify-content: center; */
     height: 100vh;
+    width: 100%;
 }
-.task-panda-community{
+
+.users-page {
     /* border: 2px solid red; */
-    margin-left: 4rem;
-    margin-top: 1rem;
+    padding-top: 1rem;
+    min-width: 30%;
+    width: 100%;
+    display: flex;
+    justify-self: center;
+    background-color: white;
+    height: 5rem;
+    box-shadow: 2px 2px 2px 2px lightgray;
 }
-.task-panda-p{
-    /* border: 2px solid red; */
-    margin-left: 4rem;
-    /* margin-top: 1rem; */
-    display:flex;
-    align-items: center;
-    gap: .5rem;
-}
-.far.fa-comments.actual:hover{
-cursor: pointer;
-}
-.task-panda-top{
-    margin: 1rem;
-}
-.far.fa-comments.actual{
-font-size: x-large;
-margin-right: 1rem;
-font-weight: 100;
-}
-.description-box{
+
+.description-box {
     /* border: 2px solid red; */
     width: 77%;
     font-weight: light;
