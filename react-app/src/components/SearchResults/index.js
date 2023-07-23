@@ -140,7 +140,7 @@ const SearchResults = () => {
             ))
           ) :
             (
-              <div> Sorry, no Results found :( </div>
+              <div> Sorry, no results found </div>
             )
           }
 

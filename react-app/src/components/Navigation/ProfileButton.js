@@ -42,16 +42,26 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
-        <i className="fas fa-paw" />
-      </button>
+      <button className="fas fa-paw fa-xl" onClick={openMenu} />
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
           <>
-            <li>{user.username}</li>
+            <li>Welcome, {user.username}!</li>
+            <br/>
+            <strong>Email</strong>
             <li>{user.email}</li>
+            <br />
+
+            <strong>Phone number</strong>
+            <li>{user.phone_number}</li>
+            <br />
+
+            <strong>City</strong>
+            <li>{user.city}</li>
+            <br />
+
             <li>
-              <button onClick={handleLogout}>Log Out</button>
+              <button className='log-out-button' onClick={handleLogout}>Log Out</button>
             </li>
           </>
         ) : (
