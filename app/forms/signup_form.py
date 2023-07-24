@@ -22,9 +22,11 @@ def username_exists(form, field):
 def validate_phone_number(form, field):
     # Checking if phone number is exactly 10 characters long and consists only of digits
     phone_number = field.data
+    user = User.query.filter(User.phone_number == phone_number).first()
     if len(phone_number) != 10 or not phone_number.isdigit():
         raise ValidationError('Please enter a valid phone number.')
-    
+    if user:
+        raise ValidationError('Phone numbers is already associated with an existing account.')
 class SignUpForm(FlaskForm):
     username = StringField(
         'username', validators=[DataRequired(), username_exists])
