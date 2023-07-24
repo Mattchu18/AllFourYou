@@ -16,26 +16,26 @@ const UserProfile = () => {
         dispatch(thunkUserMessages())
     }, [dispatch])
     const users = useSelector(state => state.session.allUsers)
+    const curr = useSelector(state => state.session.user)
 
-
-
+    console.log(curr)
     return (
         <div className='task-panda-community-center'>
             <div className="task-panda-p">
                 <h2 className="task-panda-community">Task Panda Community!</h2>
-                <p>Meet other TaskPanda users and Chat with them! <br/>Just click on <i className="far fa-comments fa-lg"></i> to connect with them!</p>
+                <p>Welcome, <strong>{curr.first_name}</strong>! <br /><br /> Meet other TaskPanda users and chat with them by clicking on <i className="far fa-comments fa-lg"></i> to connect!</p>
 
-            {/* User component */}
+                {/* User component */}
 
-            <div className="users-container">
-                <h3 className="task-panda-top">Task Panda Users</h3>
-                {users && Object.values(users).map(user => {
-                    return (
-                        <Users key={user.id} user={user} />
+                <div className="users-container">
+                    <h3 className="task-panda-top">Task Panda Users</h3>
+                    {users && Object.values(users).map(user => {
+                        return (
+                            <Users key={user.id} user={user} />
 
-                    )
-                })}
-            </div>
+                        )
+                    })}
+                </div>
             </div>
 
         </div>

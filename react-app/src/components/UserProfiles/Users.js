@@ -35,18 +35,18 @@ const Users = ({ user }) => {
 
     return (
 
-        <div className="users-page">
 
-
+        <div className="users-page-container">
             {user.id !== currUser.id ?
-                <>
+                <div className="users-page">
                     <div className="user-to-chat">
                         <div>
-                            <div>
+                            <h4 className="user-to-chat-h4">
                                 {user.first_name} {user.last_name}
-                            </div>
+                            </h4>
+                            <br />
                             <div className="description-box">
-                                Hi, my name is {user.first_name}. Chat with me here or connect with me by
+                                Hi, my name is {user.first_name}. <br /> <br />  Chat with me here or connect with me by
                                 email: {user.email}
                                 {/* I live in {user.city}. My username is {user.username} */}
                             </div>
@@ -55,8 +55,9 @@ const Users = ({ user }) => {
 
                         <i className='far fa-comments actual' onClick={createUserMsgId}></i>
                     </div>
-                </>
-                : <h3 className="task-panda-top">{user.first_name}</h3>}
+                </div>
+                : null}
+            {/* // <h3 className="task-panda-top">{user.first_name}</h3>} */}
         </div>
 
     )
