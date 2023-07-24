@@ -70,34 +70,42 @@
 
 .chat-box-form {
     display: flex;
-    height: 300px;
+    max-height: 225px;
+    height: fit-content;
     /* background-color: red; */
 }
 
 .chat-box {
     /* border: 2px solid red; */
     display: flex;
-    height: fit-content;
-    word-wrap: wrap;
-    justify-content: flex-end;
+    width: 100%;
+    max-height: 150px;
+    height: 100px;
+    justify-content: space-between;
+    align-items: flex-end;
 }
 
 .chat-box-textarea {
     display: flex;
-    word-wrap: wrap;
-    min-height: 100%;
-    height: fit-content;
+    overflow-y: auto;
+    resize: none;
+    height: 80px;
+    /* height: auto; */
     width: 100%;
     border-radius: 5px;
     border: 1px solid gray;
-    padding: .25rem;
+    padding: .55rem;
 }
 
 .submit-chat-button {
     border-radius: 5px;
-    width: 150px;
-    margin-left: 1rem;
+    width: 50px;
     border: none;
     height: 50px;
-    background-color:#5fc9f8;
+    background-color: transparent;
+    transition: color 0.2s ease;
+}
+
+.submit-chat-button:hover {
+    color: #5fc9f8;
 }
