@@ -1,7 +1,7 @@
 .task-panda-community-center {
     display: flex;
     justify-content: center;
-    height: fit-content;
+    min-height: 100vh;
 }
 
 .task-panda-community {
