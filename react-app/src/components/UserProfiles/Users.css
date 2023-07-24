@@ -49,6 +49,10 @@
     padding-right: 1rem;
 }
 
+.user-to-chat-h4 {
+    margin: 0;
+}
+
 .users-container {
     display: flex;
     flex-direction: column;
@@ -60,10 +64,12 @@
 .users-page-container {
     display: flex;
     width: 100%;
+    margin-bottom: 1rem ;
 }
 
 .users-page {
     /* border: 2px solid red; */
+    border-radius: 5px;
     padding: 1rem;
     min-width: 30%;
     width: 100%;

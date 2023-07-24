@@ -41,9 +41,9 @@ const Users = ({ user }) => {
                 <div className="users-page">
                     <div className="user-to-chat">
                         <div>
-                            <h3>
+                            <h4 className="user-to-chat-h4">
                                 {user.first_name} {user.last_name}
-                            </h3>
+                            </h4>
                             <br />
                             <div className="description-box">
                                 Hi, my name is {user.first_name}. <br /> <br />  Chat with me here or connect with me by
