@@ -1,10 +1,10 @@
-.chat-center{
+.chat-center {
     display: flex;
     justify-content: center;
     height: fit-content;
 }
 
-.chat-container{
+.chat-container {
     /* margin-left: 20rem;
     margin-right: 20rem;
     margin-top: 2rem;
@@ -18,7 +18,8 @@
 
     /* overflow: auto ; */
 }
-.chats{
+
+.chats {
     /* border: 2px solid red; */
     display: flex;
     background-color: white;
@@ -34,38 +35,69 @@
     /* direction: rtl; */
     /* text-align: left; */
 }
-.mymessage{
-    display:flex;
+
+.mymessage {
+    display: flex;
     justify-content: flex-end;
 
 }
-.chat-box{
-    /* border: 2px solid red; */
-    display:flex;
-    height: 3rem;
-    justify-content: flex-end;
-}
-.chat-box input{
+
+
+/* .chat-box input{
     width: 90%;
 }
 .chat-box button{
     width: 10%;
-}
+} */
 
-.my-chat-boxes{
-    background-color:#5fc9f8;
-    width:fit-content;
+.my-chat-boxes {
+    background-color: #5fc9f8;
+    width: fit-content;
     min-width: 2rem;
     border-radius: .5rem;
     padding: .5rem;
     min-height: 1rem;
 }
 
-.their-chat-boxes{
+.their-chat-boxes {
     background-color: rgb(230, 230, 230);
-    width:fit-content;
+    width: fit-content;
     min-width: 2rem;
     border-radius: .5rem;
     padding: .5rem;
     min-height: 1rem;
+}
+
+.chat-box-form {
+    display: flex;
+    height: 300px;
+    /* background-color: red; */
+}
+
+.chat-box {
+    /* border: 2px solid red; */
+    display: flex;
+    height: fit-content;
+    word-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.chat-box-textarea {
+    display: flex;
+    word-wrap: wrap;
+    min-height: 100%;
+    height: fit-content;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid gray;
+    padding: .25rem;
+}
+
+.submit-chat-button {
+    border-radius: 5px;
+    width: 150px;
+    margin-left: 1rem;
+    border: none;
+    height: 50px;
+    background-color:#5fc9f8;
 }

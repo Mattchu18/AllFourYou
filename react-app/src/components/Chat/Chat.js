@@ -78,18 +78,16 @@ const Chat = () => {
                     <div ref={messagesEndRef} />
                 </div>
                 {user && (
-                    <div>
 
-                        <form onSubmit={sendChat}>
+                        <form className="chat-box-form" onSubmit={sendChat}>
                             <div className="chat-box">
-                                <input
+                                <textarea className="chat-box-textarea"
                                     value={chatInput}
                                     onChange={updateChatInput}
                                 />
-                                <button type="submit">Send</button>
+                                <button className="submit-chat-button" type="submit">Send</button>
                             </div>
                         </form>
-                    </div>
                 )}
             </div>
         </div>
