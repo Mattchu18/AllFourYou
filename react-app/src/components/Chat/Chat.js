@@ -4,6 +4,7 @@ import { io } from 'socket.io-client';
 import { useParams } from 'react-router-dom'
 import { useDispatch } from "react-redux";
 import { thunkAllMessages } from "../../store/messages";
+import { thunkAllUsers } from '../../store/session';
 import "./Chat.css"
 let socket;
 
@@ -16,9 +17,10 @@ const Chat = () => {
     const dispatch = useDispatch()
 
     const msgs = useSelector(state => state.messages.allMsg)
-    // const recipient =
+    const recipient = allUsers && Object.values(allUsers).find(user => user.id === parseInt(userMessageId))
 
-    // console.log("this is recipient=====>",recipient)
+    console.log("this is recipient=====>", Object.values(allUsers).find(user => user.id === parseInt(userMessageId)))
+    // console.log("this is userMessageId", Number.isInteger(userMessageId))
 
     const messagesEndRef = useRef(null)
     const scrollToBottom = () => {
@@ -34,7 +36,7 @@ const Chat = () => {
         socket = io();
 
         dispatch(thunkAllMessages(userMessageId))
-
+        dispatch(thunkAllUsers())
 
         socket.on("chat", (chat) => {
             setMessages(messages => [...messages, chat])
@@ -70,7 +72,7 @@ const Chat = () => {
         <div className="chat-center">
             <div className="chat-container">
                 <div>
-                    {/* <h2>Your chat with {recipient?.userInfo.first_name}</h2> */}
+                    <h2>Your chat with {recipient?.first_name}</h2>
                 </div>
                 <div className="chats">
                     {msgs && Object.values(msgs).map((msg => {
