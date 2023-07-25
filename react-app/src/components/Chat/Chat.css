@@ -1,10 +1,10 @@
-.chat-center{
+.chat-center {
     display: flex;
     justify-content: center;
     height: fit-content;
 }
 
-.chat-container{
+.chat-container {
     /* margin-left: 20rem;
     margin-right: 20rem;
     margin-top: 2rem;
@@ -18,7 +18,8 @@
 
     /* overflow: auto ; */
 }
-.chats{
+
+.chats {
     /* border: 2px solid red; */
     display: flex;
     background-color: white;
@@ -34,38 +35,77 @@
     /* direction: rtl; */
     /* text-align: left; */
 }
-.mymessage{
-    display:flex;
+
+.mymessage {
+    display: flex;
     justify-content: flex-end;
 
 }
-.chat-box{
-    /* border: 2px solid red; */
-    display:flex;
-    height: 3rem;
-    justify-content: flex-end;
-}
-.chat-box input{
+
+
+/* .chat-box input{
     width: 90%;
 }
 .chat-box button{
     width: 10%;
-}
+} */
 
-.my-chat-boxes{
-    background-color:#5fc9f8;
-    width:fit-content;
+.my-chat-boxes {
+    background-color: #5fc9f8;
+    width: fit-content;
     min-width: 2rem;
     border-radius: .5rem;
     padding: .5rem;
     min-height: 1rem;
 }
 
-.their-chat-boxes{
+.their-chat-boxes {
     background-color: rgb(230, 230, 230);
-    width:fit-content;
+    width: fit-content;
     min-width: 2rem;
     border-radius: .5rem;
     padding: .5rem;
     min-height: 1rem;
+}
+
+.chat-box-form {
+    display: flex;
+    max-height: 225px;
+    height: fit-content;
+    /* background-color: red; */
+}
+
+.chat-box {
+    /* border: 2px solid red; */
+    display: flex;
+    width: 100%;
+    max-height: 150px;
+    height: 100px;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.chat-box-textarea {
+    display: flex;
+    overflow-y: auto;
+    resize: none;
+    height: 80px;
+    /* height: auto; */
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid gray;
+    padding: .55rem;
+}
+
+.submit-chat-button {
+    border-radius: 5px;
+    width: 50px;
+    border: none;
+    height: 50px;
+    background-color: transparent;
+    transition: color 0.2s ease;
+}
+
+.submit-chat-button:hover {
+    color: #5fc9f8;
 }

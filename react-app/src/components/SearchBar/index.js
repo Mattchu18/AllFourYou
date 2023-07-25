@@ -102,7 +102,7 @@ const SearchBar = () => {
                 className="app-academy-logo"
                 src="https://assets-global.website-files.com/5dcc7f8c449e597ed83356b8/603820afd31232aab368ea6f_New%20Red-logo-emblem.webp"
               />
-              <p> Graduated from App Academy</p>
+              <p>Graduated from App Academy</p>
             </div>
             <div className="home-h2-tasker">
               <h2>View some of our top taskers!</h2>
