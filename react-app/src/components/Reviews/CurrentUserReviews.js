@@ -1,18 +1,23 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { thunkCurrUserReviews } from '../../store/review';
+import { thunkAllTaskers } from '../../store/taskers';
+import { NavLink } from "react-router-dom";
 import OpenModalButton from "../OpenModalButton";
 import DeleteReview from "./DeleteReview";
 import EditReview from "./EditReview";
-import "./current_user_review.css"
+import "./CurrentUserReviews.css"
 
 const GetCurrentReviews = () => {
   const dispatch = useDispatch()
-
   const reviews = useSelector(state => state.review.currentUserReviews)
+
+  const allTaskers = useSelector(state => state.tasker.allTaskers)
+  // const reviewedTasker = Object.values(allTaskers).find(tasker => tasker.id === reviews)
 
   useEffect(() => {
     dispatch(thunkCurrUserReviews())
+    dispatch(thunkAllTaskers())
   }, [dispatch])
 
   // display star rating by rating number
@@ -47,9 +52,10 @@ const GetCurrentReviews = () => {
             <div>
               <div className="review-averages">
                 <div className="stats">
-                  Average <i className="fas fa-star"></i>({averageRating.toFixed(1)})
-
-                  Total <i className="fas fa-comment-dots"></i> ({totalReviews})
+                  <span>Your average rating  <i className="fas fa-star"></i>({averageRating.toFixed(1)})
+                   <br/>
+                   <br/>
+                   Your total reviews <i className="fas fa-comment-dots"></i> ({totalReviews})</span>
                 </div>
               </div>
             </div>
@@ -58,36 +64,49 @@ const GetCurrentReviews = () => {
         <div className="review-card-container">
 
           {Object.values(reviews).map(review => {
+            const reviewedTasker = Object.values(allTaskers).find(tasker => tasker.id === review.tasker_id)
             return (
               <div className="review-container">
-                <>
-                  <div className="review">
+                <div className="review">
+                  <div className="reviewed-tasker">
+                    <img className="reviewed-tasker-profile-image" src={reviewedTasker && reviewedTasker.profile_image} />
+                    <NavLink
+                            className="view-tasker"
+                            exact
+                            to={`/taskers/${reviewedTasker && reviewedTasker.id}`}
+                          >
+                            <div className="view-tasker-profile">
+                              View Tasker Profile
+                            </div>
+                          </NavLink>
+                  </div>
+                  <div className="rating-review-container">
 
+                    <h3>Review for {reviewedTasker && reviewedTasker.first_name}</h3>
                     <div className="star-rating-container">
                       {starDisplay(review?.star_rating)}
-
-
                     </div>
                     <div className="review-body">
                       {review?.review_text}
                     </div>
                   </div>
+                </div>
+                <div className="review-buttons-div">
                   <div className="buttons-div">
-                    <div className="single-button">
-                      <OpenModalButton
-                        buttonText='Edit'
-                        modalComponent={<EditReview review={review} />}
-                      />
-                    </div>
-                    <div className="single-button">
-                      <OpenModalButton
-                        className="one-button"
-                        buttonText='Delete'
-                        modalComponent={<DeleteReview review={review} />}
-                      />
-                    </div>
+
+                    <OpenModalButton
+                      buttonText='Edit'
+                      modalComponent={<EditReview review={review} />}
+                    />
                   </div>
-                </>
+                  <div className="buttons-div">
+                    <OpenModalButton
+                      className="one-button"
+                      buttonText='Delete'
+                      modalComponent={<DeleteReview review={review} />}
+                    />
+                  </div>
+                </div>
               </div>
             )
           })}
